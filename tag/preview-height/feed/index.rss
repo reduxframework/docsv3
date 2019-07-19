@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>preview-height &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/preview-height/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Background</title>
+		<link>https://docs.reduxframework.com/core/fields/background/</link>
+		<pubDate>Mon, 10 Mar 2014 22:33:27 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[background-attachment]]></category>
+		<category><![CDATA[background-clip]]></category>
+		<category><![CDATA[background-color]]></category>
+		<category><![CDATA[background-image]]></category>
+		<category><![CDATA[background-origin]]></category>
+		<category><![CDATA[background-position]]></category>
+		<category><![CDATA[background-repeat]]></category>
+		<category><![CDATA[background-size]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[preview]]></category>
+		<category><![CDATA[preview_media]]></category>
+		<category><![CDATA[preview-height]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[transparent]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=95</guid>
+		<description><![CDATA[<p>The Redux Background field offers unmatched features not found in any other options framework.  Users will be able to present the background designs found in professionally authored pages with a few simple clicks. Arguments Name Type Default Description type string &#8216;background&#8217; Controls the field type id string Must be unique to all other options. title [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/background/">Background</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Redux Background field offers unmatched features not found in any other options framework.  Users will be able to present the background designs found in professionally authored pages with a few simple clicks.</p>
+<p style="text-align: center;"><a href="/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47.png"><img class="alignnone size-full wp-image-130" alt="background-field" src="/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47.png" width="689" height="185" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47.png 689w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47-300x80.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47-60x16.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47-150x40.png 150w" sizes="(max-width: 689px) 100vw, 689px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;background&#8217;</td>
+<td>Controls the field type</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Must be unique to all other options.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Title of item to be displayed.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle of item to be displayed.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of item to be displayed.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Append any number of classes to the field.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the hint <code>content</code> and optional <code>title</code>. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background color picker.</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background repeat select field.</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background attachment select field.</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background position select field.</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background image media uploader.</td>
+</tr>
+<tr>
+<td>background-clip</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the background clip select field.</td>
+</tr>
+<tr>
+<td>background-origin</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the background origin select field.</td>
+</tr>
+<tr>
+<td>background-size</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background size select field.</td>
+</tr>
+<tr>
+<td>preview_media</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display background media preview.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background preview box.</td>
+</tr>
+<tr>
+<td>preview_height</td>
+<td>string</td>
+<td>&#8216;200px&#8217;</td>
+<td>String to set background preview height.</td>
+</tr>
+<tr>
+<td>transparent</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display background color transparency checkbox.</td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>string</td>
+<td>Hex string representing the default background color.</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>string</td>
+<td>String representing the default background repeat value.<br />
+Accepts: <code>no-repeat</code> <code>repeat</code> <code>repeat-x</code> <code>repeat-y</code> <code>inherit</code></td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>string</td>
+<td>String representing the default background attachment value.<br />
+Accepts: <code>fixed</code> <code>scroll</code> <code>inherit</code></td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>string</td>
+<td>String representing the default background position value.<br />
+Accepts: <code>left top</code> <code>left center</code> <code>left bottom</code> <code>center top</code> <code>center center</code> <code>center bottom</code> <code>right top</code> <code>right center</code> <code>right bottom</code>.</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>string</td>
+<td>URL string representing the default background image value.</td>
+</tr>
+<tr>
+<td>background-clip</td>
+<td>string</td>
+<td>String representing the default background clip value.<br />
+Accepts: <code>inherit</code> <code>border-box</code> <code>content-box</code> <code>padding-box</code>.</td>
+</tr>
+<tr>
+<td>background-origin</td>
+<td>string</td>
+<td>String representing the default background origin value.<br />
+Accepts: <code>inherit</code> <code>border-box</code> <code>content-box</code> <code>padding-box</code>.</td>
+</tr>
+<tr>
+<td>background size</td>
+<td>string</td>
+<td>String representing the default background size value.<br />
+Accepts: <code>inherit</code> <code>cover</code> <code>contain</code>.</td>
+</tr>
+<tr>
+<td>media</td>
+<td>array</td>
+<td>Array of default background media information.  See table below.</td>
+</tr>
+</tbody>
+</table>
+<h3>Default Media Array Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>A unique identifier.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>String value setting the width of the image.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td>String value setting the height of the image.</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>string</td>
+<td>URL string value to the image thumbnail.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+     $fields[] = array(         
+        'id'       =&gt; 'opt-background',
+        'type'     =&gt; 'background',
+        'title'    =&gt; __('Body Background', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Body background with image, color, etc.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'default'  =&gt; array(
+            'background-color' =&gt; '#1e73be',
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above.  Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+    global $redux_demo;
+
+    // Background color
+    echo 'background color: '      . $redux_demo['opt-background']['background-color'];
+
+    // Background image.
+    echo 'background image: '      . $redux_demo['opt-background']['background-image'];
+
+    // Background image options
+    echo 'background repeat: '     . $redux_demo['opt-background']['background-repeat'];
+    echo 'background position: '   . $redux_demo['opt-background']['background-position'];
+    echo 'background size: '       . $redux_demo['opt-background']['background-size'];
+    echo 'background attachment: ' . $redux_demo['opt-background']['background-attachment'];
+
+    // Media values
+    echo 'image height: '          . $redux_demo['opt-background']['media']['height'];
+    echo 'image width: '           . $redux_demo['opt-background']['media']['width'];
+    echo 'image thumbnail: '       . $redux_demo['opt-background']['media']['thumbnail'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/background/">Background</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

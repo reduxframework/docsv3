@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>adding extensions &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/adding-extensions/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Loading Extensions in Your Code</title>
+		<link>https://docs.reduxframework.com/core/advanced/loading-extensions/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/loading-extensions/#comments</comments>
+		<pubDate>Sat, 15 Mar 2014 03:16:56 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[adding extensions]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=448</guid>
+		<description><![CDATA[<p>Extensions are one of the most powerful features of Redux. Any part of Redux can be overloaded to do ANYTHING with extensions. RUN BEFORE YOU CONFIG FILE For extensions to work, you MUST run the extension loader and any config files BEFORE your options panel code. Otherwise it will not be applied. A limitation of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/loading-extensions/">Loading Extensions in Your Code</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Extensions are one of the most powerful features of Redux. Any part of Redux can be overloaded to do <em>ANYTHING</em> with extensions. </p>
+<h2>RUN BEFORE YOU CONFIG FILE</h2>
+<p>For extensions to work, you MUST run the extension loader and any config files BEFORE your options panel code. Otherwise it will not be applied. A limitation of WordPress hooks I fear.  <img src="https://s.w.org/images/core/emoji/11/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>Getting Started</h2>
+<p>To make this easy as can be, we&#8217;ve setup a repo for our extensions loader. You can grab that code here: <a href="https://github.com/ReduxFramework/redux-extensions-loader" target="_blank">https://github.com/ReduxFramework/redux-extensions-loader</a></p>
+<h2>Even Easier</h2>
+<p>If you wanted to get started faster, use the Redux Generator found here: <a href="http://generate.reduxframework.com/" target="_blank">http://generate.reduxframework.com/</a>. It will generate for you code allowing you to start however you may need and also customize the function calls so you can sure you won&#8217;t have crossover with other devs.</p>
+<h2>Make a Custom Extension</h2>
+<p>You can make your own custom extension. In fact, if you want to change the way a Redux field does something, you should ALWAYS use an extension instead of modifying the core. We&#8217;ve set up a repo for that too. Grab it here: <a href="https://github.com/ReduxFramework/extension-boilerplate" target="_blank">https://github.com/ReduxFramework/extension-boilerplate</a>.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/loading-extensions/">Loading Extensions in Your Code</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/loading-extensions/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>hide_reset &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/hide_reset/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Getting started with Arguments</title>
+		<link>https://docs.reduxframework.com/uncategorized/getting-started-with-arguments/</link>
+		<pubDate>Mon, 10 Mar 2014 19:59:12 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[admin_bar]]></category>
+		<category><![CDATA[admin_bar_icon]]></category>
+		<category><![CDATA[allow_sub_menu]]></category>
+		<category><![CDATA[async_typography]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[customizer]]></category>
+		<category><![CDATA[default_mark]]></category>
+		<category><![CDATA[default_show]]></category>
+		<category><![CDATA[dev_mode]]></category>
+		<category><![CDATA[disable_google_fonts_link]]></category>
+		<category><![CDATA[display_name]]></category>
+		<category><![CDATA[display_version]]></category>
+		<category><![CDATA[footer_credit]]></category>
+		<category><![CDATA[footer_text]]></category>
+		<category><![CDATA[global_variable]]></category>
+		<category><![CDATA[google_api_key]]></category>
+		<category><![CDATA[help_sidebar]]></category>
+		<category><![CDATA[help_tabs]]></category>
+		<category><![CDATA[hide_expand]]></category>
+		<category><![CDATA[hide_reset]]></category>
+		<category><![CDATA[hints]]></category>
+		<category><![CDATA[intro_text]]></category>
+		<category><![CDATA[last_tab]]></category>
+		<category><![CDATA[menu_icon]]></category>
+		<category><![CDATA[menu_title]]></category>
+		<category><![CDATA[menu_type]]></category>
+		<category><![CDATA[network_admin]]></category>
+		<category><![CDATA[network_sites]]></category>
+		<category><![CDATA[opt_name]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[output_tag]]></category>
+		<category><![CDATA[page_icon]]></category>
+		<category><![CDATA[page_parent]]></category>
+		<category><![CDATA[page_permissions]]></category>
+		<category><![CDATA[page_priority]]></category>
+		<category><![CDATA[page_slug]]></category>
+		<category><![CDATA[page_title]]></category>
+		<category><![CDATA[save_defaults]]></category>
+		<category><![CDATA[share_icons]]></category>
+		<category><![CDATA[show_import_export]]></category>
+		<category><![CDATA[transient_time]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=10</guid>
+		<description><![CDATA[<p>The Redux Framework configuration file (sample-config.php) comes with a variety of arguments to customize the options panel. The arguments are set in the sample-config setArguments() function with the exception of help_tabs and help_sidebar, which are located in the setHelpTabs() function. The default setArguements() function is as follows:</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/uncategorized/getting-started-with-arguments/">Getting started with Arguments</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Framework configuration file (sample-config.php) comes with a variety of arguments to customize the options panel. The arguments are set in the sample-config <code>setArguments()</code> function with the exception of <code>help_tabs</code> and <code>help_sidebar</code>, which are located in the <code>setHelpTabs()</code> function.</p>
+<p>The default <code>setArguements()</code> function is as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+public function setArguments() {
+
+    $theme = wp_get_theme();
+
+    $this-&gt;args = array(
+        'opt_name'         =&gt; 'redux_demo',
+        'display_name'     =&gt; $theme-&gt;get('Name'),
+        'display_version'  =&gt; $theme-&gt;get('Version'),
+        'menu_type'        =&gt; 'menu',
+        'allow_sub_menu'   =&gt; true,
+        'menu_title'       =&gt; __('Sample Options', 'redux-framework-demo'),
+        'page_title'       =&gt; __('Sample Options', 'redux-framework-demo'),
+        'google_api_key'   =&gt; '',
+        'async_typography' =&gt; true,
+        'admin_bar'        =&gt; true,
+        'global_variable'  =&gt; '',
+        'dev_mode'         =&gt; true,
+        'customizer'       =&gt; true,
+
+        'page_priority'    =&gt; null,
+        'page_parent'      =&gt; 'themes.php',
+        'page_permissions' =&gt; 'manage_options',
+        'menu_icon'        =&gt; '',
+        'last_tab'         =&gt; '',
+        'page_icon'        =&gt; 'icon-themes',
+        'page_slug'        =&gt; '_options',
+        'save_defaults'    =&gt; true,
+        'default_show'     =&gt; false,
+        'default_mark'     =&gt; '',
+        'show_import_export' =&gt; true,
+        'class'            =&gt; '',
+
+        'transient_time'   =&gt; 60 * MINUTE_IN_SECONDS,
+        'output'           =&gt; true,
+        'output_tag'       =&gt; true,
+        'footer_credit'    =&gt; '',
+        'network_admin'    =&gt; false,
+        'network_sites'    =&gt; true,
+
+        'hints'            =&gt; array(
+            'icon'            =&gt; 'icon-question-sign',
+            'icon_position'   =&gt; 'right',
+            'icon_color'      =&gt; 'lightgray',
+            'icon_size'       =&gt; 'normal',
+
+            'tip_style'    =&gt; array(
+                'color'       =&gt; 'light',
+                'shadow'      =&gt; true,
+                'rounded'     =&gt; false,
+                'style'       =&gt; '',
+            ),
+            'tip_position' =&gt; array(
+                'my'          =&gt; 'top left',
+                'at'          =&gt; 'bottom right',
+            ),
+            'tip_effect'   =&gt; array(
+                'show'        =&gt; array(
+                    'effect'      =&gt; 'slide',
+                    'duration'    =&gt; '500',
+                    'event'       =&gt; 'mouseover',
+                ),
+                'hide'        =&gt; array(
+                    'effect'      =&gt; 'slide',
+                    'duration'    =&gt; '500',
+                    'event'       =&gt; 'click mouseleave',
+                ),
+            ),
+        'intro_text'  =&gt; __('&lt;br /&gt;This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.&lt;br /&gt;', 'redux-framework-demo');
+        'footer_text' =&gt; __('&lt;br /&gt;This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.&lt;br /&gt;', 'redux-framework-demo');
+        )
+    );
+
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'https://github.com/ReduxFramework/ReduxFramework',
+        'title' =&gt; 'Visit us on GitHub',
+        'icon'  =&gt; 'el-icon-github'
+        // 'img' =&gt; '', // You can use icon OR img. IMG needs to be a full URL.
+    );
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'https://www.facebook.com/pages/Redux-Framework/243141545850368',
+        'title' =&gt; 'Like us on Facebook',
+        'icon'  =&gt; 'el-icon-facebook'
+    );
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'http://twitter.com/reduxframework',
+        'title' =&gt; 'Follow us on Twitter',
+        'icon'  =&gt; 'el-icon-twitter'
+    );
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'http://www.linkedin.com/company/redux-framework',
+        'title' =&gt; 'Find us on LinkedIn',
+        'icon'  =&gt; 'el-icon-linkedin'
+    );
+}
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/uncategorized/getting-started-with-arguments/">Getting started with Arguments</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>presets &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/presets/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Image Select</title>
+		<link>https://docs.reduxframework.com/core/fields/image-select/</link>
+		<pubDate>Mon, 10 Mar 2014 22:36:37 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[alt]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[height]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[img]]></category>
+		<category><![CDATA[mode]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[presets]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[tiles]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[width]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=107</guid>
+		<description><![CDATA[<p>Description of field Arguments Name Type Default Description type string &#8216;image_select&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display of the option, situated beneath the title. desc string Description of the option, [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/image-select/">Image Select</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Description of field</p>
+<p style="text-align: center;"><img src="https://f.cloud.github.com/assets/3412363/1568558/1c4fdbfc-50b3-11e3-8a58-c7b3998a2822.png" alt="Image Select Layout" width="900" height="130" /><br />
+<img src="https://f.cloud.github.com/assets/3412363/1568564/342a0ebe-50b3-11e3-90b7-195e0149a96c.png" alt="Image Select Preset" width="1450" height="550" /></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;image_select&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>&#8216;background-image&#8217;</td>
+<td>CSS selector in which to assign the returned image value.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Set of key pair array values representing the layout options.  See &#8216;Layout Options&#8217; below.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>string/int</td>
+<td></td>
+<td>Key value of the default option array to select.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td></td>
+<td>Set the width of the images used in <code>options</code>.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td></td>
+<td>Set the height of the images used in <code>options</code>.</td>
+</tr>
+<tr>
+<td>tiles</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set tiling for the array of <code>options</code> images.</td>
+</tr>
+<tr>
+<td>presets</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to permit the use of a JSON string or array to override multiple preferences.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Layout Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>alt</td>
+<td>string</td>
+<td>Alt test for the layout image.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Title for the layout image.</td>
+</tr>
+<tr>
+<td>img</td>
+<td>string</td>
+<td>URL of the image.</td>
+</tr>
+<tr>
+<td>presets</td>
+<td>string/array</td>
+<td>For use with preset.  Optional array or JSON string of values for specified fields</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td>Extra class name for the layout image.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<h4>Image Select Layout</h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-layout',
+        'type'     =&gt; 'image_select',
+        'title'    =&gt; __('Main Layout', 'redux-framework-demo'), 
+        'subtitle' =&gt; __('Select main content and sidebar alignment. Choose between 1, 2 or 3 column layout.', 'redux-framework-demo'),
+        'options'  =&gt; array(
+            '1'      =&gt; array(
+                'alt'   =&gt; '1 Column', 
+                'img'   =&gt; ReduxFramework::$_url.'assets/img/1col.png'
+            ),
+            '2'      =&gt; array(
+                'alt'   =&gt; '2 Column Left', 
+                'img'   =&gt; ReduxFramework::$_url.'assets/img/2cl.png'
+            ),
+            '3'      =&gt; array(
+                'alt'   =&gt; '2 Column Right', 
+                'img'  =&gt; ReduxFramework::$_url.'assets/img/2cr.png'
+            ),
+            '4'      =&gt; array(
+                'alt'   =&gt; '3 Column Middle', 
+                'img'   =&gt; ReduxFramework::$_url.'assets/img/3cm.png'
+            ),
+            '5'      =&gt; array(
+                'alt'   =&gt; '3 Column Left', 
+                'img'   =&gt; ReduxFramework::$_url.'assets/img/3cl.png'
+            ),
+            '6'      =&gt; array(
+                'alt'  =&gt; '3 Column Right', 
+                'img'  =&gt; ReduxFramework::$_url.'assets/img/3cr.png'
+            )
+        ),
+        'default' =&gt; '2'
+    );
+</pre>
+<h4>Image Select Preset</h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-presets',
+        'type'     =&gt; 'image_select', 
+        'presets'  =&gt; true,
+        'title'    =&gt; __('Preset', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This allows you to set a json string or array to override multiple preferences in your theme.', 'redux-framework-demo'),
+        'default'  =&gt; 0,
+    'desc'     =&gt; __('This allows you to set a json string or array to override multiple preferences in your theme.', 'redux-framework-demo'),
+        'options'  =&gt; array(
+            // Array of preset options
+            '1'      =&gt; array(
+                'alt'   =&gt; 'Preset 1', 
+                'img'   =&gt; ReduxFramework::$_url.'../sample/presets/preset1.png', 
+                'presets'   =&gt; array(
+                    'switch-on'     =&gt; 1,
+                    'switch-off'    =&gt; 1, 
+                    'switch-custom' =&gt; 1
+                )
+            ),
+            // JSON string of preset options
+            '2'       =&gt; array(
+                'alt'     =&gt; 'Preset 2', 
+                'img'     =&gt; ReduxFramework::$_url.'../sample/presets/preset2.png', 
+                'presets' =&gt; '{&quot;slider1&quot;:&quot;1&quot;, &quot;slider2&quot;:&quot;0&quot;, &quot;switch-on&quot;:&quot;0&quot;}'
+            ),
+        ),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Layout value: ' . $redux_demo['opt-layout'];
+echo 'Preset value: ' . $redux_demo['opt-presets'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/image-select/">Image Select</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

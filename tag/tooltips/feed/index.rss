@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>tooltips &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/tooltips/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Using Hints in Fields</title>
+		<link>https://docs.reduxframework.com/core/the-basics/using-hints-in-fields/</link>
+		<pubDate>Tue, 11 Mar 2014 23:30:54 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[hints]]></category>
+		<category><![CDATA[tooltips]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=148</guid>
+		<description><![CDATA[<p>Hints may be used within fields, displaying a small question mark icon after (or before) the field title. See the little question mark icon above? When a user moves their mouse over the icon (or clicks in, optionally), a tooltip will display with additional information you provide. How do it all work? Please continue reading. [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/using-hints-in-fields/">Using Hints in Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Hints may be used within fields, displaying a small question mark icon after (or before) the field title.</p>
+<p><img class="aligncenter" alt="Hints" src="https://f.cloud.github.com/assets/3412363/2279395/d65c9d6a-9f6d-11e3-9459-94fe1acb3fb7.png" /></p>
+<p>See the little question mark icon above? When a user moves their mouse over the icon (or clicks in, optionally), a tooltip will display with additional information you provide. How do it all work? Please continue reading.</p>
+<h3>A little housework</h3>
+<p>There are some settings you must specify in the <code>setArguments</code> section of the <code>sample-config.php</code> file (or whatever you have chosen to name your config file). The <code>hints</code> array. Should these not be specified, Redux will use the default settings (explain below). The hints array contains several settings, and a few setting arrays so that the hints feature may be customized as desired. Each will be explained as we go.</p>
+<p>Here is what the default settings inside your global arguments array would look like:</p>
+<pre class="brush: php; title: ; notranslate">
+    $this-&gt;args = array(
+        // ... (list of other arguments in the args array)
+
+        // HINTS
+        'hints' = array(
+            'icon'              =&gt; 'el icon-question-sign',
+            'icon_position'     =&gt; 'right',
+            'icon_color'        =&gt; 'lightgray',
+            'icon_size'         =&gt; 'normal',
+
+            'tip_style'         =&gt; array(
+                'color'     =&gt; 'light',
+                'shadow'    =&gt; true,
+                'rounded'   =&gt; false,
+                'style'     =&gt; '',
+            ),
+            'tip_position'      =&gt; array(
+                'my' =&gt; 'top left',
+                'at' =&gt; 'bottom left',
+            ),
+            'tip_effect' =&gt; array(
+                'show' =&gt; array(
+                    'effect'    =&gt; 'slide',
+                    'duration'  =&gt; '500',
+                    'event'     =&gt; 'mouseover',
+                ),
+                'hide' =&gt; array(
+                    'effect'    =&gt; 'slide',
+                    'duration'  =&gt; '500',
+                    'event'     =&gt; 'click mouseleave',
+                ),
+            ),
+        ),
+    );
+</pre>
+<p>I know that code must seem a little intimidating, but really, it is not. We&#8217;ll start at the top.</p>
+<p><strong>NOTE:</strong> These settings are <strong>global</strong>, which means they will apply to all tool-tips on any given panel.</p>
+<hr />
+<h2>Arguments</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>icon</td>
+<td>string</td>
+<td>&#8216;el icon-question-sign&#8217;</td>
+<td>The icon from the Elusive Icon pack that represents the object where the tool-tip will appear, This happens when the user mouses over (or clicks, if set) the icon.</td>
+</tr>
+<tr>
+<td>icon_position</td>
+<td>string</td>
+<td>&#8216;right&#8217;</td>
+<td>Choose between <code>right</code> or <code>left.</code> The hint icon will appear either to the left of the field title, or to the far right.</td>
+</tr>
+<tr>
+<td>icon_color</td>
+<td>hex string</td>
+<td>&#8216;lightgray&#8217;</td>
+<td>This argument sets the color of the hint icon.</td>
+</tr>
+<tr>
+<td>icon_size</td>
+<td>string</td>
+<td>&#8216;normal&#8217;</td>
+<td>Choose between <code>normal</code> (16px) or <code>large</code> (18px). There are the only two sizes that work well with the feature. Anything else is too small or too big.</td>
+</tr>
+<tr>
+<td>tip_style</td>
+<td>Array</td>
+<td></td>
+<td>An array containing the color, shadow, rounded and style properties for the tool-tip. See the <a href="https://github.com/ReduxFramework/ReduxFramework/wiki/Using-Hints-in-Fields#wiki-tool-tip-styling-options">Tool-tip Style options</a> below.</td>
+</tr>
+<tr>
+<td>tip_position</td>
+<td>Array</td>
+<td></td>
+<td>An array containing the <code>my</code> and <code>at</code> options, which determines in the placement of the tool-tip in relation to the hint icon. See the <a href="https://github.com/ReduxFramework/ReduxFramework/wiki/Using-Hints-in-Fields#wiki-tool-tip-position-options">Tool-tip Positioning</a> section below.</td>
+</tr>
+<tr>
+<td>tip_effect</td>
+<td>Array</td>
+<td></td>
+<td>An array containing the <code>show</code> and <code>hide</code> arrays. Both arrays contain the tool-tip effect properties. These include <code>effect</code>, <code>duration</code>, and <code>event</code> for both `<code>and</code>show`. See the <a href="https://github.com/ReduxFramework/ReduxFramework/wiki/Using-Hints-in-Fields#wiki-tool-tip-effect-options">Tool-tip Effects Options</a> below.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Tool-tip Styling Options</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>&#8216;light&#8217;</td>
+<td>This argument accepts the following colors: <code>cream</code>(default), <code>light</code>, <code>dark</code>, <code>red</code>, <code>green</code>, <code>blue</code><br />
+<img alt="hint_colors" src="https://f.cloud.github.com/assets/3412363/2285814/a24f2382-9fd9-11e3-9975-a7aa786393c7.png" /></td>
+</tr>
+<tr>
+<td>shadow</td>
+<td>bool</td>
+<td>false</td>
+<td>When set, this flag determines if a shadow will appear behind the tool-tip.</td>
+</tr>
+<tr>
+<td>rounded</td>
+<td>bool</td>
+<td>false</td>
+<td>When set, this flag determines if the corners of the tool-tip will be rounded.</td>
+</tr>
+<tr>
+<td>style</td>
+<td>string</td>
+<td></td>
+<td>The argument accepts the following styles, which determines the style in which the tool-tip will be displayed: <code>youtube</code>, <code>tipsy</code>, <code>bootstrap</code>, <code>tipped</code>, <code>jtools</code>, and <code>cluetip</code> (not shown),<br />
+<img alt="hint_style" src="https://f.cloud.github.com/assets/3412363/2285925/d4383dec-9fda-11e3-9d82-fa4352465456.png" /></td>
+</tr>
+</tbody>
+</table>
+<h3><a class="anchor" href="#wiki-tool-tip-position-options" name="wiki-tool-tip-position-options"></a>Tool-tip Position Options</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>my</td>
+<td>string</td>
+<td>&#8216;top left&#8217;</td>
+<td>The area on the tool-tip in which the tip arrow (that points to the hint icon) will appear. See NOTES below.</td>
+</tr>
+<tr>
+<td>at</td>
+<td>string</td>
+<td>&#8216;bottom right&#8217;</td>
+<td>The area on the tool-tip target in which the tool-tip will appear. See NOTES below.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTES:</strong> With the exception of the value <code>center</code>, the values must be passed with a horizontal value on the left (top, center, or bottom), and a vertical value on the right (left, center, right). Any other incorrect or misspelled combination of values will force Redux to use the default value. See the diagram below:</p>
+<p><img class="aligncenter" alt="corners" src="https://f.cloud.github.com/assets/3412363/2279808/5a4c87f6-9f79-11e3-8745-cb1e3c0fa338.jpg" /></p>
+<h3>Tool-tip Effect Options</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show</td>
+<td>array</td>
+<td></td>
+<td>The array which holds the <code>effect</code>, <code>duration</code>, and <code>event</code> properties for displaying the tool-tip. See below</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>array</td>
+<td></td>
+<td>The array which holds the <code>effect</code>, <code>duration</code>, and <code>event</code> properties for dismissing the tool-tip. See below.</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="anchor" href="#wiki-show-and-hide-arguments" name="wiki-show-and-hide-arguments"></a>Show and Hide arguments.</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>effect</td>
+<td>string</td>
+<td>slide</td>
+<td>Choose between <code>''</code> (a blank string), <code>slide</code>, and <code>fade</code></td>
+</tr>
+<tr>
+<td>duration</td>
+<td>int</td>
+<td>500</td>
+<td>The number of microseconds (1 second = 1000) used for the effect to take place.</td>
+</tr>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>show: mouseover, hide: unfocus mouseleave</td>
+<td>A single or combination of events that defines the behavior in which the tool-tip will appear. Generally, for the <code>show</code> event, one might use <code>mouseover</code> or <code>click</code>. For the <code>hide</code> event, any combination of of <code>click</code>, <code>mouseleave</code> and/or <code>unfocus</code>. The unfocus flag is used so the user may click anywhere on the screen to dismiss the tool-tip.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Using Hints with Fields</h3>
+<p>Once the Hint arguments are set, adding Hints to your fields is as easy as adding the following argument to your field array.</p>
+<pre class="brush: php; title: ; notranslate">
+    $field['hint'] = array(
+        array(
+            'title'   =&gt; 'Hint Title',
+            'content' =&gt; 'This is the content of the tool-tip'
+        )
+    );
+</pre>
+<p>The argument <em>must</em> be an array, but adding a title is optional. The content argument accepts HTML styling. The inclusion of the hint argument instructs Redux to automatically generate the hint icon. There is no need to set any other argument.</p>
+<h3>Using Hints with Text Boxes</h3>
+<p>In addition to using Hints to add additional information to the field itself, Hints may also be used to popup a tool-tip when a user clicks on a text box. Enabling this feature is also as easy as adding a single array based argument to the text field.</p>
+<pre class="brush: php; title: ; notranslate">
+    $field['text_hint'] = array(
+        array(
+            'title'   =&gt; 'Entry required!',
+            'content' =&gt; 'This field may not be left blank.'
+        )
+    );
+
+</pre>
+<p>Adding this argument to the text field will display a tool-tip when the text field is selected. As with the Hints feature, the title is optional and HTML is accepted in the content argument.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/using-hints-in-fields/">Using Hints in Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

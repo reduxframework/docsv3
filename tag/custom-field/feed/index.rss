@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>custom field &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/custom-field/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Add a Custom Field</title>
+		<link>https://docs.reduxframework.com/core/advanced/add-a-custom-field/</link>
+		<pubDate>Sat, 15 Mar 2014 03:23:17 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[custom field]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=452</guid>
+		<description><![CDATA[<p>Adding a custom field to Redux is quite simple. It is important the following code is included before the ReduxFramework object is created. Hook into the overload filter Ideally, this call would be made in your own class. In this example, no class is needed. First, run the hook: The overload function Next, include the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/add-a-custom-field/">Add a Custom Field</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Adding a custom field to Redux is quite simple. It is important the following code is included before the ReduxFramework object is created.</p>
+<h2>Hook into the overload filter</h2>
+<p>Ideally, this call would be made in your own class. In this example, no class is needed. First, run the hook:</p>
+<pre class="brush: php; title: ; notranslate">
+add_filter( &quot;redux/{$YOUR_OPT_NAME}/field/class/edd_license&quot;, &quot;overload_edd_license_field_path&quot; ); // Adds the local field
+</pre>
+<h2>The overload function</h2>
+<p>Next, include the file path, wherever it may be. Here&#8217;s an example.</p>
+<pre class="brush: php; title: ; notranslate">
+public function overload_edd_license_field_path($field) {
+    return dirname(__FILE__).'/edd_license/field_edd_license.php';
+}
+</pre>
+<p>This allows any field type to be overridden with your own code using your individual <code>opt_name</code>.</p>
+<h2>Override an existing field</h2>
+<p>With the code above you can also overload any core field within Redux with one of your own. Make sure the class names match, and you can modify an existing field without actually touching the core code.</p>
+<h3>Use the <a href="https://github.com/ReduxFramework/extension-boilerplate" target="_blank">extension boilerplate</a></h3>
+<p>To make your life much easier, you can use the <a href="https://github.com/ReduxFramework/extension-boilerplate" target="_blank">extension boilerplate</a>. It will be a great starting point to see how to build a custom Redux field. You will also need to utilize the <a href="https://github.com/ReduxFramework/extension-loader" target="_blank">extension loader</a> in order to make your custom field operable.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/add-a-custom-field/">Add a Custom Field</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

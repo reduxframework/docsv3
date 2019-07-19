@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>min &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/min/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Slider</title>
+		<link>https://docs.reduxframework.com/core/fields/slider/</link>
+		<pubDate>Mon, 10 Mar 2014 22:39:38 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[display_value]]></category>
+		<category><![CDATA[float]]></category>
+		<category><![CDATA[float_mark]]></category>
+		<category><![CDATA[handles]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[max]]></category>
+		<category><![CDATA[min]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[resolution]]></category>
+		<category><![CDATA[select]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[step]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[text]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=118</guid>
+		<description><![CDATA[<p>The Redux Slider Field offers a great array features for just about every need.  We offer dual handles, floating point values, text/label/select output and theme responsiveness! Arguments Name Type Default Description type string &#8216;slider&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/slider/">Slider</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Redux Slider Field offers a great array features for just about every need.  We offer dual handles, floating point values, text/label/select output and theme responsiveness!</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/2317917/e1b951da-a35a-11e3-8d6a-dc818f29968b.png" alt="Slider Field" height="378" width="889" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;slider&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Value setting the default slider value.</td>
+</tr>
+<tr>
+<td>min</td>
+<td>int/float</td>
+<td>0</td>
+<td>Value setting the minimum slider value.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>int/float</td>
+<td>1</td>
+<td>Value setting the maximum slider value.</td>
+</tr>
+<tr>
+<td>step</td>
+<td>int/float</td>
+<td>1</td>
+<td>Value setting the slider step value.</td>
+</tr>
+<tr>
+<td>handles</td>
+<td>int</td>
+<td>1</td>
+<td>Sets the number of slider handles, either <code>1</code> or <code>2</code>. Any other value will default to <code>1</code></td>
+</tr>
+<tr>
+<td>display_value</td>
+<td>string</td>
+<td>&#8216;text&#8217;</td>
+<td>Sets output mode for the slider value. Accepted values include <code>none</code> for no output, <code>label</code> for a printed value, <code>text</code> for an editable text box, or <code>select</code> for a select box of values. Any other or incorrect values will default to <code>text</code>.</td>
+</tr>
+<tr>
+<td>resolution</td>
+<td>int/float</td>
+<td>1</td>
+<td>Sets the value&#8217;s decimal significance. Acceptable values are: <code>1</code>, <code>0.1</code>, <code>0.01</code>, <code>0.001</code>, <code>0.0001</code>, <code>0.00001</code>. Any improper value will default to <code>1</code>.</td>
+</tr>
+<tr>
+<td>float_mark</td>
+<td>string</td>
+<td>(decimal)</td>
+<td>Sets the floating point marker to either <code>.</code> (decimal) or <code>,</code> (comma). Any other value will default to the decimal value.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.  Only applies when <code>display_value</code> is set to <code>select</code>.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<p><strong>NOTE</strong>:  When setting the <code>resolution</code> argument to a floating point value, it will also be necessary to set the <code>step</code> argument to a floating point for values after the decimal point to change value. Not doing so will result in the value to the left of the decimal changing value upon slide.</p>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'        =&gt; 'opt-slider-label',
+        'type'      =&gt; 'slider',
+        'title'     =&gt; __('Slider Example 1', 'redux-framework-demo'),
+        'subtitle'  =&gt; __('This slider displays the value as a label.', 'redux-framework-demo'),
+        'desc'      =&gt; __('Slider description. Min: 1, max: 500, step: 1, default value: 250', 'redux-framework-demo'),
+        &quot;default&quot;   =&gt; 250,
+        &quot;min&quot;       =&gt; 1,
+        &quot;step&quot;      =&gt; 1,
+        &quot;max&quot;       =&gt; 500,
+        'display_value' =&gt; 'label'
+    ),
+    array(
+        'id' =&gt; 'opt-slider-text',
+        'type' =&gt; 'slider',
+        'title' =&gt; __('Slider Example 2 with Steps (5)', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This example displays the value in a text box', 'redux-framework-demo'),
+        'desc' =&gt; __('Slider description. Min: 0, max: 300, step: 5, default value: 75', 'redux-framework-demo'),
+        &quot;default&quot; =&gt; 75,
+        &quot;min&quot; =&gt; 0,
+        &quot;step&quot; =&gt; 5,
+        &quot;max&quot; =&gt; 300,
+        'display_value' =&gt; 'text'
+    ),
+
+    array(
+        'id' =&gt; 'opt-slider-select',
+        'type' =&gt; 'slider',
+        'title' =&gt; __('Slider Example 3 with two sliders', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This example displays the values in select boxes', 'redux-framework-demo'),
+        'desc' =&gt; __('Slider description. Min: 0, max: 500, step: 5, slider 1 default value: 100, slider 2 default value: 300', 'redux-framework-demo'),
+        &quot;default&quot; =&gt; array(
+            1 =&gt; 100,
+            2 =&gt; 300,
+        ),
+        &quot;min&quot; =&gt; 0,
+        &quot;step&quot; =&gt; 5,
+        &quot;max&quot; =&gt; &quot;500&quot;,
+        'display_value' =&gt; 'select',
+        'handles' =&gt; 2,
+
+    ),
+
+    array(
+        'id' =&gt; 'opt-slider-float',
+        'type' =&gt; 'slider',
+        'title' =&gt; __('Slider Example 4 with float values', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This example displays float values', 'redux-framework-demo'),
+        'desc' =&gt; __('Slider description. Min: 0, max: 1, step: .1, default value: .5', 'redux-framework-demo'),
+        &quot;default&quot; =&gt; .5,
+        &quot;min&quot; =&gt; 0,
+        &quot;step&quot; =&gt; .1,
+        &quot;max&quot; =&gt; 1,
+        'resolution' =&gt; 0.1,
+        'display_value' =&gt; 'text'
+    )
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Slider label value: '  . $redux_demo['opt-slider-label'];
+echo 'Slider text value: '   . $redux_demo['opt-slider-text'];
+echo 'Slider select value: ' . $redux_demo['opt-slider-select'];
+echo 'Slider float value: '  . $redux_demo['opt-slider-float'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/slider/">Slider</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Spinner</title>
+		<link>https://docs.reduxframework.com/core/fields/spinner/</link>
+		<pubDate>Mon, 10 Mar 2014 22:39:05 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[max]]></category>
+		<category><![CDATA[min]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[step]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=116</guid>
+		<description><![CDATA[<p>The Spinner field returns the value entered in its input box or via clicks on its arrow buttons. Arguments Name Type Default Description type string &#8216;spinner&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/spinner/">Spinner</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Spinner field returns the value entered in its input box or via clicks on its arrow buttons.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1587577/42bc2ba8-523c-11e3-8600-0333c96d9cf7.png" alt="Spinner Field" height="79" width="688" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;spinner&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Value setting the spinner default.</td>
+</tr>
+<tr>
+<td>min</td>
+<td>string/int</td>
+<td>0</td>
+<td>Value to set the minimum spinner value.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>string/int</td>
+<td>1</td>
+<td>Value to set the maximum spinner value.</td>
+</tr>
+<tr>
+<td>step</td>
+<td>string/int</td>
+<td>1</td>
+<td>Value to set the spinner step value.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-spinner',
+        'type'     =&gt; 'spinner', 
+        'title'    =&gt; __('JQuery UI Spinner Example 1', 'redux-framework-demo'),
+        'subtitle' =&gt; __('No validation can be done on this field type','redux-framework-demo'),
+        'desc'     =&gt; __('JQuery UI spinner description. Min:20, max: 100, step:20, default value: 40', 'redux-framework-demo'),
+        'default'  =&gt; '40',
+        'min'      =&gt; '20',
+        'step'     =&gt; '20',
+        'max'      =&gt; '100',
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Spinner value: ' . $redux_demo['opt-spinner'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/spinner/">Spinner</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

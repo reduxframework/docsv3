@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>color_rgba &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/color_rgba/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Using the Output Argument</title>
+		<link>https://docs.reduxframework.com/core/the-basics/output-2/</link>
+		<pubDate>Tue, 11 Mar 2014 06:21:34 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[color_rgba]]></category>
+		<category><![CDATA[dimensions]]></category>
+		<category><![CDATA[image_select]]></category>
+		<category><![CDATA[link_color]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[spacing]]></category>
+		<category><![CDATA[typography]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=141</guid>
+		<description><![CDATA[<p>Using the output argument in fields that support it is a great way to generate dynamic CSS for those fields on the front-end of your WordPress site.  Redux will take the values for those fields, generate the appropriate CSS selectors, elements, and values and place them at the bottom of the page&#8217;s &#60;HEAD&#62; section. This [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/output-2/">Using the Output Argument</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Using the output argument in fields that support it is a great way to generate dynamic CSS for those fields on the front-end of your WordPress site.  Redux will take the values for those fields, generate the appropriate CSS selectors, elements, and values and place them at the bottom of the page&#8217;s <code>&lt;HEAD&gt;</code> section. This ensures your CSS will take priority over any other CSS used in your theme.</p>
+<p>The following Redux fields support the <code>output</code> argument:</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Field</strong></td>
+<td style="text-align: center"><strong>CSS property output<br /></strong></td>
+</tr>
+<tr>
+<td><a href="/redux-framework/fields/background/" title="Background">background</a>
+</td>
+<td>background-color, background-umage:url, background-repeat, background-size, background-attachment, background-position</td>
+</tr>
+<tr>
+<td><a title="Border" href="/redux-framework/fields/border/">border</a>
+</td>
+<td>border, border-left, border-right, border-top, border-bottom</td>
+</tr>
+<tr>
+<td><a title="Color" href="/redux-framework/fields/color/">color</a>
+</td>
+<td>Default: color.  CSS Property may be manually set.  See &#8216;Setting Color Properties&#8217; below.</td>
+</tr>
+<tr>
+<td><a title="Color RGBA" href="/redux-framework/fields/color-rgba/">color_rgba</a>
+</td>
+<td>Default: color.  CSS Property may be manually set.  See &#8216;Setting Color Properties&#8217; below.</td>
+</tr>
+<tr>
+<td><a title="Dimensions" href="/redux-framework/fields/dimensions/">dimensions</a>
+</td>
+<td>height, width</td>
+</tr>
+<tr>
+<td><a title="Image Select" href="/redux-framework/fields/image-select/">image_select</a>
+</td>
+<td>background-image</td>
+</tr>
+<tr>
+<td><a title="Link Color" href="/redux-framework/fields/link-color/">link_color</a>
+</td>
+<td>color</td>
+</tr>
+<tr>
+<td><a title="Spacing" href="/redux-framework/fields/spacing/">spacing</a>
+</td>
+<td>top, bottom, left, right in absolute mode.  padding and margin modes append *-top, *-bottom, *-left, *-right.</td>
+</tr>
+<tr>
+<td><a title="Typography" href="/redux-framework/fields/typography/">typography</a>
+</td>
+<td>font-family, font-weight, font-style, font-size, line-height, color, text-align, word-spacing, letter-spacing</td>
+</tr>
+</tbody>
+</table>
+<p>Before adding the output argument to one of the indicated fields, you will need to know which <a href="http://www.w3schools.com/cssref/css_selectors.asp">CSS selectors</a> in which to apply to the field&#8217;s value.  These will be selectors from your theme&#8217;s CSS you wish to change dynamically via values from fields that offer output.  All that now need be done is assign them to the output argument in an array without the chosen field array, as shown below.  Multiple selectors are permitted.</p>
+<p></p>
+<p>For this example, we&#8217;ll use the border field, found in the <a href="https://github.com/ReduxFramework/redux-framework/blob/master/sample/sample-config.php">sample-config.php</a></p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-header-border',
+    'type'      =&gt; 'border',
+    'title'     =&gt; __('Header Border Option', 'redux-framework-demo'),
+    'subtitle'  =&gt; __('Subtitle goes here', 'redux-framework-demo'),
+    'output'    =&gt; array('.site-header'), // An array of CSS selectors
+    'desc'      =&gt; __('This is the description field.', 'redux-framework-demo'),
+    'default'   =&gt; array(
+        'border-color'  =&gt; '#1e73be', 
+        'border-style'  =&gt; 'solid', 
+        'border-top'    =&gt; '3px', 
+        'border-right'  =&gt; '3px', 
+        'border-bottom' =&gt; '3px', 
+        'border-left'   =&gt; '3px'
+    )
+),
+</pre>
+<p>Redux will then output the following CSS into your WordPress pages (formatted in one single line, the formatting below is for the benefit of display on this page).</p>
+<pre class="brush: css; title: ; notranslate">
+.site-header{
+    border-top    :3px solid #1e73be;
+    border-right  :3px solid #1e73be;
+    border-bottom :3px solid #1e73be;
+    border-left   :3px solid #1e73be;
+}
+</pre>
+<h2>Setting Color Properties</h2>
+<p>The color and color_rgba fields can be used exactly as shown above for the default CSS element of color.  If you wish to choose a different element (or mode), it can be specified in the output array value as a key/pair.  For example, let suppose you want to output a color field as background-color, instead of color.  The following output array in key/pair format would accomplish this:</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-color-demo',
+    'type'      =&gt; 'color',
+    'title'     =&gt; __('Background Color', 'redux-framework-demo'),
+    'subtitle'  =&gt; __('Pick a background color.', 'redux-framework-demo'),
+    'default'   =&gt; '#dd9933',
+    'output'    =&gt; array('background-color' =&gt; '.site-header')
+),
+</pre>
+<p>Alternatively, multiple elements could be specified for different selectors.</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-color-demo',
+    'type'      =&gt; 'color',
+    'title'     =&gt; __('Background Color', 'redux-framework-demo'),
+    'subtitle'  =&gt; __('Pick a background color.', 'redux-framework-demo'),
+    'default'   =&gt; '#dd9933',
+    'output'    =&gt; array(
+        'background-color' =&gt; '.site-header', 
+        'color'            =&gt; '.site-footer'
+    )
+),
+</pre>
+<p>Multiple selectors are also supported.  Separate them with commas.</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-color-demo',
+    'type'      =&gt; 'color',
+    'title'     =&gt; __('Background Color', 'redux-framework-demo'),
+    'subtitle'  =&gt; __('Pick a background color.', 'redux-framework-demo'),
+    'default'   =&gt; '#dd9933',
+    'output'    =&gt; array('background-color' =&gt; '.site-header, .site-footer')
+),
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/output-2/">Using the Output Argument</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Getting started with Fields</title>
+		<link>https://docs.reduxframework.com/core/fields/getting-started-with-fields/</link>
+		<pubDate>Mon, 10 Mar 2014 20:20:29 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[ace_editor]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[button_set]]></category>
+		<category><![CDATA[checkbox]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[color_gradient]]></category>
+		<category><![CDATA[color_rgba]]></category>
+		<category><![CDATA[date]]></category>
+		<category><![CDATA[dimensions.divide]]></category>
+		<category><![CDATA[editor]]></category>
+		<category><![CDATA[gallery]]></category>
+		<category><![CDATA[image_select]]></category>
+		<category><![CDATA[import_export]]></category>
+		<category><![CDATA[info]]></category>
+		<category><![CDATA[link_color]]></category>
+		<category><![CDATA[media]]></category>
+		<category><![CDATA[multi_text]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[radio]]></category>
+		<category><![CDATA[raw]]></category>
+		<category><![CDATA[section]]></category>
+		<category><![CDATA[select]]></category>
+		<category><![CDATA[select_image]]></category>
+		<category><![CDATA[slider]]></category>
+		<category><![CDATA[slides]]></category>
+		<category><![CDATA[sortable]]></category>
+		<category><![CDATA[sorter]]></category>
+		<category><![CDATA[spacing]]></category>
+		<category><![CDATA[spinner]]></category>
+		<category><![CDATA[switch]]></category>
+		<category><![CDATA[text]]></category>
+		<category><![CDATA[textarea]]></category>
+		<category><![CDATA[typography]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=14</guid>
+		<description><![CDATA[<p>Fields are blocks of arrays that represent the individual options within a specific options panel, set via a Sections array.  The Section array contains an argument titled fields, which accepts an array, or several blocks of arrays, separated by commas.  This is where all field arrays are place.  A basic example is shown below. For [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/getting-started-with-fields/">Getting started with Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Fields are blocks of arrays that represent the individual options within a specific options panel, set via a <a title="Section" href="/redux-framework/fields/section/">Sections</a> array.  The Section array contains an argument titled fields, which accepts an array, or several blocks of arrays, separated by commas.  This is where all field arrays are place.  A basic example is shown below. For specific examples, please consult the <a target="_blank" href="https://github.com/ReduxFramework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> file that comes with the Redux package.</p>
+<h3>Example</h3>
+<pre class="brush: php; title: ; notranslate">
+$this-&gt;sections[] = array(
+    'title'   =&gt; 'New Section',
+    'icon'    =&gt; 'el-icon-cogs',
+    'heading' =&gt; 'Expanded New Section Title',
+    'desc'    =&gt; '&lt;br /&gt;This is the section description.  HTML is permitted.&lt;br /&gt;'
+    'fields'  =&gt; array(
+        array(
+            'id'    =&gt; 'opt-text',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'A sample text box',
+        ),
+        array(
+            'id'    =&gt; 'opt-text-2',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'Another sample text box',
+        ),
+    ),
+);
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/getting-started-with-fields/">Getting started with Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

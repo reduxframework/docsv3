@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>success &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/success/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Info</title>
+		<link>https://docs.reduxframework.com/core/fields/info/</link>
+		<pubDate>Mon, 10 Mar 2014 22:36:53 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[critical]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[icon]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[normal]]></category>
+		<category><![CDATA[notice]]></category>
+		<category><![CDATA[raw_html]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[style]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[success]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[warning]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=108</guid>
+		<description><![CDATA[<p>The Info field comes in several varieties to display information as normal, info warning and success formats.  Choose between the WordPress 3.8 styles, or the non-notice styles. Arguments Name Type Default Description type string &#8216;info&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/info/">Info</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Info field comes in several varieties to display information as normal, info warning and success formats.  Choose between the WordPress 3.8 styles, or the non-notice styles.</p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;info&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>style</td>
+<td>string</td>
+<td>normal</td>
+<td>Sets the mode of the info box.  Accepts:  <code>normal</code> <code>info</code> <code>warning</code> <code>success<span face="Georgia, Times New Roman, Bitstream Charter, Times, serif" style="font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif;"> </span></code><code><code>critical</code></code> or <code>custom</code></td>
+</tr>
+<tr>
+<td>notice</td>
+<td>bool</td>
+<td>true</td>
+<td>Set the styling to the non-notice styles, instead of the default WordPress 3.8 notice styles.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td></td>
+<td>Color that becomes the left border if style is set to custom. Will not work with a non-notice styled field.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>string</td>
+<td></td>
+<td>Name of an <a target="_blank" href="http://shoestrap.org/downloads/elusive-icons-webfont/">Elusive Icon</a> font to use in the info box.</td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"> Using the Required Argument</a><strong></strong></li>
+</ul>
+<p><strong>NOTE</strong>: When using the Info field with <code>required</code>, the field cannot be hidden by default.  It’s best only to use the <code>required</code> argument with this field when the fold is shown by default.</p>
+<hr />
+<h3>Example Declaration</h3>
+<h4>Normal Style</h4>
+<p><img src="https://f.cloud.github.com/assets/3412363/1569159/edbda858-50be-11e3-9d49-3af67b598e22.png" alt="Info Field" height="86" width="810" /></p>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'   =&gt; 'info_normal',
+        'type' =&gt; 'info',
+        'desc' =&gt; __('This is the info field, if you want to break sections up.', 'redux-framework-demo')
+    );
+</pre>
+<h4>Warning Style</h4>
+<p><img src="https://f.cloud.github.com/assets/3412363/1569169/221c1d50-50bf-11e3-8819-83aaebee946d.png" alt="Info Field" height="86" width="810" /></p>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'    =&gt; 'info_warning',
+        'type'  =&gt; 'info',
+        'title' =&gt; __('Danger, Will Robinson!', 'redux-framework-demo'),
+        'style' =&gt; 'warning',
+        'desc'  =&gt; __('This is an info field with the warning style applied and a header.', 'redux-framework-demo')
+    );
+</pre>
+<h4>Success Style</h4>
+<p><img src="https://f.cloud.github.com/assets/3412363/1569170/2d5bdaac-50bf-11e3-9695-7176ba9db820.png" alt="Info Field" height="86" width="810" /></p>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'    =&gt; 'info_success',
+        'type'  =&gt; 'info',
+        'style' =&gt; 'success',
+        'title' =&gt; __('Success!', 'redux-framework-demo'),
+        'icon'  =&gt; 'el-icon-info-sign',
+        'desc'  =&gt; __( 'This is an info field with the success style applied, a header and an icon.', 'redux-framework-demo')
+    );
+</pre>
+<h4>Critical Style<br /><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/critical.png" height="95" width="937" /></h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id' =&gt; 'info_critical',
+        'type' =&gt; 'info',
+        'style' =&gt; 'critical',
+        'icon' =&gt; 'el-icon-info-sign',
+        'title' =&gt; __('This is a title.', 'redux-framework-demo'),
+        'desc' =&gt; __('This is an info field with the critical style applied, a header and an icon.', 'redux-framework-demo')
+    ),
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/info/">Info</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

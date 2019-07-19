@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dfw &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/dfw/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Editor</title>
+		<link>https://docs.reduxframework.com/core/fields/editor/</link>
+		<pubDate>Mon, 10 Mar 2014 22:36:04 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[args]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[dfw]]></category>
+		<category><![CDATA[edia_buttons]]></category>
+		<category><![CDATA[editor_css]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[quicktags]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[tabindex]]></category>
+		<category><![CDATA[teeny]]></category>
+		<category><![CDATA[textarea_rows]]></category>
+		<category><![CDATA[tinymce]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[wpautop]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=105</guid>
+		<description><![CDATA[<p>The Editor field offers WYSIWYG editing capability, using the same editing interface as WordPress itself. Arguments Name Type Default Description type string &#8216;editor&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/editor/">Editor</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Editor field offers WYSIWYG editing capability, using the same editing interface as WordPress itself.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1568377/273391f8-50ae-11e3-8433-f0e734190c9f.png" alt="Editor Field" height="240" width="1500" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;editor&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Text to appear inside the editor window by default.</td>
+</tr>
+<tr>
+<td>args</td>
+<td>array</td>
+<td></td>
+<td>Sets the default WordPress editor arguments.  See &#8216;WP Editor Options&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>WP Editor Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>wpautop</td>
+<td>bool</td>
+<td>true</td>
+<td>Flags to set <a target="_blank" href="http://codex.wordpress.org/Function_Reference/wpautop">wpautop</a> for adding paragraphs.</td>
+</tr>
+<tr>
+<td>media_buttons</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the display of media upload/inset buttons.</td>
+</tr>
+<tr>
+<td>textarea_rows</td>
+<td>int</td>
+<td>10</td>
+<td>Number of rows to display or the textarea.</td>
+</tr>
+<tr>
+<td>tabindex</td>
+<td>int</td>
+<td></td>
+<td>The tabindex value used for the form field.</td>
+</tr>
+<tr>
+<td>editor_css</td>
+<td>string</td>
+<td></td>
+<td>Additional CSS styling applied for both visual and HTML editor buttons. <code>&lt;style&gt;</code> tags need to be included.</td>
+</tr>
+<tr>
+<td>teeny</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the editor with minimal configuration.</td>
+</tr>
+<tr>
+<td>dfw</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to replace the default fullscreen editor with DFW.  <strong>Needs specific DOM elements and CSS</strong>. This is an advanced setting for use by advanced users.</td>
+</tr>
+<tr>
+<td>tinymce</td>
+<td>array</td>
+<td></td>
+<td>Flag to load TinyMCE. Can be used to pass settings directly to <a href="http://codex.wordpress.org/TinyMCE">TinyMCE</a> using an array.</td>
+</tr>
+<tr>
+<td>quicktags</td>
+<td>array</td>
+<td></td>
+<td>Flag to load Quicktags. Can be used to pass settings directly to <a href="http://codex.wordpress.org/Quicktags_API">Quicktags</a> using an array. Set to false to remove the editor&#8217;s Visual and Text tabs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTES</strong>:  While the <code>textarea_name</code> value is available for the WP Editor options, Redux automatically sets this value for you. There is no real need to set it manually. The <code>editor_class</code> value, also part of the WP Editor settings does not need to be set via the <code>args</code> array. It can be set via the <code>class</code> type.</p>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'               =&gt; 'editor-text',
+        'type'             =&gt; 'editor',
+        'title'            =&gt; __('Editor Text', 'redux-framework-demo'), 
+        'subtitle'         =&gt; __('Subtitle text would go here.', 'redux-framework-demo'),
+        'default'          =&gt; 'Powered by Redux.',
+        'args'   =&gt; array(
+            'teeny'            =&gt; true,
+            'textarea_rows'    =&gt; 10
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Editor text: ' . $redux_demo['editor-text'];
+
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/editor/">Editor</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>export &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/export/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Import/Export</title>
+		<link>https://docs.reduxframework.com/core/fields/importexport/</link>
+		<pubDate>Mon, 17 Mar 2014 23:07:52 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[export]]></category>
+		<category><![CDATA[full_width]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[import]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=467</guid>
+		<description><![CDATA[<p>The Import/Export offers users the ability to back up and restore their Redux options data in one of three ways:  raw data, file and URL. Arguments Name Type Default Description type string &#8216;import_export&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/importexport/">Import/Export</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Import/Export offers users the ability to back up and restore their Redux options data in one of three ways:  raw data, file and URL.</p>
+<p><img class="alignnone" src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/imex.png" alt="Import Export" height="377" width="939" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;import_export&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>full_width</td>
+<td>bool</td>
+<td></td>
+<td>Sets whether or not the field is set full width or as a section, similar to the other fields.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+'fields'    =&gt; array(
+    array(
+        'id'            =&gt; 'opt-import-export',
+        'type'          =&gt; 'import_export',
+        'title'         =&gt; 'Import Export',
+        'subtitle'      =&gt; 'Save and restore your Redux options',
+        'full_width'    =&gt; false,
+    ),
+),
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/importexport/">Import/Export</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

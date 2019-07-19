@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>heading &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/heading/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Getting Started with Sections</title>
+		<link>https://docs.reduxframework.com/core/sections/getting-started-with-sections/</link>
+		<comments>https://docs.reduxframework.com/core/sections/getting-started-with-sections/#comments</comments>
+		<pubDate>Sat, 15 Mar 2014 02:27:36 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Sections]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[customizer_only]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[fields]]></category>
+		<category><![CDATA[heading]]></category>
+		<category><![CDATA[icon]]></category>
+		<category><![CDATA[icon_type]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[sections]]></category>
+		<category><![CDATA[title]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=437</guid>
+		<description><![CDATA[<p>Before any Field array is written, which will represent the individual options on the options panel, a section must be created. The section array sets up a tab on the side of the Redux options panel, where the Field arrays will ultimately go. The setSections function Section arrays are declared in the setSections function of your [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/sections/getting-started-with-sections/">Getting Started with Sections</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Before any <a title="Getting started with Fields" href="/redux-framework/getting-started-with-fields/">Field</a> array is written, which will represent the individual options on the options panel, a section must be created. The section array sets up a tab on the side of the Redux options panel, where the <a title="Getting started with Fields" href="/redux-framework/getting-started-with-fields/">Field</a> arrays will ultimately go.</p>
+<h3>The setSections function</h3>
+<p>Section arrays are declared in the <code>setSections</code> function of your config file, or by default, sample-config.php. To see for yourself, open the sample-config.php file in your favorite PHP editor and scroll down to the <code>setSections</code> function. In addition to section arrays, and code your section might depend on should also be placed here. As seen in the sample-config file, there is a section of code toward the top which enumerates image files in the sample/patterns directory for use in <code>image_select</code> field example.</p>
+<p>To set up a new section, we need to pass the entire section code into the public <code>sections</code> array of the <code>Redux_Framework_sample_config</code> class. To begin, use the code below:</p>
+<pre>$this-&gt;sections[] = array(
+    'title' =&gt; 'New Section',
+);
+</pre>
+<p>Set the title argument to whatever you would like to name the section. Whatever title you choose will be the title that appears on the actual section tab of the options framework. Use the arguments listed below to further set the section arguments.</p>
+<h3>Arguments</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>icon</td>
+<td>string</td>
+<td></td>
+<td>The icon to be displayed next to the section title. This could be a preset <a href="http://shoestrap.org/downloads/elusive-icons-webfont">Elusive Icon</a> or a URL to an icon of your own.</td>
+</tr>
+<tr>
+<td>icon_type</td>
+<td>string</td>
+<td></td>
+<td>Set to <code>image</code> when using a custom URL to an icon.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>The title of the section that will appear on the option tab.</td>
+</tr>
+<tr>
+<td>heading</td>
+<td>string</td>
+<td></td>
+<td>Text to appear at the top of the section page. By default the <code>title</code> argument is used as the title. Text specified via this argument replaces it.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Text to appear under the section title. HTML is permitted.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the section’s class attribute.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section.  See <a title="Using Permissions" href="/redux-framework/fields/using-permissions/">Using Permissions</a>.</td>
+</tr>
+<tr>
+<td>customizer_only</td>
+<td>array</td>
+<td></td>
+<td>An array of arrays representing individual options.</td>
+</tr>
+<tr>
+<td>subsection</td>
+<td>bool</td>
+<td></td>
+<td>Boolean to denote if this section should appear as a subsection to the previously defined section.</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example of a typical sections array with a single text box option:</p>
+<p></p>
+<pre class="brush: php; title: ; notranslate">
+$this-&gt;sections[] = array(
+    'title'   =&gt; 'New Section',
+    'icon'    =&gt; 'el-icon-cogs',
+    'heading' =&gt; 'Expanded New Section Title',
+    'desc'    =&gt; '&lt;br /&gt;This is the section description.  HTML is permitted.&lt;br /&gt;',
+    'fields'  =&gt; array(
+        array(
+            'id'    =&gt; 'opt-text',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'A sample text box',
+        ),
+    ),
+);
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/sections/getting-started-with-sections/">Getting Started with Sections</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/sections/getting-started-with-sections/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+	</channel>
+</rss>

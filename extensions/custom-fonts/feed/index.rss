@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Custom Fonts</title>
+	<atom:link href="https://docs.reduxframework.com/extensions/custom-fonts/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com/extensions/custom-fonts/</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Mon, 06 Aug 2018 23:10:23 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/extensions/custom-fonts/#comment-717</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Fri, 02 Jun 2017 01:19:59 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=847#comment-717</guid>
+		<description><![CDATA[As an extension, no.  We&#039;re going to include something similar in the premium version of Redux that is in the works.]]></description>
+		<content:encoded><![CDATA[<p>As an extension, no.  We&#8217;re going to include something similar in the premium version of Redux that is in the works.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: danielwebguy</title>
+		<link>https://docs.reduxframework.com/extensions/custom-fonts/#comment-684</link>
+		<dc:creator><![CDATA[danielwebguy]]></dc:creator>
+		<pubDate>Sun, 12 Feb 2017 19:15:37 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=847#comment-684</guid>
+		<description><![CDATA[hi, any news about this?]]></description>
+		<content:encoded><![CDATA[<p>hi, any news about this?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/extensions/custom-fonts/#comment-574</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Sun, 31 Jan 2016 22:19:28 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=847#comment-574</guid>
+		<description><![CDATA[At this time, it is not.  We hope to retool it someday.]]></description>
+		<content:encoded><![CDATA[<p>At this time, it is not.  We hope to retool it someday.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: ThemeDirect</title>
+		<link>https://docs.reduxframework.com/extensions/custom-fonts/#comment-572</link>
+		<dc:creator><![CDATA[ThemeDirect]]></dc:creator>
+		<pubDate>Thu, 14 Jan 2016 14:14:44 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=847#comment-572</guid>
+		<description><![CDATA[Hi,
+Is this extention still available to buy?]]></description>
+		<content:encoded><![CDATA[<p>Hi,<br />
+Is this extention still available to buy?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

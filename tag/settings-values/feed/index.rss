@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>settings values &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/settings-values/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Setting Redux Values on Plugin Activation</title>
+		<link>https://docs.reduxframework.com/core/advanced/setting-redux-values-on-plugin-activation/</link>
+		<pubDate>Sat, 15 Mar 2014 03:28:19 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[plugin activation]]></category>
+		<category><![CDATA[settings values]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=456</guid>
+		<description><![CDATA[<p>Because of how/when Redux must run to work both embedded in themes and within plugins, a little massaging must occur if you want to set Redux values on plugin activation. In short, if you&#8217;re not using the save_defaults argument you will have to manually set the values in the database. So the typical set_option and [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/setting-redux-values-on-plugin-activation/">Setting Redux Values on Plugin Activation</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<div id="wiki-content">
+<div>
+<div id="wiki-body">
+<div>
+<p>Because of how/when Redux must run to work both embedded in themes and within plugins, a little <em>massaging</em> must occur if you want to set Redux values on plugin activation.</p>
+<p>In short, if you&#8217;re not using the <a href="/core/arguments/#save_defaults"><code>save_defaults</code></a> argument you will have to manually set the values in the database.</p>
+<p>So the typical set_option and get_option should be used on plugin activation matching your opt_name as the key.</p>
+<p>If you let Redux do it all, then you need but set your default values and away you go.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/setting-redux-values-on-plugin-activation/">Setting Redux Values on Plugin Activation</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

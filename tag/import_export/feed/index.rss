@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>import_export &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/import_export/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Getting started with Fields</title>
+		<link>https://docs.reduxframework.com/core/fields/getting-started-with-fields/</link>
+		<pubDate>Mon, 10 Mar 2014 20:20:29 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[ace_editor]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[button_set]]></category>
+		<category><![CDATA[checkbox]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[color_gradient]]></category>
+		<category><![CDATA[color_rgba]]></category>
+		<category><![CDATA[date]]></category>
+		<category><![CDATA[dimensions.divide]]></category>
+		<category><![CDATA[editor]]></category>
+		<category><![CDATA[gallery]]></category>
+		<category><![CDATA[image_select]]></category>
+		<category><![CDATA[import_export]]></category>
+		<category><![CDATA[info]]></category>
+		<category><![CDATA[link_color]]></category>
+		<category><![CDATA[media]]></category>
+		<category><![CDATA[multi_text]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[radio]]></category>
+		<category><![CDATA[raw]]></category>
+		<category><![CDATA[section]]></category>
+		<category><![CDATA[select]]></category>
+		<category><![CDATA[select_image]]></category>
+		<category><![CDATA[slider]]></category>
+		<category><![CDATA[slides]]></category>
+		<category><![CDATA[sortable]]></category>
+		<category><![CDATA[sorter]]></category>
+		<category><![CDATA[spacing]]></category>
+		<category><![CDATA[spinner]]></category>
+		<category><![CDATA[switch]]></category>
+		<category><![CDATA[text]]></category>
+		<category><![CDATA[textarea]]></category>
+		<category><![CDATA[typography]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=14</guid>
+		<description><![CDATA[<p>Fields are blocks of arrays that represent the individual options within a specific options panel, set via a Sections array.  The Section array contains an argument titled fields, which accepts an array, or several blocks of arrays, separated by commas.  This is where all field arrays are place.  A basic example is shown below. For [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/getting-started-with-fields/">Getting started with Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Fields are blocks of arrays that represent the individual options within a specific options panel, set via a <a title="Section" href="/redux-framework/fields/section/">Sections</a> array.  The Section array contains an argument titled fields, which accepts an array, or several blocks of arrays, separated by commas.  This is where all field arrays are place.  A basic example is shown below. For specific examples, please consult the <a target="_blank" href="https://github.com/ReduxFramework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> file that comes with the Redux package.</p>
+<h3>Example</h3>
+<pre class="brush: php; title: ; notranslate">
+$this-&gt;sections[] = array(
+    'title'   =&gt; 'New Section',
+    'icon'    =&gt; 'el-icon-cogs',
+    'heading' =&gt; 'Expanded New Section Title',
+    'desc'    =&gt; '&lt;br /&gt;This is the section description.  HTML is permitted.&lt;br /&gt;'
+    'fields'  =&gt; array(
+        array(
+            'id'    =&gt; 'opt-text',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'A sample text box',
+        ),
+        array(
+            'id'    =&gt; 'opt-text-2',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'Another sample text box',
+        ),
+    ),
+);
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/getting-started-with-fields/">Getting started with Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

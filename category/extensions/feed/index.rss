@@ -1,0 +1,2165 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Extensions &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/category/extensions/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Taxonomy</title>
+		<link>https://docs.reduxframework.com/extensions/taxonomy/</link>
+		<comments>https://docs.reduxframework.com/extensions/taxonomy/#respond</comments>
+		<pubDate>Tue, 20 Dec 2016 00:05:43 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1224</guid>
+		<description><![CDATA[<p>If you are used the ReduxFramework declaration arrays, you know Redux Taxonomy. They&#8217;re one and the same! The only difference is a parent array. We&#8217;ll go through a few examples to get you up and running. Please know, you MUST have an options page for taxonomy to work. They&#8217;re inter-connected. You can, however, make a [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/taxonomy/">Taxonomy</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>If you are used the ReduxFramework declaration arrays, you know Redux Taxonomy. They&#8217;re one and the same! The only difference is a parent array. We&#8217;ll go through a few examples to get you up and running. Please know, you MUST have an options page for taxonomy to work. They&#8217;re inter-connected. You can, however, make a fake options panel, and hide it from the admin menu. </p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. </p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td>Name</td>
+<td>Type</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>You must provide an ID of some kind. This can be shared with your keys from your panel, and if so the values will be overridden for that given page in your global variable.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>This is the title that appears on the box</td>
+</tr>
+<tr>
+<td>taxonomy_types</td>
+<td>array</td>
+<td>Provide any number of taxonomy slugs for a given &#8220;term&#8221; box to appear.</td>
+</tr>
+<tr>
+<td>add_visibility</td>
+<td>boolean</td>
+<td>All fields are by default hidden on the add term (edit-term.php) page. By specifying true to a &#8220;term&#8221; box, section, or field, it will be visible on this page.</td>
+</tr>
+<tr>
+<td>style</td>
+<td>string<br />wp|wordpress</td>
+<td>Removes the Redux box &#038; sections styles to look like standard WordPress input fields. Must be used at the &#8220;box&#8221; level.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>array</td>
+<td>Just like standard Redux, you can set permission levels for &#8220;term&#8221; boxes, sections, or fields.</td>
+</tr>
+<tr>
+<td>sections</td>
+<td>array</td>
+<td>Your sections array, the same style as a standard Redux config file.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example Declaration</h2>
+<p>Since we&#8217;ve kept the structure exactly the same, start by constructing a section array like you normally would. We then add a level above called a &#8220;term&#8221; box, and away we go!</p>
+<pre class="brush: php; title: ; notranslate">
+Redux_Taxonomy::setTerm( $opt_name, array(
+        'id'             =&gt; 'demo-taxonomy',
+        'title'          =&gt; __( 'Cool Options', 'redux-framework-demo' ),
+        'taxonomy_types' =&gt; array( 'category', 'post_tag' ),
+        // Slug for every taxonomy you want
+        'sidebar'        =&gt; false,
+        // Sidebar with default Redux designs. If only one section is defined, this will be set to true.
+        'style'       =&gt; 'wp',
+        // Removes the Redux box/section styles. Makes Redux Taxonomy look like standard WP fields.
+        //'add_visibility' =&gt; true, // Can bet set on term, section, or field level. Denotes what fields to be displayed on the add {TERM} pages.
+        'sections'       =&gt; array(
+            array(
+                'title'  =&gt; __( 'Home Settings', 'redux-framework-demo' ),
+                'icon'   =&gt; 'el-icon-home',
+                'fields' =&gt; array(
+                    array(
+                        'id'             =&gt; 'text1',
+                        'type'           =&gt; 'text',
+                        'add_visibility' =&gt; true,
+                        'title'          =&gt; __( 'Test Input', 'redux-framework-demo' ),
+                    ),
+                    array(
+                        'id'    =&gt; 'text1',
+                        'type'  =&gt; 'text',
+                        'title' =&gt; __( 'Test Input2', 'redux-framework-demo' ),
+                    ),
+                )
+            ),
+            array(
+                'title'  =&gt; __( 'Home Layout', 'redux-framework-demo' ),
+                'desc'   =&gt; __( 'Redux Framework was created with the developer in mind. It allows for any theme developer to have an advanced theme panel with most of the features a developer would need. For more information check out the Github repo at: &lt;a href=&quot;https://github.com/ReduxFramework/Redux-Framework&quot;&gt;https://github.com/ReduxFramework/Redux-Framework&lt;/a&gt;', 'redux-framework-demo' ),
+                'icon'   =&gt; 'el-icon-home',
+                'fields' =&gt; array(
+                    array(
+                        &quot;id&quot;             =&gt; &quot;homepage_blocks&quot;,
+                        &quot;type&quot;           =&gt; &quot;sorter&quot;,
+                        &quot;title&quot;          =&gt; &quot;Homepage Layout Manager&quot;,
+                        &quot;desc&quot;           =&gt; &quot;Organize how you want the layout to appear on the homepage&quot;,
+                        &quot;compiler&quot;       =&gt; 'true',
+                        'add_visibility' =&gt; true,
+                        'required'       =&gt; array( 'layout', '=', '1' ),
+                        'options'        =&gt; array(
+                            &quot;enabled&quot;  =&gt; array(
+                                &quot;placebo&quot;    =&gt; &quot;placebo&quot;, //REQUIRED!
+                                &quot;highlights&quot; =&gt; &quot;Highlights&quot;,
+                                &quot;slider&quot;     =&gt; &quot;Slider&quot;,
+                                &quot;staticpage&quot; =&gt; &quot;Static Page&quot;,
+                                &quot;services&quot;   =&gt; &quot;Services&quot;
+                            ),
+                            &quot;disabled&quot; =&gt; array(
+                                &quot;placebo&quot; =&gt; &quot;placebo&quot;, //REQUIRED!
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        )
+    )
+);
+</pre>
+<h2>Example Usage</h2>
+<p>Getting the data from a taxonomy term is as simple as using regular WordPress, and the <code>get_term_meta()</code> function. However, to keep things slim, Redux_Taxonomy never saves defaults to the database. If you want the default values, you need to use our custom function.</p>
+<pre class="brush: php; title: ; notranslate">
+    $data = Redux_Taxonomy::get_term_meta( 
+        array( 
+            'taxonomy' =&gt; $tag_id, // Taxonomy ID, also required
+            'opt_name'=&gt; $opt_name, // Required
+            'key'=&gt; false, // If you only want one value instead of the full array
+        ) 
+    );
+</pre>
+<p>This will return an array with all the meta for that taxonomy, as well as all the defaults. You will, however, have to know the ID of the term you wish to grab the defaults from.</p>
+<h3>Missing Sidebar?!</h3>
+<p>For boxes with only one section, the sidebar is omitted when the HTML is output. If you want a side bar, use at least two sections within any given &#8220;term&#8221; box.</p>
+<h3>How are the Redux Taxonomy Values Stored?</h3>
+<p>Redux Taxonomy stores each value as it&#8217;s own key in the taxonomy meta using the new WordPress <code>update_term_meta()</code> and <code>delete_term_meta()</code> functions. In this way, you can query against specific taxonomy values. If a value is default, our extension deletes it from the database to reduce on bloat.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/taxonomy/">Taxonomy</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/taxonomy/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Google Maps</title>
+		<link>https://docs.reduxframework.com/extensions/google-maps/</link>
+		<comments>https://docs.reduxframework.com/extensions/google-maps/#comments</comments>
+		<pubDate>Wed, 10 Feb 2016 02:40:56 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[address]]></category>
+		<category><![CDATA[api_key]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[full_width]]></category>
+		<category><![CDATA[google]]></category>
+		<category><![CDATA[google maps]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[latitude]]></category>
+		<category><![CDATA[longitude]]></category>
+		<category><![CDATA[map_type_control]]></category>
+		<category><![CDATA[map_version]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[satellite]]></category>
+		<category><![CDATA[scroll_wheel]]></category>
+		<category><![CDATA[show_address]]></category>
+		<category><![CDATA[show_api_key]]></category>
+		<category><![CDATA[show_city]]></category>
+		<category><![CDATA[show_latitude]]></category>
+		<category><![CDATA[show_longitude]]></category>
+		<category><![CDATA[show_marker_info]]></category>
+		<category><![CDATA[show_postal]]></category>
+		<category><![CDATA[show_route]]></category>
+		<category><![CDATA[show_state]]></category>
+		<category><![CDATA[street view]]></category>
+		<category><![CDATA[street_view_control]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1120</guid>
+		<description><![CDATA[<p>The Redux Google Map extension offers users the ability to search for map locations via the Redux options panel using the Google Maps API.  Such an extension comes in very handy when outputting maps and markers on the front-end of theme pages, using latitude/longitude return values with the Google Maps API. DISCLAIMER:  This extension does [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/google-maps/">Google Maps</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Google Map extension offers users the ability to search for map locations via the Redux options panel using the Google Maps API.  Such an extension comes in very handy when outputting maps and markers on the front-end of theme pages, using latitude/longitude return values with the Google Maps API.</p>
+<p><a href="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps.png" rel="attachment wp-att-1124"><img class="alignnone size-full wp-image-1124" src="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps.png" alt="google_maps" width="1032" height="518" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps.png 1032w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps-300x151.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps-768x385.png 768w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps-1024x514.png 1024w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps-60x30.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/02/google_maps-150x75.png 150w" sizes="(max-width: 1032px) 100vw, 1032px" /></a></p>
+<p><strong>DISCLAIMER</strong>:  This extension does not &#8211; repeat &#8211; does <strong>NOT</strong> output any type of Google map through usage in front-end theme code.  It simply takes the location the user chooses within the map interface and saves the address components, latitude, longitude, and marker information to the database (see Example Usage below).  You &#8211; the developer &#8211; may then use this information to generate and display maps via the Google Maps API using shortcodes, or any other means appropriate to your theme.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="https://build.reduxframework.com" target="_blank">Redux Builder</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;google_maps&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>full_width</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set the field full width or tabled.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>&#8220;Enter your address&#8221;</td>
+<td>Text to appear in the search box when no data is present.</td>
+</tr>
+<tr>
+<td>marker_tooltip</td>
+<td>string</td>
+<td>&#8220;Left mouse down on top of me to move me!&#8221;</td>
+<td>Set&#8217;s the tooltip text that appears when hovering over the place marker.</td>
+</tr>
+<tr>
+<td>no_geometry_alert</td>
+<td>string</td>
+<td>&#8220;The returned place contains no geometric data.&#8221;</td>
+<td> Set&#8217;s the message to appear via JavaScript alert when the selected place contains no geometric data.</td>
+</tr>
+<tr>
+<td> map_height</td>
+<td> string</td>
+<td> 250px</td>
+<td> Adjust the height of the map on screen.  Please include the unit type with your settings (px, em, %, etc).</td>
+</tr>
+<tr>
+<td>show_api_key</td>
+<td>bool</td>
+<td>true</td>
+<td>Displays a button beneath the map where clients may enter their own Google Maps API key data.  See Google Maps API Key below.</td>
+</tr>
+<tr>
+<td>scroll_wheel</td>
+<td>bool</td>
+<td>false</td>
+<td>Sets the flag which allows or prevents map zooming when using the mouse wheel.</td>
+</tr>
+<tr>
+<td>street_view_control</td>
+<td>bool</td>
+<td>true</td>
+<td>Sets the flag to display or hide the street view control.</td>
+</tr>
+<tr>
+<td>map_type_control</td>
+<td>bool</td>
+<td>true</td>
+<td>Sets the flag to display or hide the map type (satellite) control.</td>
+</tr>
+<tr>
+<td>show_controls</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the autocomplete control bat the the top of the map.</td>
+</tr>
+<tr>
+<td>show_address</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the street name and number text boxes.</td>
+</tr>
+<tr>
+<td>show_city</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the city text box.</td>
+</tr>
+<tr>
+<td>show_state</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the state text box.</td>
+</tr>
+<tr>
+<td>show_postal</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the zip/post code text box.</td>
+</tr>
+<tr>
+<td>show_country</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the country text box.</td>
+</tr>
+<tr>
+<td>show_latitude</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the latitude text box.</td>
+</tr>
+<tr>
+<td>show_longitude</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the longitude text box.</td>
+</tr>
+<tr>
+<td>show_marker_info</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the marker info text box.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of values specifying the default values of the map.  See Google Map Default Values below.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="/redux-framework/advanced/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Advanced Arguments</h2>
+<p>These arguments should only be set if you are familiar with the Google Maps API and/or are providing an API for distribution with your theme. Otherwise, it is not recommended to change these.</p>
+<table border="0">
+<tbody>
+<tr>
+<td>api_key</td>
+<td>string</td>
+<td></td>
+<td>(Optional) String value of the API key to use with Google Maps.</td>
+</tr>
+<tr>
+<td> map_version</td>
+<td>string</td>
+<td> 3.exp</td>
+<td>Google Map API version number.</td>
+</tr>
+</tbody>
+</table>
+<h2>Google Map Default Values</h2>
+<p>For this extension, default values are optional.  Leaving them blank (or not settings them at all) will default the Google Map to the United States of America.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>street_number</td>
+<td>string</td>
+<td></td>
+<td>The address street number</td>
+</tr>
+<tr>
+<td>route</td>
+<td>string</td>
+<td></td>
+<td>The name of the road, street, lane, etc.</td>
+</tr>
+<tr>
+<td>locality</td>
+<td>string</td>
+<td></td>
+<td>The name of the town or city.</td>
+</tr>
+<tr>
+<td>administrative_area_level_1</td>
+<td>string</td>
+<td></td>
+<td>The name of the state, union, territory, etc.</td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>string</td>
+<td></td>
+<td>The number of the ZIP or postal code.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>string</td>
+<td></td>
+<td>The name of the country.</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>string/float</td>
+<td></td>
+<td>The float (decimal) value representing the latitude value.</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>string/float</td>
+<td></td>
+<td>The float (decimal) value representing the longitude value.</td>
+</tr>
+<tr>
+<td>marker_info</td>
+<td>string</td>
+<td></td>
+<td>Text to appear over the map marker when the map marker is clicked.</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>string/int</td>
+<td> 3 &#8211; when using lat/lng</p>
+<p>17 &#8211; when using addresses.</td>
+<td>The amount of zoom in which to set the map.</td>
+</tr>
+</tbody>
+</table>
+<h2>Google Maps API Key</h2>
+<p>The Redux Google Maps extension does not contain an API Key.  This constitutes the standard usage limit for the Google Maps API, which is free until exceeding 25,000 map loads per 24 hours for 90 consecutive days.  In most normal situations, since these maps are only loaded on displayed in your options panel, to break such a limit would be unusual.  However, since nothing is impossible, if this limit should be reached, it may become necessary to obtain a Google Maps API Key.  It is not your responsibility as a theme developer to provide one with your theme.  We&#8217;ve included a Google Maps API Key feature in the extension where your users are given this information with links to obtain their own unique key for high usage.  While we&#8217;ve provided very general information about this via our interface, it&#8217;s recommended you include this information in your theme documentation so your users are aware of such limitations and if necessary, how to deal with them.</p>
+<p>If your theme uses the rendering of Google Maps on the front end via a shortcode or Visual Composer and have chosen to include a Google Maps API Key with your theme, you may set this key via the <code>api_key</code> argument as described in the Advanced Arguments section above.</p>
+<p>For more information about Google Maps API Usage guidelines, please visit <a href="https://developers.google.com/maps/documentation/javascript/usage" target="_blank">https://developers.google.com/maps/documentation/javascript/usage</a></p>
+<p>For more information on obtaining a Google Maps API Key, please visit: <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">https://developers.google.com/maps/documentation/javascript/get-api-key</a></p>
+<h2>Example Declaration</h2>
+<p>Under normal circumstances, it probably will not be necessary to set any default values, as your users will ultimate want to set their own via the map interface.  However, if you have a reason to set to defaults, please take note of the following limitations:</p>
+<p><strong>NOTE</strong>:  The Google Fonts extension will always use the latitude and longitude settings first, so set a map.  It will ignore address settings.  Both <code>latitude </code>and <code>longitude </code>arguments must be set.  It cannot be one or the other, otherwise Google Map will display wither the address information (if any is set) or display the default full map of America.</p>
+<p><strong>NOTE</strong>:  If setting only the <code>latitude </code>and <code>longitude </code>arguments, no address data will be displayed or generated.  Alternatively, if address information is set, Google Maps will return the closest latitude/longitude coordinates.</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-google-maps',
+    'type'      =&gt; 'google_maps',
+    'title'     =&gt; 'Google Maps',
+    'subtitle'  =&gt; 'Select a location from the map below.',
+    'full_width'=&gt; true,
+    'default'   =&gt; array (
+        // It's not necessary to fill out *every* default value for any 
+        // given location.  We are doing so here for sample purposes.
+        'street_number' =&gt; '1600',
+        'route'         =&gt; 'Pennsylvania Avenue Northwest',
+        'locality'      =&gt; 'Washington',
+        'administrative_area_level_1' =&gt; 'DC',
+        'postal_code'   =&gt; '20500',
+        'country'       =&gt; 'United States',
+        'latitude'      =&gt; '38.8976758',
+        'longitude'     =&gt; '-77.03648229999999',
+        'marker_info'   =&gt; 'Home of the President of the United States.',
+    )
+),
+</pre>
+<h2>Example Usage</h2>
+<p>The extension&#8217;s return value is an array of the default values above and their values. The default values returned will remain unchanged if the user does not change the map&#8217;s location. When they do, the new location information will be output. (Please remember to replace <code>redux_demo</code> with your own <code><a title="opt_name" href="/redux-framework/arguments/opt_name">opt_name</a></code> argument).</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo $redux_demo['opt-google-maps']['street_number'];
+echo $redux_demo['opt-google-maps']['route'];
+echo $redux_demo['opt-google-maps']['locality'];
+echo $redux_demo['opt-google-maps']['administrative_area_level_1'];
+echo $redux_demo['opt-google-maps']['postal_code'];
+echo $redux_demo['opt-google-maps']['country'];
+echo $redux_demo['opt-google-maps']['latitude'];
+echo $redux_demo['opt-google-maps']['longitude'];
+echo $redux_demo['opt-google-maps']['marker_info'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/google-maps/">Google Maps</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/google-maps/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>About Extensions</title>
+		<link>https://docs.reduxframework.com/extensions/using-extensions/</link>
+		<comments>https://docs.reduxframework.com/extensions/using-extensions/#respond</comments>
+		<pubDate>Mon, 06 Jul 2015 21:48:39 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1051</guid>
+		<description><![CDATA[<p>One of the most powerful features of Redux are extensions. With extensions you can override or customize any field type, or even extend Redux to do more than it was originally meant to do. With extensions we&#8217;ve built metaboxes, customizer support, and a slew of field types. Loading Extensions By using the Redux API, you can [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/using-extensions/">About Extensions</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>One of the most powerful features of Redux are extensions. With extensions you can override or customize any field type, or even extend Redux to do more than it was originally meant to do. With extensions we&#8217;ve built metaboxes, customizer support, and a slew of field types.</p>
+<h3>Loading Extensions</h3>
+<p>By using the Redux API, you can very easily load extensions. You do so with the following command:</p>
+<pre class="brush: php; title: ; notranslate">Redux::setExtensions( 'OPT_NAME', 'FULL PATH' );</pre>
+<p>Be sure to replace <em>OPT_NAME</em> with your opt_name and <em>FULL PATH</em> with the full path to your extension(s) location.</p>
+<p>This can be used to reference a single extension, or a folder of extensions. The choice of yours.</p>
+<p>A typical &#8220;extensions&#8221; directory would look somewhat like this:</p>
+<div style="padding-left: 30px;"><em>extensions</em></div>
+<div style="padding-left: 60px;"><em>metaboxes</em></div>
+<div style="padding-left: 90px;"><em>extension_metaboxes.php</em></div>
+<h3>Creating Your Own Extension</h3>
+<p>Creating your own extension is quite easy and virtually painless. We even have a boilerplate for you which can be found here:</p>
+<p style="text-align: center;"><a href="https://github.com/reduxframework/extension-boilerplate" target="_blank">https://github.com/reduxframework/extension-boilerplate</a></p>
+<p>The concept is simple. The folder, extension php filename, and extension class name, must all match. Place any ajax calls within the extension_YOURNAMEHERE.php file, and place your field specific logic (if it is a field) within the other files. Then make ANYTHING you want for Redux. <img src="https://s.w.org/images/core/emoji/11/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p></p>
+<h3>Loading Extensions &#8211; The Legacy Method</h3>
+<p>If you are not using the Redux API, then you need to use the legacy method for extensions. This involves a custom loader function being run BEFORE you run your Redux config. You can find full details for this method here.</p>
+<p><a href="https://github.com/reduxframework/redux-extensions-loader" target="_blank">https://github.com/reduxframework/redux-extensions-loader<br /></a></p>
+<p>Please not that this method is deprecated and we will not provide support for it any longer.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/using-extensions/">About Extensions</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/using-extensions/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Accordion</title>
+		<link>https://docs.reduxframework.com/extensions/accordion/</link>
+		<comments>https://docs.reduxframework.com/extensions/accordion/#respond</comments>
+		<pubDate>Thu, 26 Mar 2015 01:07:37 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[accordion]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[close-icon]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[open-icon]]></category>
+		<category><![CDATA[position]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=916</guid>
+		<description><![CDATA[<p>The Redux Accordion extension is an improved way to group like items in your options panel, inside a collapsible accordion field.  Such a feature comes in handy when a given options panel has many, many items that don&#8217;t need to be shown simultaneously. Getting Started To understand how to use extensions, you should read this [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/accordion/">Accordion</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Accordion extension is an improved way to group like items in your options panel, inside a collapsible accordion field.  Such a feature comes in handy when a given options panel has many, many items that don&#8217;t need to be shown simultaneously. </p>
+<p><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion.png" alt="accordion" class="alignnone size-full wp-image-919" height="400" width="944" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion.png 944w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion-300x127.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion-60x25.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion-150x64.png 150w" sizes="(max-width: 944px) 100vw, 944px" /></a></p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;accordion&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>position</td>
+<td>string</td>
+<td></td>
+<td>Either start or end, depending on whether the array begins or ends the accordion block.  See Example Declaration below.</td>
+</tr>
+<tr>
+<td>open</td>
+<td>boolean</td>
+<td>false</td>
+<td>If set to true, accordion will be open. If set to false, accordion will be closed by default.</td>
+</tr>
+<tr>
+<td>open-icon</td>
+<td>string</td>
+<td>el-plus</td>
+<td>The <a target="_blank" href="http://elusiveicons.com/">Elusive Icon</a> to show when the accordion is closed (to be opened).  At this time, only Elusive Icons are supported.</td>
+</tr>
+<tr>
+<td>close-icon</td>
+<td>string</td>
+<td>el-minus</td>
+<td>The <a target="_blank" href="http://elusiveicons.com/">Elusive Icon</a> to show when the accordion is open (to be closed).  At this time, only Elusive Icons are supported.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example Declaration</h2>
+<p>The following example in included with the Accordion extension package.</p>
+<p><strong>NOTE:</strong> Each Accordion block MUST have an opening array with the <code>position</code> argument set to <code>start</code>, AND a closing array with the <code>position</code> argument set to <code>end</code>. Any fields you wish to display inside the accordion block would be added between the <code>start</code> and <code>end</code> arrays.</p>
+<pre class="brush: php; title: ; notranslate">
+// First Accordion
+array(
+    'id'        =&gt; 'opt-accordion-begin-1',
+    'type'      =&gt; 'accordion',
+    'title'     =&gt; 'Accordion Section One',
+    'subtitle'  =&gt; 'Section one with subtitle',
+    'position'  =&gt; 'start',    ),
+),
+    array(
+        'id'       =&gt; 'opt-blank-text-1',
+        'type'     =&gt; 'text',
+        'title'    =&gt; 'Textbox for some noble purpose.',
+        'subtitle' =&gt; 'Frailty, thy name is woman!'
+    ),
+    array(
+        'id'       =&gt; 'opt-blank-text-2',
+        'type'     =&gt; 'switch',
+        'title'    =&gt; 'Switch, for some other important task!',
+        'subtitle' =&gt; 'Physician, heal thyself!'
+    ),             
+array(
+    'id'        =&gt; 'opt-accordion-end-1',
+    'type'      =&gt; 'accordion',
+    'position'  =&gt; 'end'
+),
+
+// Second Accordion
+array(
+    'id'       =&gt; 'opt-accordion-begin-2',
+    'type'     =&gt; 'accordion',
+    'title'    =&gt; 'Accordion Section Two (no subtitle)',
+    'position'  =&gt; 'start',
+),
+    array(
+        'id'       =&gt; 'opt-blank-text-3',
+        'type'     =&gt; 'text',
+        'title'    =&gt; 'Look, another sample textbox.',
+        'subtitle' =&gt; 'The tartness of his face sours ripe grapes.'
+    ),
+    array(
+        'id'       =&gt; 'opt-blank-text-4',
+        'type'     =&gt; 'switch',
+        'title'    =&gt; 'Yes, another switch, but you\'re free to use any field you like.',
+        'subtitle' =&gt; 'I scorn you, scurvy companion!'
+    ),             
+array(
+    'id'        =&gt; 'opt-accordion-end-2',
+    'type'      =&gt; 'accordion',
+    'position'  =&gt; 'end'
+)
+</pre>
+<p>The Accordion field has no return values for use on the front end of your site. It is simply a tool to easier block and manage multiple options, providing your user for a cleaner and more appealing visual experience.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/accordion/">Accordion</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/accordion/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Icon Select</title>
+		<link>https://docs.reduxframework.com/extensions/icon-select/</link>
+		<comments>https://docs.reduxframework.com/extensions/icon-select/#comments</comments>
+		<pubDate>Sun, 08 Mar 2015 16:09:05 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=881</guid>
+		<description><![CDATA[<p>The entire purpose of the icon_select field is to reduce your effort as a developer. You feed it a web font CSS file via path or URL and it automatically parses the class names. Then you specify a font prefix and it auto-appends that as well. What you get in the end is a fully [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/icon-select/">Icon Select</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The entire purpose of the icon_select field is to reduce your effort as a developer. You feed it a web font CSS file via path or URL and it automatically parses the class names. Then you specify a font prefix and it auto-appends that as well. What you get in the end is a fully functional class that you can use on any field to get the icon you desire. Oh, did I mention it auto-enqueues your font file for you as well?   <img src="https://s.w.org/images/core/emoji/11/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM.png" alt="Screen-Shot-2014-02-01-at-8.58.10-AM" width="1325" height="276" class="alignnone size-full wp-image-885" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM.png 1325w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM-300x62.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM-1024x213.png 1024w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM-60x12.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2014-02-01-at-8.58.10-AM-150x31.png 150w" sizes="(max-width: 1325px) 100vw, 1325px" /></a></p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>.  To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>.  Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<p>By default, if you do not specify any of the special argument icon_select will auto-parse the elusive-icons font already embedded within Redux. It will also enqueue this font in the front-end so you can begin working with icons instantly. Alternatively, you can provide any of the arguments below for a more customized experience.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Specify a full font class name with the prefix as well</td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Prefer to just do everything by hand? Just send us the font names in a key=>value pair and we’ll do the rest. Know that enqueuing cannot work when you do this.</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td>string</td>
+<td></td>
+<td>Some font frameworks append a class prefix to denote their class. This is used here. An example of this would be fa, a class used by font-awesome to tell you this is a font-awesome font.</td>
+</tr>
+<tr>
+<td>selector</td>
+<td>string</td>
+<td></td>
+<td>Icon Select parses the classes from a CSS file by denoting a selector. Let’s take a look at a typical font class name for elusive fonts: el-icon-youtube. The selector would be el- or el-icon-, and we would need to pass this into the selector argument to parse the class file appropriately.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td>250px</td>
+<td>Change the height of the area displaying the icons. This area will always be scrollable. You may pass any unit you choose.</td>
+</tr>
+<tr>
+<td>enqueue</td>
+<td>boolen</td>
+<td>true</td>
+<td>You can disable the enqueing of this font in the admin panel, but I don’t know why anyone would want to do that.</td>
+</tr>
+<tr>
+<td>enqueue_frontend</td>
+<td>bool</td>
+<td>true</td>
+<td>Use this to disable the enqueuing of your font in the front-end if you’ve already done so in your own code.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="/redux-framework/advanced/integrating-a-compiler/"> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'=&gt;'icon_select_field',
+    'type' =&gt; 'icon_select', 
+    //'required' =&gt; array('switch-fold','equals','0'),	
+    'title' =&gt; __('Icon Select', 'redux-framework-demo'),
+    'subtitle'	=&gt; __('Select an icon.', 'redux-framework-demo'),
+    //'default' 	=&gt; '',
+    //'options' =&gt; array(), // key/value pair, value is the title
+    //'enqueue' =&gt; false, // Disable auto-enqueue of stylesheet if present in the panel
+    //'enqueue_frontend' =&gt; false, // Disable auto-enqueue of stylesheet on the front-end
+    //'stylesheet' =&gt; 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', // full path OR url to stylesheet
+    //'prefix' =&gt; 'fa', // If needed to initialize the icon
+    //'selector' =&gt; 'fa-', // How each icons begins for this given font
+    //'height' =&gt; 300 // Change the height of the container. defaults to 300px;
+),
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <code><a href="/redux-framework/arguments/opt_name/" title="opt_name">opt_name</a></code> argument.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo '&lt;i class=&quot;' . $redux_demo['icon_select_field'] . '&quot;&gt;&lt;/i&gt;';
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/icon-select/">Icon Select</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/icon-select/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Custom Fonts</title>
+		<link>https://docs.reduxframework.com/extensions/custom-fonts/</link>
+		<comments>https://docs.reduxframework.com/extensions/custom-fonts/#comments</comments>
+		<pubDate>Sat, 24 Jan 2015 16:33:39 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=847</guid>
+		<description><![CDATA[<p>The Custom Fonts extensions is for users to upload a .ttf, .woff, .otf, or .zip containing any of the afore mentioned fonts. It will then generate whatever fonts it may need, and make the font accessible via the typography field within Redux. A custom font CSS file will be enqueued to the panel as well [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/custom-fonts/">Custom Fonts</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Custom Fonts extensions is for users to upload a .ttf, .woff, .otf, or .zip containing any of the afore mentioned fonts. It will then generate whatever fonts it may need, and make the font accessible via the typography field within Redux. A custom font CSS file will be enqueued to the panel as well as the frontend.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Placement of the Custom Fonts Field</h2>
+<p>By default the custom fonts field is added to a dynamic section at the end of your panel called Font Control. Once you load the extension it does all the heavy lifting.</p>
+<p>Now with Custom Fonts 1.0.2, you can now move the field to any section you desire. You need only include one field of type <code>custom_fonts</code>, and custom fonts will be added wherever you specify. The dynamic section called Font Control will be removed. This new feature requires Custom Fonts 1.0.2+ as well as Redux 3.4.1+.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/custom-fonts/">Custom Fonts</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/custom-fonts/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Repeater</title>
+		<link>https://docs.reduxframework.com/extensions/repeater/</link>
+		<comments>https://docs.reduxframework.com/extensions/repeater/#comments</comments>
+		<pubDate>Tue, 13 Jan 2015 21:02:26 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=779</guid>
+		<description><![CDATA[<p>The Redux Repeater extension easily allows developers to group like fields in a dynamic manner, or static number. Allowing values to be grouped (nested) under a single key, or under each individual key. All values will be returned as an array. Incompatible Fields Due to the complexities of this extension, the following Redux fields WILL [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/repeater/">Repeater</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Repeater extension easily allows developers to group like fields in a dynamic manner, or static number. Allowing values to be grouped (nested) under a single key, or under each individual key. All values will be returned as an array.</p>
+<h2><span style="color: #D80303;">Incompatible Fields</h2>
+<p>Due to the complexities of this extension, the following Redux fields <strong>WILL NOT</strong> (at this time) function within a repeater.</p>
+<ul>
+<li>Checkbox (Multi) &#8211; Multi-check (options array) not functioning, single check is fine</li>
+<li>Sorter &#8211; Not working</li>
+<li>Typography &#8211; Will crash your panel. Don&#8217;t try it, yet.</li>
+<li>Editor &#8211; Works fine, but CSS is messed up. (jQuery UI stuff)</li>
+</ul>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;repeater&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the repeatable block of fields.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the repeatable block of fields, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the repeatable block of fields, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>array</td>
+<td></td>
+<td>Array of fields to be within each repeater block.</td>
+</tr>
+<tr>
+<td>group_values</td>
+<td>boolen</td>
+<td>false</td>
+<td>Argument to group all fields within the repeater ID.</td>
+</tr>
+<tr>
+<td>item_name</td>
+<td>string</td>
+<td>true</td>
+<td>String added after Add/Delete to denote the name of the items you are adding to or deleting. Example: <code>Delete Fields</code>, Fields being the item_name.</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td>bind_title</td>
+<td>string</td>
+<td>true</td>
+<td>By default the first field will be used as the title for each repeater block. You may also pass in a string denoting an ID to use as the title for each repeater block.</td>
+</tr>
+<tr>
+<td>static</td>
+<td>int</td>
+<td></td>
+<td>Number of static repeater groups to display. This will also disable the add/remove buttons next to each repeater block.</td>
+</tr>
+<tr>
+<td>sortable</td>
+<td>boolean</td>
+<td>true</td>
+<td>Allow your users to drag/drop repeater blocks and by so doing reorder the results.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>10</td>
+<td>If <code>static</code> is false, this will limit the number of repeater blocks that can be created.</td>
+</tr>
+</tbody>
+</table>
+<h2>Extended Argument Details</h2>
+<h4>The <code>static</code> Argument</h4>
+<p>By default repeater is a dynamic field, however it can act with a predefined  number of static repeater blocks. This allows developers to specifically set the number of repeater blocks they desire to use.</p>
+<h4>The <code>bind_title</code> Argument</h4>
+<p>By default the first field passed within a repeater is bound as the title. As the values selected or modified change, the title for that given repeater block will update. Developers may set this to false to disable all titles, or set it to an ID had within the repeater field and the title will update accordingly for each repeater block.</p>
+<h4>The <code>limit</code> Argument</h4>
+<p>Provided the <code>static</code> argument is not used, this will limit the number of dynamic repeater blocks that users can create. By default this is set to 10.</p>
+<h4>The <code>group_values</code> Argument</h4>
+<p>The group values allows you to store all values within the repeater id value inside your global variable. For example, say you had a repeater as denoted below and you set this to true. To access all the field values within the repeater field, you would need to follow the Example Usage &#8211; Grouped Values example denoted below. This, by default, is turned off.</p>
+<h4>The <code>sortable</code> Argument</h4>
+<p>By default each repeater block is sortable and the values will be returned to the developer in the order of which they are saved. However, should a developer like to disable this feature, they may set this to false and sorting will be enabled to the user.</p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate">
+$this-&gt;sections[] = array(
+    'title' =&gt; __('Repeater Field', 'redux-framework-demo' ),
+    'icon' =&gt; 'el-icon-thumbs-up',
+    'fields' =&gt; array(
+        array(
+            'id'         =&gt; 'repeater-field-id',
+            'type'       =&gt; 'repeater',
+            'title'      =&gt; __( 'Title', 'redux-framework-demo' ),
+            'subtitle'   =&gt; __( '', 'redux-framework-demo' ),
+            'desc'       =&gt; __( '', 'redux-framework-demo' ),
+            //'group_values' =&gt; true, // Group all fields below within the repeater ID
+            //'item_name' =&gt; '', // Add a repeater block name to the Add and Delete buttons
+            //'bind_title' =&gt; '', // Bind the repeater block title to this field ID
+            //'static'     =&gt; 2, // Set the number of repeater blocks to be output
+            //'limit' =&gt; 2, // Limit the number of repeater blocks a user can create
+            //'sortable' =&gt; false, // Allow the users to sort the repeater blocks or not
+            'fields'     =&gt; array(
+                array(
+                    'id'          =&gt; 'title_field',
+                    'type'        =&gt; 'text',
+                    'placeholder' =&gt; __( 'Title', 'redux-framework-demo' ),
+                ),
+                array(
+                    'id'          =&gt; 'text_field',
+                    'type'        =&gt; 'text',
+                    'placeholder' =&gt; __( 'Text Field', 'redux-framework-demo' ),
+                ),
+                array(
+                    'id'          =&gt; 'select_field',
+                    'type'        =&gt; 'select',
+                    'title' =&gt; __( 'Select Field', 'redux-framework-demo' ),
+                    'options'     =&gt; array(
+                        '1'             =&gt; __( 'Option 1', 'redux-framework-demo' ),
+                        '2'             =&gt; __( 'Option 2', 'redux-framework-demo' ),
+                        '3'             =&gt; __( 'Option 3', 'redux-framework-demo' ),
+                    ),
+                    'placeholder' =&gt; __( 'Listing Field', 'redux-framework-demo' ),
+                ),
+            )
+        )
+    )
+);
+</pre>
+<h2>Example Usage &#8211; Non-Grouped Values</h2>
+<pre class="brush: php; title: ; notranslate">
+// Please remember to replace '$redux_demo' with your project's global variable name, usually your opt_name.
+global $redux demo;
+print_r($redux_demo['title_field']);
+echo '&lt;hr&gt;';
+print_r($redux_demo['text_field']);
+echo '&lt;hr&gt;';
+print_r($redux_demo['select_field']);
+</pre>
+<h2>Example Usage &#8211; Grouped Values</h2>
+<pre class="brush: php; title: ; notranslate">
+// Please remember to replace '$redux_demo' with your project's global variable name, usually your opt_name.
+// This example assumes you set 'group_values' to true within your repeater field declaration.
+global $redux demo;
+print_r($redux_demo['repeater-field-id']['title_field']);
+echo '&lt;hr&gt;';
+print_r($redux_demo['repeater-field-id']['text_field']);
+echo '&lt;hr&gt;';
+print_r($redux_demo['repeater-field-id']['select_field']);
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/repeater/">Repeater</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/repeater/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Social Profiles</title>
+		<link>https://docs.reduxframework.com/extensions/social-profiles/</link>
+		<comments>https://docs.reduxframework.com/extensions/social-profiles/#respond</comments>
+		<pubDate>Tue, 16 Dec 2014 04:28:47 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[icons]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[include]]></category>
+		<category><![CDATA[show_widget_msg]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[widget_msg]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=741</guid>
+		<description><![CDATA[<p>The Redux Social Profiles extension easily allows one to create and display links to their social media through code and/or an included widget. Getting Started To understand how to use extensions, you should read this article on Loading Extensions. To shortcut the process, you should use the Redux Generator. Please be aware that a working [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/social-profiles/">Social Profiles</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Social Profiles extension easily allows one to create and display links to their social media through code and/or an included widget.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;social_profiles&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="/redux-framework/advanced/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>widget_msg</td>
+<td>string</td>
+<td>Go to the &lt;a href=&#8221;%s&#8221;&gt;Widgets&lt;/a&gt; page to add the Redux Social Widget to any active widget area.</td>
+<td>Message to display at the top of the field to inform the user of the extensions widget option.  Use the %s variable to include a link to the widgets area.</td>
+</tr>
+<tr>
+<td>show_widget_msg</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to determine if the widget message is to displayed, or not.</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td>include</td>
+<td>array</td>
+<td></td>
+<td>Optional.  Array of default icons to show, instead of the entire default array.  See &#8220;The Include Argument&#8221; below.</td>
+</tr>
+<tr>
+<td>icons</td>
+<td>array</td>
+<td></td>
+<td>Optional.  Array of arrays specifying custom profiles not included in the default set, or to edit existing profiles.  See &#8220;Adding/Editing Additional Icons&#8221; below.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>The Include Argument</h2>
+<p>The Social Profile extension includes 82 default social profile icons.  The icons and their IDs are as follows.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Icon</strong></td>
+<td style="text-align: center;"><strong>ID</strong></td>
+</tr>
+<tr>
+<td><i class="adn    "></i> ADN</td>
+<td>adn</td>
+</tr>
+<tr>
+<td><i class="android    "></i> Android</td>
+<td>android</td>
+</tr>
+<tr>
+<td><i class="apple    "></i> Apple</td>
+<td>apple</td>
+</tr>
+<tr>
+<td><i class="behance    "></i> behance</td>
+<td>behance</td>
+</tr>
+<tr>
+<td><i class="behance-square    "></i> behance (square icon)</td>
+<td>behance-square</td>
+</tr>
+<tr>
+<td><i class="bitbucket    "></i> Bitbucket</td>
+<td>bitbucket</td>
+</tr>
+<tr>
+<td><i class="bitbucket-square    "></i> Bitbucket (square icon)</td>
+<td>bitbucket-square</td>
+</tr>
+<tr>
+<td><i class="btc    "></i> Bitcoin</td>
+<td>bitcoin</td>
+</tr>
+<tr>
+<td><i class="codepen    "></i> Codepen</td>
+<td>codepen</td>
+</tr>
+<tr>
+<td><i class="css3    "></i> CSS3</td>
+<td>css3</td>
+</tr>
+<tr>
+<td><i class="delicious    "></i> Delicious</td>
+<td>delicious</td>
+</tr>
+<tr>
+<td><i class="deviantart    "></i> Deviantart</td>
+<td>deviantart</td>
+</tr>
+<tr>
+<td><i class="digg    "></i> Digg</td>
+<td>digg</td>
+</tr>
+<tr>
+<td><i class="dribbble    "></i> Dribbble</td>
+<td>dribbble</td>
+</tr>
+<tr>
+<td><i class="dropbox    "></i> Dropbox</td>
+<td>dropbox</td>
+</tr>
+<tr>
+<td><i class="drupal    "></i> Drupal</td>
+<td>drupal</td>
+</tr>
+<tr>
+<td><i class="empire    "></i> Empire</td>
+<td>empire</td>
+</tr>
+<tr>
+<td><i class="facebook    "></i> Facebook</td>
+<td>facebook</td>
+</tr>
+<tr>
+<td><i class="facebook-square    "></i> Facebook (square icon)</td>
+<td>facebook-square</td>
+</tr>
+<tr>
+<td><i class="flickr    "></i> Flickr</td>
+<td>flickr</td>
+</tr>
+<tr>
+<td><i class="foursquare    "></i> FourSquare</td>
+<td>foursquare</td>
+</tr>
+<tr>
+<td><i class="git    "></i> git</td>
+<td>git</td>
+</tr>
+<tr>
+<td><i class="github-square    "></i> git (square icon)</td>
+<td>git-square</td>
+</tr>
+<tr>
+<td><i class="github    "></i> github</td>
+<td>github</td>
+</tr>
+<tr>
+<td><i class="github-alt    "></i> github alt</td>
+<td>github-alt</td>
+</tr>
+<tr>
+<td><i class="github-square    "></i> github (square icon)</td>
+<td>github-square</td>
+</tr>
+<tr>
+<td><i class="gittip    "></i> git tip</td>
+<td>gittip</td>
+</tr>
+<tr>
+<td><i class="google    "></i> Google</td>
+<td>google</td>
+</tr>
+<tr>
+<td><i class="google-plus    "></i> Google Plus</td>
+<td>google-plus</td>
+</tr>
+<tr>
+<td><i class="google-plus-square    "></i>Google Plus (square icon)</td>
+<td>google-plus-square</td>
+</tr>
+<tr>
+<td><i class="hacker-news    "></i> Hacker News</td>
+<td>hacker-news</td>
+</tr>
+<tr>
+<td><i class="html5    "></i> HTML5</td>
+<td>html5</td>
+</tr>
+<tr>
+<td><i class="instagram    "></i> Instagram</td>
+<td>instagram</td>
+</tr>
+<tr>
+<td><i class="joomla    "></i> Joomla</td>
+<td>joomla</td>
+</tr>
+<tr>
+<td><i class="jsfiddle    "></i> JS Fiddle</td>
+<td>jsfiddle</td>
+</tr>
+<tr>
+<td><i class="linkedin    "></i> LinkedIn</td>
+<td>linkedin</td>
+</tr>
+<tr>
+<td><i class="linkedin-square    "></i> LinkedIn (square icon)</td>
+<td>linkedin-square</td>
+</tr>
+<tr>
+<td><i class="linux    "></i> Linux</td>
+<td>linux</td>
+</tr>
+<tr>
+<td><i class="maxcdn    "></i> MaxCDN</td>
+<td>maxcdn</td>
+</tr>
+<tr>
+<td><i class="openid    "></i> OpenID</td>
+<td>openid</td>
+</tr>
+<tr>
+<td><i class="pagelines    "></i> Page Lines</td>
+<td>pagelines</td>
+</tr>
+<tr>
+<td><i class="pied-piper    "></i> Pied Piper</td>
+<td>pied-piper</td>
+</tr>
+<tr>
+<td><i class="pied-piper-alt    "></i> Pied Piper alt</td>
+<td>pied-piper-alt</td>
+</tr>
+<tr>
+<td><i class="pinterest    "></i> Pinterest</td>
+<td>pinterest</td>
+</tr>
+<tr>
+<td><i class="pinterest-square    "></i> Pinterest (square icon)</td>
+<td>pinterest-square</td>
+</tr>
+<tr>
+<td><i class="qq    "></i> QQ</td>
+<td>qq</td>
+</tr>
+<tr>
+<td><i class="rebel    "></i> Rebel</td>
+<td>rebel</td>
+</tr>
+<tr>
+<td><i class="reddit    "></i> Reddit</td>
+<td>reddit</td>
+</tr>
+<tr>
+<td><i class="reddit-square    "></i> Reddit (square icon)</td>
+<td>reddit-square</td>
+</tr>
+<tr>
+<td><i class="renren    "></i> Ren Ren</td>
+<td>renren</td>
+</tr>
+<tr>
+<td><i class="share-alt    "></i> Share alt</td>
+<td>share-alt</td>
+</tr>
+<tr>
+<td><i class="share-alt-square    "></i> Share (square icon)</td>
+<td>share-alt-square</td>
+</tr>
+<tr>
+<td><i class="skype    "></i> Skype</td>
+<td>skype</td>
+</tr>
+<tr>
+<td><i class="slack    "></i> Slack</td>
+<td>slack</td>
+</tr>
+<tr>
+<td><i class="soundcloud    "></i> Sound Cloud</td>
+<td>soundcloud</td>
+</tr>
+<tr>
+<td><i class="spotify    "></i> Spotify</td>
+<td>spotify</td>
+</tr>
+<tr>
+<td><i class="stack-exchange    "></i> Stack Exchange</td>
+<td>stack-exchange</td>
+</tr>
+<tr>
+<td><i class="stack-overflow    "></i> Stack Overflow</td>
+<td>stack-overflow</td>
+</tr>
+<tr>
+<td><i class="steam    "></i> Steam</td>
+<td>steam</td>
+</tr>
+<tr>
+<td><i class="steam-square    "></i> Steam (square icon)</td>
+<td>steam-square</td>
+</tr>
+<tr>
+<td><i class="stumbleupon    "></i> Stumble Upon</td>
+<td>stumbleupon</td>
+</tr>
+<tr>
+<td><i class="stumbleupon-circle    "></i> Stumble Upon (circle icon)</td>
+<td>stumbleupon-circle</td>
+</tr>
+<tr>
+<td><i class="tencent-weibo    "></i> Tencent Weibo</td>
+<td>tencent-weibo</td>
+</tr>
+<tr>
+<td><i class="trello    "></i> Trello</td>
+<td>trello</td>
+</tr>
+<tr>
+<td><i class="tumblr    "></i> Tumblr</td>
+<td>tumblr</td>
+</tr>
+<tr>
+<td><i class="tumblr-square    "></i> Tumblr (square icon)</td>
+<td>tumblr-square</td>
+</tr>
+<tr>
+<td><i class="twitter    "></i> Twitter</td>
+<td>twitter</td>
+</tr>
+<tr>
+<td><i class="twitter-square    "></i> Twitter (square icon)</td>
+<td>twitter-square</td>
+</tr>
+<tr>
+<td><i class="vimeo-square    "></i> Vimeo (square icon)</td>
+<td>vimeo-square</td>
+</tr>
+<tr>
+<td><i class="vine    "></i> Vine</td>
+<td>vine</td>
+</tr>
+<tr>
+<td><i class="vk    "></i> VK</td>
+<td>vk</td>
+</tr>
+<tr>
+<td><i class="weibo    "></i> Weibo</td>
+<td>weibo</td>
+</tr>
+<tr>
+<td><i class="weixin    "></i> Weixin</td>
+<td>weixin</td>
+</tr>
+<tr>
+<td><i class="windows    "></i> Windows</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><i class="wordpress    "></i> WordPress</td>
+<td>wordpress</td>
+</tr>
+<tr>
+<td><i class="xing    "></i> Xing</td>
+<td>xing</td>
+</tr>
+<tr>
+<td><i class="xing-square    "></i> Xing (square icon)</td>
+<td>xing-square</td>
+</tr>
+<tr>
+<td><i class="yahoo    "></i> Yahoo</td>
+<td>yahoo</td>
+</tr>
+<tr>
+<td><i class="yelp    "></i> Yelp</td>
+<td>yelp</td>
+</tr>
+<tr>
+<td><i class="youtube    "></i> YouTube</td>
+<td>youtube</td>
+</tr>
+<tr>
+<td><i class="youtube-play    "></i> YouTube (play icon)</td>
+<td>youtube-play</td>
+</tr>
+<tr>
+<td><i class="youtube-square    "></i> YouTube (square icon)</td>
+<td>youtube-square</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the extension offers all 82 to the user.  This doesn&#8217;t mean you must offer each and every one.  Using the <code>include</code> argument, you may specify which profile icons you&#8217;d prefer to offer by assigning an array of existing icons IDs.  For example, let&#8217;s say you&#8217;d like to offer only Facebook, Twitter, LinkedIn, and Google Plus.  The <code>include</code> argument would look as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+include = array('facebook', 'twitter', 'linkedin', 'google-plus')
+</pre>
+<p></p>
+<h2>Adding/Editing Additional Icons</h2>
+<p>It&#8217;s easy to add additional (or edit existing) social profile icons.  Each profile contains the following arguments:</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique id of the profile.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>string</td>
+<td></td>
+<td>Font Awesome icon class (<a target="_blank" href="http://fortawesome.github.io/Font-Awesome/cheatsheet/">cheatsheet</a>) of the icon to display.  Icon classes from other sets may be used, provided the icon set is properly installed and enqueued.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set the default state of the social profile.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td>Display name of the social profile</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td></td>
+<td>Hex or RGBA string of the icons color.</td>
+</tr>
+<tr>
+<td>background</td>
+<td>string</td>
+<td></td>
+<td>Hex or RGBA string of the icons backcolor.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>Link URL</td>
+<td>Optional.  Text to appear over the URL input box.  This is useful should you want to specify a user name instead of a full URL.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td></td>
+<td>Optional. URL of the social profile.</td>
+</tr>
+</tbody>
+</table>
+<p>The following example would add a PayPal profile to the social profile icon set:</p>
+<pre class="brush: php; title: ; notranslate">
+'icons' =&gt; array(
+    array (
+        'id'         =&gt; 'paypal',
+        'icon'       =&gt; 'fa-paypal',
+        'enabled'    =&gt; false,
+        'name'       =&gt; __ ( 'PayPal', 'redux-framework-demo' ),
+        'background' =&gt; '',
+        'color'      =&gt; '#1769ff',
+        'url'        =&gt; '',
+    )
+)
+</pre>
+<p>The <code>icons</code> argument may also be used to edit profiles from the default set.  In this instance, you&#8217;d need only specify the argument you&#8217;d like to alter.  The following example would alter the Apple profile by changing the name (with apologies in advance to Mac fan boys), label, and default state.</p>
+<pre class="brush: php; title: ; notranslate">
+'icons' =&gt; array(
+    array (
+        'id'      =&gt; 'apple',
+        'enabled' =&gt; true,
+        'name'    =&gt; __ ( 'CrApple', 'redux-framework-demo' ),
+        'label'   =&gt; 'Enter username:',
+    )
+)
+</pre>
+<p></p>
+<h2>Example Declaration</h2>
+<p>The following sets up the basic social profile field without the additions or alterations specified above.</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-social-profiles',
+    'type'      =&gt; 'social_profiles',
+    'title'     =&gt; 'Social Profiles',
+    'subtitle'  =&gt; 'Click an icon to activate it, drag and drop to change the icon order.',
+),
+</pre>
+<p></p>
+<h2>Example Usage</h2>
+<h3>
+The Widget</h3>
+<p>Using the social profiles widget redefines easy.  In the widget area of WordPress, add the Redux Social Profiles widget to the sidebar of your choice, and set the desired title.  The only icons that will appear in the widget&#8217;s frontend will be the enabled social profiles.</p>
+<h3>Code</h3>
+<p>The extension&#8217;s return value is an array of key/pair values. The key contains the profile&#8217;s index key, while the value contains the array of the profiles arguments. It will be necessary to use a for/each loop to extract the values (Please remember to replace <code>redux_demo</code> with your own <code><a href="/redux-framework/arguments/opt_name" title="opt_name">opt_name</a></code> argument).  The following code returns only the saved values.  For this example to have any real value, you&#8217;ll need to write the appropriate HTML, or use one of the helper functions below.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+foreach ($redux_demo['opt-social-profiles'] as $idx =&gt; &amp;arr) {
+    echo 'Profile ID: ' . $arr['id'];
+    echo 'Enabled: '    . $arr['enabled'];
+    echo 'Icon: '       . $arr['icon'];
+    echo 'Name: '       . $arr['name'];
+    echo 'URL: '        . $arr['url'];
+    echo 'Color: '      . $arr['color'];
+    echo 'Background: ' . $arr['background'];
+}
+
+// Or do the following for full icon rendering
+foreach ($redux_demo['opt-social-profiles'] as $idx =&gt; &amp;arr) {
+    if ($arr['enabled']) {
+        $id     = $arr['id'];
+        $url    = $arr['url'];
+
+        $icons .= '';
+        $icons .= '&lt;/pre&gt;&lt;ul&gt;&lt;li class=&quot;' . $id . '&quot;&gt;&lt;a href=&quot;' . $url . '&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;' . $arr['icon'] . '&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;pre&gt;';
+    }
+
+    $output = '&lt;/pre&gt;&lt;ul class=&quot;icons&quot;&gt;';
+    $output .= $icons;
+    $output .= '&lt;/ul&gt;&lt;pre&gt;';
+}
+</pre>
+<p></p>
+<h2>Helper Functions</h2>
+<p>The Social Profiles extension includes two helper functions.</p>
+<h3>redux_render_icon_from_id ($opt_name, $id, $echo, $a_class)</h3>
+<p>This function, based on the echo parameter will either echo a fully rendered icon, or return the HTML for use with your own rendering purposes.</p>
+<p>The first parameter, <code>$opt_name</code> is required and needs to be the opt_name specified in your Redux Framework arguments.</p>
+<p>The second parameter, <code>$id</code> is also required, and is the ID of the social profile whose information is to be rendered. This is best used in conjunction for a for/each loop, as shown above.</p>
+<p>The third parameter, <code>$echo</code> is optional and defaults to true. When set to true, the function automatically echos the rendered HTML. When set to false, the HTML is returned.</p>
+<p>The forth parameter, <code>$a_class</code> is optional. it will add the passed class name to the a tag of the rendered icon HTML.</p>
+<p><strong>NOTE:</strong> The rendered icon will be it&#8217;s normal small size.  It&#8217;s up to you, the developer, to style the icon via CSS as desired.</p>
+<h4>Usage</h4>
+<pre class="brush: php; title: ; notranslate">
+
+// Please remember to replace 'redux_demo' with your project's unique opt_name.
+// Example assumes Facebook social profile is enabled and URL properly filled out.
+$html = redux_render_icon_from_id('redux_demo', 'facebook', false);
+
+echo $html;
+
+// Result:
+// &lt;a class=&quot;&quot; href=&quot;http://www.facebook.com/my_facebook_name&quot;&gt;
+//     &lt;i class=&quot;fa fa-facebook&quot; style=&quot;color: #3b5998; background-color: transparent;&quot; title=&quot;&quot;&gt;&lt;/i&gt;
+// &lt;/a&gt;
+</pre>
+<h3>redux_social_profile_value_from_id ($opt_name, $id, $value)</h3>
+<p>This function returns the specified value data of the specified social profile ID.</p>
+<p>The first parameter, <code>$opt_name</code> is required and needs to be the opt_name specified in your Redux Framework arguments.</p>
+<p>The second parameter, <code>$id</code> is also required, and is the ID of the social profile whose information is to be rendered. This is best used in conjunction for a for/each loop, as shown above.</p>
+<p>The third parameter, <code>$value</code> is required, and is the value of the social profile for which whose data you would like returned.  Value options include <code>id</code>, <code>icon</code>, <code>enabled</code>, <code>name</code>, <code>color</code>, <code>background</code>, <code>label</code>, or <code>url</code>.</p>
+<h4>Usage</h4>
+<pre class="brush: php; title: ; notranslate">
+
+// Please remember to replace 'redux_demo' with your project's unique opt_name.
+// Example assumes Facebook social profile is enabled and URL properly filled out.
+$url = redux_social_profile_value_from_id('redux_demo', 'facebook', 'url');
+
+echo 'Facebook URL: ' $url;
+
+// Result:  
+// Facebook URL: http://www.facebook.com/my_facebook_name
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/social-profiles/">Social Profiles</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/social-profiles/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Multi Media</title>
+		<link>https://docs.reduxframework.com/extensions/multi-media/</link>
+		<comments>https://docs.reduxframework.com/extensions/multi-media/#respond</comments>
+		<pubDate>Thu, 27 Nov 2014 03:53:16 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[button]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[download]]></category>
+		<category><![CDATA[duplicate]]></category>
+		<category><![CDATA[file]]></category>
+		<category><![CDATA[getExtendedData]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[library_filter]]></category>
+		<category><![CDATA[max_file_upload]]></category>
+		<category><![CDATA[max_limit]]></category>
+		<category><![CDATA[remove_file]]></category>
+		<category><![CDATA[remove_image]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[upload_file]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=710</guid>
+		<description><![CDATA[<p>The Redux Multi Media extension is an improved way to allow your users to upload and/or select multiple files from the WordPress media library, for use in the Redux Framework options panel. Getting Started To understand how to use extensions, you should read this article on Loading Extensions. To shortcut the process, you should use [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/multi-media/">Multi Media</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Multi Media extension is an improved way to allow your users to upload and/or select multiple files from the WordPress media library, for use in the Redux Framework options panel.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;multi_media&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>labels</td>
+<td>array</td>
+<td></td>
+<td>Array of key/pair values defining the text in labels used throughout the field. See &#8216;Setting Labels&#8217; below.</td>
+</tr>
+<tr>
+<td>library_filter</td>
+<td>array</td>
+<td></td>
+<td>Array of comma separated string extensions (minus the dot prefix) which the media uploader/selector will allow/display. Omit this argument to use no filter and allow all file types.</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td>max_file_upload</td>
+<td>int</td>
+<td></td>
+<td>Integer value limiting the number of files to be uploaded or selected.  Set to <code>0</code> for unlimited.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Setting Labels</h2>
+<p>The <code>labels</code> argument gives the opportunity to set the caption for the following interfaces.  This is useful not only for localization purposes, but for flexibility reasons as well.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>upload_file</td>
+<td>string</td>
+<td>Select File(s)</td>
+<td>Text that appears on the field&#8217;s upload button.</td>
+</tr>
+<tr>
+<td>remove_image</td>
+<td>string</td>
+<td>Remove Image</td>
+<td>Alt text appearing over an image thumbnail&#8217;s delete icon.</td>
+</tr>
+<tr>
+<td>remove_file</td>
+<td>string</td>
+<td>Remove</td>
+<td>Text appearing after a non-image file&#8217;s listing</td>
+</tr>
+<tr>
+<td>file</td>
+<td>string</td>
+<td>File:</td>
+<td>Text appearing before a non-image file&#8217;s listing.</td>
+</tr>
+<tr>
+<td>download</td>
+<td>string</td>
+<td>Download</td>
+<td>Text appearing after a non-image file&#8217;s listing</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Field <code>title</code> argument</td>
+<td>Text appearing in WordPress&#8217;s media uploader/selector window.</td>
+</tr>
+<tr>
+<td>button</td>
+<td>string</td>
+<td>Add or Upload File(s)</td>
+<td>Text appearing in WordPress&#8217;s media uploader/selector button.</td>
+</tr>
+<tr>
+<td>duplicate</td>
+<td>string</td>
+<td>%s already exists in your file queue.</td>
+<td>Message that appears when a duplicate file has been selected.  %s represents the duplicate file to be displayed and should not be modified.</td>
+</tr>
+<tr>
+<td>max_limit</td>
+<td>string</td>
+<td>Maximum upload limit of %s reached/exceeded.</td>
+<td>Message that appears when max_file_limit has been reached.  %s represents the max_file_upload number and should not be modified.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-multi-media',
+    'type'      =&gt; 'multi_media',
+    'title'     =&gt; 'Multi Media Selector',
+    'subtitle'  =&gt; 'Multi file media selector',
+    'labels'    =&gt; array(
+        'upload_file'       =&gt; __('Select File(s)', 'redux-framework-demo'),
+        'remove_image'      =&gt; __('Remove Image', 'redux-framework-demo'),
+        'remove_file'       =&gt; __('Remove', 'redux-framework-demo'),
+        'file'              =&gt; __('File: ', 'redux-framework-demo'),
+        'download'          =&gt; __('Download', 'redux-framework-demo'),
+        'title'             =&gt; __('Multi Media Selector', 'redux-framework-demo'),
+        'button'            =&gt; __('Add or Upload File','redux-framework-demo')
+    ),
+    'library_filter'  =&gt; array('gif','jpg','png'),
+    'max_file_upload' =&gt; 5
+),
+</pre>
+<p></p>
+<h2>Example Usage</h2>
+<p>The extension&#8217;s return value is an array of key/pair values. The key contains the file&#8217;s post ID, while the value contains the URL of the file itself. It will be necessary to use a for/each loop to extract the values (Please remember to replace <code>redux_demo</code> with your own <code><a href="/redux-framework/arguments/opt_name" title="opt_name">opt_name</a></code> argument).</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+foreach ($redux_demo['opt-multi-media'] as $id =&gt; &amp;url) {
+    echo 'Post ID: ' . $id;
+    echo 'URL: '     . $url;
+}
+</pre>
+<p></p>
+<h2>getExtendedData Helper Function</h2>
+<p>The Multi Media extension includes a helper function to extract a wide variety of data for any post ID passed to it. To take advantage of this function, use the following code (to obtain a post ID, use the code above in conjunction with the code below):</p>
+<pre class="brush: php; title: ; notranslate">
+
+// the $id variable assumes a valid post ID.
+$ext_data = ReduxFramework_extension_multi_media::getExtendedData($id)
+</pre>
+<p>The return value will contain an array of the follow data in key/pair format:</p>
+<ul>
+<li><tt>id</tt></li>
+<li><tt>title</tt></li>
+<li><tt>filename</tt></li>
+<li><tt>url</tt></li>
+<li><tt>link</tt></li>
+<li><tt>alt</tt></li>
+<li><tt>author</tt></li>
+<li><tt>description</tt></li>
+<li><tt>caption</tt></li>
+<li><tt>name</tt></li>
+<li><tt>status</tt></li>
+<li><tt>uploadedTo</tt></li>
+<li><tt>date</tt></li>
+<li><tt>modified</tt></li>
+<li><tt>menuOrder</tt></li>
+<li><tt>mime</tt></li>
+<li><tt>type</tt></li>
+<li><tt>subtype</tt></li>
+<li><tt>icon</tt></li>
+<li><tt>dateFormatted</tt></li>
+<li><tt>nonces</tt></li>
+<li><tt>editLink</tt></li>
+<li><tt>sizes</tt></li>
+<li><tt>width</tt></li>
+<li><tt>height</tt></li>
+<li><tt>fileLength</tt></li>
+<li><tt>compat</tt></li>
+</ul>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/multi-media/">Multi Media</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/multi-media/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>JS Button</title>
+		<link>https://docs.reduxframework.com/extensions/js-button/</link>
+		<comments>https://docs.reduxframework.com/extensions/js-button/#respond</comments>
+		<pubDate>Thu, 27 Nov 2014 01:59:16 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[buttons]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[dep]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[script]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[url]]></category>
+		<category><![CDATA[ver]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=712</guid>
+		<description><![CDATA[<p>The Redux JS Button extension is a new way to activate JavaScript functions manually from within the options panel.  Once you&#8217;ve set up the field code with the buttons you&#8217;d like to display, you simply assign a JavaScript function name to the button, include that function in a JavaScript file assigned to the field and [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/js-button/">JS Button</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux JS Button extension is a new way to activate JavaScript functions manually from within the options panel.  Once you&#8217;ve set up the field code with the buttons you&#8217;d like to display, you simply assign a JavaScript function name to the button, include that function in a JavaScript file assigned to the field and watch the magic happen!</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you <br />started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<p>Also, knowledge of JavaScript and/or jQuery is required to author your own functions.  This extension does all the work behind the scenes to trigger your custom functions, but to accomplish anything when the buttons are clicked, you&#8217;ll need to be able to author your own code.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;js_button&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>script</td>
+<td>array</td>
+<td></td>
+<td>Array of key/pair values defining the JavaScript file containing button functions.  See &#8216;Setting up the Script Argument&#8217; below.</td>
+</tr>
+<tr>
+<td>buttons</td>
+<td>array</td>
+<td></td>
+<td>Set of arrays defining the buttons to display.  Please see &#8216;Setting up Buttons&#8217; below.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Settings up the Script Argument</h2>
+<p>The script argument sets up the JavaScript file and associated options, so that when a JavaScript button is clicked, it knows where to search for the function associated with it.  These arguments mirror the WordPress <a target="_blank" href="http://codex.wordpress.org/Function_Reference/wp_enqueue_script">wp_enqueue_script</a> function parameters, as the extension uses this WordPress API to enqueue your script..</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td></td>
+<td>Fully qualified URL to and including the JavaScript file name.  See Notes below.</td>
+</tr>
+<tr>
+<td>dep</td>
+<td>array</td>
+<td></td>
+<td>Array of the handles of all the registered scripts that this script depends on, that is the scripts that must be loaded before this script. This parameter is only required when the script with the given <tt>$handle</tt> has not been already registered using <tt><a href="http://codex.wordpress.org/Function_Reference/wp_register_script" title="Function Reference/wp register script">wp_register_script()</a></tt>. Default handles are all in lower case.</td>
+</tr>
+<tr>
+<td>ver</td>
+<td>string</td>
+<td>time()</td>
+<td>String specifying the script version number, if it has one, which is concatenated to the end of the path as a query string.</td>
+</tr>
+<tr>
+<td>in_footer</td>
+<td>bool</td>
+<td>true</td>
+<td>Normally, scripts are placed in <tt>&lt;head&gt;</tt> of the HTML document. If this parameter is <i>true</i>, the script is placed before the <tt>&lt;/body&gt;</tt> end tag.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTES</strong>:  While it doesn&#8217;t matter where you might choose to store your script, it is important to never hard code the path to the script&#8217;s location.  To get a proper URL to local scripts, use <tt><a href="http://codex.wordpress.org/Function_Reference/plugins_url" title="Function Reference/plugins url">plugins_url()</a></tt> for plugins and <tt><a href="http://codex.wordpress.org/Function_Reference/get_template_directory_uri" title="Function Reference/get template directory uri">get_template_directory_uri()</a></tt> for themes. </p>
+<h2>Setting Up Buttons</h2>
+<p>The <code>buttons</code> argument accepts a single array populated by arrays that accept the following arguments:</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td></td>
+<td>Required. The text to appear as the button&#8217;s caption</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Optional.  Any additional class names to append to the buttons class parameter.</td>
+</tr>
+<tr>
+<td>function</td>
+<td>string</td>
+<td></td>
+<td>Required.  The name of the function to call inside the script passed via the <code>scripts</code> argument.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Example Declaration</h2>
+<p>For this example (included in the download), assume we&#8217;ve placed our javascript file in the theme&#8217;s root directory. We can easily obtain it&#8217;s location using <code>get_template_directory_uri()</code>. Since our example javascript (shown below) uses jQuery, we must pass the jQuery dependency via the <code>scripts</code> <code>dep</code> argument.</p>
+<pre class="brush: php; title: ; notranslate">
+array (
+    'id'            =&gt; 'opt-js-button',
+    'type'          =&gt; 'js_button',
+    'title'         =&gt; 'JS Button',
+    'subtitle'      =&gt; 'Run javascript manually from the options panel.',
+    'script'        =&gt; array(
+        'url'       =&gt; get_template_directory_uri() .  '/sample.js',
+        'dep'       =&gt; array('jquery'),
+        'ver'       =&gt; time(),
+        'in_footer' =&gt; true
+    ),
+    'buttons'       =&gt; array(
+        array(
+            'text'      =&gt; 'Add Date',
+
+            // This class causes the button to appear colored in the options panel
+            'class'     =&gt; 'button-primary',
+
+            // The name of the function to execute in the sample.js file
+            'function'  =&gt; 'redux_add_date'
+        ),
+        array(
+            'text'      =&gt; 'Alert',
+            'class'     =&gt; 'button-secondary',
+
+            // The name of the function to execute in the sample.js file
+            'function'  =&gt; 'redux_show_alert'
+        ),
+    ),
+),
+
+// This empty text field will be used for the redux_add_date function to fill out 
+// with the current date, when the button is clicked.
+array(
+    'id'        =&gt; 'opt-blank-text',
+    'type'      =&gt; 'text',
+    'title'     =&gt; 'Date',
+),
+</pre>
+<h3>Example JavaScript File: sample.js</h3>
+<pre class="brush: jscript; title: ; notranslate">
+// Function to execute when the Add Date button is clicked.
+function redux_add_date() {
+    (function($){
+        'use strict';
+
+        $(document).ready(function(){
+            var date = new Date();
+            var text = $('#opt-blank-text');
+            
+            text.val(date.toString());
+        });    
+    })(jQuery)    
+};
+
+// Function to execute when the Alert button is clicked.
+function redux_show_alert() {
+    alert ('You clicked the Alert button!');
+};
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/js-button/">JS Button</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/js-button/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

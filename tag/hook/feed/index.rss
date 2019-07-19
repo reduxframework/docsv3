@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>hook &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/hook/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Integrating a Compiler</title>
+		<link>https://docs.reduxframework.com/core/advanced/integrating-a-compiler/</link>
+		<pubDate>Tue, 11 Mar 2014 06:21:12 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[hook]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=140</guid>
+		<description><![CDATA[<p>This article deals specifically with integrating a basic compiler hook for any Redux field. For an in depth article on how to use the compiler hook to dynamically generate a CSS file, please view the Updating a CSS File Dynamically article. Setting up the Field Each and every Redux field has a `compiler` argument. By [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/integrating-a-compiler/">Integrating a Compiler</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>This article deals specifically with integrating a basic compiler hook for any Redux field. For an in depth article on how to use the compiler hook to dynamically generate a CSS file, please view the <a href="/redux-framework/advanced/updating-a-css-file-dynamically/" title="Updating a CSS File Dynamically" target="_blank">Updating a CSS File Dynamically</a> article.</p>
+<h2>Setting up the Field</h2>
+<p>Each and every Redux field has a `compiler` argument. By setting this argument to <code>true</code>, a specified hook will fire whenever one of those field&#8217;s value changes. </p>
+<p>Creating this magic is really quite easy. Let’s begin with this basic field:</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'       =&gt;'text',
+    'type'     =&gt; 'text',
+    'title'    =&gt; __('Test Compiler', 'redux-framework-demo'),
+    'subtitle' =&gt; __('This is to test the compiler hook.', 'redux-framework-demo'),
+    'desc'     =&gt; __('Each time this field is set, a flag is set. On save, that flag initiates a compiler hook!', 'redux-framework-demo'),
+    'compiler' =&gt; true,
+    'default'  =&gt; 'Test Compiler'
+),
+</pre>
+<p>Note the <code>'compiler' =&gt; true</code> argument. This sets the compiler flag. Now we need to hook into the fired hook. Add this snippet to your code:</p>
+<h2>Setting up the Compiler Function</h2>
+<p>Next, the compiler function itself needs to be set up. It requires two parts. The add_filter statement, and the actual function. Ideally, these codes would be placed within your config php file, however, it can be used anywhere in your code provided the <code>opt_name</code> portion of the add_filter line is replaced with the value specified in your <code><a href="/redux-framework/arguments/opt_name/" title="opt_name" target="_blank">opt_name</a></code> argument. For this example, we&#8217;ll be using the example found in the <a href="https://github.com/ReduxFramework/redux-framework/blob/master/sample/sample-config.php" target="_blank">sample-config.php</a>.</p>
+<p>In the initSettings section of the sample-config.php, sure the following line is included and/or uncommented:</p>
+<pre class="brush: php; title: ; notranslate">
+add_filter('redux/options/' . $this-&gt;args['opt_name'] . '/compiler', array( $this, 'compiler_action' ), 10, 3);
+</pre>
+<p>Now, add (or uncomment) the following function to the <code>Redux_Framework_sample_config</code> class. This is our test function that will allow you see when the compiler hook occurs. It will only fire if a field set with <code>'compiler' =&gt; true</code> is changed.</p>
+<p>Please note that for this example, <code>$css</code> will return empty as this is only a basic compiler hook.</p>
+<pre class="brush: php; title: ; notranslate">
+function compiler_action($options, $css, $changed_values) {
+    echo '&lt;h1&gt;The compiler hook has run!&lt;/h1&gt;';
+    
+    print_r ($options);
+    print_r ($css);
+    print_r ($changed_values);
+}
+
+</pre>
+<p>If all has been set up correctly, you will see the compiler hook message and the passed values on your options panel after the field with the active compiler hook&#8217;s value has changed and settings saved.</p>
+<p>Please note that if the <code><a href="/redux-framework/arguments/output_tag/" title="output_tag">output_tag</a></code> argument is set to to false, Redux will not auto-echo a tag into the page header.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/integrating-a-compiler/">Integrating a Compiler</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

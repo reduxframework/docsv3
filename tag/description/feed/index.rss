@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>description &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/description/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Slides</title>
+		<link>https://docs.reduxframework.com/core/fields/slides/</link>
+		<pubDate>Mon, 10 Mar 2014 22:39:53 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[attachment_id]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[description]]></category>
+		<category><![CDATA[height]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[sort]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[thumb]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[url]]></category>
+		<category><![CDATA[width]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=119</guid>
+		<description><![CDATA[<p>With the Slider field, unlimited slides may be created with titles, descriptions and links. Arguments Name Type Default Description type string &#8216;slides&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display of the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/slides/">Slides</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">With the Slider field, unlimited slides may be created with titles, descriptions and links.</p>
+<p style="text-align: center;"><img src="https://f.cloud.github.com/assets/3412363/1575597/31edabc2-5150-11e3-8e72-3819ed12e976.png" alt="Slides Field" height="441" width="807" /></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;slides&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>array</td>
+<td></td>
+<td>Array of placeholder values.  See &#8216;Placeholder Values&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Placeholder Values</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Placeholder for the title field.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Placeholder for the description field.</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>string</td>
+<td>Sort number for the slide order.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>Placeholder for the URL field.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>string</td>
+<td>Placeholder for the image text field.</td>
+</tr>
+<tr>
+<td>thumb</td>
+<td>string</td>
+<td>Placeholder for the image select field.</td>
+</tr>
+<tr>
+<td>attachment_id</td>
+<td>string</td>
+<td>Placeholder image in URL format.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td>Placeholder height for the preview image.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>Placeholder width for the preview image.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'          =&gt; 'opt-slides',
+        'type'        =&gt; 'slides',
+        'title'       =&gt; __('Slides Options', 'redux-framework-demo'),
+        'subtitle'    =&gt; __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
+        'desc'        =&gt; __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo')
+        'placeholder' =&gt; array(
+            'title'           =&gt; __('This is a title', 'redux-framework-demo'),
+            'description'     =&gt; __('Description Here', 'redux-framework-demo'),
+            'url'             =&gt; __('Give us a link!', 'redux-framework-demo'),
+        ),
+    ),
+</pre>
+<h3>Example Usage</h3>
+<p>This example assumes at least one slide has been filled out and saved, based on the example usage provided above. Individual slide information are stored in a zero-based array. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<p><strong>IMPORTANT NOTE:</strong>  Redux Framework does NOT save blank slides to the database.  This means on the initial load of your options panel, the empty slide will not be available.  It will be necessary to use <code>isset</code> and <code>!empty</code> checks on the slide variable before attempting to use it in your code, as shown below.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+if (isset($redux_demo['opt-slides']) &amp;&amp; !empty($redux_demo['opt-slides'])) {
+    echo 'Slide 1 Title: '         . $redux_demo['opt-slides'][0]['title'];
+    echo 'Slide 1 Description: '   . $redux_demo['opt-slides'][0]['description'];
+    echo 'Slide 1 URL: '           . $redux_demo['opt-slides'][0]['url'];
+    echo 'Slide 1 Attachment ID: ' . $redux_demo['opt-slides'][0]['attachment_id'];
+    echo 'Slide 1 Thumb: '         . $redux_demo['opt-slides'][0]['thumb'];
+    echo 'Slide 1 Image: '         . $redux_demo['opt-slides'][0]['image'];
+    echo 'Slide 1 Width: '         . $redux_demo['opt-slides'][0]['width'];
+    echo 'Slide 1 Height: '        . $redux_demo['opt-slides'][0]['height'];
+}
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/slides/">Slides</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>init &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/init/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Actions Hooks</title>
+		<link>https://docs.reduxframework.com/core/advanced/actions-hooks/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/actions-hooks/#respond</comments>
+		<pubDate>Fri, 22 May 2015 22:30:17 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Action Hooks]]></category>
+		<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[actions hooks]]></category>
+		<category><![CDATA[admin_notice]]></category>
+		<category><![CDATA[advanced]]></category>
+		<category><![CDATA[after]]></category>
+		<category><![CDATA[ajax]]></category>
+		<category><![CDATA[before]]></category>
+		<category><![CDATA[callback]]></category>
+		<category><![CDATA[change]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[construct]]></category>
+		<category><![CDATA[enqueue]]></category>
+		<category><![CDATA[errors]]></category>
+		<category><![CDATA[extensions]]></category>
+		<category><![CDATA[field]]></category>
+		<category><![CDATA[fieldset]]></category>
+		<category><![CDATA[form]]></category>
+		<category><![CDATA[header]]></category>
+		<category><![CDATA[heartbeat]]></category>
+		<category><![CDATA[hooks]]></category>
+		<category><![CDATA[import]]></category>
+		<category><![CDATA[init]]></category>
+		<category><![CDATA[live_preview]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[loaded]]></category>
+		<category><![CDATA[menu]]></category>
+		<category><![CDATA[panel]]></category>
+		<category><![CDATA[plugin]]></category>
+		<category><![CDATA[register]]></category>
+		<category><![CDATA[render]]></category>
+		<category><![CDATA[reset]]></category>
+		<category><![CDATA[saved]]></category>
+		<category><![CDATA[section]]></category>
+		<category><![CDATA[sections]]></category>
+		<category><![CDATA[settings]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[warnings]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1011</guid>
+		<description><![CDATA[<p>The follow table is a list of available filter hooks within Redux Framework that developers may use in their own code.  Please note, a solid understand of PHP and WordPress action hooks is required. As always, please be sure to replace {opt_name} with the opt_name string of your Redux instance. Thanks to @paulthecoder for compiling [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/actions-hooks/">Actions Hooks</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The follow table is a list of available filter hooks within Redux Framework that developers may use in their own code.  Please note, a solid understand of <a target="_blank" href="http://php.net/docs.php">PHP</a> and <a target="_blank" href="https://codex.wordpress.org/Function_Reference/add_action">WordPress action hooks</a> is required.</p>
+<p>As always, please be sure to replace <code>{opt_name}</code> with the opt_name string of your Redux instance.</p>
+<p>Thanks to <a target="_blank" href="https://github.com/paulthecoder">@paulthecoder</a> for compiling this list.</p>
+<table>
+<thead>
+<tr>
+<td>Tag</td>
+<td>Args</td>
+<td>Description</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redux/init</td>
+<td></td>
+<td>On Redux init.</td>
+</tr>
+<tr>
+<td>redux/plugin/hooks</td>
+<td><strong>$plugin_object</strong><br />(object) ReduxFrameworkPlugin</td>
+<td>After the plugin is activated and loaded.</td>
+</tr>
+<tr>
+<td>redux/ajax/heartbeat</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Disregard WP AJAX &#8216;heartbeat&#8217; call. Why waste resources?</td>
+</tr>
+<tr>
+<td>redux/construct</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Construct hook.</td>
+</tr>
+<tr>
+<td>redux/loaded</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Redux has loaded</td>
+</tr>
+<tr>
+<td>ReduxFrameworkPlugin_admin_notice</td>
+<td></td>
+<td>Before displaying the admin notice.</td>
+</tr>
+<tr>
+<td>redux/{opt_name}/panel/before</td>
+<td></td>
+<td>Before the panel template is echoed.</td>
+</tr>
+<tr>
+<td>redux/{opt_name}/panel/after</td>
+<td></td>
+<td>After the panel template is echoed.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/enqueue</td>
+<td></td>
+<td>After Redux has enqueued its stylesheets and scripts.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/load</td>
+<td><strong>$wp_screen</strong><br />(object) WP_Screen</td>
+<td>Redux options page has loaded.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/header</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Redux admin_head() hook for options page.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/sections/after</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Right after all the sections in the options panel, just before the footer.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/menu/after</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>After the sections menu in the options panel.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/form/before</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Before the panel&#8217;s form is echoed.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/form/after</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>After the panel&#8217;s form is echoed.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/import</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>When the last save mode is an import.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/reset</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>When the last save mode is a global reset.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/section/reset</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>When the last save mode is a section reset.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/saved</td>
+<td><strong>$value</strong><br />(mixed) Set/saved option value</td>
+<td>When the last save mode is the normal save options.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/settings/change</td>
+<td><strong>$value</strong><br />(mixed) Set/saved option value</td>
+<td>When the user has changed an option.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/errors</td>
+<td><strong>$errors</strong><br />(array) Error information</td>
+<td>Error notification.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/warnings</td>
+<td><strong>$warnings</strong><br />(array) Warning information</td>
+<td>Warning notification.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/field/{field.type}/register</td>
+<td><strong>$field</strong><br />(array) The field settings.</td>
+<td>Before the field is registered with add_settings_field().</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/register</td>
+<td><strong>$sections</strong><br />(array) Option sections</td>
+<td>When registering the options.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/compiler</td>
+<td><strong>$options</strong><br />(array) $this-&gt;options </p>
+<p><strong>$css</strong><br />(string) CSS that gets sent to the compiler hook.</p>
+<p><strong>$changed_values</strong><br />(array) Array of changed values.</td>
+<td>Compiler hook.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/compiler/advanced</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Advanced compiler hook.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/validate</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$plugin_options, redux_options, changed_values]</td>
+<td>Hook on option validation.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/callback/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the callback of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/callback/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the callback of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/callback/after</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the callback of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/callback/after</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the callback of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/render/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the output of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/render/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the output of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/fieldset/before/{opt_name}</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the fieldset of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/fieldset/before/{opt_name}</td>
+<td><strong>$data</strong><br />&amp;array [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the fieldset of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/fieldset/after/{opt_name}</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the fieldset of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/fieldset/after/{opt_name}</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the fieldset of each field.</td>
+</tr>
+<tr>
+<td>redux/extensions/before</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Before Redux extensions are registered (not specific to your opt_name).</td>
+</tr>
+<tr>
+<td>redux/extensions/{opt_name}/before</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Before Redux extensions are registered (specific to your opt_name).</td>
+</tr>
+<tr>
+<td>redux/extensions/{opt_name}</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Register Redux extensions.</td>
+</tr>
+<tr>
+<td>redux/customizer/live_preview</td>
+<td></td>
+<td>Runs on wp_head() when the Customizer live preview initializes.</td>
+</tr>
+</tbody>
+</table>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/actions-hooks/">Actions Hooks</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/actions-hooks/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>The Redux API</title>
+		<link>https://docs.reduxframework.com/core/redux-api/</link>
+		<comments>https://docs.reduxframework.com/core/redux-api/#comments</comments>
+		<pubDate>Wed, 01 Apr 2015 19:26:09 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Fields]]></category>
+		<category><![CDATA[Sections]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[getArgs]]></category>
+		<category><![CDATA[getExtensions]]></category>
+		<category><![CDATA[getField]]></category>
+		<category><![CDATA[getSection]]></category>
+		<category><![CDATA[init]]></category>
+		<category><![CDATA[redux api]]></category>
+		<category><![CDATA[setArgs]]></category>
+		<category><![CDATA[setExtensions]]></category>
+		<category><![CDATA[setField]]></category>
+		<category><![CDATA[setHelpSidebar]]></category>
+		<category><![CDATA[setHelpTab]]></category>
+		<category><![CDATA[setSection]]></category>
+		<category><![CDATA[setSections]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942</guid>
+		<description><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see sample-config-legacy.php [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config-legacy.php"><code>sample-config-legacy.php</code></a> in the sample folder for a more detailed analysis).  The biggest drawback to this method was the name of the class.  Each needed to be unique among multiple instances of Redux.  This causes many headaches for developers, and by extension, the Redux support team.</p>
+<p>With the Redux API, no longer is this an issue.  The process has been streamlined into a handful of API calls, without the hassles of ensuring unique class names, and understanding of how PHP classes work.</p>
+<p>If reviewing documentation isn&#8217;t your thing, you are always free to jump directly to the updated <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> in the sample folder of the Redux Framework package to see how it&#8217;s all put together.</p>
+<h2>The Basic API</h2>
+<p>The API is wrtten as a <a href="http://php.net/manual/en/language.oop5.static.php">static class</a>.  Don&#8217;t worry, you don&#8217;t need any knowledge of static classes, only how to call them, which is done with the class name, two semicolons, and the function name as demonstrated in the examples below.</p>
+<p>Ideally, a basic Redux Framework config file will use three or four basic API calls to create the standard options panel.  We&#8217;ll begin with the suggested order in which to use them.</p>
+<p>First, it&#8217;s always a good idea to check that the API class exists.  it avoids potential errors in the event an older version of Redux is still in use on your site by a different dev or vendor.  The following should be the first lines in your config file:</p>
+<pre class="brush: php; title: ; notranslate">
+if ( ! class_exists( 'Redux' ) ) {
+    return;
+}
+</pre>
+<p>Next, set the <code>opt_name</code> variable of your panel to a variable. It&#8217;s easier to set the <code>opt_name</code> in the fashion as it is used for each and every Redux API call. The next line in our example config would be as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+// Remember, 'redux_demo' is stricly for this example.  
+// Please change it to your own unique name.
+$opt_name = &quot;redux_demo&quot;;
+</pre>
+<p>Remember, the classname of the Redux API is titled <code>Redux</code>. To call the function, two semi-colons follow the classname, and then the actual API call.</p>
+<p>Now, we&#8217;ll begin with the first API call, Redux::setArgs</p>
+<h3>setArgs</h3>
+<p><code>Redux::setArgs ($opt_name, $args)</code></p>
+<p>The setArgs API requires two parameters, the <code>opt_name</code> string value and the actual <a href="/core/arguments/" title="Global Arguments">arguments</a>, an array value. </p>
+<p>Here is an example:</p>
+<pre class="brush: php; title: ; notranslate">
+$args = Array(
+    'opt_name'    =&gt; $opt_name,
+    // Any other arguments you wish to set.  To save space in this example
+    // please refer to the arguments documentation, or review the
+    // sample-config.php file
+);
+
+Redux::setArgs ($opt_name, $args);
+</pre>
+<p>The next two APIs deal with setting the help tabs and sidebar of the admin panel when the Redux Framework options panel is visible.</p>
+<h3>setHelpTab</h3>
+<p><code>Redux::setHelpTab ($opt_name, $tabs)</code></p>
+<p>setHelpTab requires two parameters, the <code>$opt_name</code> string value, followed by an array value of tab data.</p>
+<pre class="brush: php; title: ; notranslate">
+$tabs = array(
+    array(
+        'id'      =&gt; 'redux-help-tab-1',
+        'title'   =&gt; 'Theme Information 1',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    ),
+    array(
+        'id'      =&gt; 'redux-help-tab-2',
+        'title'   =&gt; 'Theme Information 2',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    )
+);
+Redux::setHelpTab( $opt_name, $tabs );
+</pre>
+<h3>setHelpSidebar</h3>
+<p><code>Redux::setHelpSidebar ($opt_name, $content)</code></p>
+<p>setHelpSidebar requires two parameters. First, the <code>$opt_name</code> string value, the second, the <code>$content</code> string value.</p>
+<pre class="brush: php; title: ; notranslate">
+$content = '&lt;br /&gt;This is the sidebar content, HTML is allowed.&lt;br /&gt;');
+Redux::setHelpSidebar( $opt_name, $content );
+</pre>
+<p>Now it&#8217;s time to set our sections.</p>
+<h3>setSection</h3>
+<p><code>Redux::setSection ($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data.</p>
+<p>Each call to the setSection API will create a section tab (or subsection of a section) in the options panel.</p>
+<pre class="brush: php; title: ; notranslate">
+// Lets create a section with no subsections, a basic section, if you will.
+$section = array(
+    'title'  =&gt; 'Basic Field',
+    'id'     =&gt; 'basic',
+    'desc'   =&gt; '',
+    'icon'   =&gt; 'el el-home'   
+    'fields' =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),    
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// Now let's create a section with two subsections
+// First, create the parent panel.
+$section = array(
+    'title' =&gt; 'Basic Subsection Fields',
+    'id'    =&gt; 'basic-subsection',
+    'desc'  =&gt; '',
+    'icon'  =&gt; 'el el-home'   
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The first subsection
+$section = array(
+    'title'      =&gt; 'Text Field',
+    'id'         =&gt; 'basic-text-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-subsection-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The second subsection
+$section = array(
+    'title'      =&gt; 'Checkbox Field',
+    'id'         =&gt; 'basic-checkbox-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-checkbox-subsection-example',
+            'type'     =&gt; 'checkbox',
+            'title'    =&gt; 'Checkbox Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; '1'
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+</pre>
+<h3>setExtensions</h3>
+<p><code>Redux::setExtensions($opt_name, $path)</code></p>
+<p>If you are a user of <a href="https://reduxframework.com/extensions/" target="_blank">Redux Extensions</a> (and why wouldn&#8217;t you be? We offer several that take Redux Framework to a whole new level!) the Redux API makes including them in your project a one-liner breeze! No more loader files and setting variables within them, as per the &#8216;old way&#8217;.</p>
+<p>setExtensions requires two parameters. First, the <code>$opt_name</code> string value, the second, the path to either a single extension or a folder of extensions. This API may be used multiple times, if needed.</p>
+<pre class="brush: php; title: ; notranslate">
+// You will need to determine the specific path to 
+// wherever you choose to keep your extensions folder.
+
+// For this example, we're assuming it's in the same 
+// directory as our config file.
+$ext_path = dirname( __FILE__ ) . '/extensions/';
+Redux::setExtensions($opt_name, $ext_path);
+</pre>
+<h2>The Advanced API</h2>
+<p>For the advanced developer already familiar with PHP and Redux as a whole, we offer some more advanced API to make your programming tasks a bit easier.</p>
+<h3>init</h3>
+<p><code>Redux::init($opt_name)</code></p>
+<p>init requires one parameter, the <code>$opt_name</code> string value. The API is useful in cases where a force load of the Redux object is neccessary, even if it&#8217;s already been run.</p>
+<h3>setSections</h3>
+<p><code>Redux::setSections($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data. This API is similar to setSection, with the noted difference of this particular API allowing for the setting of a group of sections in one call.</p>
+<h3>getSection</h3>
+<p><code>Redux::getSection($opt_name, $id)</code></p>
+<p>getSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to retrieve. The return value is an array of the requested section, or false on failure.</p>
+<h3>removeSection</h3>
+<p><code>Redux::removeSection($opt_name, $id, $all_fields)</code></p>
+<p>removeSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to remove. The optional third variable is a boolean. If set, all fields associated to that section will also be removed from the API, though if left they will never be initialized. They are simply left if you were to make changes to them as needed.</p>
+<h3>hideSection</h3>
+<p><code>Redux::hideSection($opt_name, $id, $hide)</code></p>
+<p>hideSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the section. By default, it can be omitted and it is set to true.</p>
+<h3>getField</h3>
+<p><code>Redux::getField($opt_name, $id)</code></p>
+<p>getField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to retrieve. The return value is an array of the requested field, or false on failure.</p>
+<h3>setField</h3>
+<p><code>Redux::setField($opt_name, $field)</code></p>
+<p>setField requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of field data.  Be sure to add the key/pair <code>'section_id' => "id of section"</code> (replace &#8220;id of section&#8221; with the actual section ID) to your field array.  This is necessary so the field is set to the correct section.</p>
+<h3>removeField</h3>
+<p><code>Redux::removeField($opt_name, $id)</code></p>
+<p>removeField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to remove.</p>
+<h3>hidefield</h3>
+<p><code>Redux::hideField($opt_name, $id, $hide)</code></p>
+<p>hideField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the field. By default, it can be omitted and it is set to true.</p>
+<h3>getArgs</h3>
+<p><code>Redux::getArgs($opt_name)</code></p>
+<p>getArgs requires one parameters, the <code>$opt_name</code> string value. The return value is an array of global arguments.</p>
+<h3>getArg</h3>
+<p><code>Redux::getArg($opt_name, $key)</code></p>
+<p>getArg requires two parameters. First, the <code>$opt_name</code> string value, the second, the string name of the argument to retrieve. The return value is the value of the requested argument, or empty on failure.</p>
+<h3>getExtensions</h3>
+<p><code>Redux::getExtensions($opt_name, $key)</code></p>
+<p>getExtensions requires one of two parameters, depending on the desired return value: </p>
+<p><strong>An array of all loaded extensions</strong><br />
+Use the first parameter and specify the <code>$opt_name</code> string. The return value is an array of loaded extensions containing key/pair information of <code>path</code> (the path to the extension) and <code>class</code> (the classname of the extension). On failure, false is returned.</p>
+<p><strong>The path to a specific extension</strong><br />
+First, pass an empty string for the first parameter. This is necessary, otherwise the return value will be the one indicated above. For the second parameter, specify the key name of the desired extension. The return value will be it&#8217;s path.</p>
+<h2>Epilogue</h2>
+<p>In conclusion, we feel the Redux API will assist you in authoring your options panels with additional ease and stability.  That said, we here at Redux frown upon the breaking of backward compatibility.  Should you prefer the &#8216;old way&#8217; of writing your option panels, you are free to continue to do so.  We&#8217;ve kept the legacy sample-config file, now titled <code>sample-config-legacy.php</code> as an example of how those methods work.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/redux-api/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+	</channel>
+</rss>

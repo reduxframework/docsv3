@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>multi &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/multi/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Select</title>
+		<link>https://docs.reduxframework.com/core/fields/select/</link>
+		<pubDate>Mon, 10 Mar 2014 22:38:47 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[args]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[multi]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[sortable]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[width]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=115</guid>
+		<description><![CDATA[<p>The Select field displays information in a drop-down field in both single and multi-select formats. Arguments Name Type Default Description type string &#8216;select&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/select/">Select</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Select field displays information in a drop-down field in both single and multi-select formats.</p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;select&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of options in key pair format.  The key represents the ID of the option.  The value represents the text to appear in the selector.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td>string</td>
+<td>Key value from the <code>options</code> array to set as default.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td></td>
+<td>Value to populate the selector with WordPress values.  Accepts:  <code>category</code> <code>categories</code> <code>menu</code> <code>menus</code> <code>menu_location</code> <code>menu_locations</code> <code>page</code> <code>pages</code> <code>post</code> <code>posts</code> <code>post_type</code> <code>post_types</code> <code>tag</code> <code>tags</code> <code>taxonomy</code> <code>taxonomies</code> <code>roles</code> <code>sidebar</code> <code>sidebars</code> <code>capabilities</code>. To list icons, specify <code>elusive-icons</code> <a class="more_info" href="/core/the-basics/using-data-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>args</td>
+<td>array</td>
+<td></td>
+<td>WordPress arguments for the specific data to be retrieved.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>40%</td>
+<td>Value to set the width of the selector.</td>
+</tr>
+<tr>
+<td>multi</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set the multi-select variation of the field.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td></td>
+<td>Text to display in the selector when no value is present.</td>
+</tr>
+<tr>
+<td>sortable</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to enable data sorting.</td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments.  For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<h4>Standard Select<img src="https://f.cloud.github.com/assets/3412363/1569797/d77655e8-50d4-11e3-8580-cf1eba05ea7e.png" alt="Standard Select" height="100" width="950" /></h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-select',
+        'type'     =&gt; 'select',
+        'title'    =&gt; __('Select Option', 'redux-framework-demo'), 
+        'subtitle' =&gt; __('No validation can be done on this field type', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        // Must provide key =&gt; value pairs for select options
+        'options'  =&gt; array(
+            '1' =&gt; 'Opt 1',
+            '2' =&gt; 'Opt 2',
+            '3' =&gt; 'Opt 3'
+        ),
+        'default'  =&gt; '2',
+    );
+</pre>
+<h4>Multi Select<img src="https://f.cloud.github.com/assets/3412363/1569753/520e4200-50d2-11e3-85e4-7807855811a0.png" alt="Multi Select" height="100" width="900" /></h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-multi-select',
+        'type'     =&gt; 'select',
+        'multi'    =&gt; true,
+        'title'    =&gt; __('Multi Select Option', 'redux-framework-demo'), 
+        'subtitle' =&gt; __('No validation can be done on this field type', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        //Must provide key =&gt; value pairs for radio options
+        'options'  =&gt; array(
+            '1' =&gt; 'Opt 1',
+            '2' =&gt; 'Opt 2',
+            '3' =&gt; 'Opt 3'),
+        'default'  =&gt; array('2','3')
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Single Select value: ' . $redux_demo['opt-select'];
+echo 'Multi Select value: '  . $redux_demo['opt-multi-select'][0];
+echo 'Multi Select value: '  . $redux_demo['opt-multi-select'][1];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/select/">Select</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Button Set</title>
+		<link>https://docs.reduxframework.com/core/fields/button_set/</link>
+		<pubDate>Mon, 10 Mar 2014 22:33:59 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[multi]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=97</guid>
+		<description><![CDATA[<p>The button set gives you a button bar to set options. It can be useful when you want to group a number of options together in a more advanced radio or checkbox (multi argument, see blow). Arguments Name Type Default Description type string &#8216;button_set&#8217; Value identifying the field type. id string Unique ID identifying the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/button_set/">Button Set</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The button set gives you a button bar to set options. It can be useful when you want to group a number of options together in a more advanced radio or checkbox (multi argument, see blow).</p>
+<p style="text-align: center;"><a href="/wp-content/uploads/sites/4/2014/03/button_set.png"><img class="alignnone size-full wp-image-203" src="/wp-content/uploads/sites/4/2014/03/button_set.png" alt="button_set" width="900" height="100" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/button_set.png 900w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/button_set-300x33.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/button_set-60x6.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/button_set-150x16.png 150w" sizes="(max-width: 900px) 100vw, 900px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;button_set&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field.  Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook.  <a class="more_info" href="/redux-framework/integrating-a-compiler/"> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of key pairs representing the individual ticks.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>vari</td>
+<td></td>
+<td>String/int or array value representing the default.  See &#8216;Default Option&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip.  <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+<tr>
+<td>multi</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set the field to multi-select.</td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Option</h3>
+<p>The value of the default option will depend on whether or not the <code>multi</code> argument is set to true.  By default, the <code>multi</code> argument is set to false.  In this case, the <code>default</code> argument accepts a string or int value representing the key value from the <code>options</code> argument to set as selected.  When <code>multi</code> is set to true, the <code>default</code> argument accepts an array of values representing the key of the option from <code>options</code> to set as selected.</p>
+<hr />
+<h3>Example Declaration</h3>
+<h4>Single select</h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'button-set-single',
+        'type'     =&gt; 'button_set',
+        'title'    =&gt; __('Button Set, Single', 'redux-framework-demo'),
+        'subtitle' =&gt; __('No validation can be done on this field type', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        //Must provide key =&gt; value pairs for options
+        'options' =&gt; array(
+            '1' =&gt; 'Opt 1', 
+            '2' =&gt; 'Opt 2', 
+            '3' =&gt; 'Opt 3'
+         ), 
+        'default' =&gt; '2'
+    );
+</pre>
+<h4>Multi select</h4>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'button-set-multi',
+        'type'     =&gt; 'button_set',
+        'title'    =&gt; __('Button Set, Single', 'redux-framework-demo'),
+        'subtitle' =&gt; __('No validation can be done on this field type', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'multi'    =&gt; true,
+        //Must provide key =&gt; value pairs for options
+        'options' =&gt; array(
+            '1' =&gt; 'Opt 1', 
+            '2' =&gt; 'Opt 2', 
+            '3' =&gt; 'Opt 3'
+         ), 
+        'default' =&gt; array('2', '3'),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<h4>Single</h4>
+<pre class="brush: php; title: ; notranslate">
+    global $redux_demo;
+    echo $redux_demo['button-set-single'];
+
+</pre>
+<h4>&#8216;Multi</h4>
+<pre>Due to the way in which data is saved to the database, it is strongly recommended to perform a PHP empty() and/or is_array() check when retrieving the data from this field via a foreach() loop.
+
+<pre class="brush: php; title: ; notranslate">
+    global $redux_demo;
+
+    if (!empty) {
+        foreach ($redux_demo['button-set-multi'] as $key =&gt; $value) {
+            echo $value;
+        }
+    }
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/button_set/">Button Set</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

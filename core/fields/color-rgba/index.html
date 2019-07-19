@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+Color RGBA &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>Color RGBA &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Color RGBA &raquo; Redux Documentation" />
+<meta property="og:description" content="The Color RGBA field offers the addition of an alpha channel, initial color selection, saved colors and color palette to the color picker, allowing for not only opacity within the selected color, but an array of useful options for your end users. This field makes use of Brian Grinstead&#8217;s Spectrum &#8220;No hassle jQuery color picker&#8221; &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/core/fields/color-rgba/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="alpha" />
+<meta property="article:tag" content="alpha channel" />
+<meta property="article:tag" content="class" />
+<meta property="article:tag" content="compiler" />
+<meta property="article:tag" content="default" />
+<meta property="article:tag" content="desc" />
+<meta property="article:tag" content="hint" />
+<meta property="article:tag" content="id" />
+<meta property="article:tag" content="mode" />
+<meta property="article:tag" content="output" />
+<meta property="article:tag" content="permissions" />
+<meta property="article:tag" content="required" />
+<meta property="article:tag" content="rgba" />
+<meta property="article:tag" content="subtitle" />
+<meta property="article:tag" content="title" />
+<meta property="article:tag" content="type" />
+<meta property="article:tag" content="validate" />
+<meta property="article:section" content="Fields" />
+<meta property="article:published_time" content="2014-03-10T22:35:04+00:00" />
+<meta property="article:modified_time" content="2014-12-22T20:16:39+00:00" />
+<meta property="og:updated_time" content="2014-12-22T20:16:39+00:00" />
+<meta property="og:image" content="../../../wp-content/uploads/sites/4/2014/03/new_color_rgba.png" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../../comments/feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Color RGBA Comments Feed" href="feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-core-fields-color-rgba-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-core-fields-color-rgba-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-101 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../../index.html">
+            <img alt="Redux Documentation" src="../../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">Color RGBA</h1>
+  <div id="breadcrumbs"><a href="../../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../../category/core/index.html">Core</a> <span class="sep">/</span> <a href="../../../category/core/fields/index.html">Fields</a> <span class="sep">/</span> Color RGBA</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2014-03-10" itemprop="datePublished">March 10, 2014</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../../category/core/fields/index.html" rel="category tag">Fields</a>    </li>
+
+
+</ul>
+  
+    <article id="post-101" class="clearfix post-101 post type-post status-publish format-standard hentry category-fields tag-alpha tag-alpha-channel tag-class tag-compiler tag-default tag-desc tag-hint tag-id tag-mode tag-output tag-permissions tag-required tag-rgba tag-subtitle tag-title tag-type tag-validate">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p style="text-align: justify;">The Color RGBA field offers the addition of an alpha channel, initial color selection, saved colors and color palette to the color picker, allowing for not only opacity within the selected color, but an array of useful options for your end users.</p>
+<p><a href="../../../wp-content/uploads/sites/4/2014/03/new_color_rgba.png"><img src="../../../wp-content/uploads/sites/4/2014/03/new_color_rgba.png" alt="new_color_rgba" class=" size-full wp-image-775 aligncenter" height="318" width="480" srcset="../../../wp-content/uploads/sites/4/2014/03/new_color_rgba.png 480w, ../../../wp-content/uploads/sites/4/2014/03/new_color_rgba-300x199.png 300w, ../../../wp-content/uploads/sites/4/2014/03/new_color_rgba-60x40.png 60w, ../../../wp-content/uploads/sites/4/2014/03/new_color_rgba-150x99.png 150w" sizes="(max-width: 480px) 100vw, 480px" /></a></p>
+<p>This field makes use of Brian Grinstead&#8217;s <a target="_blank" href="https://bgrins.github.io/spectrum/">Spectrum &#8220;No hassle jQuery color picker&#8221;</a></p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;color_rgba&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="../../advanced/integrating-a-compiler/index.html"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="../../the-basics/output-2/index.html"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="../../the-basics/required/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of options that sets the behavior of the color picker. See &#8216;Color Picker Options&#8217; below.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of color and alpha settings for the color picker. See &#8216;Default Settings&#8217; below.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="../../the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Color Picker Options</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>input_text</td>
+<td>string</td>
+<td>&#8216;Select Color&#8217;</td>
+<td>String specifying the button caption.</td>
+</tr>
+<tr>
+<td>show_input</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to allow free form typing input.</td>
+</tr>
+<tr>
+<td>show_initial</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the display of the color initially set when opening the color picker.</td>
+</tr>
+<tr>
+<td>show_alpha</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the alpha transparency selector.</td>
+</tr>
+<tr>
+<td>show_palette</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the display of the color picker&#8217;s color palette.</td>
+</tr>
+<tr>
+<td>show_palette_only</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the color palette only, and nothing else.</td>
+</tr>
+<tr>
+<td>show_selection_palette</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display a palette of previously selected colors.</td>
+</tr>
+<tr>
+<td>max_palette_size</td>
+<td>int</td>
+<td>10</td>
+<td>Integer value setting the number of colors to display horizontally in the color palette.</td>
+</tr>
+<tr>
+<td>allow_empty</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the display of of &#8216;clear&#8217; button, removing the color value.</td>
+</tr>
+<tr>
+<td>clickout_fires_change</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag that determines if clicking outside the color picker forces a color change.</td>
+</tr>
+<tr>
+<td>choose_text</td>
+<td>string</td>
+<td>&#8216;Choose&#8217;</td>
+<td>String to display for the color picker Choose button.</td>
+</tr>
+<tr>
+<td>cancel_text</td>
+<td>string</td>
+<td>&#8216;Cancel&#8217;</td>
+<td>String to display for the color picker Cancel button.</td>
+</tr>
+<tr>
+<td>show_buttons</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag that sets the display of the Choose and Cancel buttons.</td>
+</tr>
+<tr>
+<td>palette</td>
+<td>array</td>
+<td></td>
+<td>Individual arrays color values. See &#8216;Color Palettes&#8217; below.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Default Settings</h2>
+<p>The default argument requires an array with two key/pair values: <code>color</code> and <code>alpha</code>.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td></td>
+<td>Hex string of the default color value.</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>float/int</td>
+<td>1</td>
+<td>Integer or float value of the default alpha level.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate" title="">
+array(
+    'id'        =&gt; 'opt-color-rgba',
+    'type'      =&gt; 'color_rgba',
+    'title'     =&gt; 'RGBA Color Picker',
+    'subtitle'  =&gt; 'Set color and alpha channel',
+    'desc'      =&gt; 'The caption of this button may be changed to whatever you like!',
+
+    // See Notes below about these lines.
+    //'output'    =&gt; array('background-color' =&gt; '.site-header'),
+    //'compiler'  =&gt; array('color' =&gt; '.site-header, .site-footer', 'background-color' =&gt; '.nav-bar'),
+    'default'   =&gt; array(
+        'color'     =&gt; '#fdfdfd',
+        'alpha'     =&gt; 1
+    ),
+
+    // These options display a fully functional color palette.  Omit this argument
+    // for the minimal color picker, and change as desired.
+    'options'       =&gt; array(
+        'show_input'                =&gt; true,
+        'show_initial'              =&gt; true,
+        'show_alpha'                =&gt; true,
+        'show_palette'              =&gt; true,
+        'show_palette_only'         =&gt; false,
+        'show_selection_palette'    =&gt; true,
+        'max_palette_size'          =&gt; 10,
+        'allow_empty'               =&gt; true,
+        'clickout_fires_change'     =&gt; false,
+        'choose_text'               =&gt; 'Choose',
+        'cancel_text'               =&gt; 'Cancel',
+        'show_buttons'              =&gt; true,
+        'use_extended_classes'      =&gt; true,
+        'palette'                   =&gt; null,  // show default
+        'input_text'                =&gt; 'Select Color'
+    ),                        
+),
+
+</pre>
+<p><strong></p>
+<p>NOTES</strong>: Different elements (or modes) may be specified in the output and compiler arguments as key/pair values. For example, suppose you want to output a color as a background-color, instead of color. The following output array in key/pair format would accomplish this:</p>
+<pre class="brush: php; title: ; notranslate" title="">
+'output' =&gt; array('background-color' =&gt; '.site-header')
+</pre>
+<p>Alternatively, multiple elements could be specified for different selectors.</p>
+<pre class="brush: php; title: ; notranslate" title="">
+'output' =&gt; array(
+    'background-color' =&gt; '.site-header',
+    'color'            =&gt; '.site-footer'
+)
+</pre>
+<p>Multiple selectors are also supported. Separate them with commas.</p>
+<pre class="brush: php; title: ; notranslate" title="">
+'output' =&gt; array('background-color' =&gt; '.site-header, .site-footer')
+</pre>
+<h2>Example Usage</h2>
+<p>Using the example above, outputting the the color would go as follows (Please remember to replace <code>redux_demo</code> with your own <code><a href="../../../redux-framework/arguments/opt_name.html" title="opt_name">opt_name</a></code> argument):</p>
+<pre class="brush: php; title: ; notranslate" title="">
+global $redux_demo;
+
+echo 'color: ' . $redux_demo['opt-color-rgba']['color'];
+echo 'alpha: ' . $redux_demo['opt-color-rgba']['alpha'];
+echo 'rgba: '  . $redux_demo['opt-color-rgba']['rgba'];
+
+// Outputs:
+// color: #fdfdfd
+// alpha: 1
+// rgba: rgba(253, 253, 253, 1)
+</pre>
+<h2>Color Palettes</h2>
+<p>Creating a custom palette for use within with color picker popup (container) requires setting a series of color arrays with string hex values within a single array. The color_rgba field comes pre-programmed with the following palette.</p>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#000000&quot;, &quot;#434343&quot;, &quot;#666666&quot;, &quot;#999999&quot;, &quot;#b7b7b7&quot;, &quot;#cccccc&quot;, &quot;#d9d9d9&quot;, &quot;#efefef&quot;, &quot;#f3f3f3&quot;, &quot;#ffffff&quot;),
+    array(&quot;#980000&quot;, &quot;#ff0000&quot;, &quot;#ff9900&quot;, &quot;#ffff00&quot;, &quot;#00ff00&quot;, &quot;#00ffff&quot;, &quot;#4a86e8&quot;, &quot;#0000ff&quot;, &quot;#9900ff&quot;, &quot;#ff00ff&quot;),
+    array(&quot;#e6b8af&quot;, &quot;#f4cccc&quot;, &quot;#fce5cd&quot;, &quot;#fff2cc&quot;, &quot;#d9ead3&quot;, &quot;#d9ead3&quot;, &quot;#c9daf8&quot;, &quot;#cfe2f3&quot;, &quot;#d9d2e9&quot;, &quot;#ead1dc&quot;),
+    array(&quot;#dd7e6b&quot;, &quot;#ea9999&quot;, &quot;#f9cb9c&quot;, &quot;#ffe599&quot;, &quot;#b6d7a8&quot;, &quot;#a2c4c9&quot;, &quot;#a4c2f4&quot;, &quot;#9fc5e8&quot;, &quot;#b4a7d6&quot;, &quot;#d5a6bd&quot;),
+    array(&quot;#cc4125&quot;, &quot;#e06666&quot;, &quot;#f6b26b&quot;, &quot;#ffd966&quot;, &quot;#93c47d&quot;, &quot;#76a5af&quot;, &quot;#6d9eeb&quot;, &quot;#6fa8dc&quot;, &quot;#8e7cc3&quot;, &quot;#c27ba0&quot;),
+    array(&quot;#a61c00&quot;, &quot;#cc0000&quot;, &quot;#e69138&quot;, &quot;#f1c232&quot;, &quot;#6aa84f&quot;, &quot;#45818e&quot;, &quot;#3c78d8&quot;, &quot;#3d85c6&quot;, &quot;#674ea7&quot;, &quot;#a64d79&quot;),
+    array(&quot;#85200c&quot;, &quot;#990000&quot;, &quot;#b45f06&quot;, &quot;#bf9000&quot;, &quot;#38761d&quot;, &quot;#134f5c&quot;, &quot;#1155cc&quot;, &quot;#0b5394&quot;, &quot;#351c75&quot;, &quot;#741b47&quot;),
+    array(&quot;#5b0f00&quot;, &quot;#660000&quot;, &quot;#783f04&quot;, &quot;#7f6000&quot;, &quot;#274e13&quot;, &quot;#0c343d&quot;, &quot;#1c4587&quot;, &quot;#073763&quot;, &quot;#20124d&quot;, &quot;#4c1130&quot;)
+);
+</pre>
+<p>Here are some other example palettes to experiment with:</p>
+<h4>GMail style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#000&quot;,&quot;#444&quot;,&quot;#666&quot;,&quot;#999&quot;,&quot;#ccc&quot;,&quot;#eee&quot;,&quot;#f3f3f3&quot;,&quot;#fff&quot;),
+    array(&quot;#f00&quot;,&quot;#f90&quot;,&quot;#ff0&quot;,&quot;#0f0&quot;,&quot;#0ff&quot;,&quot;#00f&quot;,&quot;#90f&quot;,&quot;#f0f&quot;),
+    array(&quot;#f4cccc&quot;,&quot;#fce5cd&quot;,&quot;#fff2cc&quot;,&quot;#d9ead3&quot;,&quot;#d0e0e3&quot;,&quot;#cfe2f3&quot;,&quot;#d9d2e9&quot;,&quot;#ead1dc&quot;),
+    array(&quot;#ea9999&quot;,&quot;#f9cb9c&quot;,&quot;#ffe599&quot;,&quot;#b6d7a8&quot;,&quot;#a2c4c9&quot;,&quot;#9fc5e8&quot;,&quot;#b4a7d6&quot;,&quot;#d5a6bd&quot;),
+    array(&quot;#e06666&quot;,&quot;#f6b26b&quot;,&quot;#ffd966&quot;,&quot;#93c47d&quot;,&quot;#76a5af&quot;,&quot;#6fa8dc&quot;,&quot;#8e7cc3&quot;,&quot;#c27ba0&quot;),
+    array(&quot;#c00&quot;,&quot;#e69138&quot;,&quot;#f1c232&quot;,&quot;#6aa84f&quot;,&quot;#45818e&quot;,&quot;#3d85c6&quot;,&quot;#674ea7&quot;,&quot;#a64d79&quot;),
+    array(&quot;#900&quot;,&quot;#b45f06&quot;,&quot;#bf9000&quot;,&quot;#38761d&quot;,&quot;#134f5c&quot;,&quot;#0b5394&quot;,&quot;#351c75&quot;,&quot;#741b47&quot;),
+    array(&quot;#600&quot;,&quot;#783f04&quot;,&quot;#7f6000&quot;,&quot;#274e13&quot;,&quot;#0c343d&quot;,&quot;#073763&quot;,&quot;#20124d&quot;,&quot;#4c1130&quot;),
+);
+</pre>
+<h4>Snag-It Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#ffffff&quot;, &quot;#000000&quot;, &quot;#c00000&quot;, &quot;#f79646&quot;, &quot;#f5f445&quot;, &quot;#7fd13b&quot;, &quot;#4bacc6&quot;, &quot;#1f497d&quot;, &quot;#8064a2&quot;, &quot;#ff0000&quot;),
+    array(&quot;#f2f2f2&quot;, &quot;#7f7f7f&quot;, &quot;#f8d1d3&quot;, &quot;#fdeada&quot;, &quot;#fafdd7&quot;, &quot;#e5f5d7&quot;, &quot;#dbeef3&quot;, &quot;#c6d9f0&quot;, &quot;#e5e0ec&quot;, &quot;#ffcc00&quot;),
+    array(&quot;#d7d7d7&quot;, &quot;#595959&quot;, &quot;#f2a3a7&quot;, &quot;#fbd5b5&quot;, &quot;#fbfaae&quot;, &quot;#cbecb0&quot;, &quot;#b7dde8&quot;, &quot;#8db3e2&quot;, &quot;#ccc1d9&quot;, &quot;#ffff00&quot;),
+    array(&quot;#bebebe&quot;, &quot;#414141&quot;, &quot;#eb757b&quot;, &quot;#fac08f&quot;, &quot;#eef98e&quot;, &quot;#b2e389&quot;, &quot;#92cddc&quot;, &quot;#548dd4&quot;, &quot;#b2a2c7&quot;, &quot;#00ff00&quot;),
+    array(&quot;#a3a3a3&quot;, &quot;#2a2a2a&quot;, &quot;#a3171e&quot;, &quot;#e36c09&quot;, &quot;#dede07&quot;, &quot;#5ea226&quot;, &quot;#31859b&quot;, &quot;#17365d&quot;, &quot;#5f497a&quot;, &quot;#0000ff&quot;),
+    array(&quot;#7e7e7e&quot;, &quot;#141414&quot;, &quot;#6d0f14&quot;, &quot;#974806&quot;, &quot;#c0c00d&quot;, &quot;#3f6c19&quot;, &quot;#205867&quot;, &quot;#0f243e&quot;, &quot;#3f3151&quot;, &quot;#9900ff&quot;)
+);
+</pre>
+<h4>Newton Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+&quot;#ffffff&quot;, &quot;#000000&quot;, &quot;#ff0000&quot;, &quot;#ff8000&quot;, &quot;#ffff00&quot;, &quot;#008000&quot;, &quot;#0000ff&quot;, &quot;#4b0082&quot;, &quot;#9400d3&quot;
+);
+</pre>
+<h4>AOL Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#ffffff&quot;, &quot;#fff7de&quot;, &quot;#ffffce&quot;, &quot;#ffffbd&quot;, &quot;#ffffd6&quot;, &quot;#b5ff84&quot;, &quot;#c6efde&quot;, &quot;#efffff&quot;, &quot;#efe7f7&quot;, &quot;#dea5d6&quot;);
+    array(&quot;#ded6c6&quot;, &quot;#ffc6bd&quot;, &quot;#ffe7b5&quot;, &quot;#ffe7a5&quot;, &quot;#efef7b&quot;, &quot;#adf77b&quot;, &quot;#5abd9c&quot;, &quot;#a5d6f7&quot;, &quot;#8494e7&quot;, &quot;#ef7be7&quot;);
+    array(&quot;#cec6b5&quot;, &quot;#e78473&quot;, &quot;#efad52&quot;, &quot;#f7b500&quot;, &quot;#efef9c&quot;, &quot;#a5ff00&quot;, &quot;#7bd6bd&quot;, &quot;#a5d6de&quot;, &quot;#8c5ae7&quot;, &quot;#de6bce&quot;);
+    array(&quot;#8c8473&quot;, &quot;#ef0018&quot;, &quot;#ef4210&quot;, &quot;#f79400&quot;, &quot;#ffff00&quot;, &quot;#63d600&quot;, &quot;#a5c684&quot;, &quot;#5a63d6&quot;, &quot;#7b52c6&quot;, &quot;#c642ce&quot;);
+    array(&quot;#736b63&quot;, &quot;#d60039&quot;, &quot;#d67310&quot;, &quot;#f7844a&quot;, &quot;#f7de00&quot;, &quot;#429400&quot;, &quot;#4a944a&quot;, &quot;#4200ff&quot;, &quot;#9c00de&quot;, &quot;#a500c6&quot;);
+    array(&quot;#39524a&quot;, &quot;#b51821&quot;, &quot;#944a08&quot;, &quot;#a55229&quot;, &quot;#8c8c00&quot;, &quot;#318c00&quot;, &quot;#429484&quot;, &quot;#3100c6&quot;, &quot;#523984&quot;, &quot;#940084&quot;);
+    array(&quot;#000000&quot;, &quot;#940008&quot;, &quot;#840008&quot;, &quot;#ad2929&quot;, &quot;#637321&quot;, &quot;#296b00&quot;, &quot;#29006b&quot;, &quot;#21007b&quot;, &quot;#52007b&quot;, &quot;#84007b&quot;);
+);
+</pre>
+<h4>Old GMail Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#ffffff&quot;, &quot;#cecece&quot;, &quot;#c6c6c6&quot;, &quot;#9c9c9c&quot;, &quot;#636363&quot;, &quot;#313131&quot;, &quot;#000000&quot;),
+    array(&quot;#ffcece&quot;, &quot;#ff6363&quot;, &quot;#ff0000&quot;, &quot;#ce0000&quot;, &quot;#9c0000&quot;, &quot;#630000&quot;, &quot;#310000&quot;),
+    array(&quot;#ffce9c&quot;, &quot;#ff9c63&quot;, &quot;#ff9c00&quot;, &quot;#ff6300&quot;, &quot;#ce6300&quot;, &quot;#9c3100&quot;, &quot;#633100&quot;),
+    array(&quot;#ffff9c&quot;, &quot;#ffff63&quot;, &quot;#ffce63&quot;, &quot;#ffce31&quot;, &quot;#ce9c31&quot;, &quot;#9c6331&quot;, &quot;#633131&quot;),
+    array(&quot;#ffffce&quot;, &quot;#ffff31&quot;, &quot;#ffff00&quot;, &quot;#ffce00&quot;, &quot;#9c9c00&quot;, &quot;#636300&quot;, &quot;#313100&quot;),
+    array(&quot;#9cff9c&quot;, &quot;#63ff9c&quot;, &quot;#31ff31&quot;, &quot;#31ce00&quot;, &quot;#009c00&quot;, &quot;#006300&quot;, &quot;#003100&quot;),
+    array(&quot;#9cffff&quot;, &quot;#31ffff&quot;, &quot;#63cece&quot;, &quot;#00cece&quot;, &quot;#319c9c&quot;, &quot;#316363&quot;, &quot;#003131&quot;),
+    array(&quot;#ceffff&quot;, &quot;#63ffff&quot;, &quot;#31ceff&quot;, &quot;#3163ff&quot;, &quot;#3131ff&quot;, &quot;#00009c&quot;, &quot;#000063&quot;),
+    array(&quot;#ceceff&quot;, &quot;#9c9cff&quot;, &quot;#6363ce&quot;, &quot;#6331ff&quot;, &quot;#6300ce&quot;, &quot;#31319c&quot;, &quot;#31009c&quot;),
+    array(&quot;#ffceff&quot;, &quot;#ff9cff&quot;, &quot;#ce63ce&quot;, &quot;#ce31ce&quot;, &quot;#9c319c&quot;, &quot;#633163&quot;, &quot;#310031&quot;),
+);
+</pre>
+<h4>Hotmail Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#ffffff&quot;, &quot;#000000&quot;, &quot;#efefe7&quot;, &quot;#184a7b&quot;, &quot;#4a84bd&quot;, &quot;#c6524a&quot;, &quot;#9cbd5a&quot;, &quot;#8463a5&quot;, &quot;#4aadc6&quot;, &quot;#f79442&quot;),
+    array(&quot;#f7f7f7&quot;, &quot;#7b7b7b&quot;, &quot;#dedec6&quot;, &quot;#c6def7&quot;, &quot;#dee7f7&quot;, &quot;#f7dede&quot;, &quot;#eff7de&quot;, &quot;#e7e7ef&quot;, &quot;#deeff7&quot;, &quot;#ffefde&quot;),
+    array(&quot;#dedede&quot;, &quot;#5a5a5a&quot;, &quot;#c6bd94&quot;, &quot;#8cb5e7&quot;, &quot;#bdcee7&quot;, &quot;#e7bdb5&quot;, &quot;#d6e7bd&quot;, &quot;#cec6de&quot;, &quot;#b5deef&quot;, &quot;#ffd6b5&quot;),
+    array(&quot;#bdbdbd&quot;, &quot;#393939&quot;, &quot;#948c52&quot;, &quot;#528cd6&quot;, &quot;#94b5d6&quot;, &quot;#de9494&quot;, &quot;#c6d69c&quot;, &quot;#b5a5c6&quot;, &quot;#94cede&quot;, &quot;#ffc68c&quot;),
+    array(&quot;#a5a5a5&quot;, &quot;#212121&quot;, &quot;#4a4229&quot;, &quot;#10315a&quot;, &quot;#316394&quot;, &quot;#943131&quot;, &quot;#739439&quot;, &quot;#5a4a7b&quot;, &quot;#31849c&quot;, &quot;#e76b08&quot;),
+    array(&quot;#848484&quot;, &quot;#080808&quot;, &quot;#181810&quot;, &quot;#082139&quot;, &quot;#214263&quot;, &quot;#632121&quot;, &quot;#4a6329&quot;, &quot;#393152&quot;, &quot;#215a63&quot;, &quot;#944a00&quot;),
+    array(&quot;#c60000&quot;, &quot;#ff0000&quot;, &quot;#ffc600&quot;, &quot;#ffff00&quot;, &quot;#94d652&quot;, &quot;#00b552&quot;, &quot;#00b5f7&quot;, &quot;#0073c6&quot;, &quot;#002163&quot;, &quot;#7331a5&quot;),
+);
+</pre>
+<h4>Yahoo Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#000000&quot;, &quot;#111111&quot;, &quot;#2d2d2d&quot;, &quot;#434343&quot;, &quot;#5b5b5b&quot;, &quot;#737373&quot;, &quot;#8b8b8b&quot;, &quot;#a2a2a2&quot;, &quot;#b9b9b9&quot;, &quot;#d0d0d0&quot;, &quot;#e6e6e6&quot;, &quot;#ffffff&quot;),
+    array(&quot;#7f7f00&quot;, &quot;#bfbf00&quot;, &quot;#ffff00&quot;, &quot;#ffff40&quot;, &quot;#ffff80&quot;, &quot;#ffffbf&quot;, &quot;#525330&quot;, &quot;#898a49&quot;, &quot;#aea945&quot;, &quot;#c3be71&quot;, &quot;#e0dcaa&quot;, &quot;#fcfae1&quot;),
+    array(&quot;#407f00&quot;, &quot;#60bf00&quot;, &quot;#80ff00&quot;, &quot;#a0ff40&quot;, &quot;#c0ff80&quot;, &quot;#dfffbf&quot;, &quot;#3b5738&quot;, &quot;#668f5a&quot;, &quot;#7f9757&quot;, &quot;#8a9b55&quot;, &quot;#b7c296&quot;, &quot;#e6ebd5&quot;),
+    array(&quot;#007f40&quot;, &quot;#00bf60&quot;, &quot;#00ff80&quot;, &quot;#40ffa0&quot;, &quot;#80ffc0&quot;, &quot;#bfffdf&quot;, &quot;#033d21&quot;, &quot;#438059&quot;, &quot;#7fa37c&quot;, &quot;#8dae94&quot;, &quot;#acc6b5&quot;, &quot;#ddebe2&quot;),
+    array(&quot;#007f7f&quot;, &quot;#00bfbf&quot;, &quot;#00ffff&quot;, &quot;#40ffff&quot;, &quot;#80ffff&quot;, &quot;#bfffff&quot;, &quot;#033d3d&quot;, &quot;#347d7e&quot;, &quot;#609a9f&quot;, &quot;#96bdc4&quot;, &quot;#b5d1d7&quot;, &quot;#e2f1f4&quot;),
+    array(&quot;#00407f&quot;, &quot;#0060bf&quot;, &quot;#0080ff&quot;, &quot;#40a0ff&quot;, &quot;#80c0ff&quot;, &quot;#bfdfff&quot;, &quot;#1b2c48&quot;, &quot;#385376&quot;, &quot;#57708f&quot;, &quot;#7792ac&quot;, &quot;#a8bed1&quot;, &quot;#deebf6&quot;),
+    array(&quot;#00007f&quot;, &quot;#0000bf&quot;, &quot;#0000ff&quot;, &quot;#4040ff&quot;, &quot;#8080ff&quot;, &quot;#bfbfff&quot;, &quot;#212143&quot;, &quot;#373e68&quot;, &quot;#444f75&quot;, &quot;#585e82&quot;, &quot;#8687a4&quot;, &quot;#d2d1e1&quot;),
+    array(&quot;#40007f&quot;, &quot;#6000bf&quot;, &quot;#8000ff&quot;, &quot;#a040ff&quot;, &quot;#c080ff&quot;, &quot;#dfbfff&quot;, &quot;#302449&quot;, &quot;#54466f&quot;, &quot;#655a7f&quot;, &quot;#726284&quot;, &quot;#9e8fa9&quot;, &quot;#dcd1df&quot;),
+    array(&quot;#7f007f&quot;, &quot;#bf00bf&quot;, &quot;#ff00ff&quot;, &quot;#ff40ff&quot;, &quot;#ff80ff&quot;, &quot;#ffbfff&quot;, &quot;#4a234a&quot;, &quot;#794a72&quot;, &quot;#936386&quot;, &quot;#9d7292&quot;, &quot;#c0a0b6&quot;, &quot;#ecdae5&quot;),
+    array(&quot;#7f003f&quot;, &quot;#bf005f&quot;, &quot;#ff007f&quot;, &quot;#ff409f&quot;, &quot;#ff80bf&quot;, &quot;#ffbfdf&quot;, &quot;#451528&quot;, &quot;#823857&quot;, &quot;#a94a76&quot;, &quot;#bc6f95&quot;, &quot;#d8a5bb&quot;, &quot;#f7dde9&quot;),
+    array(&quot;#800000&quot;, &quot;#c00000&quot;, &quot;#ff0000&quot;, &quot;#ff4040&quot;, &quot;#ff8080&quot;, &quot;#ffc0c0&quot;, &quot;#441415&quot;, &quot;#82393c&quot;, &quot;#aa4d4e&quot;, &quot;#bc6e6e&quot;, &quot;#d8a3a4&quot;, &quot;#f8dddd&quot;),
+    array(&quot;#7f3f00&quot;, &quot;#bf5f00&quot;, &quot;#ff7f00&quot;, &quot;#ff9f40&quot;, &quot;#ffbf80&quot;, &quot;#ffdfbf&quot;, &quot;#482c1b&quot;, &quot;#855a40&quot;, &quot;#b27c51&quot;, &quot;#c49b71&quot;, &quot;#e1c4a8&quot;, &quot;#fdeee0&quot;),
+);
+</pre>
+<h4>Sixteen Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#000000&quot;, &quot;#000084&quot;, &quot;#0000ff&quot;, &quot;#840000&quot;),
+    array(&quot;#840084&quot;, &quot;#008200&quot;, &quot;#ff0000&quot;, &quot;#008284&quot;),
+    array(&quot;#ff00ff&quot;, &quot;#848200&quot;, &quot;#848284&quot;, &quot;#00ff00&quot;),
+    array(&quot;#ffa600&quot;, &quot;#00ffff&quot;, &quot;#c6c3c6&quot;, &quot;#ffff00&quot;),
+    array(&quot;#ffffff&quot;),
+);
+</pre>
+<h4>Websafe Style</h4>
+<pre class="brush: php; title: ; notranslate" title="">
+'palette' =&gt; array(
+    array(&quot;#000&quot;, &quot;#300&quot;, &quot;#600&quot;, &quot;#900&quot;, &quot;#c00&quot;, &quot;#f00&quot;),
+    array(&quot;#003&quot;, &quot;#303&quot;, &quot;#603&quot;, &quot;#903&quot;, &quot;#c03&quot;, &quot;#f03&quot;),
+    array(&quot;#006&quot;, &quot;#306&quot;, &quot;#606&quot;, &quot;#906&quot;, &quot;#c06&quot;, &quot;#f06&quot;),
+    array(&quot;#009&quot;, &quot;#309&quot;, &quot;#609&quot;, &quot;#909&quot;, &quot;#c09&quot;, &quot;#f09&quot;),
+    array(&quot;#00c&quot;, &quot;#30c&quot;, &quot;#60c&quot;, &quot;#90c&quot;, &quot;#c0c&quot;, &quot;#f0c&quot;),
+    array(&quot;#00f&quot;, &quot;#30f&quot;, &quot;#60f&quot;, &quot;#90f&quot;, &quot;#c0f&quot;, &quot;#f0f&quot;),
+    array(&quot;#030&quot;, &quot;#330&quot;, &quot;#630&quot;, &quot;#930&quot;, &quot;#c30&quot;, &quot;#f30&quot;),
+    array(&quot;#033&quot;, &quot;#333&quot;, &quot;#633&quot;, &quot;#933&quot;, &quot;#c33&quot;, &quot;#f33&quot;),
+    array(&quot;#036&quot;, &quot;#336&quot;, &quot;#636&quot;, &quot;#936&quot;, &quot;#c36&quot;, &quot;#f36&quot;),
+    array(&quot;#039&quot;, &quot;#339&quot;, &quot;#639&quot;, &quot;#939&quot;, &quot;#c39&quot;, &quot;#f39&quot;),
+    array(&quot;#03c&quot;, &quot;#33c&quot;, &quot;#63c&quot;, &quot;#93c&quot;, &quot;#c3c&quot;, &quot;#f3c&quot;),
+    array(&quot;#03f&quot;, &quot;#33f&quot;, &quot;#63f&quot;, &quot;#93f&quot;, &quot;#c3f&quot;, &quot;#f3f&quot;),
+    array(&quot;#060&quot;, &quot;#360&quot;, &quot;#660&quot;, &quot;#960&quot;, &quot;#c60&quot;, &quot;#f60&quot;),
+    array(&quot;#063&quot;, &quot;#363&quot;, &quot;#663&quot;, &quot;#963&quot;, &quot;#c63&quot;, &quot;#f63&quot;),
+    array(&quot;#066&quot;, &quot;#366&quot;, &quot;#666&quot;, &quot;#966&quot;, &quot;#c66&quot;, &quot;#f66&quot;),
+    array(&quot;#069&quot;, &quot;#369&quot;, &quot;#669&quot;, &quot;#969&quot;, &quot;#c69&quot;, &quot;#f69&quot;),
+    array(&quot;#06c&quot;, &quot;#36c&quot;, &quot;#66c&quot;, &quot;#96c&quot;, &quot;#c6c&quot;, &quot;#f6c&quot;),
+    array(&quot;#06f&quot;, &quot;#36f&quot;, &quot;#66f&quot;, &quot;#96f&quot;, &quot;#c6f&quot;, &quot;#f6f&quot;),
+    array(&quot;#090&quot;, &quot;#390&quot;, &quot;#690&quot;, &quot;#990&quot;, &quot;#c90&quot;, &quot;#f90&quot;),
+    array(&quot;#093&quot;, &quot;#393&quot;, &quot;#693&quot;, &quot;#993&quot;, &quot;#c93&quot;, &quot;#f93&quot;),
+    array(&quot;#096&quot;, &quot;#396&quot;, &quot;#696&quot;, &quot;#996&quot;, &quot;#c96&quot;, &quot;#f96&quot;),
+    array(&quot;#099&quot;, &quot;#399&quot;, &quot;#699&quot;, &quot;#999&quot;, &quot;#c99&quot;, &quot;#f99&quot;),
+    array(&quot;#09c&quot;, &quot;#39c&quot;, &quot;#69c&quot;, &quot;#99c&quot;, &quot;#c9c&quot;, &quot;#f9c&quot;),
+    array(&quot;#09f&quot;, &quot;#39f&quot;, &quot;#69f&quot;, &quot;#99f&quot;, &quot;#c9f&quot;, &quot;#f9f&quot;),
+    array(&quot;#0c0&quot;, &quot;#3c0&quot;, &quot;#6c0&quot;, &quot;#9c0&quot;, &quot;#cc0&quot;, &quot;#fc0&quot;),
+    array(&quot;#0c3&quot;, &quot;#3c3&quot;, &quot;#6c3&quot;, &quot;#9c3&quot;, &quot;#cc3&quot;, &quot;#fc3&quot;),
+    array(&quot;#0c6&quot;, &quot;#3c6&quot;, &quot;#6c6&quot;, &quot;#9c6&quot;, &quot;#cc6&quot;, &quot;#fc6&quot;),
+    array(&quot;#0c9&quot;, &quot;#3c9&quot;, &quot;#6c9&quot;, &quot;#9c9&quot;, &quot;#cc9&quot;, &quot;#fc9&quot;),
+    array(&quot;#0cc&quot;, &quot;#3cc&quot;, &quot;#6cc&quot;, &quot;#9cc&quot;, &quot;#ccc&quot;, &quot;#fcc&quot;),
+    array(&quot;#0cf&quot;, &quot;#3cf&quot;, &quot;#6cf&quot;, &quot;#9cf&quot;, &quot;#ccf&quot;, &quot;#fcf&quot;),
+    array(&quot;#0f0&quot;, &quot;#3f0&quot;, &quot;#6f0&quot;, &quot;#9f0&quot;, &quot;#cf0&quot;, &quot;#ff0&quot;),
+    array(&quot;#0f3&quot;, &quot;#3f3&quot;, &quot;#6f3&quot;, &quot;#9f3&quot;, &quot;#cf3&quot;, &quot;#ff3&quot;),
+    array(&quot;#0f6&quot;, &quot;#3f6&quot;, &quot;#6f6&quot;, &quot;#9f6&quot;, &quot;#cf6&quot;, &quot;#ff6&quot;),
+    array(&quot;#0f9&quot;, &quot;#3f9&quot;, &quot;#6f9&quot;, &quot;#9f9&quot;, &quot;#cf9&quot;, &quot;#ff9&quot;),
+    array(&quot;#0fc&quot;, &quot;#3fc&quot;, &quot;#6fc&quot;, &quot;#9fc&quot;, &quot;#cfc&quot;, &quot;#ffc&quot;),
+    array(&quot;#0ff&quot;, &quot;#3ff&quot;, &quot;#6ff&quot;, &quot;#9ff&quot;, &quot;#cff&quot;, &quot;#fff&quot;)
+);
+</pre>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../../tag/alpha/index.html" rel="tag">alpha</a><a href="../../../tag/alpha-channel/index.html" rel="tag">alpha channel</a><a href="../../../tag/class/index.html" rel="tag">class</a><a href="../../../tag/compiler/index.html" rel="tag">compiler</a><a href="../../../tag/default/index.html" rel="tag">default</a><a href="../../../tag/desc/index.html" rel="tag">desc</a><a href="../../../tag/hint/index.html" rel="tag">hint</a><a href="../../../tag/id/index.html" rel="tag">id</a><a href="../../../tag/mode/index.html" rel="tag">mode</a><a href="../../../tag/output/index.html" rel="tag">output</a><a href="../../../tag/permissions/index.html" rel="tag">permissions</a><a href="../../../tag/required/index.html" rel="tag">required</a><a href="../../../tag/rgba/index.html" rel="tag">rgba</a><a href="../../../tag/subtitle/index.html" rel="tag">subtitle</a><a href="../../../tag/title/index.html" rel="tag">title</a><a href="../../../tag/type/index.html" rel="tag">type</a><a href="../../../tag/validate/index.html" rel="tag">validate</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../palette-color/index.html" rel="bookmark" title="Palette Color">Palette Color</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../callback/index.html" rel="bookmark" title="callback">callback</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../../redux-api/index.html" rel="bookmark" title="The Redux API">The Redux API</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../getting-started-with-fields/index.html" rel="bookmark" title="Getting started with Fields">Getting started with Fields</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../ace-editor/index.html" rel="bookmark" title="ACE Editor">ACE Editor</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../background/index.html" rel="bookmark" title="Background">Background</a></h4>
+        </li>
+
+</ul></section>
+      
+    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

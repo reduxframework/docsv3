@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>support &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/support/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Understanding the Redux Framework System Status Report</title>
+		<link>https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/</link>
+		<comments>https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/#respond</comments>
+		<pubDate>Mon, 23 Mar 2015 01:27:25 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Support]]></category>
+		<category><![CDATA[support]]></category>
+		<category><![CDATA[system status]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=893</guid>
+		<description><![CDATA[<p>Overview The Redux Framework System Status report is a vital tool that is used to troubleshoot issues with your site. With a wide variety of sections and fields, you can check your software versions, server settings, and WordPress configuration in a moment’s notice. Plus, the System Status report is the best way that the Redux [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/">Understanding the Redux Framework System Status Report</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Overview</h2>
+<p>The Redux Framework System Status report is a vital tool that is used to troubleshoot issues with your site. With a wide variety of sections and fields, you can check your software versions, server settings, and WordPress configuration in a moment’s notice.</p>
+<p>Plus, the System Status report is the best way that the Redux Support Team can help you! Before opening a ticket, be sure to add your settings and check to see if you can troubleshoot an issue with the items below.</p>
+<h2>WordPress Environment</h2>
+<p>This section provides general information about your site, your WordPress installation, and the features you have enabled.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Home URL</td>
+<td><span>The URL of your site’s homepage.</span></td>
+<td><span>http://example.com</span></td>
+</tr>
+<tr>
+<td>Site URL</td>
+<td><span>The root URL of your site.</span></td>
+<td><span>http://example.com</span></td>
+</tr>
+<tr>
+<td>Redux Version</td>
+<td><span>The version of Redux Framework installed on your site.</span></td>
+<td>3.4.4.5</td>
+</tr>
+<tr>
+<td><span>Redux Data Directory Writable</span></td>
+<td><span>Whether the Redux data directory is writable, and its location.</span></td>
+<td><span>/srv/www/wp-content/uploads/redux/</span></td>
+</tr>
+<tr>
+<td>WP Version</td>
+<td><span>The version of WordPress installed on your site.</span></td>
+<td>3.4.1</td>
+</tr>
+<tr>
+<td>WP Multisite</td>
+<td><span>Whether or not you have WordPress Multisite enabled.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>Permalink Structure</td>
+<td>The WordPress permalink structure set in Settings-&gt;Permalinks.</td>
+<td><span>/%postname%/</span></td>
+</tr>
+<tr>
+<td>Front Page Display</td>
+<td>The sitting to display &#8220;Latest Posts&#8221; or &#8220;Static Pages&#8221; as set in Settings-&gt;Reading.</td>
+<td>posts</td>
+</tr>
+<tr>
+<td>Front Page</td>
+<td>The name of the page used as the &#8220;Front Page&#8221; of the site.  This information is displayed only when Front Page Display is set to pages.</td>
+<td>&lt;name of page&gt;</td>
+</tr>
+<tr>
+<td>Posts Page</td>
+<td>The name of the page used as the &#8220;Post Page&#8221; of the site.  This information is displayed only when Front Page Display is set to pages.</td>
+<td>&lt;name of page&gt;</td>
+</tr>
+<tr>
+<td>WP Memory Limit</td>
+<td><span>The maximum amount of memory (RAM) that your site can use at one time.<span class="Apple-converted-space"> </span></span><a title="Increasing the WordPress Memory Limit" href="/core/support/increasing-the-wordpress-memory-limit/">Learn how to increase this limit here.</a></td>
+<td><span>64 MB</span></td>
+</tr>
+<tr>
+<td>Database Table Prefix</td>
+<td>Displays the length of the WordPress database table prefix, and whether it falls into acceptable parameters.</td>
+<td><span>Length: 3 &#8211; Status: Acceptable</span></td>
+</tr>
+<tr>
+<td>WP Debug Mode</td>
+<td><span>Displays whether or not WordPress is in Debug Mode.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>Language</td>
+<td><span>The current language used by WordPress. Default = English</span></td>
+<td>en_US</td>
+</tr>
+</tbody>
+</table>
+<h2>Browser</h2>
+<p>This entry provides general information about your web browser.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Browser Info</td>
+<td>The complete User Agent string of the browser viewing the System Status report.</td>
+<td><span>Platform: Windows Browser Name: Chrome Browser Version: 41.0.2272.101 User Agent String: Mozilla/5.0 (Windows NT 5.2; WOW 64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Server Environment</h2>
+<p>This section provides general information about your server.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Server Info</td>
+<td><span>Information about the web server that is currently hosting your site.</span></td>
+<td><span>Apache/2.4.7 (Win32) OpenSSL/1.0.1e PHP/5.5.9</span></td>
+</tr>
+<tr>
+<td>PHP Version</td>
+<td><span>The version of PHP installed on your hosting server.</span></td>
+<td><span>5.5.6</span></td>
+</tr>
+<tr>
+<td>PHP Memory Limit</td>
+<td><span>The maximum amount of memory in bytes that a script is allowed to allocate. </span></td>
+<td><span>256 MB</span></td>
+</tr>
+<tr>
+<td>PHP Post Max Size</td>
+<td><span>The largest filesize that can be contained in one post.</span></td>
+<td>8 MB</td>
+</tr>
+<tr>
+<td>PHP Time Limit</td>
+<td><span>The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)</span></td>
+<td>300</td>
+</tr>
+<tr>
+<td><span>PHP Max Input Vars</span></td>
+<td><span>The maximum number of variables your server can use for a single function to avoid overloads.</span></td>
+<td>1000</td>
+</tr>
+<tr>
+<td>PHP Display Errors</td>
+<td>Determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user.</td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td><span>SUHOSIN Installed</span></td>
+<td><span>Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself.  If enabled on your server, Suhosin may need to be configured to increase its data submission limits.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>MySQL Version</td>
+<td><span>The version of MySQL installed on your hosting server.</span></td>
+<td><span>5.5.32</span></td>
+</tr>
+<tr>
+<td><span>Max Upload Size</span></td>
+<td><span>The largest filesize that can be uploaded to your WordPress installation.</span></td>
+<td>8 MB</td>
+</tr>
+<tr>
+<td>Default Time Zone is UTC</td>
+<td><span>Whether the timezone for your server is UTC.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td><span>fsockopen/cURL</span></td>
+<td><span>Payment gateways can use cURL to communicate with remote servers to authorize payments, other plugins may also use it when communicating with remote services.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>SOAP Client</td>
+<td><span>Some webservices like shipping use SOAP to get information from remote servers, for example, live shipping quotes from FedEx require SOAP to be installed.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>DOM Document</td>
+<td><span>HTML/Multipart Emails use DOMDocument to generate inline CSS in templates.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>GZIP</td>
+<td><span>GZip (gzopen) is used to open the GEOIP database from MaxMind.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>Remote POST</td>
+<td><span>PayPal uses this method of commnuicating when sending back transaction information.<span class="Apple-converted-space"> </span></span><a href="http://codex.wordpress.org/Function_Reference/wp_remote_post">See the wp_remote_post Codex page for more information.</a></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>Remote GET</td>
+<td><span>Redux Framework may use this method of communication when checking for updates.</span></td>
+<td><span>√</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Active Plugins</h2>
+<p>This section displays all of the active plugins installed on your site. From this area, you can see the current version numbers of your plugins.<br /><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins.png" alt="active_plugins" class="alignnone size-full wp-image-904" height="789" width="1161" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins.png 1161w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-300x204.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-1024x696.png 1024w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-60x41.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-150x102.png 150w" sizes="(max-width: 1161px) 100vw, 1161px" /></a></p>
+<h2>Redux Instances</h2>
+<p>This section displays all of the active instances of Redux Framework on your site. This information may be invaluable in detecting collisions with other developers who use Redux in their projects. Multiple instances could be listed, depending on if and how many plugins on your site use Redux Framework.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>opt_name</td>
+<td>The opt_name variable set in the specified instance of Redux.</td>
+<td>redux_demo</td>
+</tr>
+<tr>
+<td>global_variable</td>
+<td>The global_variable variable set in the specified instance of Redux.</td>
+<td>redux_demo</td>
+</tr>
+<tr>
+<td>dev_mode</td>
+<td>Displays whether or not developer mode is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>ajax_save</td>
+<td>Displays whether or not AJAX based saving is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>page_slug</td>
+<td>The specified string that comprises the name of the options panel for the specified instance of Redux.</td>
+<td>redux_options</td>
+</tr>
+<tr>
+<td>page_permissions</td>
+<td>The minimum permission setting required to view the options panel for the specified instance of Redux.</td>
+<td>manage_options</td>
+</tr>
+<tr>
+<td>menu_type</td>
+<td>Variable sets whether or not the menu is displayed as an admin menu item in the specified instance of Redux.</td>
+<td>menu</td>
+</tr>
+<tr>
+<td>page_parent</td>
+<td>Variable sets where the options menu will be placed on the WordPress admin sidebar for the specified instance of Redux.</td>
+<td>themes.php</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>Flag setting the compiler option for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>output</td>
+<td>Indicates if output flag for globally shutting off all CSS output is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>output_tag</td>
+<td>The output_tag variable sets whether or not dynamic CSS will be generated for the customizer and Google fonts for this instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>template_path</td>
+<td>The full directory path to custom template files for this instance of Redux.  This data is only displayed if the template_path argument is set.</td>
+<td><span>/srv/www/wp-content/themes/&lt;theme_name&gt;/redux/templates</span></td>
+</tr>
+<tr>
+<td>Templates</td>
+<td>A list of custom templates used and their versions.  This data is only displayed if the template_path argument is set and templates are installed.</td>
+<td><code><span>&lt;theme_name&gt;</span>/admin/templates/container.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/content.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/footer.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/header.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/header_stickybar.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/menu_container.tpl.php</code></td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td>A list of installed Redux Framework extensions and their versions.  This information is only displayed if extensions are installed.</td>
+<td><span>Widget Areas &#8211; 1.0.0</span><br /><span>Social Profiles &#8211; 1.0.2</span><br /><span>Search &#8211; 1.0.0</span><br /><span>Multi Media &#8211; 1.0.0</span><br /><span>Metaboxes &#8211; 1.3.1</span><br /><span>Js Button &#8211; 1.0.1</span><br /><span>Custom Fonts &#8211; 1.0.1</span><br /><span>Color Scheme &#8211; 2.1.6</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Theme</h2>
+<p>This section displays valuable information about the current theme running on your installation. Typically this could be one of the more problematic areas of a site – as there is no standard on what themes should and shouldn’t do.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Name</td>
+<td><span>The name of the current active theme.</span></td>
+<td>HelpBase</td>
+</tr>
+<tr>
+<td>Version</td>
+<td><span>The installed version of the current active theme.</span></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>Author URL</td>
+<td><span>The developer or plugin’s URL</span></td>
+<td>http://www.rdx.io</td>
+</tr>
+<tr>
+<td>Child Theme</td>
+<td><span>Displays whether the active theme is a child theme, and what the parent theme is.</span></td>
+<td>x</td>
+</tr>
+<tr>
+<td>Parent Theme Name</td>
+<td>The name of the current parent theme.  This information is displayed only f the current theme is a child theme.</td>
+<td>HelpBase (child theme)</td>
+</tr>
+<tr>
+<td>Parent Theme Version</td>
+<td>The installed version of the parent theme.  This information is displayed only f the current theme is a child theme.</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>Parent Theme Author URL</td>
+<td>The parent&#8217;s theme&#8217;s developer or URL.  This information is displayed only f the current theme is a child theme.</td>
+<td>http://www.rdx.io</td>
+</tr>
+</tbody>
+</table>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/">Understanding the Redux Framework System Status Report</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

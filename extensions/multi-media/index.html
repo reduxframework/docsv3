@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+Multi Media &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>Multi Media &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Multi Media &raquo; Redux Documentation" />
+<meta property="og:description" content="The Redux Multi Media extension is an improved way to allow your users to upload and/or select multiple files from the WordPress media library, for use in the Redux Framework options panel. Getting Started To understand how to use extensions, you should read this article on Loading Extensions. To shortcut the process, you should use &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/extensions/multi-media/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="button" />
+<meta property="article:tag" content="class" />
+<meta property="article:tag" content="desc" />
+<meta property="article:tag" content="download" />
+<meta property="article:tag" content="duplicate" />
+<meta property="article:tag" content="file" />
+<meta property="article:tag" content="getExtendedData" />
+<meta property="article:tag" content="hint" />
+<meta property="article:tag" content="id" />
+<meta property="article:tag" content="labels" />
+<meta property="article:tag" content="library_filter" />
+<meta property="article:tag" content="max_file_upload" />
+<meta property="article:tag" content="max_limit" />
+<meta property="article:tag" content="remove_file" />
+<meta property="article:tag" content="remove_image" />
+<meta property="article:tag" content="subtitle" />
+<meta property="article:tag" content="title" />
+<meta property="article:tag" content="type" />
+<meta property="article:tag" content="upload_file" />
+<meta property="article:section" content="Extensions" />
+<meta property="article:published_time" content="2014-11-27T03:53:16+00:00" />
+<meta property="article:modified_time" content="2014-12-15T03:40:00+00:00" />
+<meta property="og:updated_time" content="2014-12-15T03:40:00+00:00" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../comments/feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Multi Media Comments Feed" href="feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-multi-media-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-multi-media-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-710 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../index.html">
+            <img alt="Redux Documentation" src="../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">Multi Media</h1>
+  <div id="breadcrumbs"><a href="../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../category/extensions/index.html" title="View all posts in Extensions" >Extensions</a> <span class="sep">/</span>Multi Media</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2014-11-27" itemprop="datePublished">November 27, 2014</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../category/extensions/index.html" rel="category tag">Extensions</a>    </li>
+
+
+</ul>
+  
+    <article id="post-710" class="clearfix post-710 post type-post status-publish format-standard hentry category-extensions tag-button tag-class tag-desc tag-download tag-duplicate tag-file tag-getextendeddata tag-hint tag-id tag-labels tag-library_filter tag-max_file_upload tag-max_limit tag-remove_file tag-remove_image tag-subtitle tag-title tag-type tag-upload_file">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p>The Redux Multi Media extension is an improved way to allow your users to upload and/or select multiple files from the WordPress media library, for use in the Redux Framework options panel.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="../../core/advanced/loading-extensions/index.html">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;multi_media&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>labels</td>
+<td>array</td>
+<td></td>
+<td>Array of key/pair values defining the text in labels used throughout the field. See &#8216;Setting Labels&#8217; below.</td>
+</tr>
+<tr>
+<td>library_filter</td>
+<td>array</td>
+<td></td>
+<td>Array of comma separated string extensions (minus the dot prefix) which the media uploader/selector will allow/display. Omit this argument to use no filter and allow all file types.</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td>max_file_upload</td>
+<td>int</td>
+<td></td>
+<td>Integer value limiting the number of files to be uploaded or selected.  Set to <code>0</code> for unlimited.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="../../core/the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Setting Labels</h2>
+<p>The <code>labels</code> argument gives the opportunity to set the caption for the following interfaces.  This is useful not only for localization purposes, but for flexibility reasons as well.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>upload_file</td>
+<td>string</td>
+<td>Select File(s)</td>
+<td>Text that appears on the field&#8217;s upload button.</td>
+</tr>
+<tr>
+<td>remove_image</td>
+<td>string</td>
+<td>Remove Image</td>
+<td>Alt text appearing over an image thumbnail&#8217;s delete icon.</td>
+</tr>
+<tr>
+<td>remove_file</td>
+<td>string</td>
+<td>Remove</td>
+<td>Text appearing after a non-image file&#8217;s listing</td>
+</tr>
+<tr>
+<td>file</td>
+<td>string</td>
+<td>File:</td>
+<td>Text appearing before a non-image file&#8217;s listing.</td>
+</tr>
+<tr>
+<td>download</td>
+<td>string</td>
+<td>Download</td>
+<td>Text appearing after a non-image file&#8217;s listing</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Field <code>title</code> argument</td>
+<td>Text appearing in WordPress&#8217;s media uploader/selector window.</td>
+</tr>
+<tr>
+<td>button</td>
+<td>string</td>
+<td>Add or Upload File(s)</td>
+<td>Text appearing in WordPress&#8217;s media uploader/selector button.</td>
+</tr>
+<tr>
+<td>duplicate</td>
+<td>string</td>
+<td>%s already exists in your file queue.</td>
+<td>Message that appears when a duplicate file has been selected.  %s represents the duplicate file to be displayed and should not be modified.</td>
+</tr>
+<tr>
+<td>max_limit</td>
+<td>string</td>
+<td>Maximum upload limit of %s reached/exceeded.</td>
+<td>Message that appears when max_file_limit has been reached.  %s represents the max_file_upload number and should not be modified.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate" title="">
+array(
+    'id'        =&gt; 'opt-multi-media',
+    'type'      =&gt; 'multi_media',
+    'title'     =&gt; 'Multi Media Selector',
+    'subtitle'  =&gt; 'Multi file media selector',
+    'labels'    =&gt; array(
+        'upload_file'       =&gt; __('Select File(s)', 'redux-framework-demo'),
+        'remove_image'      =&gt; __('Remove Image', 'redux-framework-demo'),
+        'remove_file'       =&gt; __('Remove', 'redux-framework-demo'),
+        'file'              =&gt; __('File: ', 'redux-framework-demo'),
+        'download'          =&gt; __('Download', 'redux-framework-demo'),
+        'title'             =&gt; __('Multi Media Selector', 'redux-framework-demo'),
+        'button'            =&gt; __('Add or Upload File','redux-framework-demo')
+    ),
+    'library_filter'  =&gt; array('gif','jpg','png'),
+    'max_file_upload' =&gt; 5
+),
+</pre>
+<p></p>
+<h2>Example Usage</h2>
+<p>The extension&#8217;s return value is an array of key/pair values. The key contains the file&#8217;s post ID, while the value contains the URL of the file itself. It will be necessary to use a for/each loop to extract the values (Please remember to replace <code>redux_demo</code> with your own <code><a href="../../redux-framework/arguments/opt_name.html" title="opt_name">opt_name</a></code> argument).</p>
+<pre class="brush: php; title: ; notranslate" title="">
+global $redux_demo;
+
+foreach ($redux_demo['opt-multi-media'] as $id =&gt; &amp;url) {
+    echo 'Post ID: ' . $id;
+    echo 'URL: '     . $url;
+}
+</pre>
+<p></p>
+<h2>getExtendedData Helper Function</h2>
+<p>The Multi Media extension includes a helper function to extract a wide variety of data for any post ID passed to it. To take advantage of this function, use the following code (to obtain a post ID, use the code above in conjunction with the code below):</p>
+<pre class="brush: php; title: ; notranslate" title="">
+
+// the $id variable assumes a valid post ID.
+$ext_data = ReduxFramework_extension_multi_media::getExtendedData($id)
+</pre>
+<p>The return value will contain an array of the follow data in key/pair format:</p>
+<ul>
+<li><tt>id</tt></li>
+<li><tt>title</tt></li>
+<li><tt>filename</tt></li>
+<li><tt>url</tt></li>
+<li><tt>link</tt></li>
+<li><tt>alt</tt></li>
+<li><tt>author</tt></li>
+<li><tt>description</tt></li>
+<li><tt>caption</tt></li>
+<li><tt>name</tt></li>
+<li><tt>status</tt></li>
+<li><tt>uploadedTo</tt></li>
+<li><tt>date</tt></li>
+<li><tt>modified</tt></li>
+<li><tt>menuOrder</tt></li>
+<li><tt>mime</tt></li>
+<li><tt>type</tt></li>
+<li><tt>subtype</tt></li>
+<li><tt>icon</tt></li>
+<li><tt>dateFormatted</tt></li>
+<li><tt>nonces</tt></li>
+<li><tt>editLink</tt></li>
+<li><tt>sizes</tt></li>
+<li><tt>width</tt></li>
+<li><tt>height</tt></li>
+<li><tt>fileLength</tt></li>
+<li><tt>compat</tt></li>
+</ul>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../tag/button/index.html" rel="tag">button</a><a href="../../tag/class/index.html" rel="tag">class</a><a href="../../tag/desc/index.html" rel="tag">desc</a><a href="../../tag/download/index.html" rel="tag">download</a><a href="../../tag/duplicate/index.html" rel="tag">duplicate</a><a href="../../tag/file/index.html" rel="tag">file</a><a href="../../tag/getextendeddata/index.html" rel="tag">getExtendedData</a><a href="../../tag/hint/index.html" rel="tag">hint</a><a href="../../tag/id/index.html" rel="tag">id</a><a href="../../tag/labels/index.html" rel="tag">labels</a><a href="../../tag/library_filter/index.html" rel="tag">library_filter</a><a href="../../tag/max_file_upload/index.html" rel="tag">max_file_upload</a><a href="../../tag/max_limit/index.html" rel="tag">max_limit</a><a href="../../tag/remove_file/index.html" rel="tag">remove_file</a><a href="../../tag/remove_image/index.html" rel="tag">remove_image</a><a href="../../tag/subtitle/index.html" rel="tag">subtitle</a><a href="../../tag/title/index.html" rel="tag">title</a><a href="../../tag/type/index.html" rel="tag">type</a><a href="../../tag/upload_file/index.html" rel="tag">upload_file</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../taxonomy/index.html" rel="bookmark" title="Taxonomy">Taxonomy</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../google-maps/index.html" rel="bookmark" title="Google Maps">Google Maps</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../using-extensions/index.html" rel="bookmark" title="About Extensions">About Extensions</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../accordion/index.html" rel="bookmark" title="Accordion">Accordion</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../icon-select/index.html" rel="bookmark" title="Icon Select">Icon Select</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../custom-fonts/index.html" rel="bookmark" title="Custom Fonts">Custom Fonts</a></h4>
+        </li>
+
+</ul></section>
+      
+
+<div id="comments" class="comments-area">
+
+	
+	
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="../../wp-login.php-redirect_to=https---docs.reduxframework.com-extensions-multi-media-.html">logged in</a> to post a comment.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

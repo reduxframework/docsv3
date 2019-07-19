@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>text-transform &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/text-transform/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Typography</title>
+		<link>https://docs.reduxframework.com/core/fields/typography/</link>
+		<comments>https://docs.reduxframework.com/core/fields/typography/#comments</comments>
+		<pubDate>Mon, 10 Mar 2014 22:41:51 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[all_styles]]></category>
+		<category><![CDATA[always_display]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[font-backup]]></category>
+		<category><![CDATA[font-family]]></category>
+		<category><![CDATA[font-size]]></category>
+		<category><![CDATA[font-style]]></category>
+		<category><![CDATA[font-weight]]></category>
+		<category><![CDATA[fonts]]></category>
+		<category><![CDATA[google]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[letter-spacing]]></category>
+		<category><![CDATA[line-height]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[preview]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[subsets]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[text-align]]></category>
+		<category><![CDATA[text-transform]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[units]]></category>
+		<category><![CDATA[update-weekly]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[word-spacing]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=126</guid>
+		<description><![CDATA[<p>The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &#38; word spacing, styles &#38; weight selection, and much, much more! Arguments Name Type Default Description type string &#8216;typography&#8217; Value identifying the field type. id string Unique ID identifying the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/typography/">Typography</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &amp; word spacing, styles &amp; weight selection, and much, much more!</p>
+<p style="text-align: center;"><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png" alt="new_typo" class="aligncenter wp-image-537 size-full" height="453" width="926" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png 926w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-300x146.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-60x29.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-150x73.png 150w" sizes="(max-width: 926px) 100vw, 926px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;typography&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of <code>color</code> to validate the chosen color. <a title="Validation" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>string</td>
+<td>px</td>
+<td>Sets the default unit value.  Accepts: px em rem %</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set Google fonts. Please make sure the Google API key is defined, or this feature will not work. For information on acquiring an API key, see <a href="https://developers.google.com/fonts/docs/developer_api#Auth">https://developers.google.com/fonts/docs/developer_api#Auth</a></td>
+</tr>
+<tr>
+<td>fonts</td>
+<td>array</td>
+<td></td>
+<td>An array of fonts in key pair format, (i.e. <code>'verdana,san-serif,helvatica' =&gt; 'Verdana'</code>).  Specifying a font array will override the default Standard fonts.</td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display a selector specifying backup non-Google fonts when Google fonts are used.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font style selector.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font weight selector.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font size input.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font family selector.</td>
+</tr>
+<tr>
+<td>subsets</td>
+<td>bool</td>
+<td>true</td>
+<td>Subsets only appear if <code>google</code> is set to true and <code>subsets</code> is set to true.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font line height input.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the word spacing input.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the letter spacing input.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the text alignment selector.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the text transform selector.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font color input.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>array</td>
+<td></td>
+<td>Array value for preview settings.  See &#8216;Preview Options&#8217; below.</td>
+</tr>
+<tr>
+<td>all_styles</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set all available styles for selected Google font in the CSS.</td>
+</tr>
+<tr>
+<td><del>update-weekly</del></td>
+<td><del>bool</del></td>
+<td><del>false</del></td>
+<td><del>Flag to update the Google fonts on a weekly basis.</del> Deprecated. Use the global argument. <a class="more_info" href="/core/arguments/#google_update_weekly"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html"><i class="el-icon-circle-arrow-right"></i> Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>font_family_clear</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the clear field button on the font-family selector.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a title="Using the Validate Argument" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> Using the Validate Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>Flag to select a backup non-Google font in addition to a Google font.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>string</td>
+<td>Sets the default font style.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>string</td>
+<td>Sets the default font weight.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>string</td>
+<td>Sets the default font size.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>string</td>
+<td>Sets the default font family.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>string</td>
+<td>Sets the default line height.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>string</td>
+<td>Sets the default word spacing.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>string</td>
+<td>Sets the default letter spacing.</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>Flag to set Google fonts.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Hex string to set the color picker default.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>string</td>
+<td>Sets the default text align value.  Accepts:  <code>inherit</code>, <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>, or <code>initial</code>.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>string</td>
+<td>Sets the default text transform value.  Accepts:  <code>none</code>, <code>capitalize</code>, <code>uppercase</code>, <code>lowercase</code>, <code>initial</code>, or <code>inherit</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>Preview Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>text</td>
+<td>alphanumeric string</td>
+<td>Text to display in the font preview area.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>33px</td>
+<td>Value to set the font size in the preview area.</td>
+</tr>
+<tr>
+<td>always_display</td>
+<td>false</td>
+<td>Flag that sets whether or not the font preview will display, even when no changes are made.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'          =&gt; 'opt-typography',
+        'type'        =&gt; 'typography', 
+        'title'       =&gt; __('Typography', 'redux-framework-demo'),
+        'google'      =&gt; true, 
+        'font-backup' =&gt; true,
+        'output'      =&gt; array('h2.site-description'),
+        'units'       =&gt;'px',
+        'subtitle'    =&gt; __('Typography option with each property can be called individually.', 'redux-framework-demo'),
+        'default'     =&gt; array(
+            'color'       =&gt; '#333', 
+            'font-style'  =&gt; '700', 
+            'font-family' =&gt; 'Abel', 
+            'google'      =&gt; true,
+            'font-size'   =&gt; '33px', 
+            'line-height' =&gt; '40'
+        ),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Color: '       . $redux_demo['opt-typography']['color'];
+echo 'Font style: '  . $redux_demo['opt-typography']['font-style'];
+echo 'Font family: ' . $redux_demo['opt-typography']['font-family'];
+echo 'Google: '      . $redux_demo['opt-typography']['google'];
+echo 'Font size: '   . $redux_demo['opt-typography']['font-size'];
+echo 'Line height: ' . $redux_demo['opt-typography']['line-height'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/typography/">Typography</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/fields/typography/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

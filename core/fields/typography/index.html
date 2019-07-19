@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+Typography &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>Typography &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Typography &raquo; Redux Documentation" />
+<meta property="og:description" content="The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &amp; word spacing, styles &amp; weight selection, and much, much more! Arguments Name Type Default Description type string &#8216;typography&#8217; Value identifying the field type. id string Unique ID identifying the &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/core/fields/typography/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="all_styles" />
+<meta property="article:tag" content="always_display" />
+<meta property="article:tag" content="class" />
+<meta property="article:tag" content="color" />
+<meta property="article:tag" content="compiler" />
+<meta property="article:tag" content="default" />
+<meta property="article:tag" content="desc" />
+<meta property="article:tag" content="font-backup" />
+<meta property="article:tag" content="font-family" />
+<meta property="article:tag" content="font-size" />
+<meta property="article:tag" content="font-style" />
+<meta property="article:tag" content="font-weight" />
+<meta property="article:tag" content="fonts" />
+<meta property="article:tag" content="google" />
+<meta property="article:tag" content="hint" />
+<meta property="article:tag" content="id" />
+<meta property="article:tag" content="letter-spacing" />
+<meta property="article:tag" content="line-height" />
+<meta property="article:tag" content="output" />
+<meta property="article:tag" content="permissions" />
+<meta property="article:tag" content="preview" />
+<meta property="article:tag" content="required" />
+<meta property="article:tag" content="select2" />
+<meta property="article:tag" content="subsets" />
+<meta property="article:tag" content="subtitle" />
+<meta property="article:tag" content="text-align" />
+<meta property="article:tag" content="text-transform" />
+<meta property="article:tag" content="title" />
+<meta property="article:tag" content="type" />
+<meta property="article:tag" content="units" />
+<meta property="article:tag" content="update-weekly" />
+<meta property="article:tag" content="validate" />
+<meta property="article:tag" content="word-spacing" />
+<meta property="article:section" content="Fields" />
+<meta property="article:published_time" content="2014-03-10T22:41:51+00:00" />
+<meta property="article:modified_time" content="2014-09-09T22:10:09+00:00" />
+<meta property="og:updated_time" content="2014-09-09T22:10:09+00:00" />
+<meta property="og:image" content="../../../wp-content/uploads/sites/4/2014/03/new_typo.png" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../../comments/feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Typography Comments Feed" href="feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-core-fields-typography-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-core-fields-typography-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-126 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../../index.html">
+            <img alt="Redux Documentation" src="../../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">Typography</h1>
+  <div id="breadcrumbs"><a href="../../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../../category/core/index.html">Core</a> <span class="sep">/</span> <a href="../../../category/core/fields/index.html">Fields</a> <span class="sep">/</span> Typography</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2014-03-10" itemprop="datePublished">March 10, 2014</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../../category/core/fields/index.html" rel="category tag">Fields</a>    </li>
+
+</li>
+
+</ul>
+  
+    <article id="post-126" class="clearfix post-126 post type-post status-publish format-standard hentry category-fields tag-all_styles tag-always_display tag-class tag-color tag-compiler tag-default tag-desc tag-font-backup tag-font-family tag-font-size tag-font-style tag-font-weight tag-fonts tag-google tag-hint tag-id tag-letter-spacing tag-line-height tag-output tag-permissions tag-preview tag-required tag-select2 tag-subsets tag-subtitle tag-text-align tag-text-transform tag-title tag-type tag-units tag-update-weekly tag-validate tag-word-spacing">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p style="text-align: justify;">The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &amp; word spacing, styles &amp; weight selection, and much, much more!</p>
+<p style="text-align: center;"><a href="../../../wp-content/uploads/sites/4/2014/03/new_typo.png"><img src="../../../wp-content/uploads/sites/4/2014/03/new_typo.png" alt="new_typo" class="aligncenter wp-image-537 size-full" height="453" width="926" srcset="../../../wp-content/uploads/sites/4/2014/03/new_typo.png 926w, ../../../wp-content/uploads/sites/4/2014/03/new_typo-300x146.png 300w, ../../../wp-content/uploads/sites/4/2014/03/new_typo-60x29.png 60w, ../../../wp-content/uploads/sites/4/2014/03/new_typo-150x73.png 150w" sizes="(max-width: 926px) 100vw, 926px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;typography&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="../../advanced/integrating-a-compiler/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="../../the-basics/output-2/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="../../the-basics/required/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of <code>color</code> to validate the chosen color. <a title="Validation" href="../../the-basics/validation/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>string</td>
+<td>px</td>
+<td>Sets the default unit value.  Accepts: px em rem %</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set Google fonts. Please make sure the Google API key is defined, or this feature will not work. For information on acquiring an API key, see <a href="https://developers.google.com/fonts/docs/developer_api#Auth">https://developers.google.com/fonts/docs/developer_api#Auth</a></td>
+</tr>
+<tr>
+<td>fonts</td>
+<td>array</td>
+<td></td>
+<td>An array of fonts in key pair format, (i.e. <code>'verdana,san-serif,helvatica' =&gt; 'Verdana'</code>).  Specifying a font array will override the default Standard fonts.</td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display a selector specifying backup non-Google fonts when Google fonts are used.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font style selector.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font weight selector.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font size input.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font family selector.</td>
+</tr>
+<tr>
+<td>subsets</td>
+<td>bool</td>
+<td>true</td>
+<td>Subsets only appear if <code>google</code> is set to true and <code>subsets</code> is set to true.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font line height input.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the word spacing input.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the letter spacing input.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the text alignment selector.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the text transform selector.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font color input.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>array</td>
+<td></td>
+<td>Array value for preview settings.  See &#8216;Preview Options&#8217; below.</td>
+</tr>
+<tr>
+<td>all_styles</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set all available styles for selected Google font in the CSS.</td>
+</tr>
+<tr>
+<td><del>update-weekly</del></td>
+<td><del>bool</del></td>
+<td><del>false</del></td>
+<td><del>Flag to update the Google fonts on a weekly basis.</del> Deprecated. Use the global argument. <a class="more_info" href="../../arguments/index.html#google_update_weekly"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="../using-permissions/index.html"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html"><i class="el-icon-circle-arrow-right"></i> Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>font_family_clear</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the clear field button on the font-family selector.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="../../the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="../../the-basics/required/index.html"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="../../the-basics/output-2/index.html"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="../../advanced/integrating-a-compiler/index.html"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a title="Using the Validate Argument" href="../../the-basics/validation/index.html"><i class="el-icon-circle-arrow-right"></i> Using the Validate Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="../using-permissions/index.html"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="../../the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>Flag to select a backup non-Google font in addition to a Google font.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>string</td>
+<td>Sets the default font style.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>string</td>
+<td>Sets the default font weight.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>string</td>
+<td>Sets the default font size.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>string</td>
+<td>Sets the default font family.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>string</td>
+<td>Sets the default line height.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>string</td>
+<td>Sets the default word spacing.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>string</td>
+<td>Sets the default letter spacing.</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>Flag to set Google fonts.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Hex string to set the color picker default.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>string</td>
+<td>Sets the default text align value.  Accepts:  <code>inherit</code>, <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>, or <code>initial</code>.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>string</td>
+<td>Sets the default text transform value.  Accepts:  <code>none</code>, <code>capitalize</code>, <code>uppercase</code>, <code>lowercase</code>, <code>initial</code>, or <code>inherit</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>Preview Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>text</td>
+<td>alphanumeric string</td>
+<td>Text to display in the font preview area.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>33px</td>
+<td>Value to set the font size in the preview area.</td>
+</tr>
+<tr>
+<td>always_display</td>
+<td>false</td>
+<td>Flag that sets whether or not the font preview will display, even when no changes are made.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate" title="">
+    $fields = array(
+        'id'          =&gt; 'opt-typography',
+        'type'        =&gt; 'typography', 
+        'title'       =&gt; __('Typography', 'redux-framework-demo'),
+        'google'      =&gt; true, 
+        'font-backup' =&gt; true,
+        'output'      =&gt; array('h2.site-description'),
+        'units'       =&gt;'px',
+        'subtitle'    =&gt; __('Typography option with each property can be called individually.', 'redux-framework-demo'),
+        'default'     =&gt; array(
+            'color'       =&gt; '#333', 
+            'font-style'  =&gt; '700', 
+            'font-family' =&gt; 'Abel', 
+            'google'      =&gt; true,
+            'font-size'   =&gt; '33px', 
+            'line-height' =&gt; '40'
+        ),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="../../../redux-framework/arguments/opt_name/index.html"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate" title="">
+global $redux_demo;
+
+echo 'Color: '       . $redux_demo['opt-typography']['color'];
+echo 'Font style: '  . $redux_demo['opt-typography']['font-style'];
+echo 'Font family: ' . $redux_demo['opt-typography']['font-family'];
+echo 'Google: '      . $redux_demo['opt-typography']['google'];
+echo 'Font size: '   . $redux_demo['opt-typography']['font-size'];
+echo 'Line height: ' . $redux_demo['opt-typography']['line-height'];
+</pre>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../../tag/all_styles/index.html" rel="tag">all_styles</a><a href="../../../tag/always_display/index.html" rel="tag">always_display</a><a href="../../../tag/class/index.html" rel="tag">class</a><a href="../../../tag/color/index.html" rel="tag">color</a><a href="../../../tag/compiler/index.html" rel="tag">compiler</a><a href="../../../tag/default/index.html" rel="tag">default</a><a href="../../../tag/desc/index.html" rel="tag">desc</a><a href="../../../tag/font-backup/index.html" rel="tag">font-backup</a><a href="../../../tag/font-family/index.html" rel="tag">font-family</a><a href="../../../tag/font-size/index.html" rel="tag">font-size</a><a href="../../../tag/font-style/index.html" rel="tag">font-style</a><a href="../../../tag/font-weight/index.html" rel="tag">font-weight</a><a href="../../../tag/fonts/index.html" rel="tag">fonts</a><a href="../../../tag/google/index.html" rel="tag">google</a><a href="../../../tag/hint/index.html" rel="tag">hint</a><a href="../../../tag/id/index.html" rel="tag">id</a><a href="../../../tag/letter-spacing/index.html" rel="tag">letter-spacing</a><a href="../../../tag/line-height/index.html" rel="tag">line-height</a><a href="../../../tag/output/index.html" rel="tag">output</a><a href="../../../tag/permissions/index.html" rel="tag">permissions</a><a href="../../../tag/preview/index.html" rel="tag">preview</a><a href="../../../tag/required/index.html" rel="tag">required</a><a href="../../../tag/select2/index.html" rel="tag">select2</a><a href="../../../tag/subsets/index.html" rel="tag">subsets</a><a href="../../../tag/subtitle/index.html" rel="tag">subtitle</a><a href="../../../tag/text-align/index.html" rel="tag">text-align</a><a href="../../../tag/text-transform/index.html" rel="tag">text-transform</a><a href="../../../tag/title/index.html" rel="tag">title</a><a href="../../../tag/type/index.html" rel="tag">type</a><a href="../../../tag/units/index.html" rel="tag">units</a><a href="../../../tag/update-weekly/index.html" rel="tag">update-weekly</a><a href="../../../tag/validate/index.html" rel="tag">validate</a><a href="../../../tag/word-spacing/index.html" rel="tag">word-spacing</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../palette-color/index.html" rel="bookmark" title="Palette Color">Palette Color</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../callback/index.html" rel="bookmark" title="callback">callback</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../../redux-api/index.html" rel="bookmark" title="The Redux API">The Redux API</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../getting-started-with-fields/index.html" rel="bookmark" title="Getting started with Fields">Getting started with Fields</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../ace-editor/index.html" rel="bookmark" title="ACE Editor">ACE Editor</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../background/index.html" rel="bookmark" title="Background">Background</a></h4>
+        </li>
+
+</ul></section>
+      
+
+<div id="comments" class="comments-area">
+
+	
+			<p class="nocomments">Comments are closed.</p>
+	
+
+</div><!-- #comments .comments-area -->    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

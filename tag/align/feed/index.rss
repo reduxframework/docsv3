@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>align &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/align/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Raw</title>
+		<link>https://docs.reduxframework.com/core/fields/raw/</link>
+		<pubDate>Mon, 10 Mar 2014 22:38:30 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[align]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[content]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[markdown]]></category>
+		<category><![CDATA[raw]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=114</guid>
+		<description><![CDATA[<p>The Raw field provides the ability to output raw HTML directly into the options panel both full width and sectioned. Full Width Sectioned ( &#8216;full_width&#8217; =&#62; false ) Arguments Name Type Default Description type string &#8216;raw&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/raw/">Raw</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Raw field provides the ability to output raw HTML directly into the options panel both full width and sectioned.</p>
+<h3>Full Width</h3>
+<p style="text-align: center;"><img src="https://f.cloud.github.com/assets/3412363/2154964/90e71854-943d-11e3-9923-79b8a4bf2472.png" alt="Raw Field Full" height="477" width="867" /></p>
+<h3>Sectioned <small>( &#8216;full_width&#8217; =&gt; false )</small></h3>
+<p><img src="https://f.cloud.github.com/assets/3412363/2154970/a3dab5b0-943d-11e3-94cc-7fb56ad5ea53.png" alt="Raw Field Section" height="453" width="872" /></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;raw&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>full_width</td>
+<td>true</td>
+<td></td>
+<td>Flag to set denote if the field is full width or sectioned.</td>
+</tr>
+<tr>
+<td>markdown</td>
+<td>bool</td>
+<td></td>
+<td>Flag to set the markdown of standard line-break and tab characters to HTML.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td></td>
+<td>HTML content to display.  String values or file output may be used.</td>
+</tr>
+<tr>
+<td>content_path</td>
+<td>string</td>
+<td></td>
+<td>Full path to file that will be used as the content for this field.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array( 
+        'id'       =&gt; 'opt-raw',
+        'type'     =&gt; 'raw',
+        'title'    =&gt; __('Raw output', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Subtitle text goes here.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field for additional info.', 'redux-framework-demo'),
+        'content'  =&gt; file_get_contents(dirname(__FILE__) . '/myfile.txt')
+    );
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/raw/">Raw</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>redux api &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/redux-api/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>The Redux API</title>
+		<link>https://docs.reduxframework.com/core/redux-api/</link>
+		<comments>https://docs.reduxframework.com/core/redux-api/#comments</comments>
+		<pubDate>Wed, 01 Apr 2015 19:26:09 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Fields]]></category>
+		<category><![CDATA[Sections]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[getArgs]]></category>
+		<category><![CDATA[getExtensions]]></category>
+		<category><![CDATA[getField]]></category>
+		<category><![CDATA[getSection]]></category>
+		<category><![CDATA[init]]></category>
+		<category><![CDATA[redux api]]></category>
+		<category><![CDATA[setArgs]]></category>
+		<category><![CDATA[setExtensions]]></category>
+		<category><![CDATA[setField]]></category>
+		<category><![CDATA[setHelpSidebar]]></category>
+		<category><![CDATA[setHelpTab]]></category>
+		<category><![CDATA[setSection]]></category>
+		<category><![CDATA[setSections]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942</guid>
+		<description><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see sample-config-legacy.php [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config-legacy.php"><code>sample-config-legacy.php</code></a> in the sample folder for a more detailed analysis).  The biggest drawback to this method was the name of the class.  Each needed to be unique among multiple instances of Redux.  This causes many headaches for developers, and by extension, the Redux support team.</p>
+<p>With the Redux API, no longer is this an issue.  The process has been streamlined into a handful of API calls, without the hassles of ensuring unique class names, and understanding of how PHP classes work.</p>
+<p>If reviewing documentation isn&#8217;t your thing, you are always free to jump directly to the updated <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> in the sample folder of the Redux Framework package to see how it&#8217;s all put together.</p>
+<h2>The Basic API</h2>
+<p>The API is wrtten as a <a href="http://php.net/manual/en/language.oop5.static.php">static class</a>.  Don&#8217;t worry, you don&#8217;t need any knowledge of static classes, only how to call them, which is done with the class name, two semicolons, and the function name as demonstrated in the examples below.</p>
+<p>Ideally, a basic Redux Framework config file will use three or four basic API calls to create the standard options panel.  We&#8217;ll begin with the suggested order in which to use them.</p>
+<p>First, it&#8217;s always a good idea to check that the API class exists.  it avoids potential errors in the event an older version of Redux is still in use on your site by a different dev or vendor.  The following should be the first lines in your config file:</p>
+<pre class="brush: php; title: ; notranslate">
+if ( ! class_exists( 'Redux' ) ) {
+    return;
+}
+</pre>
+<p>Next, set the <code>opt_name</code> variable of your panel to a variable. It&#8217;s easier to set the <code>opt_name</code> in the fashion as it is used for each and every Redux API call. The next line in our example config would be as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+// Remember, 'redux_demo' is stricly for this example.  
+// Please change it to your own unique name.
+$opt_name = &quot;redux_demo&quot;;
+</pre>
+<p>Remember, the classname of the Redux API is titled <code>Redux</code>. To call the function, two semi-colons follow the classname, and then the actual API call.</p>
+<p>Now, we&#8217;ll begin with the first API call, Redux::setArgs</p>
+<h3>setArgs</h3>
+<p><code>Redux::setArgs ($opt_name, $args)</code></p>
+<p>The setArgs API requires two parameters, the <code>opt_name</code> string value and the actual <a href="/core/arguments/" title="Global Arguments">arguments</a>, an array value. </p>
+<p>Here is an example:</p>
+<pre class="brush: php; title: ; notranslate">
+$args = Array(
+    'opt_name'    =&gt; $opt_name,
+    // Any other arguments you wish to set.  To save space in this example
+    // please refer to the arguments documentation, or review the
+    // sample-config.php file
+);
+
+Redux::setArgs ($opt_name, $args);
+</pre>
+<p>The next two APIs deal with setting the help tabs and sidebar of the admin panel when the Redux Framework options panel is visible.</p>
+<h3>setHelpTab</h3>
+<p><code>Redux::setHelpTab ($opt_name, $tabs)</code></p>
+<p>setHelpTab requires two parameters, the <code>$opt_name</code> string value, followed by an array value of tab data.</p>
+<pre class="brush: php; title: ; notranslate">
+$tabs = array(
+    array(
+        'id'      =&gt; 'redux-help-tab-1',
+        'title'   =&gt; 'Theme Information 1',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    ),
+    array(
+        'id'      =&gt; 'redux-help-tab-2',
+        'title'   =&gt; 'Theme Information 2',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    )
+);
+Redux::setHelpTab( $opt_name, $tabs );
+</pre>
+<h3>setHelpSidebar</h3>
+<p><code>Redux::setHelpSidebar ($opt_name, $content)</code></p>
+<p>setHelpSidebar requires two parameters. First, the <code>$opt_name</code> string value, the second, the <code>$content</code> string value.</p>
+<pre class="brush: php; title: ; notranslate">
+$content = '&lt;br /&gt;This is the sidebar content, HTML is allowed.&lt;br /&gt;');
+Redux::setHelpSidebar( $opt_name, $content );
+</pre>
+<p>Now it&#8217;s time to set our sections.</p>
+<h3>setSection</h3>
+<p><code>Redux::setSection ($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data.</p>
+<p>Each call to the setSection API will create a section tab (or subsection of a section) in the options panel.</p>
+<pre class="brush: php; title: ; notranslate">
+// Lets create a section with no subsections, a basic section, if you will.
+$section = array(
+    'title'  =&gt; 'Basic Field',
+    'id'     =&gt; 'basic',
+    'desc'   =&gt; '',
+    'icon'   =&gt; 'el el-home'   
+    'fields' =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),    
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// Now let's create a section with two subsections
+// First, create the parent panel.
+$section = array(
+    'title' =&gt; 'Basic Subsection Fields',
+    'id'    =&gt; 'basic-subsection',
+    'desc'  =&gt; '',
+    'icon'  =&gt; 'el el-home'   
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The first subsection
+$section = array(
+    'title'      =&gt; 'Text Field',
+    'id'         =&gt; 'basic-text-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-subsection-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The second subsection
+$section = array(
+    'title'      =&gt; 'Checkbox Field',
+    'id'         =&gt; 'basic-checkbox-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-checkbox-subsection-example',
+            'type'     =&gt; 'checkbox',
+            'title'    =&gt; 'Checkbox Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; '1'
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+</pre>
+<h3>setExtensions</h3>
+<p><code>Redux::setExtensions($opt_name, $path)</code></p>
+<p>If you are a user of <a href="https://reduxframework.com/extensions/" target="_blank">Redux Extensions</a> (and why wouldn&#8217;t you be? We offer several that take Redux Framework to a whole new level!) the Redux API makes including them in your project a one-liner breeze! No more loader files and setting variables within them, as per the &#8216;old way&#8217;.</p>
+<p>setExtensions requires two parameters. First, the <code>$opt_name</code> string value, the second, the path to either a single extension or a folder of extensions. This API may be used multiple times, if needed.</p>
+<pre class="brush: php; title: ; notranslate">
+// You will need to determine the specific path to 
+// wherever you choose to keep your extensions folder.
+
+// For this example, we're assuming it's in the same 
+// directory as our config file.
+$ext_path = dirname( __FILE__ ) . '/extensions/';
+Redux::setExtensions($opt_name, $ext_path);
+</pre>
+<h2>The Advanced API</h2>
+<p>For the advanced developer already familiar with PHP and Redux as a whole, we offer some more advanced API to make your programming tasks a bit easier.</p>
+<h3>init</h3>
+<p><code>Redux::init($opt_name)</code></p>
+<p>init requires one parameter, the <code>$opt_name</code> string value. The API is useful in cases where a force load of the Redux object is neccessary, even if it&#8217;s already been run.</p>
+<h3>setSections</h3>
+<p><code>Redux::setSections($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data. This API is similar to setSection, with the noted difference of this particular API allowing for the setting of a group of sections in one call.</p>
+<h3>getSection</h3>
+<p><code>Redux::getSection($opt_name, $id)</code></p>
+<p>getSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to retrieve. The return value is an array of the requested section, or false on failure.</p>
+<h3>removeSection</h3>
+<p><code>Redux::removeSection($opt_name, $id, $all_fields)</code></p>
+<p>removeSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to remove. The optional third variable is a boolean. If set, all fields associated to that section will also be removed from the API, though if left they will never be initialized. They are simply left if you were to make changes to them as needed.</p>
+<h3>hideSection</h3>
+<p><code>Redux::hideSection($opt_name, $id, $hide)</code></p>
+<p>hideSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the section. By default, it can be omitted and it is set to true.</p>
+<h3>getField</h3>
+<p><code>Redux::getField($opt_name, $id)</code></p>
+<p>getField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to retrieve. The return value is an array of the requested field, or false on failure.</p>
+<h3>setField</h3>
+<p><code>Redux::setField($opt_name, $field)</code></p>
+<p>setField requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of field data.  Be sure to add the key/pair <code>'section_id' => "id of section"</code> (replace &#8220;id of section&#8221; with the actual section ID) to your field array.  This is necessary so the field is set to the correct section.</p>
+<h3>removeField</h3>
+<p><code>Redux::removeField($opt_name, $id)</code></p>
+<p>removeField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to remove.</p>
+<h3>hidefield</h3>
+<p><code>Redux::hideField($opt_name, $id, $hide)</code></p>
+<p>hideField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the field. By default, it can be omitted and it is set to true.</p>
+<h3>getArgs</h3>
+<p><code>Redux::getArgs($opt_name)</code></p>
+<p>getArgs requires one parameters, the <code>$opt_name</code> string value. The return value is an array of global arguments.</p>
+<h3>getArg</h3>
+<p><code>Redux::getArg($opt_name, $key)</code></p>
+<p>getArg requires two parameters. First, the <code>$opt_name</code> string value, the second, the string name of the argument to retrieve. The return value is the value of the requested argument, or empty on failure.</p>
+<h3>getExtensions</h3>
+<p><code>Redux::getExtensions($opt_name, $key)</code></p>
+<p>getExtensions requires one of two parameters, depending on the desired return value: </p>
+<p><strong>An array of all loaded extensions</strong><br />
+Use the first parameter and specify the <code>$opt_name</code> string. The return value is an array of loaded extensions containing key/pair information of <code>path</code> (the path to the extension) and <code>class</code> (the classname of the extension). On failure, false is returned.</p>
+<p><strong>The path to a specific extension</strong><br />
+First, pass an empty string for the first parameter. This is necessary, otherwise the return value will be the one indicated above. For the second parameter, specify the key name of the desired extension. The return value will be it&#8217;s path.</p>
+<h2>Epilogue</h2>
+<p>In conclusion, we feel the Redux API will assist you in authoring your options panels with additional ease and stability.  That said, we here at Redux frown upon the breaking of backward compatibility.  Should you prefer the &#8216;old way&#8217; of writing your option panels, you are free to continue to do so.  We&#8217;ve kept the legacy sample-config file, now titled <code>sample-config-legacy.php</code> as an example of how those methods work.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/redux-api/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+	</channel>
+</rss>

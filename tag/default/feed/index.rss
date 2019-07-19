@@ -1,0 +1,2060 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>default &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/default/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Palette Color</title>
+		<link>https://docs.reduxframework.com/core/fields/palette-color/</link>
+		<comments>https://docs.reduxframework.com/core/fields/palette-color/#respond</comments>
+		<pubDate>Wed, 26 Aug 2015 03:53:21 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[color palette]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[palettes]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1101</guid>
+		<description><![CDATA[<p>The Palette Color field allows you to display a set of color palettes that a theme or plugin might use throughout, giving your users a choice of UI colors. Arguments Name Type Default Description type string &#8216;palette&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/palette-color/">Palette Color</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: left;">The Palette Color field allows you to display a set of color palettes that a theme or plugin might use throughout, giving your users a choice of UI colors.</p>
+<p style="text-align: center;"><a href="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/08/palette.png"><img class="alignnone size-full wp-image-1107" src="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/08/palette.png" alt="palette" width="1004" height="297" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/08/palette.png 1004w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/08/palette-300x89.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/08/palette-60x18.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/08/palette-150x44.png 150w" sizes="(max-width: 1004px) 100vw, 1004px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;palette&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>palettes</td>
+<td>array</td>
+<td></td>
+<td> An array of individual arrays defining the color palettes.  See &#8220;Setting Palettes&#8221; below.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>They key of the default palettes array to set as default.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Setting Palettes</h3>
+<p>Each palette in the palettes argument is a key/pair array that defines each individual palette.  The key of the array is the palette name.  Assigned to the key is an array of hex colors to be displayed in the palette entry.  See the example below for a complete breakdown.</p>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+Redux::setSection( $opt_name, array(
+    'title'      =&gt; __( 'Palette Colors', 'redux-framework-demo' ),
+    'desc'       =&gt; __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '&lt;a href=&quot;//docs.reduxframework.com/core/fields/palette-color/&quot; target=&quot;_blank&quot;&gt;docs.reduxframework.com/core/fields/palette-color/&lt;/a&gt;',
+    'id'         =&gt; 'color-palette',
+    'subsection' =&gt; true,
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-palette-color',
+            'type'     =&gt; 'palette',
+            'title'    =&gt; __( 'Palette Color Option', 'redux-framework-demo' ),
+            'subtitle' =&gt; __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
+            'desc'     =&gt; __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+            'default'  =&gt; 'red',
+            'palettes' =&gt; array(
+                'red'  =&gt; array(
+                    '#ef9a9a',
+                    '#f44336',
+                    '#ff1744',
+                ),
+                'pink' =&gt; array(
+                    '#fce4ec',
+                    '#f06292',
+                    '#e91e63',
+                    '#ad1457',
+                    '#f50057',
+                ),
+                'cyan' =&gt; array(
+                    '#e0f7fa',
+                    '#80deea',
+                    '#26c6da',
+                    '#0097a7',
+                    '#00e5ff',
+                ),
+            )
+        ),
+    )
+) );
+
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.  </a></p>
+<p>This field does NOT return the palette array.  It returns the name of the selected palette.  Ideally, the developer will have set the palette colors in their CSS, using the palette key name as the CSS selector.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Selected palette: ' . $redux_demo['opt-palette-color'];
+
+// Selected palette: red 
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/palette-color/">Palette Color</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/fields/palette-color/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Typography</title>
+		<link>https://docs.reduxframework.com/core/fields/typography/</link>
+		<comments>https://docs.reduxframework.com/core/fields/typography/#comments</comments>
+		<pubDate>Mon, 10 Mar 2014 22:41:51 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[all_styles]]></category>
+		<category><![CDATA[always_display]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[font-backup]]></category>
+		<category><![CDATA[font-family]]></category>
+		<category><![CDATA[font-size]]></category>
+		<category><![CDATA[font-style]]></category>
+		<category><![CDATA[font-weight]]></category>
+		<category><![CDATA[fonts]]></category>
+		<category><![CDATA[google]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[letter-spacing]]></category>
+		<category><![CDATA[line-height]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[preview]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[subsets]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[text-align]]></category>
+		<category><![CDATA[text-transform]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[units]]></category>
+		<category><![CDATA[update-weekly]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[word-spacing]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=126</guid>
+		<description><![CDATA[<p>The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &#38; word spacing, styles &#38; weight selection, and much, much more! Arguments Name Type Default Description type string &#8216;typography&#8217; Value identifying the field type. id string Unique ID identifying the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/typography/">Typography</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &amp; word spacing, styles &amp; weight selection, and much, much more!</p>
+<p style="text-align: center;"><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png" alt="new_typo" class="aligncenter wp-image-537 size-full" height="453" width="926" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png 926w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-300x146.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-60x29.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-150x73.png 150w" sizes="(max-width: 926px) 100vw, 926px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;typography&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of <code>color</code> to validate the chosen color. <a title="Validation" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>string</td>
+<td>px</td>
+<td>Sets the default unit value.  Accepts: px em rem %</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set Google fonts. Please make sure the Google API key is defined, or this feature will not work. For information on acquiring an API key, see <a href="https://developers.google.com/fonts/docs/developer_api#Auth">https://developers.google.com/fonts/docs/developer_api#Auth</a></td>
+</tr>
+<tr>
+<td>fonts</td>
+<td>array</td>
+<td></td>
+<td>An array of fonts in key pair format, (i.e. <code>'verdana,san-serif,helvatica' =&gt; 'Verdana'</code>).  Specifying a font array will override the default Standard fonts.</td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display a selector specifying backup non-Google fonts when Google fonts are used.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font style selector.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font weight selector.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font size input.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font family selector.</td>
+</tr>
+<tr>
+<td>subsets</td>
+<td>bool</td>
+<td>true</td>
+<td>Subsets only appear if <code>google</code> is set to true and <code>subsets</code> is set to true.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font line height input.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the word spacing input.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the letter spacing input.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the text alignment selector.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the text transform selector.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font color input.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>array</td>
+<td></td>
+<td>Array value for preview settings.  See &#8216;Preview Options&#8217; below.</td>
+</tr>
+<tr>
+<td>all_styles</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set all available styles for selected Google font in the CSS.</td>
+</tr>
+<tr>
+<td><del>update-weekly</del></td>
+<td><del>bool</del></td>
+<td><del>false</del></td>
+<td><del>Flag to update the Google fonts on a weekly basis.</del> Deprecated. Use the global argument. <a class="more_info" href="/core/arguments/#google_update_weekly"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html"><i class="el-icon-circle-arrow-right"></i> Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>font_family_clear</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the clear field button on the font-family selector.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a title="Using the Validate Argument" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> Using the Validate Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>Flag to select a backup non-Google font in addition to a Google font.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>string</td>
+<td>Sets the default font style.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>string</td>
+<td>Sets the default font weight.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>string</td>
+<td>Sets the default font size.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>string</td>
+<td>Sets the default font family.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>string</td>
+<td>Sets the default line height.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>string</td>
+<td>Sets the default word spacing.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>string</td>
+<td>Sets the default letter spacing.</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>Flag to set Google fonts.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Hex string to set the color picker default.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>string</td>
+<td>Sets the default text align value.  Accepts:  <code>inherit</code>, <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>, or <code>initial</code>.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>string</td>
+<td>Sets the default text transform value.  Accepts:  <code>none</code>, <code>capitalize</code>, <code>uppercase</code>, <code>lowercase</code>, <code>initial</code>, or <code>inherit</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>Preview Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>text</td>
+<td>alphanumeric string</td>
+<td>Text to display in the font preview area.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>33px</td>
+<td>Value to set the font size in the preview area.</td>
+</tr>
+<tr>
+<td>always_display</td>
+<td>false</td>
+<td>Flag that sets whether or not the font preview will display, even when no changes are made.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'          =&gt; 'opt-typography',
+        'type'        =&gt; 'typography', 
+        'title'       =&gt; __('Typography', 'redux-framework-demo'),
+        'google'      =&gt; true, 
+        'font-backup' =&gt; true,
+        'output'      =&gt; array('h2.site-description'),
+        'units'       =&gt;'px',
+        'subtitle'    =&gt; __('Typography option with each property can be called individually.', 'redux-framework-demo'),
+        'default'     =&gt; array(
+            'color'       =&gt; '#333', 
+            'font-style'  =&gt; '700', 
+            'font-family' =&gt; 'Abel', 
+            'google'      =&gt; true,
+            'font-size'   =&gt; '33px', 
+            'line-height' =&gt; '40'
+        ),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Color: '       . $redux_demo['opt-typography']['color'];
+echo 'Font style: '  . $redux_demo['opt-typography']['font-style'];
+echo 'Font family: ' . $redux_demo['opt-typography']['font-family'];
+echo 'Google: '      . $redux_demo['opt-typography']['google'];
+echo 'Font size: '   . $redux_demo['opt-typography']['font-size'];
+echo 'Line height: ' . $redux_demo['opt-typography']['line-height'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/typography/">Typography</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/fields/typography/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Textarea</title>
+		<link>https://docs.reduxframework.com/core/fields/textarea/</link>
+		<pubDate>Mon, 10 Mar 2014 22:41:26 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[allowed_html]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[rows]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[validate]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=125</guid>
+		<description><![CDATA[<p>The Textarea field accepts any form of multi-line string input, including custom HTML. Arguments Name Type Default Description type string &#8216;textarea&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display of the option, [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/textarea/">Textarea</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Textarea field accepts any form of multi-line string input, including custom HTML.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1588098/1f194854-5249-11e3-95be-f100bf779ce3.png" alt="Textarea Field" height="177" width="802" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;textarea&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of <code>color</code> to validate the chosen color. <a title="Validation" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Default text to display inside the textarea field.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td></td>
+<td>Message to display when no text is present.</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>int</td>
+<td>6</td>
+<td>Numbers of text rows to display.</td>
+</tr>
+<tr>
+<td>allowed_html</td>
+<td>array</td>
+<td></td>
+<td>Array of allowed HTML tags. See <a href="http://codex.wordpress.org/Function_Reference/wp_kses">http://codex.wordpress.org/Function_Reference/wp_kses</a> for more information.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a title="Using the Validate Argument" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> Using the Validate Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<p><strong>Note</strong>: For the <code>allowed_html</code> array to apply, the <code>validate</code> argument must be set to <code>html_custom</code>.</p>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'=&gt;'opt-textarea',
+        'type' =&gt; 'textarea',
+        'title' =&gt; __('Textarea Option - HTML Validated Custom', 'redux-framework-demo'), 
+        'subtitle' =&gt; __('Custom HTML Allowed (wp_kses)', 'redux-framework-demo'),
+        'desc' =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'validate' =&gt; 'html_custom',
+        'default' =&gt; '&lt;br /&gt;Some HTML is allowed in here.&lt;br /&gt;',
+        'allowed_html' =&gt; array(
+            'a' =&gt; array(
+                'href' =&gt; array(),
+                'title' =&gt; array()
+            ),
+            'br' =&gt; array(),
+            'em' =&gt; array(),
+            'strong' =&gt; array()
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo '' . $redux_demo['opt-textarea'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/textarea/">Textarea</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Text</title>
+		<link>https://docs.reduxframework.com/core/fields/text/</link>
+		<pubDate>Mon, 10 Mar 2014 22:41:10 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[msg]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[validate]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=124</guid>
+		<description><![CDATA[<p>The Text field accepts any form of text and optionally validates the text before saving the value. Arguments Name Type Default Description type string &#8216;text&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/text/">Text</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Text field accepts any form of text and optionally validates the text before saving the value.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1587883/b6bba20c-5243-11e3-8b0e-1df456347427.png" alt="Text Field" height="87" width="585" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;text&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of accepted validation flags. <a title="Validation" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>String that appears in the text input.</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>boolean</td>
+<td>false</td>
+<td>Sets the input field to be readonly or not.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td></td>
+<td>Text to display in the input when n value is present.</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td></td>
+<td>Custom message to display upon failure of validation.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a title="Using the Validate Argument" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> Using the Validate Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-text',
+        'type'     =&gt; 'text',
+        'title'    =&gt; __('Text Option - Email Validated', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This is a little space under the Field Title in the Options table, additional info is good in here.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'validate' =&gt; 'email',
+        'msg'      =&gt; 'custom error message',
+        'default'  =&gt; 'test@test.com'
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Text value: ' . $redux_demo['opt-text'];
+
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/text/">Text</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Switch</title>
+		<link>https://docs.reduxframework.com/core/fields/switch/</link>
+		<pubDate>Mon, 10 Mar 2014 22:40:54 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[off]]></category>
+		<category><![CDATA[on]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=123</guid>
+		<description><![CDATA[<p>The Switch field sets a true or false value based on the selection.  Users may also change the labels of the switch. Arguments Name Type Default Description type string &#8216;switch&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/switch/">Switch</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Switch field sets a true or false value based on the selection.  Users may also change the labels of the switch.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1587830/61c6e046-5242-11e3-88d3-8ad0d43c9404.png" alt="Switch Field" height="65" width="338" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;switch&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>bool</td>
+<td></td>
+<td>Default value of the switch.</td>
+</tr>
+<tr>
+<td>on</td>
+<td>string</td>
+<td>&#8216;On&#8217;</td>
+<td>Text display for the true value.</td>
+</tr>
+<tr>
+<td>off</td>
+<td>string</td>
+<td>&#8216;Off&#8217;</td>
+<td>Text display for the false value.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-switch',
+        'type'     =&gt; 'switch', 
+        'title'    =&gt; __('Switch On', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Look, it\'s on!', 'redux-framework-demo'),
+        'default'  =&gt; true,
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Switch value: ' . $redux_demo['opt-switch'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/switch/">Switch</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Spacing</title>
+		<link>https://docs.reduxframework.com/core/fields/spacing/</link>
+		<pubDate>Mon, 10 Mar 2014 22:40:39 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[absolute]]></category>
+		<category><![CDATA[all]]></category>
+		<category><![CDATA[bottom]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[display_units]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[left]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[mode]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[padding]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[right]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[top]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[units]]></category>
+		<category><![CDATA[units_extended]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=122</guid>
+		<description><![CDATA[<p>The Spacing field allows the user to specify either padding or margin units to any HTML element or CSS selector that supports them. Arguments Name Type Default Description type string &#8216;spacing&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/spacing/">Spacing</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Spacing field allows the user to specify either padding or margin units to any HTML element or CSS selector that supports them.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1577157/11b758be-5167-11e3-8dc8-1e230492a6c9.png" alt="Specing Field" height="82" width="715" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;spacing&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Array of default values. See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>array/string</td>
+<td></td>
+<td>String of a single unit or array of units.  Accepts: <code>px</code> <code>em</code> <code>%</code>.</td>
+</tr>
+<tr>
+<td>units_extended</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to allow users to select any type of unit.</td>
+</tr>
+<tr>
+<td>display_units</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the display of the units field when units are specified.</td>
+</tr>
+<tr>
+<td>top</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the top value input.</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the bottom value input.</td>
+</tr>
+<tr>
+<td>left</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the left value input.</td>
+</tr>
+<tr>
+<td>right</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the right value input.</td>
+</tr>
+<tr>
+<td>all</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display all position value inputs.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>&#8216;padding&#8217;</td>
+<td>Accepts:  <code>absolute</code> <code>padding</code> or <code>margin</code>.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments.  For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>*-top</td>
+<td>string</td>
+<td>Sets the top spacer value.</td>
+</tr>
+<tr>
+<td>*-right</td>
+<td>string</td>
+<td>Sets the right spacer value.</td>
+</tr>
+<tr>
+<td>*-bottom</td>
+<td>string</td>
+<td>Sets the bottom spacer value.</td>
+</tr>
+<tr>
+<td>*-left</td>
+<td>string</td>
+<td>Sets the left spacer value.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>string</td>
+<td>Sets the default unit value in the unit selector.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p><strong>Notes</strong>: The asterisk at the beginning of these values is a wildcard value to be replaced with the <code>mode</code> name. For example, if the chosen <code>mode</code> is <code>margin</code>, the default names would be specified as <code>margin-top</code>, <code>margin-left</code>, etc. If the chosen <code>mode</code> is <code>padding</code>, the default names would be specified as <code>padding-top</code>, <code>padding-left</code>, etc.</p>
+<p>When specifying your own units array, it will override the <code>units-extended</code> argument.</p>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'             =&gt; 'opt-spacing',
+        'type'           =&gt; 'spacing',
+        'output'         =&gt; array('.site-header'),
+        'mode'           =&gt; 'margin',
+        'units'          =&gt; array('em', 'px'),
+        'units_extended' =&gt; 'false',
+        'title'          =&gt; __('Padding/Margin Option', 'redux-framework-demo'),
+        'subtitle'       =&gt; __('Allow your users to choose the spacing or margin they want.', 'redux-framework-demo'),
+        'desc'           =&gt; __('You can enable or disable any piece of this field. Top, Right, Bottom, Left, or Units.', 'redux-framework-demo'),
+        'default'            =&gt; array(
+            'margin-top'     =&gt; '1px', 
+            'margin-right'   =&gt; '2px', 
+            'margin-bottom'  =&gt; '3px', 
+            'margin-left'    =&gt; '4px',
+            'units'          =&gt; 'em', 
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Spacing top: '    . $redux_demo['opt-spacing']['margin-top'];
+echo 'Spacing bottom: ' . $redux_demo['opt-spacing']['margin-bottom'];
+echo 'Spacing left: '   . $redux_demo['opt-spacing']['margin-left'];
+echo 'Spacing right: '  . $redux_demo['opt-spacing']['margin-right'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/spacing/">Spacing</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Sortable</title>
+		<link>https://docs.reduxframework.com/core/fields/sortable/</link>
+		<pubDate>Mon, 10 Mar 2014 22:40:08 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[mode]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=120</guid>
+		<description><![CDATA[<p>The Sortable field allows for an unlimited array of drag-and-drop text box inputs or check boxes. Arguments Name Type Default Description type string &#8216;sortable&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/sortable/">Sortable</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Sortable field allows for an unlimited array of drag-and-drop text box inputs or check boxes.</p>
+<p style="text-align: center;"><img src="https://f.cloud.github.com/assets/3412363/1575662/28ff06d6-5151-11e3-8aa9-24630262c28e.png" alt="Sortable Field" height="161" width="622" /></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;sortable&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of key pair data defining the input objects.  The key represents the object&#8217;s ID.  The second the display text.  See the example.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Default value in key pair format to match the selected option.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display values before text areas when mode is not checkbox.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>&#8216;text&#8217;</td>
+<td>Sets the mode of the input objects text or checkbox.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the content and optional title arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    // Checkbox mode
+    $fields = array(
+        'id'       =&gt; 'text-sortable',
+        'type'     =&gt; 'sortable',
+        'title'    =&gt; __('Sortable Text Option', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Define and reorder these however you want.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'mode'     =&gt; 'checkbox',
+        'options'  =&gt; array(
+            '1'     =&gt; 'Item 1',
+            '2'     =&gt; 'Item 2',
+            '3'     =&gt; 'Item 3',
+        ),
+        // For checkbox mode
+        'default' =&gt; array(
+            '1' =&gt; false,
+            '2' =&gt; true,
+            '3' =&gt; false
+        ),
+    );
+
+    // Text mode.
+    $fields = array(
+        'id'       =&gt; 'text-sortable',
+        'type'     =&gt; 'sortable',
+        'title'    =&gt; __('Sortable Text Option', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Define and reorder these however you want.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'mode'     =&gt; 'text',
+        'options' =&gt; array(
+             '1' =&gt; 'Item number one',
+             '2' =&gt; 'Number two here',
+             '3' =&gt; 'Three strikes, yer out!',
+        ),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change $redux_demo to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/">opt_name argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Text 1 value' . $redux_demo['text-sortable']['1'];
+echo 'Text 2 value' . $redux_demo['text-sortable']['2'];
+echo 'Text 3 value' . $redux_demo['text-sortable']['3'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/sortable/">Sortable</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Slider</title>
+		<link>https://docs.reduxframework.com/core/fields/slider/</link>
+		<pubDate>Mon, 10 Mar 2014 22:39:38 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[display_value]]></category>
+		<category><![CDATA[float]]></category>
+		<category><![CDATA[float_mark]]></category>
+		<category><![CDATA[handles]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[max]]></category>
+		<category><![CDATA[min]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[resolution]]></category>
+		<category><![CDATA[select]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[step]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[text]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=118</guid>
+		<description><![CDATA[<p>The Redux Slider Field offers a great array features for just about every need.  We offer dual handles, floating point values, text/label/select output and theme responsiveness! Arguments Name Type Default Description type string &#8216;slider&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/slider/">Slider</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Redux Slider Field offers a great array features for just about every need.  We offer dual handles, floating point values, text/label/select output and theme responsiveness!</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/2317917/e1b951da-a35a-11e3-8d6a-dc818f29968b.png" alt="Slider Field" height="378" width="889" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;slider&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Value setting the default slider value.</td>
+</tr>
+<tr>
+<td>min</td>
+<td>int/float</td>
+<td>0</td>
+<td>Value setting the minimum slider value.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>int/float</td>
+<td>1</td>
+<td>Value setting the maximum slider value.</td>
+</tr>
+<tr>
+<td>step</td>
+<td>int/float</td>
+<td>1</td>
+<td>Value setting the slider step value.</td>
+</tr>
+<tr>
+<td>handles</td>
+<td>int</td>
+<td>1</td>
+<td>Sets the number of slider handles, either <code>1</code> or <code>2</code>. Any other value will default to <code>1</code></td>
+</tr>
+<tr>
+<td>display_value</td>
+<td>string</td>
+<td>&#8216;text&#8217;</td>
+<td>Sets output mode for the slider value. Accepted values include <code>none</code> for no output, <code>label</code> for a printed value, <code>text</code> for an editable text box, or <code>select</code> for a select box of values. Any other or incorrect values will default to <code>text</code>.</td>
+</tr>
+<tr>
+<td>resolution</td>
+<td>int/float</td>
+<td>1</td>
+<td>Sets the value&#8217;s decimal significance. Acceptable values are: <code>1</code>, <code>0.1</code>, <code>0.01</code>, <code>0.001</code>, <code>0.0001</code>, <code>0.00001</code>. Any improper value will default to <code>1</code>.</td>
+</tr>
+<tr>
+<td>float_mark</td>
+<td>string</td>
+<td>(decimal)</td>
+<td>Sets the floating point marker to either <code>.</code> (decimal) or <code>,</code> (comma). Any other value will default to the decimal value.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.  Only applies when <code>display_value</code> is set to <code>select</code>.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<p><strong>NOTE</strong>:  When setting the <code>resolution</code> argument to a floating point value, it will also be necessary to set the <code>step</code> argument to a floating point for values after the decimal point to change value. Not doing so will result in the value to the left of the decimal changing value upon slide.</p>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'        =&gt; 'opt-slider-label',
+        'type'      =&gt; 'slider',
+        'title'     =&gt; __('Slider Example 1', 'redux-framework-demo'),
+        'subtitle'  =&gt; __('This slider displays the value as a label.', 'redux-framework-demo'),
+        'desc'      =&gt; __('Slider description. Min: 1, max: 500, step: 1, default value: 250', 'redux-framework-demo'),
+        &quot;default&quot;   =&gt; 250,
+        &quot;min&quot;       =&gt; 1,
+        &quot;step&quot;      =&gt; 1,
+        &quot;max&quot;       =&gt; 500,
+        'display_value' =&gt; 'label'
+    ),
+    array(
+        'id' =&gt; 'opt-slider-text',
+        'type' =&gt; 'slider',
+        'title' =&gt; __('Slider Example 2 with Steps (5)', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This example displays the value in a text box', 'redux-framework-demo'),
+        'desc' =&gt; __('Slider description. Min: 0, max: 300, step: 5, default value: 75', 'redux-framework-demo'),
+        &quot;default&quot; =&gt; 75,
+        &quot;min&quot; =&gt; 0,
+        &quot;step&quot; =&gt; 5,
+        &quot;max&quot; =&gt; 300,
+        'display_value' =&gt; 'text'
+    ),
+
+    array(
+        'id' =&gt; 'opt-slider-select',
+        'type' =&gt; 'slider',
+        'title' =&gt; __('Slider Example 3 with two sliders', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This example displays the values in select boxes', 'redux-framework-demo'),
+        'desc' =&gt; __('Slider description. Min: 0, max: 500, step: 5, slider 1 default value: 100, slider 2 default value: 300', 'redux-framework-demo'),
+        &quot;default&quot; =&gt; array(
+            1 =&gt; 100,
+            2 =&gt; 300,
+        ),
+        &quot;min&quot; =&gt; 0,
+        &quot;step&quot; =&gt; 5,
+        &quot;max&quot; =&gt; &quot;500&quot;,
+        'display_value' =&gt; 'select',
+        'handles' =&gt; 2,
+
+    ),
+
+    array(
+        'id' =&gt; 'opt-slider-float',
+        'type' =&gt; 'slider',
+        'title' =&gt; __('Slider Example 4 with float values', 'redux-framework-demo'),
+        'subtitle' =&gt; __('This example displays float values', 'redux-framework-demo'),
+        'desc' =&gt; __('Slider description. Min: 0, max: 1, step: .1, default value: .5', 'redux-framework-demo'),
+        &quot;default&quot; =&gt; .5,
+        &quot;min&quot; =&gt; 0,
+        &quot;step&quot; =&gt; .1,
+        &quot;max&quot; =&gt; 1,
+        'resolution' =&gt; 0.1,
+        'display_value' =&gt; 'text'
+    )
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Slider label value: '  . $redux_demo['opt-slider-label'];
+echo 'Slider text value: '   . $redux_demo['opt-slider-text'];
+echo 'Slider select value: ' . $redux_demo['opt-slider-select'];
+echo 'Slider float value: '  . $redux_demo['opt-slider-float'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/slider/">Slider</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Select Image</title>
+		<link>https://docs.reduxframework.com/core/fields/select-image/</link>
+		<pubDate>Mon, 10 Mar 2014 22:39:22 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=117</guid>
+		<description><![CDATA[<p>The Select Image field offers the ability to populate a drop-down field with an array of images names.  When selected, a preview of the image appears underneath. Arguments Name Type Default Description type string &#8216;select_image&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/select-image/">Select Image</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Select Image field offers the ability to populate a drop-down field with an array of images names.  When selected, a preview of the image appears underneath.</p>
+<p style="text-align: center;"><img src="https://f.cloud.github.com/assets/3412363/2154922/089044a8-943d-11e3-9c77-57ecb86a8bb6.png" alt="Select Image" width="865" height="175" /></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;select_image&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Any array of options in key pair format. For example <code>'img_name' =&gt; 'img_path'</code>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Full url to the default image.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>&#8216;Select an item&#8217;</td>
+<td>Text to display in the selector when no value is present.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields[] = array( 
+        'id'       =&gt; 'opt-select-image',
+        'type'     =&gt; 'select_image',
+        'title'    =&gt; __('Select Image', 'redux-framework-demo'),
+        'subtitle' =&gt; __('A preview of the selected image will appear underneath the select box.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'options'  =&gt; Array(
+            Array (
+                 'alt'  =&gt; 'Image Name 1',
+                 'img'  =&gt; path_to_img_1,
+            ),
+            Array (
+                 'alt'  =&gt; 'Image Name 2',
+                 'img'  =&gt; path_to_img_2,
+            )
+        ),
+        'default'  =&gt; path_to_img_1,
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo '' . $redux_demo['opt-select-image'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/select-image/">Select Image</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Spinner</title>
+		<link>https://docs.reduxframework.com/core/fields/spinner/</link>
+		<pubDate>Mon, 10 Mar 2014 22:39:05 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[max]]></category>
+		<category><![CDATA[min]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[step]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=116</guid>
+		<description><![CDATA[<p>The Spinner field returns the value entered in its input box or via clicks on its arrow buttons. Arguments Name Type Default Description type string &#8216;spinner&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/spinner/">Spinner</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Spinner field returns the value entered in its input box or via clicks on its arrow buttons.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1587577/42bc2ba8-523c-11e3-8600-0333c96d9cf7.png" alt="Spinner Field" height="79" width="688" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;spinner&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Value setting the spinner default.</td>
+</tr>
+<tr>
+<td>min</td>
+<td>string/int</td>
+<td>0</td>
+<td>Value to set the minimum spinner value.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>string/int</td>
+<td>1</td>
+<td>Value to set the maximum spinner value.</td>
+</tr>
+<tr>
+<td>step</td>
+<td>string/int</td>
+<td>1</td>
+<td>Value to set the spinner step value.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-spinner',
+        'type'     =&gt; 'spinner', 
+        'title'    =&gt; __('JQuery UI Spinner Example 1', 'redux-framework-demo'),
+        'subtitle' =&gt; __('No validation can be done on this field type','redux-framework-demo'),
+        'desc'     =&gt; __('JQuery UI spinner description. Min:20, max: 100, step:20, default value: 40', 'redux-framework-demo'),
+        'default'  =&gt; '40',
+        'min'      =&gt; '20',
+        'step'     =&gt; '20',
+        'max'      =&gt; '100',
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Spinner value: ' . $redux_demo['opt-spinner'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/spinner/">Spinner</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

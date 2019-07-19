@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>border-top &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/border-top/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>CSS Layout</title>
+		<link>https://docs.reduxframework.com/extensions/css-layout/</link>
+		<pubDate>Sun, 17 Aug 2014 01:00:39 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[border-bottom]]></category>
+		<category><![CDATA[border-color]]></category>
+		<category><![CDATA[border-left]]></category>
+		<category><![CDATA[border-radius]]></category>
+		<category><![CDATA[border-right]]></category>
+		<category><![CDATA[border-style]]></category>
+		<category><![CDATA[border-top]]></category>
+		<category><![CDATA[css]]></category>
+		<category><![CDATA[css layout]]></category>
+		<category><![CDATA[layout]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[margin-bottom]]></category>
+		<category><![CDATA[margin-left]]></category>
+		<category><![CDATA[margin-right]]></category>
+		<category><![CDATA[margin-top]]></category>
+		<category><![CDATA[padding]]></category>
+		<category><![CDATA[padding-bottom]]></category>
+		<category><![CDATA[padding-left]]></category>
+		<category><![CDATA[padding-right]]></category>
+		<category><![CDATA[padding-top]]></category>
+		<category><![CDATA[radius]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=592</guid>
+		<description><![CDATA[<p>The CSS Layout extension is a new way to set margins, padding and borders (including radius) all from one field.  Getting Started To understand how to use extensions, you should read this article on Loading Extensions. To shortcut the process, you should use the Redux Generator. Please be aware that a working knowledge of PHP [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/css-layout/">CSS Layout</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The CSS Layout extension is a new way to set margins, padding and borders (including radius) all from one field.  </p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;css_layout&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td>false</td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a title="Integrating a Compiler" href="/redux-framework/advanced/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output-shorthand</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set whether or not outputted CSS for <code>margin</code>, <code>border</code>, and <code>padding</code> is in shorthand format.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>array</td>
+<td>&#8216;%&#8217;, &#8216;px&#8217;, &#8216;in&#8217;, &#8216;cm&#8217;, &#8216;mm&#8217;, &#8217;em&#8217;, &#8216;rem&#8217;, &#8216;ex&#8217;, &#8216;pt&#8217;, &#8216;pc&#8217;</td>
+<td>Array of permissible units to be used in the CSS layout field.  Units not specified in this array will be rejected and replaced with the default.</td>
+</tr>
+<tr>
+<td>margin-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the margin layout.</td>
+</tr>
+<tr>
+<td>border-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the border layout.</td>
+</tr>
+<tr>
+<td>radius-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the border radius.</td>
+</tr>
+<tr>
+<td>padding-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the padding layout.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values to appear inside the CSS layout field.  See &#8216;CSS Layout Defaults&#8217; below.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of options defining the CSS Layout field.  See &#8216;CSS Layout Options&#8217; below.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>&#8211;</td>
+<td>Text to display in the input fields when no value is present.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>CSS Layout Defaults</h2>
+<p>Margin, border, and padding values may set be in one of two ways.  Via shorthand properties using the <code>margin</code>, <code>border</code>, and <code>padding</code> arguments, or individually using the <code>*-top</code>, <code>*-right</code>, <code>*-bottom</code> and <code>*-left</code> arguments.  While it&#8217;s possible to set both, it&#8217;s best to use one or the other, not both.  Individual arguments will override the shorthand arguments.</p>
+<p>A shorthand property is expressed using up to four values to set the four value in the following order: <strong>top, right, bottom, left</strong>.  Settings a single value using the shorthand method will fill out all inputs for that level.</p>
+<p>Arguments may be set with or without a unit value.  Values without a unit value will automatically be assigned it&#8217;s default value, set in the <code>margin-unit</code>, <code>border-unit</code>, <code>padding-unit</code> and <code>radius-unit</code> arguments (see above).  Unit values set in the default will override the default unit value.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>margin</td>
+<td>string</td>
+<td></td>
+<td>String of margin shorthand properties setting the margin values.</td>
+</tr>
+<tr>
+<td>margin-top</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-top value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>margin-right</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-right value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>margin-bottom</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-bottom value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>margin-left</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-left value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>border</td>
+<td>string</td>
+<td></td>
+<td>String of border shorthand properties setting the border values.</td>
+</tr>
+<tr>
+<td>border-top</td>
+<td>string/int</td>
+<td></td>
+<td>Border-top value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-right</td>
+<td>string/int</td>
+<td></td>
+<td>Border-right value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-bottom</td>
+<td>string/int</td>
+<td></td>
+<td>Border-bottom value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-left</td>
+<td>string/int</td>
+<td></td>
+<td>Border-left value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>string</td>
+<td></td>
+<td>String of padding shorthand properties setting padding values.</td>
+</tr>
+<tr>
+<td>padding-top</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-top value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-right value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-bottom value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-left value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-radius</td>
+<td>string/int</td>
+<td></td>
+<td>Border-radius value.  If the unit value is omitted, the radius-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>string</td>
+<td>&#8216;#ffffff&#8217;</td>
+<td>Hex string value settings the border color value.</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>string</td>
+<td>&#8216;solid&#8217;</td>
+<td>Border style.  Accepted values:  <code>solid</code>, <code>dashed</code>, <code>dotted</code>, <code>double</code>, <code>groove</code>, <code>ridge</code>, <code>inset</code>, <code>outset</code>, <code>none</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE</strong>:  The <code>border-color</code>, <code>border-radius</code> and <code>border-style</code> properties CANNOT be set using shorthand via the <code>border</code> argument.  They must be set via their own arguments.</p>
+<h2>CSS Layout Options</h2>
+<p>The margin, border, and padding levels of the CSS layout field may be enabled or disabled, depending on your particular needs.  When a level is disabled, default values (if set) will be displayed, although the user will be unable to edit them.</p>
+<p>The radius inputs for value, color and style may also be independently enabled or disabled.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>margin_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable margin inputs.</td>
+</tr>
+<tr>
+<td>border_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable border inputs.</td>
+</tr>
+<tr>
+<td>padding_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable padding inputs.</td>
+</tr>
+<tr>
+<td>radius_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable the radius value input.</td>
+</tr>
+<tr>
+<td>color_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable the radius color selector.</td>
+</tr>
+<tr>
+<td>style_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable the radius style selector.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-css-layout',
+    'type'      =&gt; 'css_layout',
+    'title'     =&gt; 'CSS Layout',
+    'subtitle'  =&gt; 'CSS layouts',
+
+    // Any CSS selector set here will have all values indicated
+    // in the CSS layout field applied to it.
+    'output'    =&gt; array('.navbar'),
+
+    // Default unit values.
+    'margin-unit'  =&gt; 'px',
+    'border-unit'  =&gt; 'px',
+    'padding-unit' =&gt; 'px',
+    'radius-unit'  =&gt; 'px',
+
+    // Default values
+    'default'   =&gt; array(
+
+        // Shorthand method to assign values to the margin level.
+        // Unit values are not required, however, when unit values
+        // are set here, they will override the default values
+        // indicated above.
+        'margin'        =&gt; '5em 10em 20em 3em',
+
+        // Alternative method to set layout values for the margin level.
+        // Again, unit values are not required, and will be assigned the
+        // default values indicated above.
+        // 'margin-top' =&gt; 5,
+        // 'margin-top' =&gt; 10,
+        // 'margin-top' =&gt; 20,
+        // 'margin-top' =&gt; 3,
+
+        // Because we indicated a single value, all border inputs will
+        // be set to 2.
+        'border'        =&gt; '2',
+        'border-color'  =&gt; '#ff0000',
+        'border-style'  =&gt; 'solid',
+        'border-radius' =&gt; '12px'
+    ),
+
+    // CSS Layout options
+    // For this example, we are disabling the padding field.
+    'options'        =&gt; array(
+        'margin_enabled'    =&gt; true,
+        'border_enabled'    =&gt; true,
+        'radius_enabled'    =&gt; true,
+        'padding_enabled'   =&gt; false,
+        'radius_enabled'    =&gt; true,
+        'color_enabled'     =&gt; true,
+        'style_enabled'     =&gt; true,
+    )
+),
+</pre>
+<h2>Example Usage</h2>
+<p>This example in based on the example usage provided above. Be sure to change $redux_demo to the value you specified in your <a href="/redux-framework/arguments/opt_name/" title="opt_name">opt_name</a> argument.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Margin: ' . $redux_demo['opt-css-layout']['margin'];
+// Output: 5em 10em 20em 3em
+
+echo 'Margin top: ' . $redux_demo['opt-css-layout']['margin-top'];
+// Output: 5em
+
+echo 'Margin right: ' . $redux_demo['opt-css-layout']['margin-right'];
+// Output: 10em
+
+echo 'Margin bottom: ' . $redux_demo['opt-css-layout']['margin-bottom'];
+// Output: 20em
+
+echo 'Margin left: ' . $redux_demo['opt-css-layout']['margin-left'];
+// Output: 3em
+
+echo 'Border radius: ' . $redux_demo['opt-css-layout']['border-radius'];
+// Output: 12px
+
+echo 'Border color: ' . $redux_demo['opt-css-layout']['border-color'];
+// Output: #ff0000
+
+echo 'Border style: ' . $redux_demo['opt-css-layout']['border-style'];
+// Output: solid
+
+</pre>
+<h2>CSS Output</h2>
+<p>The CSS output from the above example would appear as thus:</p>
+<pre class="brush: css; title: ; notranslate">
+.navbar {
+    margin-top:    5em;
+    margin-bottom: 1em;
+    margin-left:   3em;
+    margin-right:  4em;
+
+    /* If the output_shorthand argument is set, the above
+       would appear as the following shorthand:
+
+       margin: 5em 1em 3em 4em; */
+
+    border-top:    2px;
+    border-radius: 12px;
+    border-color:  #ff0000;
+    border-style:  solid;
+}
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/css-layout/">CSS Layout</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Border</title>
+		<link>https://docs.reduxframework.com/core/fields/border/</link>
+		<pubDate>Mon, 10 Mar 2014 22:33:43 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[all]]></category>
+		<category><![CDATA[border-bottom]]></category>
+		<category><![CDATA[border-color]]></category>
+		<category><![CDATA[border-left]]></category>
+		<category><![CDATA[border-right]]></category>
+		<category><![CDATA[border-style]]></category>
+		<category><![CDATA[border-top]]></category>
+		<category><![CDATA[border-width]]></category>
+		<category><![CDATA[bottom]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[left]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[right]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[style]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[top]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[validate]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=96</guid>
+		<description><![CDATA[<p>The Border field is a great way to set the border properties of any HTML object that supports the border property. Arguments Name Type Default Description type string &#8216;border&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/border/">Border</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Border field is a great way to set the border properties of any HTML object that supports the border property.</p>
+<p style="text-align: center"><img class="aligncenter" alt="" src="https://f.cloud.github.com/assets/3412363/1577088/1b5e572e-5166-11e3-9673-e5f5e832f409.png" height="84" width="601" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;border&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values. See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td>&#8216;color&#8217;</td>
+<td>String value <code>color</code> to validate the color selection.  It is the only accepted value for this field.</td>
+</tr>
+<tr>
+<td>all</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable all borders using one value.</td>
+</tr>
+<tr>
+<td>left</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable the left field border input.</td>
+</tr>
+<tr>
+<td>right</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable the right field border input.</td>
+</tr>
+<tr>
+<td>top</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable the top field border input.</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable the bottom field border input.</td>
+</tr>
+<tr>
+<td>style</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable the style selector.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable the color picker.</td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>string</td>
+<td>Hex string representing the default color.</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>string</td>
+<td>Sets the default CSS border.  Accepts: <code>solid</code> <code>dotted</code> <code>dashed</code> or <code>none</code>.</td>
+</tr>
+<tr>
+<td>border-top</td>
+<td>string</td>
+<td>Sets the default value of the top border.</td>
+</tr>
+<tr>
+<td>border-right</td>
+<td>string</td>
+<td>Sets the default value of the right border.</td>
+</tr>
+<tr>
+<td>border-bottom</td>
+<td>string</td>
+<td>Sets the default value of the bottom border.</td>
+</tr>
+<tr>
+<td>border-left</td>
+<td>string</td>
+<td>Sets the default value of the left border.</td>
+</tr>
+<tr>
+<td>border-width</td>
+<td>string</td>
+<td>Sets the default value of the border&#8217;s width.</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  It is only necessary to set the <code>border-width</code> default when the <code>all</code> argument is set to true.</p>
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array( 
+        'id'       =&gt; 'header-border',
+        'type'     =&gt; 'border',
+        'title'    =&gt; __('Header Border Option', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Only color validation can be done on this field type', 'redux-framework-demo'),
+        'output'   =&gt; array('.site-header'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'default'  =&gt; array(
+            'border-color'  =&gt; '#1e73be', 
+            'border-style'  =&gt; 'solid', 
+            'border-top'    =&gt; '3px', 
+            'border-right'  =&gt; '3px', 
+            'border-bottom' =&gt; '3px', 
+            'border-left'   =&gt; '3px'
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Border top: '    . $redux_demo['header-border']['border-top'];
+echo 'Border bottom: ' . $redux_demo['header-border']['border-bottom'];
+echo 'Border left: '   . $redux_demo['header-border']['border-left'];
+echo 'Border right: '  . $redux_demo['header-border']['border-right'];
+echo 'Border style: '  . $redux_demo['header-border']['border-style'];
+echo 'Border color: '  . $redux_demo['header-border']['border-color'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/border/">Border</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

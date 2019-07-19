@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: The Redux API</title>
+	<atom:link href="https://docs.reduxframework.com/core/redux-api/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com/core/redux-api/</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Mon, 06 Aug 2018 23:10:23 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/core/redux-api/#comment-716</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Fri, 02 Jun 2017 01:19:16 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942#comment-716</guid>
+		<description><![CDATA[On the front end, on an actual page?  No.  Redux is strictly for admin options only.  What you might need there is a shortcode to generate such a thing for the frontend.  Not a simple task considering the code needed to save data from the front end.  Quite a bit of javascript and ajax, I would imagine.]]></description>
+		<content:encoded><![CDATA[<p>On the front end, on an actual page?  No.  Redux is strictly for admin options only.  What you might need there is a shortcode to generate such a thing for the frontend.  Not a simple task considering the code needed to save data from the front end.  Quite a bit of javascript and ajax, I would imagine.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/core/redux-api/#comment-715</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Fri, 02 Jun 2017 01:15:06 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942#comment-715</guid>
+		<description><![CDATA[The best place to call setExtensions is directly after your option panel config.  We may also need to update that loader file.  :)]]></description>
+		<content:encoded><![CDATA[<p>The best place to call setExtensions is directly after your option panel config.  We may also need to update that loader file.  🙂</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: wp_plugin_dev</title>
+		<link>https://docs.reduxframework.com/core/redux-api/#comment-706</link>
+		<dc:creator><![CDATA[wp_plugin_dev]]></dc:creator>
+		<pubDate>Mon, 17 Apr 2017 19:52:17 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942#comment-706</guid>
+		<description><![CDATA[Couple of questions for you guys. You can ignore the previous one.. ( but you guys might be too busy to answer this one as well, which I accept as a possibility )
+
+Where do you call setExtensions - somewhere in your plugin (or functions if you&#039;re doing that ), or somewhere in your options-init.php?  
+
+ and why aren&#039;t you guys indicating on this page:  https://github.com/ReduxFramework/redux-extensions-loader
+
+ that the more updated way to load extensions is using Redux::setExtensions ?
+
+Thanks]]></description>
+		<content:encoded><![CDATA[<p>Couple of questions for you guys. You can ignore the previous one.. ( but you guys might be too busy to answer this one as well, which I accept as a possibility )</p>
+<p>Where do you call setExtensions &#8211; somewhere in your plugin (or functions if you&#8217;re doing that ), or somewhere in your options-init.php?  </p>
+<p> and why aren&#8217;t you guys indicating on this page:  <a href="https://github.com/ReduxFramework/redux-extensions-loader" rel="nofollow">https://github.com/ReduxFramework/redux-extensions-loader</a></p>
+<p> that the more updated way to load extensions is using Redux::setExtensions ?</p>
+<p>Thanks</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: wp_plugin_dev</title>
+		<link>https://docs.reduxframework.com/core/redux-api/#comment-700</link>
+		<dc:creator><![CDATA[wp_plugin_dev]]></dc:creator>
+		<pubDate>Fri, 14 Apr 2017 22:11:26 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942#comment-700</guid>
+		<description><![CDATA[Is there a way to leverage Redux, where you can use the api to create repeater-style controls on a wordpress page.. without having any kind of submenu/admin, menu links there?   
+IOW... literally, the redux-created controls are just on a Wordpress Page, that has its own url.. and not so much a settings on the admin side.. but shows up on the public side on a page/post ?
+
+( of course, obviously presuming our company pays for the Repeater extension )]]></description>
+		<content:encoded><![CDATA[<p>Is there a way to leverage Redux, where you can use the api to create repeater-style controls on a wordpress page.. without having any kind of submenu/admin, menu links there?<br />
+IOW&#8230; literally, the redux-created controls are just on a WordPress Page, that has its own url.. and not so much a settings on the admin side.. but shows up on the public side on a page/post ?</p>
+<p>( of course, obviously presuming our company pays for the Repeater extension )</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/core/redux-api/#comment-165</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Tue, 14 Apr 2015 18:51:38 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942#comment-165</guid>
+		<description><![CDATA[The variable must be a string value, not an array object.  So, either use the string of your opt_name, or use the posted example and set the string to a reusable variable.]]></description>
+		<content:encoded><![CDATA[<p>The variable must be a string value, not an array object.  So, either use the string of your opt_name, or use the posted example and set the string to a reusable variable.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: dewaadiperdana</title>
+		<link>https://docs.reduxframework.com/core/redux-api/#comment-164</link>
+		<dc:creator><![CDATA[dewaadiperdana]]></dc:creator>
+		<pubDate>Wed, 08 Apr 2015 11:19:22 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942#comment-164</guid>
+		<description><![CDATA[In this section Redux::setArgs ($opt_name, $args), can we just change the variable $opt_name to a custom name like&#039;s $adc_options...?]]></description>
+		<content:encoded><![CDATA[<p>In this section Redux::setArgs ($opt_name, $args), can we just change the variable $opt_name to a custom name like&#8217;s $adc_options&#8230;?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

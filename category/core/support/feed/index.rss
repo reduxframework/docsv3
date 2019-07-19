@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Support &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/category/core/support/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>The Redux API</title>
+		<link>https://docs.reduxframework.com/core/redux-api/</link>
+		<comments>https://docs.reduxframework.com/core/redux-api/#comments</comments>
+		<pubDate>Wed, 01 Apr 2015 19:26:09 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Fields]]></category>
+		<category><![CDATA[Sections]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[getArgs]]></category>
+		<category><![CDATA[getExtensions]]></category>
+		<category><![CDATA[getField]]></category>
+		<category><![CDATA[getSection]]></category>
+		<category><![CDATA[init]]></category>
+		<category><![CDATA[redux api]]></category>
+		<category><![CDATA[setArgs]]></category>
+		<category><![CDATA[setExtensions]]></category>
+		<category><![CDATA[setField]]></category>
+		<category><![CDATA[setHelpSidebar]]></category>
+		<category><![CDATA[setHelpTab]]></category>
+		<category><![CDATA[setSection]]></category>
+		<category><![CDATA[setSections]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942</guid>
+		<description><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see sample-config-legacy.php [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config-legacy.php"><code>sample-config-legacy.php</code></a> in the sample folder for a more detailed analysis).  The biggest drawback to this method was the name of the class.  Each needed to be unique among multiple instances of Redux.  This causes many headaches for developers, and by extension, the Redux support team.</p>
+<p>With the Redux API, no longer is this an issue.  The process has been streamlined into a handful of API calls, without the hassles of ensuring unique class names, and understanding of how PHP classes work.</p>
+<p>If reviewing documentation isn&#8217;t your thing, you are always free to jump directly to the updated <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> in the sample folder of the Redux Framework package to see how it&#8217;s all put together.</p>
+<h2>The Basic API</h2>
+<p>The API is wrtten as a <a href="http://php.net/manual/en/language.oop5.static.php">static class</a>.  Don&#8217;t worry, you don&#8217;t need any knowledge of static classes, only how to call them, which is done with the class name, two semicolons, and the function name as demonstrated in the examples below.</p>
+<p>Ideally, a basic Redux Framework config file will use three or four basic API calls to create the standard options panel.  We&#8217;ll begin with the suggested order in which to use them.</p>
+<p>First, it&#8217;s always a good idea to check that the API class exists.  it avoids potential errors in the event an older version of Redux is still in use on your site by a different dev or vendor.  The following should be the first lines in your config file:</p>
+<pre class="brush: php; title: ; notranslate">
+if ( ! class_exists( 'Redux' ) ) {
+    return;
+}
+</pre>
+<p>Next, set the <code>opt_name</code> variable of your panel to a variable. It&#8217;s easier to set the <code>opt_name</code> in the fashion as it is used for each and every Redux API call. The next line in our example config would be as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+// Remember, 'redux_demo' is stricly for this example.  
+// Please change it to your own unique name.
+$opt_name = &quot;redux_demo&quot;;
+</pre>
+<p>Remember, the classname of the Redux API is titled <code>Redux</code>. To call the function, two semi-colons follow the classname, and then the actual API call.</p>
+<p>Now, we&#8217;ll begin with the first API call, Redux::setArgs</p>
+<h3>setArgs</h3>
+<p><code>Redux::setArgs ($opt_name, $args)</code></p>
+<p>The setArgs API requires two parameters, the <code>opt_name</code> string value and the actual <a href="/core/arguments/" title="Global Arguments">arguments</a>, an array value. </p>
+<p>Here is an example:</p>
+<pre class="brush: php; title: ; notranslate">
+$args = Array(
+    'opt_name'    =&gt; $opt_name,
+    // Any other arguments you wish to set.  To save space in this example
+    // please refer to the arguments documentation, or review the
+    // sample-config.php file
+);
+
+Redux::setArgs ($opt_name, $args);
+</pre>
+<p>The next two APIs deal with setting the help tabs and sidebar of the admin panel when the Redux Framework options panel is visible.</p>
+<h3>setHelpTab</h3>
+<p><code>Redux::setHelpTab ($opt_name, $tabs)</code></p>
+<p>setHelpTab requires two parameters, the <code>$opt_name</code> string value, followed by an array value of tab data.</p>
+<pre class="brush: php; title: ; notranslate">
+$tabs = array(
+    array(
+        'id'      =&gt; 'redux-help-tab-1',
+        'title'   =&gt; 'Theme Information 1',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    ),
+    array(
+        'id'      =&gt; 'redux-help-tab-2',
+        'title'   =&gt; 'Theme Information 2',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    )
+);
+Redux::setHelpTab( $opt_name, $tabs );
+</pre>
+<h3>setHelpSidebar</h3>
+<p><code>Redux::setHelpSidebar ($opt_name, $content)</code></p>
+<p>setHelpSidebar requires two parameters. First, the <code>$opt_name</code> string value, the second, the <code>$content</code> string value.</p>
+<pre class="brush: php; title: ; notranslate">
+$content = '&lt;br /&gt;This is the sidebar content, HTML is allowed.&lt;br /&gt;');
+Redux::setHelpSidebar( $opt_name, $content );
+</pre>
+<p>Now it&#8217;s time to set our sections.</p>
+<h3>setSection</h3>
+<p><code>Redux::setSection ($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data.</p>
+<p>Each call to the setSection API will create a section tab (or subsection of a section) in the options panel.</p>
+<pre class="brush: php; title: ; notranslate">
+// Lets create a section with no subsections, a basic section, if you will.
+$section = array(
+    'title'  =&gt; 'Basic Field',
+    'id'     =&gt; 'basic',
+    'desc'   =&gt; '',
+    'icon'   =&gt; 'el el-home'   
+    'fields' =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),    
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// Now let's create a section with two subsections
+// First, create the parent panel.
+$section = array(
+    'title' =&gt; 'Basic Subsection Fields',
+    'id'    =&gt; 'basic-subsection',
+    'desc'  =&gt; '',
+    'icon'  =&gt; 'el el-home'   
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The first subsection
+$section = array(
+    'title'      =&gt; 'Text Field',
+    'id'         =&gt; 'basic-text-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-subsection-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The second subsection
+$section = array(
+    'title'      =&gt; 'Checkbox Field',
+    'id'         =&gt; 'basic-checkbox-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-checkbox-subsection-example',
+            'type'     =&gt; 'checkbox',
+            'title'    =&gt; 'Checkbox Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; '1'
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+</pre>
+<h3>setExtensions</h3>
+<p><code>Redux::setExtensions($opt_name, $path)</code></p>
+<p>If you are a user of <a href="https://reduxframework.com/extensions/" target="_blank">Redux Extensions</a> (and why wouldn&#8217;t you be? We offer several that take Redux Framework to a whole new level!) the Redux API makes including them in your project a one-liner breeze! No more loader files and setting variables within them, as per the &#8216;old way&#8217;.</p>
+<p>setExtensions requires two parameters. First, the <code>$opt_name</code> string value, the second, the path to either a single extension or a folder of extensions. This API may be used multiple times, if needed.</p>
+<pre class="brush: php; title: ; notranslate">
+// You will need to determine the specific path to 
+// wherever you choose to keep your extensions folder.
+
+// For this example, we're assuming it's in the same 
+// directory as our config file.
+$ext_path = dirname( __FILE__ ) . '/extensions/';
+Redux::setExtensions($opt_name, $ext_path);
+</pre>
+<h2>The Advanced API</h2>
+<p>For the advanced developer already familiar with PHP and Redux as a whole, we offer some more advanced API to make your programming tasks a bit easier.</p>
+<h3>init</h3>
+<p><code>Redux::init($opt_name)</code></p>
+<p>init requires one parameter, the <code>$opt_name</code> string value. The API is useful in cases where a force load of the Redux object is neccessary, even if it&#8217;s already been run.</p>
+<h3>setSections</h3>
+<p><code>Redux::setSections($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data. This API is similar to setSection, with the noted difference of this particular API allowing for the setting of a group of sections in one call.</p>
+<h3>getSection</h3>
+<p><code>Redux::getSection($opt_name, $id)</code></p>
+<p>getSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to retrieve. The return value is an array of the requested section, or false on failure.</p>
+<h3>removeSection</h3>
+<p><code>Redux::removeSection($opt_name, $id, $all_fields)</code></p>
+<p>removeSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to remove. The optional third variable is a boolean. If set, all fields associated to that section will also be removed from the API, though if left they will never be initialized. They are simply left if you were to make changes to them as needed.</p>
+<h3>hideSection</h3>
+<p><code>Redux::hideSection($opt_name, $id, $hide)</code></p>
+<p>hideSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the section. By default, it can be omitted and it is set to true.</p>
+<h3>getField</h3>
+<p><code>Redux::getField($opt_name, $id)</code></p>
+<p>getField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to retrieve. The return value is an array of the requested field, or false on failure.</p>
+<h3>setField</h3>
+<p><code>Redux::setField($opt_name, $field)</code></p>
+<p>setField requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of field data.  Be sure to add the key/pair <code>'section_id' => "id of section"</code> (replace &#8220;id of section&#8221; with the actual section ID) to your field array.  This is necessary so the field is set to the correct section.</p>
+<h3>removeField</h3>
+<p><code>Redux::removeField($opt_name, $id)</code></p>
+<p>removeField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to remove.</p>
+<h3>hidefield</h3>
+<p><code>Redux::hideField($opt_name, $id, $hide)</code></p>
+<p>hideField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the field. By default, it can be omitted and it is set to true.</p>
+<h3>getArgs</h3>
+<p><code>Redux::getArgs($opt_name)</code></p>
+<p>getArgs requires one parameters, the <code>$opt_name</code> string value. The return value is an array of global arguments.</p>
+<h3>getArg</h3>
+<p><code>Redux::getArg($opt_name, $key)</code></p>
+<p>getArg requires two parameters. First, the <code>$opt_name</code> string value, the second, the string name of the argument to retrieve. The return value is the value of the requested argument, or empty on failure.</p>
+<h3>getExtensions</h3>
+<p><code>Redux::getExtensions($opt_name, $key)</code></p>
+<p>getExtensions requires one of two parameters, depending on the desired return value: </p>
+<p><strong>An array of all loaded extensions</strong><br />
+Use the first parameter and specify the <code>$opt_name</code> string. The return value is an array of loaded extensions containing key/pair information of <code>path</code> (the path to the extension) and <code>class</code> (the classname of the extension). On failure, false is returned.</p>
+<p><strong>The path to a specific extension</strong><br />
+First, pass an empty string for the first parameter. This is necessary, otherwise the return value will be the one indicated above. For the second parameter, specify the key name of the desired extension. The return value will be it&#8217;s path.</p>
+<h2>Epilogue</h2>
+<p>In conclusion, we feel the Redux API will assist you in authoring your options panels with additional ease and stability.  That said, we here at Redux frown upon the breaking of backward compatibility.  Should you prefer the &#8216;old way&#8217; of writing your option panels, you are free to continue to do so.  We&#8217;ve kept the legacy sample-config file, now titled <code>sample-config-legacy.php</code> as an example of how those methods work.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/redux-api/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Support Defined</title>
+		<link>https://docs.reduxframework.com/core/support-defined/</link>
+		<comments>https://docs.reduxframework.com/core/support-defined/#respond</comments>
+		<pubDate>Wed, 01 Apr 2015 02:04:58 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=932</guid>
+		<description><![CDATA[<p>Who are we? We maintain an open source project entitled Redux Framework. It is used by hundreds of thousands of users across the world, in all walks of life. Redux Framework is used primarily by developers. That means if users of our developers approach us, it is often difficult and sometimes impossible to provide the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support-defined/">Support Defined</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h3>Who are we?</h3>
+<p>We maintain an open source project entitled Redux Framework. It is used by hundreds of thousands of users across the world, in all walks of life. Redux Framework is used primarily by developers. That means if users of our developers approach us, it is often difficult and sometimes impossible to provide the requested support.</p>
+<h3>Why is that?</h3>
+<p>Redux is built for developers. Without a basic understanding of PHP, error logs, and JavaScript bugs, it is impossible for us to provide solutions to those without the experience of coding in those spaces. We mean no disrespect, but it literally takes us 5 times longer to explain a standard developer concept to a non-developer.</p>
+<h3>But I&#8217;m a user, does that mean I&#8217;m out of luck?!</h3>
+<p>Not entirely. We want to help, we really do. We simply need to be compensated for our time. Not only are we debugging a potential problem in OUR code, but also need to debug a problem within another developer&#8217;s code to help. To do this, we need you to support our project by paying for premium support.</p>
+<h3>But that&#8217;s not fair!</h3>
+<p>It’s not fair that your developer has stopped supporting you, and we sympathize. However, we&#8217;ll be required to find out exactly what your developer was doing, and that takes a LOT of time on our part. We need to charge for that service. Solving problems in third party applications that utilize Redux takes us away from our means of earning an income, not to mention time spent making Redux better.</p>
+<h3>But hey, we&#8217;re willing to help!</h3>
+<p>Really, we want to help! But, at the end of the day we have families to feed and we can&#8217;t offer unlimited support to circumstances beyond our control.</p>
+<h3>Best of Luck!</h3>
+<p>Truly, we wish you best of luck. We&#8217;re not trying to insult; we&#8217;re attempting to justify the time we spend on this project. We hope you understand.</p>
+<h3>I still want support from Redux!</h3>
+<p>If you&#8217;re still interested in support from us, you are welcome to post on our issue tracker at <a href="https://github.com/ReduxFramework/redux-framework/issues" target="_blank">https://github.com/ReduxFramework/redux-framework/issues</a>. Please do not be disappointed if we inform you that we will need you to purchase premium support for us to further assist you.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support-defined/">Support Defined</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/support-defined/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>IDE Snippets &#038; Templates</title>
+		<link>https://docs.reduxframework.com/core/ide-snippets-templates/</link>
+		<comments>https://docs.reduxframework.com/core/ide-snippets-templates/#respond</comments>
+		<pubDate>Tue, 31 Mar 2015 16:16:50 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=930</guid>
+		<description><![CDATA[<p>Thanks to the great work of our community, and notably @karimhossenbux of Kimono Themes, we now have Snippers for Redux for various IDEs. If you would like to contribute to this effort, please contact support@reduxframework.com. NetBeans Code Templates PHP Storm Live Templates Sublime Text Snippets</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/ide-snippets-templates/">IDE Snippets &#038; Templates</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Thanks to the great work of our community, and notably <a href="http://github.com/karimhossenbux" target="_blank">@karimhossenbux</a> of <a href="http://kimonothemes.com/" target="_blank">Kimono Themes</a>, we now have Snippers for Redux for various IDEs. If you would like to contribute to this effort, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>.</p>
+<ul>
+<li><a href="https://github.com/reduxframework/snippets_netbeans" title="NetBeans Snippets" target="_blank">NetBeans Code Templates</a></li>
+<li><a href="https://github.com/reduxframework/snippets_phpstorm" title="PHP Storm Live Templates" target="_blank">PHP Storm Live Templates</a></li>
+<li><a href="https://github.com/reduxframework/snippets_sublime" title="Sublime Text Snippets" target="_blank">Sublime Text Snippets</a></li>
+</ul>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/ide-snippets-templates/">IDE Snippets &#038; Templates</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/ide-snippets-templates/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Generating a Support Hash</title>
+		<link>https://docs.reduxframework.com/core/generating-a-support-hash/</link>
+		<comments>https://docs.reduxframework.com/core/generating-a-support-hash/#respond</comments>
+		<pubDate>Tue, 31 Mar 2015 14:36:31 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=922</guid>
+		<description><![CDATA[<p>In order to provide you with the best support possible, we request you generate a support hash. Doing so is quite easy.  Please note, Redux 3.4.4.8+ is required for this.If you have an early version, please update. First proceed to the Redux Support tab within your Redux instance. You can get there by one of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/generating-a-support-hash/">Generating a Support Hash</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>In order to provide you with the best support possible, we request you generate a support hash. Doing so is quite easy. </p>
+<blockquote><p>Please note, Redux 3.4.4.8+ is required for this.<br />If you have an early version, please update.</p></blockquote>
+<p>First proceed to the Redux Support tab within your Redux instance. You can get there by one of the following ways:</p>
+<ul>
+<li>Visit the site URL directly: ~/wp-admin/tools.php?page=redux-support replacing ~ with your site URL.</li>
+<li>Manually navigate by doing the following:
+<ol>
+<li>Go to your admin panel</li>
+<li>Go to Tools -&gt; Redux Framework</li>
+<li>Click on the Support URL</li>
+</ol>
+</li>
+</ul>
+<p><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM.png" alt="Screen Shot 2015-03-31 at 8.35.49 AM" width="956" height="362" class=" size-full wp-image-923 aligncenter" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM.png 956w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM-300x114.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM-60x23.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM-150x57.png 150w" sizes="(max-width: 956px) 100vw, 956px" /></a></p>
+<p>Once there, click on the Generate Support Hash button, and then click on developer. Copy the unique URL that&#8217;s generated, and supply it to us in our issue tracker.</p>
+<p><center><strong>It&#8217;s that easy.</strong></center></p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/generating-a-support-hash/">Generating a Support Hash</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/generating-a-support-hash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Increasing the WordPress Memory Limit</title>
+		<link>https://docs.reduxframework.com/core/support/increasing-the-wordpress-memory-limit/</link>
+		<comments>https://docs.reduxframework.com/core/support/increasing-the-wordpress-memory-limit/#respond</comments>
+		<pubDate>Mon, 23 Mar 2015 02:08:28 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Support]]></category>
+		<category><![CDATA[increase]]></category>
+		<category><![CDATA[memory limit]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=899</guid>
+		<description><![CDATA[<p>Edit your wp-config.php file and enter something like: NOTE:  WordPress memory can be different to the server – you need to set this regardless of server memory settings. http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP If you have access to your PHP.ini file, change the line in PHP.iniIf your line shows 32M try 64M: If you don’t have access to PHP.ini [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support/increasing-the-wordpress-memory-limit/">Increasing the WordPress Memory Limit</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<ol>
+<li>Edit your wp-config.php file and enter something like:
+<pre class="brush: php; title: ; notranslate">
+define('WP_MEMORY_LIMIT', '96M');
+</pre>
+<p><strong>NOTE</strong>:  <span>WordPress memory can be different to the server – you need to set this regardless of server memory settings</span>.</p>
+<p><a href="http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP"></p>
+<p>http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP</a>
+</li>
+<li><span>If you have access to your PHP.ini file, change the line in PHP.ini</span><br /><span><br />If your line shows 32M try 64M:
+<p></span></p>
+<pre class="brush: plain; title: ; notranslate">
+memory_limit = 64M ; Maximum amount of memory a script may consume (64MB)
+</pre>
+</li>
+<li><span>If you don’t have access to PHP.ini try adding this to an .htaccess file:
+<p></span></p>
+<pre class="brush: plain; title: ; notranslate">
+php_value memory_limit 64M
+</pre>
+</li>
+<li><span>If none of the above works then talk to your host.</span></li>
+</ol>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support/increasing-the-wordpress-memory-limit/">Increasing the WordPress Memory Limit</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/support/increasing-the-wordpress-memory-limit/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Understanding the Redux Framework System Status Report</title>
+		<link>https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/</link>
+		<comments>https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/#respond</comments>
+		<pubDate>Mon, 23 Mar 2015 01:27:25 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Support]]></category>
+		<category><![CDATA[support]]></category>
+		<category><![CDATA[system status]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=893</guid>
+		<description><![CDATA[<p>Overview The Redux Framework System Status report is a vital tool that is used to troubleshoot issues with your site. With a wide variety of sections and fields, you can check your software versions, server settings, and WordPress configuration in a moment’s notice. Plus, the System Status report is the best way that the Redux [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/">Understanding the Redux Framework System Status Report</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h2>Overview</h2>
+<p>The Redux Framework System Status report is a vital tool that is used to troubleshoot issues with your site. With a wide variety of sections and fields, you can check your software versions, server settings, and WordPress configuration in a moment’s notice.</p>
+<p>Plus, the System Status report is the best way that the Redux Support Team can help you! Before opening a ticket, be sure to add your settings and check to see if you can troubleshoot an issue with the items below.</p>
+<h2>WordPress Environment</h2>
+<p>This section provides general information about your site, your WordPress installation, and the features you have enabled.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Home URL</td>
+<td><span>The URL of your site’s homepage.</span></td>
+<td><span>http://example.com</span></td>
+</tr>
+<tr>
+<td>Site URL</td>
+<td><span>The root URL of your site.</span></td>
+<td><span>http://example.com</span></td>
+</tr>
+<tr>
+<td>Redux Version</td>
+<td><span>The version of Redux Framework installed on your site.</span></td>
+<td>3.4.4.5</td>
+</tr>
+<tr>
+<td><span>Redux Data Directory Writable</span></td>
+<td><span>Whether the Redux data directory is writable, and its location.</span></td>
+<td><span>/srv/www/wp-content/uploads/redux/</span></td>
+</tr>
+<tr>
+<td>WP Version</td>
+<td><span>The version of WordPress installed on your site.</span></td>
+<td>3.4.1</td>
+</tr>
+<tr>
+<td>WP Multisite</td>
+<td><span>Whether or not you have WordPress Multisite enabled.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>Permalink Structure</td>
+<td>The WordPress permalink structure set in Settings-&gt;Permalinks.</td>
+<td><span>/%postname%/</span></td>
+</tr>
+<tr>
+<td>Front Page Display</td>
+<td>The sitting to display &#8220;Latest Posts&#8221; or &#8220;Static Pages&#8221; as set in Settings-&gt;Reading.</td>
+<td>posts</td>
+</tr>
+<tr>
+<td>Front Page</td>
+<td>The name of the page used as the &#8220;Front Page&#8221; of the site.  This information is displayed only when Front Page Display is set to pages.</td>
+<td>&lt;name of page&gt;</td>
+</tr>
+<tr>
+<td>Posts Page</td>
+<td>The name of the page used as the &#8220;Post Page&#8221; of the site.  This information is displayed only when Front Page Display is set to pages.</td>
+<td>&lt;name of page&gt;</td>
+</tr>
+<tr>
+<td>WP Memory Limit</td>
+<td><span>The maximum amount of memory (RAM) that your site can use at one time.<span class="Apple-converted-space"> </span></span><a title="Increasing the WordPress Memory Limit" href="/core/support/increasing-the-wordpress-memory-limit/">Learn how to increase this limit here.</a></td>
+<td><span>64 MB</span></td>
+</tr>
+<tr>
+<td>Database Table Prefix</td>
+<td>Displays the length of the WordPress database table prefix, and whether it falls into acceptable parameters.</td>
+<td><span>Length: 3 &#8211; Status: Acceptable</span></td>
+</tr>
+<tr>
+<td>WP Debug Mode</td>
+<td><span>Displays whether or not WordPress is in Debug Mode.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>Language</td>
+<td><span>The current language used by WordPress. Default = English</span></td>
+<td>en_US</td>
+</tr>
+</tbody>
+</table>
+<h2>Browser</h2>
+<p>This entry provides general information about your web browser.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Browser Info</td>
+<td>The complete User Agent string of the browser viewing the System Status report.</td>
+<td><span>Platform: Windows Browser Name: Chrome Browser Version: 41.0.2272.101 User Agent String: Mozilla/5.0 (Windows NT 5.2; WOW 64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Server Environment</h2>
+<p>This section provides general information about your server.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Server Info</td>
+<td><span>Information about the web server that is currently hosting your site.</span></td>
+<td><span>Apache/2.4.7 (Win32) OpenSSL/1.0.1e PHP/5.5.9</span></td>
+</tr>
+<tr>
+<td>PHP Version</td>
+<td><span>The version of PHP installed on your hosting server.</span></td>
+<td><span>5.5.6</span></td>
+</tr>
+<tr>
+<td>PHP Memory Limit</td>
+<td><span>The maximum amount of memory in bytes that a script is allowed to allocate. </span></td>
+<td><span>256 MB</span></td>
+</tr>
+<tr>
+<td>PHP Post Max Size</td>
+<td><span>The largest filesize that can be contained in one post.</span></td>
+<td>8 MB</td>
+</tr>
+<tr>
+<td>PHP Time Limit</td>
+<td><span>The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)</span></td>
+<td>300</td>
+</tr>
+<tr>
+<td><span>PHP Max Input Vars</span></td>
+<td><span>The maximum number of variables your server can use for a single function to avoid overloads.</span></td>
+<td>1000</td>
+</tr>
+<tr>
+<td>PHP Display Errors</td>
+<td>Determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user.</td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td><span>SUHOSIN Installed</span></td>
+<td><span>Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself.  If enabled on your server, Suhosin may need to be configured to increase its data submission limits.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>MySQL Version</td>
+<td><span>The version of MySQL installed on your hosting server.</span></td>
+<td><span>5.5.32</span></td>
+</tr>
+<tr>
+<td><span>Max Upload Size</span></td>
+<td><span>The largest filesize that can be uploaded to your WordPress installation.</span></td>
+<td>8 MB</td>
+</tr>
+<tr>
+<td>Default Time Zone is UTC</td>
+<td><span>Whether the timezone for your server is UTC.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td><span>fsockopen/cURL</span></td>
+<td><span>Payment gateways can use cURL to communicate with remote servers to authorize payments, other plugins may also use it when communicating with remote services.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>SOAP Client</td>
+<td><span>Some webservices like shipping use SOAP to get information from remote servers, for example, live shipping quotes from FedEx require SOAP to be installed.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>DOM Document</td>
+<td><span>HTML/Multipart Emails use DOMDocument to generate inline CSS in templates.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>GZIP</td>
+<td><span>GZip (gzopen) is used to open the GEOIP database from MaxMind.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>Remote POST</td>
+<td><span>PayPal uses this method of commnuicating when sending back transaction information.<span class="Apple-converted-space"> </span></span><a href="http://codex.wordpress.org/Function_Reference/wp_remote_post">See the wp_remote_post Codex page for more information.</a></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>Remote GET</td>
+<td><span>Redux Framework may use this method of communication when checking for updates.</span></td>
+<td><span>√</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Active Plugins</h2>
+<p>This section displays all of the active plugins installed on your site. From this area, you can see the current version numbers of your plugins.<br /><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins.png" alt="active_plugins" class="alignnone size-full wp-image-904" height="789" width="1161" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins.png 1161w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-300x204.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-1024x696.png 1024w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-60x41.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/active_plugins-150x102.png 150w" sizes="(max-width: 1161px) 100vw, 1161px" /></a></p>
+<h2>Redux Instances</h2>
+<p>This section displays all of the active instances of Redux Framework on your site. This information may be invaluable in detecting collisions with other developers who use Redux in their projects. Multiple instances could be listed, depending on if and how many plugins on your site use Redux Framework.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>opt_name</td>
+<td>The opt_name variable set in the specified instance of Redux.</td>
+<td>redux_demo</td>
+</tr>
+<tr>
+<td>global_variable</td>
+<td>The global_variable variable set in the specified instance of Redux.</td>
+<td>redux_demo</td>
+</tr>
+<tr>
+<td>dev_mode</td>
+<td>Displays whether or not developer mode is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>ajax_save</td>
+<td>Displays whether or not AJAX based saving is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>page_slug</td>
+<td>The specified string that comprises the name of the options panel for the specified instance of Redux.</td>
+<td>redux_options</td>
+</tr>
+<tr>
+<td>page_permissions</td>
+<td>The minimum permission setting required to view the options panel for the specified instance of Redux.</td>
+<td>manage_options</td>
+</tr>
+<tr>
+<td>menu_type</td>
+<td>Variable sets whether or not the menu is displayed as an admin menu item in the specified instance of Redux.</td>
+<td>menu</td>
+</tr>
+<tr>
+<td>page_parent</td>
+<td>Variable sets where the options menu will be placed on the WordPress admin sidebar for the specified instance of Redux.</td>
+<td>themes.php</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>Flag setting the compiler option for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>output</td>
+<td>Indicates if output flag for globally shutting off all CSS output is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>output_tag</td>
+<td>The output_tag variable sets whether or not dynamic CSS will be generated for the customizer and Google fonts for this instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>template_path</td>
+<td>The full directory path to custom template files for this instance of Redux.  This data is only displayed if the template_path argument is set.</td>
+<td><span>/srv/www/wp-content/themes/&lt;theme_name&gt;/redux/templates</span></td>
+</tr>
+<tr>
+<td>Templates</td>
+<td>A list of custom templates used and their versions.  This data is only displayed if the template_path argument is set and templates are installed.</td>
+<td><code><span>&lt;theme_name&gt;</span>/admin/templates/container.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/content.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/footer.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/header.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/header_stickybar.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/menu_container.tpl.php</code></td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td>A list of installed Redux Framework extensions and their versions.  This information is only displayed if extensions are installed.</td>
+<td><span>Widget Areas &#8211; 1.0.0</span><br /><span>Social Profiles &#8211; 1.0.2</span><br /><span>Search &#8211; 1.0.0</span><br /><span>Multi Media &#8211; 1.0.0</span><br /><span>Metaboxes &#8211; 1.3.1</span><br /><span>Js Button &#8211; 1.0.1</span><br /><span>Custom Fonts &#8211; 1.0.1</span><br /><span>Color Scheme &#8211; 2.1.6</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Theme</h2>
+<p>This section displays valuable information about the current theme running on your installation. Typically this could be one of the more problematic areas of a site – as there is no standard on what themes should and shouldn’t do.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Name</td>
+<td><span>The name of the current active theme.</span></td>
+<td>HelpBase</td>
+</tr>
+<tr>
+<td>Version</td>
+<td><span>The installed version of the current active theme.</span></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>Author URL</td>
+<td><span>The developer or plugin’s URL</span></td>
+<td>http://www.rdx.io</td>
+</tr>
+<tr>
+<td>Child Theme</td>
+<td><span>Displays whether the active theme is a child theme, and what the parent theme is.</span></td>
+<td>x</td>
+</tr>
+<tr>
+<td>Parent Theme Name</td>
+<td>The name of the current parent theme.  This information is displayed only f the current theme is a child theme.</td>
+<td>HelpBase (child theme)</td>
+</tr>
+<tr>
+<td>Parent Theme Version</td>
+<td>The installed version of the parent theme.  This information is displayed only f the current theme is a child theme.</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>Parent Theme Author URL</td>
+<td>The parent&#8217;s theme&#8217;s developer or URL.  This information is displayed only f the current theme is a child theme.</td>
+<td>http://www.rdx.io</td>
+</tr>
+</tbody>
+</table>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/">Understanding the Redux Framework System Status Report</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

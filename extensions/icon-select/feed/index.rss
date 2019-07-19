@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Icon Select</title>
+	<atom:link href="https://docs.reduxframework.com/extensions/icon-select/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com/extensions/icon-select/</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Mon, 06 Aug 2018 23:10:23 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/extensions/icon-select/#comment-713</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Fri, 02 Jun 2017 01:10:24 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=881#comment-713</guid>
+		<description><![CDATA[Premium extensions are not free.  The price of the extension islisted on it&#039;s page.  :)]]></description>
+		<content:encoded><![CDATA[<p>Premium extensions are not free.  The price of the extension islisted on it&#8217;s page.  🙂</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: sr</title>
+		<link>https://docs.reduxframework.com/extensions/icon-select/#comment-710</link>
+		<dc:creator><![CDATA[sr]]></dc:creator>
+		<pubDate>Thu, 20 Apr 2017 17:31:13 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=881#comment-710</guid>
+		<description><![CDATA[is the icon is free licence ?]]></description>
+		<content:encoded><![CDATA[<p>is the icon is free licence ?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

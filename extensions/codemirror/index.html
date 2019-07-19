@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+CodeMirror - Advanced Code Editor &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>CodeMirror - Advanced Code Editor &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CodeMirror - Advanced Code Editor &raquo; Redux Documentation" />
+<meta property="og:description" content="CodeMirror is a versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality. Features Support for over 60 languages out of the box A powerful, composable language mode system Autocompletion (XML) Code folding Configurable &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/extensions/codemirror/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:section" content="Extensions" />
+<meta property="article:published_time" content="2014-03-14T18:40:43+00:00" />
+<meta property="article:modified_time" content="2014-04-10T05:08:19+00:00" />
+<meta property="og:updated_time" content="2014-04-10T05:08:19+00:00" />
+<meta property="og:image" content="../../wp-content/uploads/sites/4/2014/03/codemirror.png" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../comments/feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; CodeMirror &#8211; Advanced Code Editor Comments Feed" href="feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-codemirror-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-codemirror-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-9 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../index.html">
+            <img alt="Redux Documentation" src="../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">CodeMirror &#8211; Advanced Code Editor</h1>
+  <div id="breadcrumbs"><a href="../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../category/extensions/index.html" title="View all posts in Extensions" >Extensions</a> <span class="sep">/</span>CodeMirror &#8211; Advanced Code Editor</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2014-03-14" itemprop="datePublished">March 14, 2014</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	tpaksu</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../category/extensions/index.html" rel="category tag">Extensions</a>    </li>
+
+<li class="comments">
+    <i class="icon-comment"></i>
+	<a href="#comments">2 Comments</a></li>
+
+</ul>
+  
+    <article id="post-9" class="clearfix post-9 post type-post status-publish format-standard hentry category-extensions">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p><a href="http://codemirror.net/" target="_blank">CodeMirror</a> is a versatile text editor implemented in JavaScript for the browser. It is specialized for editing code, and comes with a number of language modes and addons that implement more advanced editing functionality.</p>
+<p><img src="../../wp-content/uploads/sites/4/2014/03/codemirror.png" alt="" width="753" height="324" class="aligncenter size-full wp-image-399" srcset="../../wp-content/uploads/sites/4/2014/03/codemirror.png 753w, ../../wp-content/uploads/sites/4/2014/03/codemirror-300x129.png 300w, ../../wp-content/uploads/sites/4/2014/03/codemirror-60x25.png 60w, ../../wp-content/uploads/sites/4/2014/03/codemirror-150x64.png 150w" sizes="(max-width: 753px) 100vw, 753px" /></p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Support for over 60 languages out of the box</li>
+<li>A powerful, composable language mode system</li>
+<li>Autocompletion (XML)</li>
+<li>Code folding</li>
+<li>Configurable keybindings</li>
+<li>Vim and Emacs bindings</li>
+<li>Search and replace interface</li>
+<li>Bracket and tag matching</li>
+<li>Support for split views</li>
+<li>Linter integration</li>
+<li>Mixing font sizes and styles</li>
+<li>Various themes</li>
+<li>Able to resize to fit content</li>
+<li>Inline and block widgets</li>
+<li>Programmable gutters</li>
+<li>Making ranges of text styled, read-only, or atomic</li>
+<li>Bi-directional text support</li>
+</ul>
+<p>Many other methods and addons…</p>
+<h3 id="browser-support">Browser support</h3>
+<p>The desktop versions of the following browsers, in standards mode (HTML5 recommended) are supported:</p>
+<ul>
+<li>Firefox    version 3 and up</li>
+<li>Chrome    any version</li>
+<li>Safari    version 5.2 and up</li>
+<li>Internet Explorer version 8 and up</li>
+<li>Opera version 9 and up</li>
+</ul>
+<p>Modern mobile browsers tend to partly work as the <a href="http://codemirror.net/#browsersupport" target="_blank">official Codemirror documentation says</a>.</p>
+<h3 id="basic-usage">Basic Usage</h3>
+<p>The basic Codemirror Editor for Redux Framework is added like the other fields with these parameters:</p>
+<pre class="brush: php; title: ; notranslate" title="">array(
+    'id' =&gt; 'codemirror',
+    'type' =&gt; &quot;codemirror&quot;,
+    'title' =&gt; __(&quot;Code Editor CSS&quot;, 'redux-framework-demo'),
+    'compiler' =&gt; 'true',
+    'subtitle' =&gt; __('Dummy Subtitle', 'redux-framework-demo'),
+    'editor_options' =&gt; array(
+        &quot;mode&quot; =&gt; array(&quot;css&quot;),
+        &quot;addon&quot; =&gt; array(&quot;foldcode-css&quot;,&quot;activeline&quot;),
+        &quot;theme&quot; =&gt; &quot;monokai&quot;,
+        &quot;lint&quot; =&gt; true,
+        &quot;hint&quot; =&gt; true,
+        &quot;autohint&quot; =&gt; true
+    )
+)</pre>
+</p>
+<h3 id="arguments">Arguments</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;codemirror&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Display title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td></td>
+<td>Field descriptor, displayed inside of the field when no data is set.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>boolean</td>
+<td></td>
+<td>Flag to set the compiler hook, or array of CSS selectors which passes dynamic CSS to the compiler hook.</td>
+</tr>
+<tr>
+<td>editor_options</td>
+<td>array</td>
+<td></td>
+<td>Sets codemirror options like field mode, theme, addons, lint, autocomplete, complete on demand (Ctrl+Space).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="editor_options">Codemirror Editor Options</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mode</td>
+<td>array</td>
+<td></td>
+<td>Mode(s) of the editor like CSS, Javascript, CoffeeScript, Markdown etc. For avaliable modes, see <a href="#language-modes">Language Modes</a> section.</td>
+</tr>
+<tr>
+<td>addon</td>
+<td>array</td>
+<td></td>
+<td>Defines the editor’s addon(s) like search box implementation, selection marking, rulers etc. For available addons, refer to <a href="#add-ons">Add-ons</a> section.</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>string</td>
+<td>&#8216;default&#8217;</td>
+<td>Sets the theme of the editor.  See <a href="#themes">Themes</a> below.</td>
+</tr>
+<tr>
+<td>lint</td>
+<td>boolean</td>
+<td>false</td>
+<td>Enables on-the-fly code lint checks like jshint, csslint etc. Not available for mixed modes like htmlmixed. </td>
+</tr>
+<tr>
+<td>hint</td>
+<td>boolean</td>
+<td>false</td>
+<td>Enables autocomplete feature. If autohint is set to false, this feature triggers on `Ctrl + Space` key combination. If not, it shows the autocomplete box as you type.</td>
+</tr>
+<tr>
+<td>autohint</td>
+<td>boolean</td>
+<td>false</td>
+<td>Enables showing the autocomplete box as you type. </td>
+</tr>
+<tr>
+<td>lineNumbers</td>
+<td>boolean</td>
+<td>true</td>
+<td>Enables the line number gutter display.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="language-modes">Language Modes</h3>
+</p>
+<p>This is a list of every mode in the distribution. Each mode lives in a subdirectory of the mode/ directory, and typically defines a single JavaScript file that implements the mode. Loading such file will make the language available to CodeMirror, through the mode option. This extension has the autoloading feature of those files, which searches for defined mode directory and autoloads neccessary files.</p>
+</p>
+<table>
+<tbody>
+<tr>
+<td>APL<br /><small>(mode:apl)</small></td>
+<td>Asterisk dialplan<br /><small>(mode:asterisk)</small></td>
+<td>C, C++, C#<br /><small>(mode:clike)</small></td>
+<td>Clojure<br /><small>(mode:clojure)</small></td>
+<td>COBOL<br /><small>(mode:cobol)</small></td>
+</tr>
+<tr>
+<td>CoffeeScript<br /><small>(mode:coffeescript)</small></td>
+<td>Common Lisp<br /><small>(mode:commonlisp)</small></td>
+<td>CSS<br /><small>(mode:css)</small></td>
+<td>Cython<br /><small>(mode:phyton)</small></td>
+<td>D<br /><small>(mode:d)</small></td>
+</tr>
+<tr>
+<td>diff<br /><small>(mode:diff)</small></td>
+<td>DTD<br /><small>(mode:dtd)</small></td>
+<td>ECL<br /><small>(mode:ecl)</small></td>
+<td>Eiffel<br /><small>(mode:eiffel)</small></td>
+<td>Erlang<br /><small>(mode:erlang)</small></td>
+</tr>
+<tr>
+<td>Fortran<br /><small>(mode:fortran)</small></td>
+<td>F#<br /><small>(mode:mllike)</small></td>
+<td>Gas (AT&amp;T-style assembly)<br /><small>(mode:gas)</small></td>
+<td>Gherkin<br /><small>(mode:gherkin)</small></td>
+<td>Go<br /><small>(mode:go)</small></td>
+</tr>
+<tr>
+<td>Groovy<br /><small>(mode:groovy)</small></td>
+<td>HAML<br /><small>(mode:haml)</small></td>
+<td>Haskell<br /><small>(mode:haskell)</small></td>
+<td>Haxe<br /><small>(mode:haxe)</small></td>
+<td>HTTP<br /><small>(mode:http)</small></td>
+</tr>
+<tr>
+<td>Java<br /><small>(mode:clike)</small></td>
+<td>Jade<br /><small>(mode:jade)</small></td>
+<td>JavaScript<br /><small>(mode:javascript)</small></td>
+<td>Jinja2<br /><small>(mode:jinja2)</small></td>
+<td>Julia<br /><small>(mode:julia)</small></td>
+</tr>
+<tr>
+<td>LESS<br /><small>(mode:less)</small></td>
+<td>LiveScript<br /><small>(mode:livescript)</small></td>
+<td>Markdown (GitHub-flavour)<br /><small>(mode:markdown)</small></td>
+<td>mIRC<br /><small>(mode:mirc)</small></td>
+<td>Nginx<br /><small>(mode:nginx)</small></td>
+</tr>
+<tr>
+<td>NTriples<br /><small>(mode:ntriples)</small></td>
+<td>OCaml<br /><small>(mode:mllike)</small></td>
+<td>Octave (MATLAB)<br /><small>(mode:octave)</small></td>
+<td>Pascal<br /><small>(mode:pascal)</small></td>
+<td>PEG.js<br /><small>(mode:pegjs)</small></td>
+</tr>
+<tr>
+<td>Perl<br /><small>(mode:perl)</small></td>
+<td>PHP<br /><small>(mode:php)</small></td>
+<td>Pig Latin<br /><small>(mode:pig)</small></td>
+<td>Properties files<br /><small>(mode:properties)</small></td>
+<td>Puppet<br /><small>(mode:puppet)</small></td>
+</tr>
+<tr>
+<td>Python<br /><small>(mode:phyton)</small></td>
+<td>Q<br /><small>(mode:q)</small></td>
+<td>R<br /><small>(mode:r)</small></td>
+<td>RPM spec and changelog<br /><small>(mode:rpm)</small></td>
+<td>reStructuredText<br /><small>(mode:rst)</small></td>
+</tr>
+<tr>
+<td>Ruby<br /><small>(mode:ruby)</small></td>
+<td>Rust<br /><small>(mode:rust)</small></td>
+<td>Sass<br /><small>(mode:sass)</small></td>
+<td>Scala<br /><small>(mode:clike)</small></td>
+<td>Scheme<br /><small>(mode:scheme)</small></td>
+</tr>
+<tr>
+<td>SCSS<br /><small>(mode:css)</small></td>
+<td>Shell<br /><small>(mode:shell)</small></td>
+<td>Sieve<br /><small>(mode:sieve)</small></td>
+<td>Smalltalk<br /><small>(mode:smalltalk)</small></td>
+<td>Smarty<br /><small>(mode:smarty)</small></td>
+</tr>
+<tr>
+<td>Smarty/HTML mixed<br /><small>(mode:smartymixed)</small></td>
+<td>Solr<br /><small>(mode:solr)</small></td>
+<td>SQL (several dialects)<br /><small>(mode:sql)</small></td>
+<td>SPARQL<br /><small>(mode:sparql)</small></td>
+<td>sTeX, LaTeX<br /><small>(mode:stex)</small></td>
+</tr>
+<tr>
+<td>Tcl<br /><small>(mode:tcl)</small></td>
+<td>Tiddlywiki<br /><small>(mode:tiddlywiki)</small></td>
+<td>Tiki wiki<br /><small>(mode:tiki)</small></td>
+<td>TOML<br /><small>(mode:toml)</small></td>
+<td>Turtle<br /><small>(mode:turtle)</small></td>
+</tr>
+<tr>
+<td>VB.NET<br /><small>(mode:vb)</small></td>
+<td>VBScript<br /><small>(mode:vbscript)</small></td>
+<td>Velocity<br /><small>(mode:velocity)</small></td>
+<td>Verilog<br /><small>(mode:verilog)</small></td>
+<td>XML/HTML<br /><small>(mode:xml)</small></td>
+</tr>
+<tr>
+<td>XQuery<br /><small>(mode:xquery)</small></td>
+<td>YAML<br /><small>(mode:yaml)</small></td>
+<td>Z80<br /><small>(mode:z80)</small></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="themes">Themes</h3>
+</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/3024-day_zps82e4cfe9.png" alt="" title="" /><br />3024-day</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/3024-night_zps7c937c99.png" alt="" title="" /><br />3024-night</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/ambiance_zps94c9415f.png" alt="" title="" /><br />ambiance</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/base16-dark_zps24ccbd10.png" alt="" title="" /><br />base16-dark</td>
+</tr>
+<tr>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/base16-light_zpsb0c03993.png" alt="" title="" /><br />base16-light</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/blackboard_zps6c079187.png" alt="" title="" /><br />blackboard</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/cobalt_zps417b347a.png" alt="" title="" /><br />cobalt</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/eclipse_zpsd7753101.png" alt="" title="" /><br />eclipse</td>
+</tr>
+<tr>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/elegant_zpsadb3abab.png" alt="" title="" /><br />elegant</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/erlang-dark_zpsc119b74f.png" alt="" title="" /><br />erlang-dark</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/lesser-dark_zps1d44483b.png" alt="" title="" /><br />lesser-dark</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/mbo_zps88b8e5b8.png" alt="" title="" /><br />mbo</td>
+</tr>
+<tr>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/mdn-like_zps36501872.png" alt="" title="" /><br />mdn-like</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/midnight_zps6e4f0873.png" alt="" title="" /><br />midnight</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/monokai_zpse4d85c35.png" alt="" title="" /><br />monokai</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/neat_zps50af0a57.png" alt="" title="" /><br />neat</td>
+</tr>
+<tr>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/night_zpsb0dabe0b.png" alt="" title="" /><br />night</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/paraiso-dark_zpsbed1c247.png" alt="" title="" /><br />paraiso-dark</td>
+<td><img src="http://i129.photobucket.com/albums/p209/tpaksu/codemirror-images/paraiso-light_zps9a61eb4a.png" alt="" title="" /><br />paraiso-light</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="add-ons">Add-ons</h3>
+</p>
+<p>AddonDescription</p>
+<table>
+<thead>
+</thead>
+<tbody>
+<tr>
+<td><b>activeline</b></td>
+<td>
+                Displays active line in different style. <br />
+                <a href="http://codemirror.net/demo/activeline.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>closebrackets</b></td>
+<td>
+                Auto closes <code>[]</code>,<code>{}</code>,<code>''</code>,<code>""</code> brackets inside the editor when typed. <br />
+                <a href="http://codemirror.net/demo/closebrackets.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>closetag</b></td>
+<td>
+                Auto closes xml tags if the editor has an xml compatible mode like HTML. <br />
+                <a href="http://codemirror.net/demo/closetag.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>continuelist</b></td>
+<td>
+                If this add-on is active in the <code>markdown</code> mode, when user presses the <code>Enter</code> key while typing a markdown list, the editor automatically indents the new line to the markdown definition list’s left margin. <br />
+                <a href="http://codemirror.net/mode/markdown/index.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>foldcode-comment</b></td>
+<td>
+                Adds folding feature to gutter for multiline comments.
+            </td>
+</tr>
+<tr>
+<td><b>foldcode-css</b></td>
+<td>
+                Adds folding feature to gutter for CSS brackets.
+            </td>
+</tr>
+<tr>
+<td><b>foldcode-html</b></td>
+<td>
+                Adds folding feature to gutter for matched XML like tags. <br />
+                <a href="http://codemirror.net/demo/folding.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>foldcode-indent</b></td>
+<td>
+                Adds folding feature to gutter for the lines that have the same indent level.
+            </td>
+</tr>
+<tr>
+<td><b>foldcode-js</b></td>
+<td>
+                Adds folding feature to gutter curly brace matches in Javascript (and likes). <br />
+                <a href="http://codemirror.net/demo/folding.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>foldcode-markdown</b></td>
+<td>
+                Adds folding feature to gutter for markdown mode. <br />
+                <a href="http://codemirror.net/demo/folding.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>fullscreen</b></td>
+<td>
+                Adds a fullscreen feature which will switch to fullscreen when <code>F11</code> key is pressed inside the editor. <br />
+                <a href="http://codemirror.net/demo/fullscreen.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>markselection</b></td>
+<td>
+                Adds a different styling to the selected text in the editor. <br />
+                <a href="http://codemirror.net/demo/markselection.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>matchbrackets</b></td>
+<td>
+                Highlights the matching bracket couples mentioned in <code>closebrackets</code> addon when clicked on one of them inside the editor.
+            </td>
+</tr>
+<tr>
+<td><b>matchhighlights</b></td>
+<td>
+                Highlights the same words as which the user selects in the editor. <br />
+                <a href="http://codemirror.net/demo/matchhighlighter.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>matchtags</b></td>
+<td>
+                Highlights the same tags as the tag that user selected. <br />
+                <a href="http://codemirror.net/demo/matchtags.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>placeholder</b></td>
+<td>
+                if a <code>placeholder</code> property is defined in the field’s property list (outside <code>editor_options</code> array), this text will be shown in the editor as a placeholder text for the user. <br />
+                <a href="http://codemirror.net/demo/placeholder.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>rulers</b></td>
+<td>
+                Displays an user-defined ruler on the editor. If you wonder how to define a ruler set, have a look at <code>addons/display/default-ruler.js</code> file, and feel free to modify that script to suit your needs. Also the styling resides in <code>addons/display/default-rulers.css</code> file. <br />
+                <a href="http://codemirror.net/demo/rulers.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>search</b></td>
+<td>
+                Adds a function to the key <code>Ctrl+F</code> to show a dialog for searching the editor content. <br />
+                <a href="http://codemirror.net/demo/search.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+<tr>
+<td><b>trailingspace</b></td>
+<td>
+                Styles the trailing spaces with the style defined in <code>addons/edit/trailingspace.css</code>. <br />
+                <a href="http://codemirror.net/demo/trailingspace.html">Demo page for this addon</a> in Codemirror Official Site.
+            </td>
+</tr>
+</tbody>
+</table>
+                  </div>
+        
+         
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../taxonomy/index.html" rel="bookmark" title="Taxonomy">Taxonomy</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../google-maps/index.html" rel="bookmark" title="Google Maps">Google Maps</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../using-extensions/index.html" rel="bookmark" title="About Extensions">About Extensions</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../accordion/index.html" rel="bookmark" title="Accordion">Accordion</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../icon-select/index.html" rel="bookmark" title="Icon Select">Icon Select</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../custom-fonts/index.html" rel="bookmark" title="Custom Fonts">Custom Fonts</a></h4>
+        </li>
+
+</ul></section>
+      
+
+<div id="comments" class="comments-area">
+
+	
+			<h3 id="comments-title">Comments</h3>
+
+		<ol class="commentlist">
+				<li class="comment byuser comment-author-kiarashi even thread-even depth-1" id="li-comment-235">
+		<article id="comment-235" class="comment">
+        
+        <div class="comment-action">
+            								</div><!-- .comment-action -->
+        
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/aafc9049be4baa44830cbe8c8420545b?s=44&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/aafc9049be4baa44830cbe8c8420545b?s=88&amp;d=mm&amp;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' /><cite class="fn">kiarashi </cite><a href="#comment-235"><time pubdate datetime="2015-06-03T12:28:05+00:00">June 3, 2015 at 12:28 pm</time></a>			</header><!-- .comment-meta --><section class="comment-content clearfix">
+				<p>Where did this extension go?<br />
+I no longer see it in the list when clicking on the Premium Extensions link.</p>
+			</section><!-- .comment-content --></article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-kprovance odd alt thread-odd thread-alt depth-1" id="li-comment-419">
+		<article id="comment-419" class="comment">
+        
+        <div class="comment-action">
+            								</div><!-- .comment-action -->
+        
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/6fee00700b870794e569004efb3d21ee?s=44&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/6fee00700b870794e569004efb3d21ee?s=88&amp;d=mm&amp;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' /><cite class="fn"><a href='http://www.kevinprovance.com' rel='external nofollow' class='url'>Kevin</a> </cite><a href="#comment-419"><time pubdate datetime="2015-06-26T18:32:31+00:00">June 26, 2015 at 6:32 pm</time></a>			</header><!-- .comment-meta --><section class="comment-content clearfix">
+				<p>The author is no longer available and supporting it, so we removed it.  Sorry.</p>
+			</section><!-- .comment-content --></article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		</ol><!-- .commentlist --><div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="../../wp-login.php-redirect_to=https---docs.reduxframework.com-extensions-codemirror-.html">logged in</a> to post a comment.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

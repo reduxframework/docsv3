@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>translation &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/translation/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>WPML Integration</title>
+		<link>https://docs.reduxframework.com/core/advanced/wpml-integration/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/wpml-integration/#respond</comments>
+		<pubDate>Wed, 14 Jan 2015 22:17:46 +0000</pubDate>
+		<dc:creator><![CDATA[Greatives Team]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[translation]]></category>
+		<category><![CDATA[WPML]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=795</guid>
+		<description><![CDATA[<p>So you have embedded Redux into your theme or plugin, and you want to translate it with WPML. What happens with the option fields used with Redux?Can they also be translated with WPML? The answer is yes and we&#8217;ll explain everything in simple steps. Step 1: Find your opt_name variable The opt_name variable can be [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/wpml-integration/">WPML Integration</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>So you have embedded Redux into your theme or plugin, and you want to translate it with WPML.</p>
+<p>What happens with the option fields used with Redux?<br />Can they also be translated with WPML?</p>
+<p>The answer is yes and we&#8217;ll explain everything in simple steps.</p>
+<h2>Step 1: Find your opt_name variable</h2>
+<p>The <code>opt_name</code> variable can be found in your Redux configuration file. An example can be found in <code>/sample/sample-config.php</code>, included in the Redux plugin.</p>
+<p>This is the variable name saved in the <em>wp_options</em> table. In this example opt_name is: <code>my-theme-options</code>.</p>
+<p>Of course you&#8217;ll need to define your own unique variable name for your theme or plugin.</p>
+<pre>    public function setArguments() {<br /><br />        $theme = wp_get_theme();<br /><br />        $this-&gt;args = array(<br />            'opt_name'             =&gt; 'my-theme-options',<br />            'display_name'         =&gt; $theme-&gt;get( 'Name' ),<br />            'display_version'      =&gt; $theme-&gt;get( 'Version' ),</pre>
+<h2>Step 2: Select the options you want to translate</h2>
+<p>Lets say we want to translate three fields. To make it more interesting we&#8217;ll demonstrate three different types of options.</p>
+<p>textfield</p>
+<pre>    array(<br />        'id'       =&gt; 'my-sample-textfield',<br />        'type'     =&gt; 'text',<br />        'title'    =&gt; __( 'Sample Text Field', 'my-text-domain' ),<br />        'subtitle' =&gt; __( 'This is the subtitle.', 'my-text-domain' ),<br />        'desc'     =&gt; __( 'This is the description.', 'my-text-domain' ),<br />        'default'  =&gt; 'Sample Text'<br />    ),
+</pre>
+<p>textarea with editor</p>
+<pre>    array(<br />        'id'       =&gt; 'my-sample-textarea',<br />        'type'     =&gt; 'editor',<br />        'title'    =&gt; __( 'Sample Text Area', 'my-text-domain' ),<br />        'subtitle' =&gt; __( 'Write here your copyright text!', 'my-text-domain' ),<br />        'default'  =&gt; 'Powered by Redux Framework.',<br />    ),    
+</pre>
+<p>sortable textfield array</p>
+<pre>    array(<br />        'id'       =&gt; 'my-sample-sortable-textfield',<br />        'type'     =&gt; 'sortable',<br />        'title'    =&gt; __( 'Sample Sortable Text Option', 'my-text-domain' ),<br />        'subtitle' =&gt; __( 'This is a subtitle.', 'my-text-domain' ),<br />        'desc'     =&gt; __( 'This is the description.', 'my-text-domain' ),<br />        'options'  =&gt; array(<br />            'si1' =&gt; 'Item 1',<br />            'si2' =&gt; 'Item 2',<br />            'si3' =&gt; 'Item 3',<br />        )<br />    ),
+</pre>
+<p>To summarize, in our scenario we have:</p>
+<p>A textfield with id: <code>my-sample-textfield</code><br />A textarea with id: <code>my-sample-textarea</code><br />A sortable text array with id: <code>my-sample-sortable-textfield</code> and options <code>si1</code> <code>si2</code> <code>si3</code></p>
+<p>The id&#8217;s of the fields will be our WPML translation keys. In case of an array also the options are keys. Write them down.</p>
+<h2>Step 3: Add your keys in <strong><em>wpml-config.xml</em></strong></h2>
+<p>WPML can read a configuration file that tells it what needs translation in themes and plugins. The file is named wpml-config.xml and it’s placed in the root folder of the plugin or theme.</p>
+<p>To translate a single option, we need a key entry under admin-texts. To translate a serialized array, we must add several keys under a key.</p>
+<p>If the admin-texts block does not exist, you have to write it yourself.<br />This is how our admin-texts block should look like.</p>
+<pre>    &lt;admin-texts&gt;<br />        &lt;key name="my-theme-options"&gt;<br />            &lt;key name="my-sample-textfield" /&gt;<br />            &lt;key name="my-sample-textarea" /&gt;<br />            &lt;key name="my-sample-sortable-textfield"&gt;<br />                &lt;key name="si1" /&gt;<br />                &lt;key name="si2" /&gt;<br />                &lt;key name="si3" /&gt;<br />            &lt;/key&gt;<br />        &lt;/key&gt; <br />    &lt;/admin-texts&gt;</pre>
+<p>The first key is always our opt_name e.g: <code>my-theme-options</code>.<br />The single options as a self-closed key tag and the serialized array as a nested key block.<br />For the WPML config file you can also refer to the official website:<br /><a target="_blank" title="WPML Language Configuration Files" href="http://wpml.org/documentation/support/language-configuration-files/">WPML Language Configuration Files</a></p>
+<h2>Step 4: Translate your admin texts via WPML</h2>
+<p>If not already, you have to save the <em>Admin Language</em> in WPML menu ( Set Default admin language ).<br />Now you can translate your admin texts via WPML interface under WPML &#8211; String Translation.<br />The context for themes is a concatenation of <code>admin_texts_theme_</code> + your theme name</p>
+<p>And you are finally set! </p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/wpml-integration/">WPML Integration</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/wpml-integration/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

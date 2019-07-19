@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>preview &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/preview/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Enabling Typography Preview for Local Fonts</title>
+		<link>https://docs.reduxframework.com/core/advanced/enabling-typography-preview-for-local-fonts/</link>
+		<pubDate>Sat, 15 Mar 2014 03:26:19 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[local fonts]]></category>
+		<category><![CDATA[preview]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=454</guid>
+		<description><![CDATA[<p>When specifying fonts used locally in your theme in the typography field&#8217;s fonts argument, the will not render in the preview field. We&#8217;ve included an undocumented workaround in the typography field to fix this minor oversight. For the record, &#8216;undocumented&#8217; is another way of saying the functionality is offered as a courtesy. Officially, the feature [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/enabling-typography-preview-for-local-fonts/">Enabling Typography Preview for Local Fonts</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>When specifying fonts used locally in your theme in the typography field&#8217;s <code>fonts</code> argument, the will not render in the preview field. We&#8217;ve included an undocumented workaround in the typography field to fix this minor oversight. For the record, &#8216;undocumented&#8217; is another way of saying the functionality is offered as a courtesy. Officially, the feature is unsupported. If it works for you, great! If not, you&#8217;ll have to wait until font uploading is officially supported (in the future we will offer a custom font uploading feature for the typography field, which will solve this particular issue).</p>
+<h2>The Problem</h2>
+<p>Many theme developers use custom fonts for their themes. This is typically accomplished by specifying the font-face in the theme&#8217;s CSS. For this example, we will be using the &#8216;Open Sans&#8217; font. (Yes, we&#8217;re aware it&#8217;s part of the Google font&#8217;s package. This is for example purposes only.)</p>
+<p>Let&#8217;s suppose a theme developer wants to use their own version of Open Sans in their theme. They would add the following lines to the theme&#8217;s CSS:</p>
+<pre class="brush: css; title: ; notranslate">
+@font-face {
+    font-family: &quot;Open Sans&quot;;
+    font-style: normal;
+    font-weight: 300;
+    src: local(&quot;Open Sans Light&quot;), local(&quot;OpenSans-Light&quot;), url(&quot;http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face {
+    font-family: &quot;Open Sans&quot;;
+    font-style: normal;
+    font-weight: 700;
+    src: local(&quot;Open Sans Bold&quot;), local(&quot;OpenSans-Bold&quot;), url(&quot;http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff&quot;) format(&quot;woff&quot;);
+}
+
+@font-face {
+    font-family: &quot;Open Sans&quot;;
+    font-style: italic;
+    font-weight: 400;
+    src: local(&quot;Open Sans Italic&quot;), local(&quot;OpenSans-Italic&quot;), url(&quot;http://themes.googleusercontent.com/static/fonts/opensans/v6/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff&quot;) format(&quot;woff&quot;);
+}
+</pre>
+<p>Let&#8217;s also suppose this theme developer &#8211; in their typography field fonts argument specifies the following array.</p>
+<pre class="brush: php; title: ; notranslate">
+$fonts = array (
+    'Open Sans,arial,helvatica'             =&gt; 'Open Sans',
+    'Arial,helvetica,sans-serif'            =&gt; 'Arial',
+    'helvetica,sans-serif,arial'            =&gt; 'Helvatica',
+    'sans-serif,arial,helvatica'            =&gt; 'Sans Serif',
+    'verdana,san-serif,helvatica'           =&gt; 'Verdana'
+);
+</pre>
+<p>When one selects Open Sans in the typography font family field, Open Sans will not render in the preview area. This is because the theme&#8217;s CSS file is not loaded on the admin side of WordPress. Because of this, no reference to the theme&#8217;s CSS specified fonts are available for Redux to render a proper preview.</p>
+<p>One might then say, &#8216;well, can&#8217;t I just pass a reference to my theme&#8217;s CSS to the typography field, so it&#8217;ll be included in the admin page&#8217;s HTML?&#8217; The answer is an emphatic <strong>NO!</strong> The theme&#8217;s CSS, in most &#8211; if not all &#8211; cases will cause the admin area to render improperly, creating a great big mess.</p>
+<p>So how then can we coerce the typography field to render locally specified fonts?</p>
+<h2>The Solution</h2>
+<p>This is where our undocumented typography argument comes into play. It&#8217;s called <code>ext-font-css</code>, &#8216;eternal font CSS&#8217; for short. This argument may be used to pass a font specific CSS file to the typography field for proper reference and font rendering. Some additional steps are involved in successfully implementing this argument.</p>
+<ol>
+<li>
+<p>First, it will be necessary to create a new CSS file, which we&#8217;ll call <code>fonts.css</code>. You can place this new CSS file wherever you like, as long as you remember where it&#8217;s specified for a later step in this example. For our purposes, we&#8217;ll place it in the root folder of the theme. Inside this file, you will specific any and all local fonts you wish to use with your theme, and that&#8217;s all that goes into this file. Font declarations, and nothing else, like the font-face example indicated above.</p>
+</li>
+<li>
+<p>In the Redux config file for the typography field, add the following line into your typography arguments array: <code>'ext-font-css' =&gt; $theme_url . 'css/fonts.css'</code>. In this example, <code>$theme_url</code> is a variable that holds the specific URL to your theme&#8217;s folder. Specify this information however you see fit, as long as the value for this argument is a valid path to your font.css file. Redux will take the URL to the CSS file, register and enqueue it into the Redux options panel.</p>
+</li>
+</ol>
+<p>Pretty simple, eh?</p>
+<p>If you choose to go this route, it&#8217;s recommended to <strong>not</strong> repeat the font declarations in the theme&#8217;s CSS file. Rather, register and enqueue the font.css with the theme CSS. This gives the benefit of having any local fonts in the theme available on both the front end and back end of your theme.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/enabling-typography-preview-for-local-fonts/">Enabling Typography Preview for Local Fonts</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Typography</title>
+		<link>https://docs.reduxframework.com/core/fields/typography/</link>
+		<comments>https://docs.reduxframework.com/core/fields/typography/#comments</comments>
+		<pubDate>Mon, 10 Mar 2014 22:41:51 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[all_styles]]></category>
+		<category><![CDATA[always_display]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[font-backup]]></category>
+		<category><![CDATA[font-family]]></category>
+		<category><![CDATA[font-size]]></category>
+		<category><![CDATA[font-style]]></category>
+		<category><![CDATA[font-weight]]></category>
+		<category><![CDATA[fonts]]></category>
+		<category><![CDATA[google]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[letter-spacing]]></category>
+		<category><![CDATA[line-height]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[preview]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[subsets]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[text-align]]></category>
+		<category><![CDATA[text-transform]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[units]]></category>
+		<category><![CDATA[update-weekly]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[word-spacing]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=126</guid>
+		<description><![CDATA[<p>The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &#38; word spacing, styles &#38; weight selection, and much, much more! Arguments Name Type Default Description type string &#8216;typography&#8217; Value identifying the field type. id string Unique ID identifying the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/typography/">Typography</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Redux Typography field in second-to-none when it comes to framework typography options.  It&#8217;s often copied but never duplicated!  Google fonts, font preview, color-picket, letter &amp; word spacing, styles &amp; weight selection, and much, much more!</p>
+<p style="text-align: center;"><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png" alt="new_typo" class="aligncenter wp-image-537 size-full" height="453" width="926" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo.png 926w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-300x146.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-60x29.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/new_typo-150x73.png 150w" sizes="(max-width: 926px) 100vw, 926px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;typography&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of <code>color</code> to validate the chosen color. <a title="Validation" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>string</td>
+<td>px</td>
+<td>Sets the default unit value.  Accepts: px em rem %</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set Google fonts. Please make sure the Google API key is defined, or this feature will not work. For information on acquiring an API key, see <a href="https://developers.google.com/fonts/docs/developer_api#Auth">https://developers.google.com/fonts/docs/developer_api#Auth</a></td>
+</tr>
+<tr>
+<td>fonts</td>
+<td>array</td>
+<td></td>
+<td>An array of fonts in key pair format, (i.e. <code>'verdana,san-serif,helvatica' =&gt; 'Verdana'</code>).  Specifying a font array will override the default Standard fonts.</td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display a selector specifying backup non-Google fonts when Google fonts are used.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font style selector.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font weight selector.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font size input.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font family selector.</td>
+</tr>
+<tr>
+<td>subsets</td>
+<td>bool</td>
+<td>true</td>
+<td>Subsets only appear if <code>google</code> is set to true and <code>subsets</code> is set to true.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font line height input.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the word spacing input.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the letter spacing input.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the text alignment selector.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the text transform selector.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the font color input.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>array</td>
+<td></td>
+<td>Array value for preview settings.  See &#8216;Preview Options&#8217; below.</td>
+</tr>
+<tr>
+<td>all_styles</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set all available styles for selected Google font in the CSS.</td>
+</tr>
+<tr>
+<td><del>update-weekly</del></td>
+<td><del>bool</del></td>
+<td><del>false</del></td>
+<td><del>Flag to update the Google fonts on a weekly basis.</del> Deprecated. Use the global argument. <a class="more_info" href="/core/arguments/#google_update_weekly"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html"><i class="el-icon-circle-arrow-right"></i> Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>font_family_clear</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the clear field button on the font-family selector.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a title="Using the Validate Argument" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> Using the Validate Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>font-backup</td>
+<td>bool</td>
+<td>Flag to select a backup non-Google font in addition to a Google font.</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>string</td>
+<td>Sets the default font style.</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>string</td>
+<td>Sets the default font weight.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>string</td>
+<td>Sets the default font size.</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>string</td>
+<td>Sets the default font family.</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>string</td>
+<td>Sets the default line height.</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>string</td>
+<td>Sets the default word spacing.</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>string</td>
+<td>Sets the default letter spacing.</td>
+</tr>
+<tr>
+<td>google</td>
+<td>bool</td>
+<td>Flag to set Google fonts.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Hex string to set the color picker default.</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>string</td>
+<td>Sets the default text align value.  Accepts:  <code>inherit</code>, <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>, or <code>initial</code>.</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>string</td>
+<td>Sets the default text transform value.  Accepts:  <code>none</code>, <code>capitalize</code>, <code>uppercase</code>, <code>lowercase</code>, <code>initial</code>, or <code>inherit</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>Preview Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>text</td>
+<td>alphanumeric string</td>
+<td>Text to display in the font preview area.</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>33px</td>
+<td>Value to set the font size in the preview area.</td>
+</tr>
+<tr>
+<td>always_display</td>
+<td>false</td>
+<td>Flag that sets whether or not the font preview will display, even when no changes are made.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'          =&gt; 'opt-typography',
+        'type'        =&gt; 'typography', 
+        'title'       =&gt; __('Typography', 'redux-framework-demo'),
+        'google'      =&gt; true, 
+        'font-backup' =&gt; true,
+        'output'      =&gt; array('h2.site-description'),
+        'units'       =&gt;'px',
+        'subtitle'    =&gt; __('Typography option with each property can be called individually.', 'redux-framework-demo'),
+        'default'     =&gt; array(
+            'color'       =&gt; '#333', 
+            'font-style'  =&gt; '700', 
+            'font-family' =&gt; 'Abel', 
+            'google'      =&gt; true,
+            'font-size'   =&gt; '33px', 
+            'line-height' =&gt; '40'
+        ),
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Color: '       . $redux_demo['opt-typography']['color'];
+echo 'Font style: '  . $redux_demo['opt-typography']['font-style'];
+echo 'Font family: ' . $redux_demo['opt-typography']['font-family'];
+echo 'Google: '      . $redux_demo['opt-typography']['google'];
+echo 'Font size: '   . $redux_demo['opt-typography']['font-size'];
+echo 'Line height: ' . $redux_demo['opt-typography']['line-height'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/typography/">Typography</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/fields/typography/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Media</title>
+		<link>https://docs.reduxframework.com/core/fields/media/</link>
+		<pubDate>Mon, 10 Mar 2014 22:37:26 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[height]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[library_filter]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[placeholder]]></category>
+		<category><![CDATA[preview]]></category>
+		<category><![CDATA[readonly]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[width]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=110</guid>
+		<description><![CDATA[<p>Description of field Video Tutorial Arguments Name Type Default Description type string &#8216;media&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string Subtitle display of the option, situated beneath the title. desc string Description of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/media/">Media</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">Description of field</p>
+<p style="text-align: center;"><img src="https://f.cloud.github.com/assets/3412363/1569351/7a47f9c6-50c5-11e3-8b42-25937b50f5e2.png" alt="Media" height="150" width="800" /></p>
+<h3 style="text-align: left;">Video Tutorial</p>
+</h3>
+<div class="entry-content-asset"><iframe width="711" height="400" src="https://www.youtube.com/embed/kEZYIWSk1Tk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table class=" alignleft" border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;media&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td></td>
+<td>String value of <code>color</code> to validate the chosen color. <a title="Validation" href="/redux-framework/validation/"><i class="el-icon-circle-arrow-right"></i> More info</a>.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td></td>
+<td>Sets the width of the image.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td></td>
+<td>Sets the height of the image.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the image of the URL.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display a preview of the image.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>&#8216;No media selected&#8217;</td>
+<td>Sets the text that appears in the URL input box when no value is present.</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the readonly attribute of the media text field.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td></td>
+<td>String specifying either the file type or mime type of files to accept from the media library.</td>
+</tr>
+<tr>
+<td>library_filter</td>
+<td>array</td>
+<td></td>
+<td>Array of file type values (NOT mime) the media library should only display.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<ul style="text-align: left;" class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3 style="text-align: left;">Default Options</p>
+</h3>
+<table class=" alignleft" border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique ID for the media type.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>Full URL to the default media.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>Sets the width of the media.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td>Sets the height of the media.</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>string</td>
+<td>URL to the media thumbnail, if any.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 style="text-align: left;">Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'opt-media',
+        'type'     =&gt; 'media', 
+        'url'      =&gt; true,
+        'title'    =&gt; __('Media w/ URL', 'redux-framework-demo'),
+        'desc'     =&gt; __('Basic media uploader with disabled URL input field.', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+        'default'  =&gt; array(
+            'url'=&gt;'http://s.wordpress.org/style/images/codeispoetry.png'
+        ),
+    );
+</pre>
+<h3 style="text-align: left;">Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'URL value: '       . $redux_demo['opt-media']['url'];
+echo 'Height value: '    . $redux_demo['opt-media']['height'];
+echo 'Width value: '     . $redux_demo['opt-media']['width'];
+echo 'Thumbnail value: ' . $redux_demo['opt-media']['thumbnail'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/media/">Media</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Background</title>
+		<link>https://docs.reduxframework.com/core/fields/background/</link>
+		<pubDate>Mon, 10 Mar 2014 22:33:27 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[background-attachment]]></category>
+		<category><![CDATA[background-clip]]></category>
+		<category><![CDATA[background-color]]></category>
+		<category><![CDATA[background-image]]></category>
+		<category><![CDATA[background-origin]]></category>
+		<category><![CDATA[background-position]]></category>
+		<category><![CDATA[background-repeat]]></category>
+		<category><![CDATA[background-size]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[preview]]></category>
+		<category><![CDATA[preview_media]]></category>
+		<category><![CDATA[preview-height]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[select2]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[transparent]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=95</guid>
+		<description><![CDATA[<p>The Redux Background field offers unmatched features not found in any other options framework.  Users will be able to present the background designs found in professionally authored pages with a few simple clicks. Arguments Name Type Default Description type string &#8216;background&#8217; Controls the field type id string Must be unique to all other options. title [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/background/">Background</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify;">The Redux Background field offers unmatched features not found in any other options framework.  Users will be able to present the background designs found in professionally authored pages with a few simple clicks.</p>
+<p style="text-align: center;"><a href="/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47.png"><img class="alignnone size-full wp-image-130" alt="background-field" src="/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47.png" width="689" height="185" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47.png 689w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47-300x80.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47-60x16.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/c33d8050-943c-11e3-8671-0b8af8580a47-150x40.png 150w" sizes="(max-width: 689px) 100vw, 689px" /></a></p>
+<hr />
+<h3 style="text-align: left;">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;background&#8217;</td>
+<td>Controls the field type</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Must be unique to all other options.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Title of item to be displayed.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle of item to be displayed.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of item to be displayed.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Append any number of classes to the field.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td></td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Array of default values.  See &#8216;Default Options&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>select2</td>
+<td>array</td>
+<td></td>
+<td>Array of select2 arguments. For more information see the &#8216;Constructor&#8217; section of the <a target="_blank" href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the hint <code>content</code> and optional <code>title</code>. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background color picker.</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background repeat select field.</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background attachment select field.</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background position select field.</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background image media uploader.</td>
+</tr>
+<tr>
+<td>background-clip</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the background clip select field.</td>
+</tr>
+<tr>
+<td>background-origin</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display the background origin select field.</td>
+</tr>
+<tr>
+<td>background-size</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background size select field.</td>
+</tr>
+<tr>
+<td>preview_media</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to display background media preview.</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display the background preview box.</td>
+</tr>
+<tr>
+<td>preview_height</td>
+<td>string</td>
+<td>&#8216;200px&#8217;</td>
+<td>String to set background preview height.</td>
+</tr>
+<tr>
+<td>transparent</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display background color transparency checkbox.</td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Output" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> Using the Output Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>string</td>
+<td>Hex string representing the default background color.</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>string</td>
+<td>String representing the default background repeat value.<br />
+Accepts: <code>no-repeat</code> <code>repeat</code> <code>repeat-x</code> <code>repeat-y</code> <code>inherit</code></td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>string</td>
+<td>String representing the default background attachment value.<br />
+Accepts: <code>fixed</code> <code>scroll</code> <code>inherit</code></td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>string</td>
+<td>String representing the default background position value.<br />
+Accepts: <code>left top</code> <code>left center</code> <code>left bottom</code> <code>center top</code> <code>center center</code> <code>center bottom</code> <code>right top</code> <code>right center</code> <code>right bottom</code>.</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>string</td>
+<td>URL string representing the default background image value.</td>
+</tr>
+<tr>
+<td>background-clip</td>
+<td>string</td>
+<td>String representing the default background clip value.<br />
+Accepts: <code>inherit</code> <code>border-box</code> <code>content-box</code> <code>padding-box</code>.</td>
+</tr>
+<tr>
+<td>background-origin</td>
+<td>string</td>
+<td>String representing the default background origin value.<br />
+Accepts: <code>inherit</code> <code>border-box</code> <code>content-box</code> <code>padding-box</code>.</td>
+</tr>
+<tr>
+<td>background size</td>
+<td>string</td>
+<td>String representing the default background size value.<br />
+Accepts: <code>inherit</code> <code>cover</code> <code>contain</code>.</td>
+</tr>
+<tr>
+<td>media</td>
+<td>array</td>
+<td>Array of default background media information.  See table below.</td>
+</tr>
+</tbody>
+</table>
+<h3>Default Media Array Options</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>A unique identifier.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>String value setting the width of the image.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td>String value setting the height of the image.</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>string</td>
+<td>URL string value to the image thumbnail.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+     $fields[] = array(         
+        'id'       =&gt; 'opt-background',
+        'type'     =&gt; 'background',
+        'title'    =&gt; __('Body Background', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Body background with image, color, etc.', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'default'  =&gt; array(
+            'background-color' =&gt; '#1e73be',
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above.  Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+    global $redux_demo;
+
+    // Background color
+    echo 'background color: '      . $redux_demo['opt-background']['background-color'];
+
+    // Background image.
+    echo 'background image: '      . $redux_demo['opt-background']['background-image'];
+
+    // Background image options
+    echo 'background repeat: '     . $redux_demo['opt-background']['background-repeat'];
+    echo 'background position: '   . $redux_demo['opt-background']['background-position'];
+    echo 'background size: '       . $redux_demo['opt-background']['background-size'];
+    echo 'background attachment: ' . $redux_demo['opt-background']['background-attachment'];
+
+    // Media values
+    echo 'image height: '          . $redux_demo['opt-background']['media']['height'];
+    echo 'image width: '           . $redux_demo['opt-background']['media']['width'];
+    echo 'image thumbnail: '       . $redux_demo['opt-background']['media']['thumbnail'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/background/">Background</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

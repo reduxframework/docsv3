@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Metaboxes</title>
+	<atom:link href="https://docs.reduxframework.com/extensions/metaboxes/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com/extensions/metaboxes/</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Mon, 06 Aug 2018 23:10:23 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/extensions/metaboxes/#comment-783</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Mon, 06 Aug 2018 23:10:23 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=5#comment-783</guid>
+		<description><![CDATA[Add the &#039;subsection =&gt; true&#039; argument to the field array]]></description>
+		<content:encoded><![CDATA[<p>Add the &#8216;subsection => true&#8217; argument to the field array</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: mneitz</title>
+		<link>https://docs.reduxframework.com/extensions/metaboxes/#comment-772</link>
+		<dc:creator><![CDATA[mneitz]]></dc:creator>
+		<pubDate>Fri, 20 Jul 2018 08:55:12 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=5#comment-772</guid>
+		<description><![CDATA[Do you have an example of how to make SubSections like in the Demo installation of the Metaboxes... I only get one level of menus?
+many Thx - Martin]]></description>
+		<content:encoded><![CDATA[<p>Do you have an example of how to make SubSections like in the Demo installation of the Metaboxes&#8230; I only get one level of menus?<br />
+many Thx &#8211; Martin</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

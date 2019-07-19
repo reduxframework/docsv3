@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>global_variable &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/global_variable/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Filter Hooks</title>
+		<link>https://docs.reduxframework.com/core/advanced/filter-hooks/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/filter-hooks/#respond</comments>
+		<pubDate>Fri, 22 May 2015 21:08:40 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Filters]]></category>
+		<category><![CDATA[args]]></category>
+		<category><![CDATA[before_validation]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[defaults]]></category>
+		<category><![CDATA[defaults_section]]></category>
+		<category><![CDATA[defaults-section-text]]></category>
+		<category><![CDATA[defaults-text]]></category>
+		<category><![CDATA[extension]]></category>
+		<category><![CDATA[field]]></category>
+		<category><![CDATA[filter hooks]]></category>
+		<category><![CDATA[font]]></category>
+		<category><![CDATA[font-icons]]></category>
+		<category><![CDATA[global_variable]]></category>
+		<category><![CDATA[icons]]></category>
+		<category><![CDATA[imported-text]]></category>
+		<category><![CDATA[jquery-ui-css]]></category>
+		<category><![CDATA[localize]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[output_css]]></category>
+		<category><![CDATA[preset]]></category>
+		<category><![CDATA[register]]></category>
+		<category><![CDATA[reset_section]]></category>
+		<category><![CDATA[save_pending]]></category>
+		<category><![CDATA[saved-text-changed-text]]></category>
+		<category><![CDATA[section]]></category>
+		<category><![CDATA[sections]]></category>
+		<category><![CDATA[template]]></category>
+		<category><![CDATA[templates_path]]></category>
+		<category><![CDATA[textdomain]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[wordpress data]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=993</guid>
+		<description><![CDATA[<p>The follow table is a list of available filter hooks within Redux Framework that developers may use in their own code.  Please note, a solid understand of PHP and WordPress filter hooks is required. As always, please be sure to replace {opt_name} with the opt_name string of your Redux instance. Thanks to @paulthecoder for compiling [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/filter-hooks/">Filter Hooks</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The follow table is a list of available filter hooks within Redux Framework that developers may use in their own code.  Please note, a solid understand of <a target="_blank" href="http://php.net/docs.php">PHP</a> and <a target="_blank" href="https://codex.wordpress.org/Function_Reference/add_filter">WordPress filter hooks</a> is required.</p>
+<p>As always, please be sure to replace <code>{opt_name}</code> with the opt_name string of your Redux instance.</p>
+<p>Thanks to <a target="_blank" href="https://github.com/paulthecoder">@paulthecoder</a> for compiling this list.</p>
+<table>
+<thead>
+<tr>
+<td style="text-align: center;"><strong>Tag</strong></td>
+<td style="text-align: center;"><strong>Value</strong></td>
+<td style="text-align: center;"><strong>Extra Args</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redux/textdomain/{opt_name}</td>
+<td><strong>$locale</strong><br />(string) The locale of the blog or from the &#8216;locale&#8217; hook.</td>
+<td><strong>$text_domain<br /></strong>(string) &#8216;redux-framework&#8217; text domain.</td>
+<td>Locale for text domain.</td>
+</tr>
+<tr>
+<td>redux/font-icons</td>
+<td><strong>$font_icons</strong><br />(array) Array of elusive icon classes.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/enqueue/jquery-ui-css</td>
+<td><strong>$url</strong><br />(string) The url to enqueue jQuery UI CSS.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/field/class/{field.type}</td>
+<td><strong>$class</strong><br />(string) Field class file path.</td>
+<td><strong>$field</strong><br />(array) Field config data.</td>
+<td>Change the path of a specific field.</td>
+</tr>
+<tr>
+<td>redux/{opt_name}/localize/save_pending</td>
+<td><strong>$text</strong><br />(string) Save pending text.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/localize/reset</td>
+<td><strong>$text</strong><br />(string) Reset all string.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/localize/reset_section</td>
+<td><strong>$text</strong><br />(string) Reset section string.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/localize/preset</td>
+<td><strong>$text</strong><br />(string) Preset confirm string.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/panel/templates_path</td>
+<td><strong>$path</strong><br />(string) The panel templates path.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/panel/template/{file_name}</td>
+<td><strong>$path</strong><br />(string) Path to the template file.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/{opt_name}/field/font/icons</td>
+<td><strong>$font_icons</strong><br />(array) Array of elusive icon classes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>edux/{opt_name}/field/class/{field.type}</td>
+<td><strong>$file_path</strong><br />(string) Field class file.</td>
+<td><strong>$field</strong><br />(array) Field config data.</td>
+<td>Field class file.</td>
+</tr>
+<tr>
+<td>redux-imported-text-{opt_name}</td>
+<td><strong>$text</strong><br />(string) Translated &#8220;settings imported&#8221; text.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux-defaults-text-{opt_name}</td>
+<td><strong>$text</strong><br />(string) Translated all &#8220;defaults restored&#8221; text.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux-defaults-section-text-{opt_name}</td>
+<td><strong>$text</strong><br />(string) Translated section &#8220;defaults restored&#8221; text.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux-saved-text-{opt_name}</td>
+<td><strong>$text</strong><br />(string) Translated &#8220;settings saved&#8221; text.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux-changed-text-{opt_name}</td>
+<td><strong>$text</strong><br />(string) Translated &#8220;settings have changed&#8221; text.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/args/{opt_name}</td>
+<td><strong>$args</strong><br />(array) ReduxFramework configuration.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/args</td>
+<td><strong>$args</strong><br />(array) ReduxFramework configuration.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/sections</td>
+<td><strong>$sections</strong><br />(array) Field option sections.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/global_variable</td>
+<td><strong>$value</strong><br />(array) Option value to set global_variable with.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/data/{type}</td>
+<td><strong>$data</strong><br />(string) WordPress specific data.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/defaults</td>
+<td><strong>$defaults</strong><br />(array) Option default values.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/section/{section.id}</td>
+<td><strong>$section</strong><br />(array) Section configuration.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/field/{field.id}/register</td>
+<td><strong>$field</strong><br />(array) Field config data.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/field/{field.id}</td>
+<td><strong>$field</strong><br />(array) Field config data.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/output_css</td>
+<td><strong>$field</strong><br />(array) Field config data.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/render/after</td>
+<td><strong>$text</strong><br />(string) Rendered field markup.</td>
+<td><strong>$field</strong><br />(array) Field data.</td>
+<td></td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/render/after</td>
+<td><strong>$text</strong><br />(string) Rendered field markup.</td>
+<td><strong>$field</strong><br />(array) Field data.</td>
+<td></td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/_can_output_css</td>
+<td><strong>$field</strong><br />(array) Field data.</td>
+<td></td>
+<td>Check if a field meets its requirements before outputting to CSS.</td>
+</tr>
+<tr>
+<td>redux/extension/{opt_name}/{folder}</td>
+<td><strong>$file_path</strong><br />(string) Extension class file path.</td>
+<td><strong>$extension_class</strong><br />(string) Extension class name.</td>
+<td></td>
+</tr>
+<tr>
+<td>redux/validate/{opt_name}/defaults</td>
+<td><strong>$defaults</strong><br />(array) Option default values.</td>
+<td></td>
+<td>When all options have been reset to defaults.</td>
+</tr>
+<tr>
+<td>redux/validate/{opt_name}/defaults_section</td>
+<td><strong>$plugin_options </strong><br />(array) Option default values.</td>
+<td></td>
+<td>When a section&#8217;s options have been reset to defaults.</td>
+</tr>
+<tr>
+<td>redux/validate/{opt_name}/before_validation</td>
+<td><strong>$plugin_options</strong><br />(array) The options array before validation.</td>
+<td><strong>$redux_options</strong><br />(array) Redux Framework options array.</td>
+<td></td>
+</tr>
+<tr>
+<td>redux/validate/{opt_name}/class/{field.validate}</td>
+<td><strong>$file_path</strong><br />(string) Validation class file path.</td>
+<td><strong>$class_file</strong><br />(string) Validation class file path.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/filter-hooks/">Filter Hooks</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/filter-hooks/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Getting started with Arguments</title>
+		<link>https://docs.reduxframework.com/uncategorized/getting-started-with-arguments/</link>
+		<pubDate>Mon, 10 Mar 2014 19:59:12 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[admin_bar]]></category>
+		<category><![CDATA[admin_bar_icon]]></category>
+		<category><![CDATA[allow_sub_menu]]></category>
+		<category><![CDATA[async_typography]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[customizer]]></category>
+		<category><![CDATA[default_mark]]></category>
+		<category><![CDATA[default_show]]></category>
+		<category><![CDATA[dev_mode]]></category>
+		<category><![CDATA[disable_google_fonts_link]]></category>
+		<category><![CDATA[display_name]]></category>
+		<category><![CDATA[display_version]]></category>
+		<category><![CDATA[footer_credit]]></category>
+		<category><![CDATA[footer_text]]></category>
+		<category><![CDATA[global_variable]]></category>
+		<category><![CDATA[google_api_key]]></category>
+		<category><![CDATA[help_sidebar]]></category>
+		<category><![CDATA[help_tabs]]></category>
+		<category><![CDATA[hide_expand]]></category>
+		<category><![CDATA[hide_reset]]></category>
+		<category><![CDATA[hints]]></category>
+		<category><![CDATA[intro_text]]></category>
+		<category><![CDATA[last_tab]]></category>
+		<category><![CDATA[menu_icon]]></category>
+		<category><![CDATA[menu_title]]></category>
+		<category><![CDATA[menu_type]]></category>
+		<category><![CDATA[network_admin]]></category>
+		<category><![CDATA[network_sites]]></category>
+		<category><![CDATA[opt_name]]></category>
+		<category><![CDATA[output]]></category>
+		<category><![CDATA[output_tag]]></category>
+		<category><![CDATA[page_icon]]></category>
+		<category><![CDATA[page_parent]]></category>
+		<category><![CDATA[page_permissions]]></category>
+		<category><![CDATA[page_priority]]></category>
+		<category><![CDATA[page_slug]]></category>
+		<category><![CDATA[page_title]]></category>
+		<category><![CDATA[save_defaults]]></category>
+		<category><![CDATA[share_icons]]></category>
+		<category><![CDATA[show_import_export]]></category>
+		<category><![CDATA[transient_time]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=10</guid>
+		<description><![CDATA[<p>The Redux Framework configuration file (sample-config.php) comes with a variety of arguments to customize the options panel. The arguments are set in the sample-config setArguments() function with the exception of help_tabs and help_sidebar, which are located in the setHelpTabs() function. The default setArguements() function is as follows:</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/uncategorized/getting-started-with-arguments/">Getting started with Arguments</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Framework configuration file (sample-config.php) comes with a variety of arguments to customize the options panel. The arguments are set in the sample-config <code>setArguments()</code> function with the exception of <code>help_tabs</code> and <code>help_sidebar</code>, which are located in the <code>setHelpTabs()</code> function.</p>
+<p>The default <code>setArguements()</code> function is as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+public function setArguments() {
+
+    $theme = wp_get_theme();
+
+    $this-&gt;args = array(
+        'opt_name'         =&gt; 'redux_demo',
+        'display_name'     =&gt; $theme-&gt;get('Name'),
+        'display_version'  =&gt; $theme-&gt;get('Version'),
+        'menu_type'        =&gt; 'menu',
+        'allow_sub_menu'   =&gt; true,
+        'menu_title'       =&gt; __('Sample Options', 'redux-framework-demo'),
+        'page_title'       =&gt; __('Sample Options', 'redux-framework-demo'),
+        'google_api_key'   =&gt; '',
+        'async_typography' =&gt; true,
+        'admin_bar'        =&gt; true,
+        'global_variable'  =&gt; '',
+        'dev_mode'         =&gt; true,
+        'customizer'       =&gt; true,
+
+        'page_priority'    =&gt; null,
+        'page_parent'      =&gt; 'themes.php',
+        'page_permissions' =&gt; 'manage_options',
+        'menu_icon'        =&gt; '',
+        'last_tab'         =&gt; '',
+        'page_icon'        =&gt; 'icon-themes',
+        'page_slug'        =&gt; '_options',
+        'save_defaults'    =&gt; true,
+        'default_show'     =&gt; false,
+        'default_mark'     =&gt; '',
+        'show_import_export' =&gt; true,
+        'class'            =&gt; '',
+
+        'transient_time'   =&gt; 60 * MINUTE_IN_SECONDS,
+        'output'           =&gt; true,
+        'output_tag'       =&gt; true,
+        'footer_credit'    =&gt; '',
+        'network_admin'    =&gt; false,
+        'network_sites'    =&gt; true,
+
+        'hints'            =&gt; array(
+            'icon'            =&gt; 'icon-question-sign',
+            'icon_position'   =&gt; 'right',
+            'icon_color'      =&gt; 'lightgray',
+            'icon_size'       =&gt; 'normal',
+
+            'tip_style'    =&gt; array(
+                'color'       =&gt; 'light',
+                'shadow'      =&gt; true,
+                'rounded'     =&gt; false,
+                'style'       =&gt; '',
+            ),
+            'tip_position' =&gt; array(
+                'my'          =&gt; 'top left',
+                'at'          =&gt; 'bottom right',
+            ),
+            'tip_effect'   =&gt; array(
+                'show'        =&gt; array(
+                    'effect'      =&gt; 'slide',
+                    'duration'    =&gt; '500',
+                    'event'       =&gt; 'mouseover',
+                ),
+                'hide'        =&gt; array(
+                    'effect'      =&gt; 'slide',
+                    'duration'    =&gt; '500',
+                    'event'       =&gt; 'click mouseleave',
+                ),
+            ),
+        'intro_text'  =&gt; __('&lt;br /&gt;This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.&lt;br /&gt;', 'redux-framework-demo');
+        'footer_text' =&gt; __('&lt;br /&gt;This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.&lt;br /&gt;', 'redux-framework-demo');
+        )
+    );
+
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'https://github.com/ReduxFramework/ReduxFramework',
+        'title' =&gt; 'Visit us on GitHub',
+        'icon'  =&gt; 'el-icon-github'
+        // 'img' =&gt; '', // You can use icon OR img. IMG needs to be a full URL.
+    );
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'https://www.facebook.com/pages/Redux-Framework/243141545850368',
+        'title' =&gt; 'Like us on Facebook',
+        'icon'  =&gt; 'el-icon-facebook'
+    );
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'http://twitter.com/reduxframework',
+        'title' =&gt; 'Follow us on Twitter',
+        'icon'  =&gt; 'el-icon-twitter'
+    );
+    $this-&gt;args['share_icons'][] = array(
+        'url'   =&gt; 'http://www.linkedin.com/company/redux-framework',
+        'title' =&gt; 'Find us on LinkedIn',
+        'icon'  =&gt; 'el-icon-linkedin'
+    );
+}
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/uncategorized/getting-started-with-arguments/">Getting started with Arguments</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

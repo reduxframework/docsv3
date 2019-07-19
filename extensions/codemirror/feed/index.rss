@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: CodeMirror &#8211; Advanced Code Editor</title>
+	<atom:link href="https://docs.reduxframework.com/extensions/codemirror/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com/extensions/codemirror/</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Mon, 06 Aug 2018 23:10:23 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>By: Kevin</title>
+		<link>https://docs.reduxframework.com/extensions/codemirror/#comment-419</link>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+		<pubDate>Fri, 26 Jun 2015 18:32:31 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=9#comment-419</guid>
+		<description><![CDATA[The author is no longer available and supporting it, so we removed it.  Sorry.]]></description>
+		<content:encoded><![CDATA[<p>The author is no longer available and supporting it, so we removed it.  Sorry.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: kiarashi</title>
+		<link>https://docs.reduxframework.com/extensions/codemirror/#comment-235</link>
+		<dc:creator><![CDATA[kiarashi]]></dc:creator>
+		<pubDate>Wed, 03 Jun 2015 12:28:05 +0000</pubDate>
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=9#comment-235</guid>
+		<description><![CDATA[Where did this extension go? 
+I no longer see it in the list when clicking on the Premium Extensions link.]]></description>
+		<content:encoded><![CDATA[<p>Where did this extension go?<br />
+I no longer see it in the list when clicking on the Premium Extensions link.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

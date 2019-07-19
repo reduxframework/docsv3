@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>pages &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/pages/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Checkbox</title>
+		<link>https://docs.reduxframework.com/core/fields/checkbox/</link>
+		<pubDate>Mon, 10 Mar 2014 22:34:14 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[arg]]></category>
+		<category><![CDATA[categories]]></category>
+		<category><![CDATA[category]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[menu]]></category>
+		<category><![CDATA[menu_location]]></category>
+		<category><![CDATA[menu_locations]]></category>
+		<category><![CDATA[menus]]></category>
+		<category><![CDATA[options]]></category>
+		<category><![CDATA[page]]></category>
+		<category><![CDATA[pages]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[post]]></category>
+		<category><![CDATA[post_type]]></category>
+		<category><![CDATA[post_types]]></category>
+		<category><![CDATA[posts]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[tag]]></category>
+		<category><![CDATA[tags]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[wordpress args]]></category>
+		<category><![CDATA[wordpress data]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=98</guid>
+		<description><![CDATA[<p>The Checkbox field may be used to offer a single check option, or a group of multi-check options. Arguments Name Type Default Description type string &#8216;checkbox&#8217; Value identifying the field type. id string Unique ID identifying the field. Must be different from all other field IDs. title string Displays title of the option. subtitle string [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/checkbox/">Checkbox</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The Checkbox field may be used to offer a single check option, or a group of multi-check options.</p>
+<p style="text-align: center"><img src="https://f.cloud.github.com/assets/3412363/1565303/f02092aa-507c-11e3-8fb0-ac4b3877005d.png" height="100" width="850" /><img src="https://f.cloud.github.com/assets/3412363/1565388/9519a958-507e-11e3-8681-7660a8b1e165.png" height="140" width="850" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;checkbox&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a class="more_info" href="/redux-framework/integrating-a-compiler/"> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of key pair values representing the individual check boxes.  They key represents the ID of the checkbox, the value is the text displayed next to the checkbox.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>vari</td>
+<td></td>
+<td>String/int or array values depending on whether or not multiple check boxes are used.  See &#8216;Default Option&#8217; below.</td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td></td>
+<td>String value that populates the check boxes with WordPress values.  Accepts:  <code>category</code> <code>categories</code> <code>menu</code> <code>menus</code> <code>menu_location</code> <code>menu_locations</code> <code>page</code> <code>pages</code> <code>post</code> <code>posts</code> <code>post_type</code> <code>post_types</code> <code>tag</code> <code>tags</code>. <a class="more_info" href="/core/the-basics/using-data-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>args</td>
+<td>array</td>
+<td></td>
+<td>Array of WordPress arguments for the specific data to be retrieved.</td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<h3>Default Options</h3>
+<p>When using a single checkbox, the <code>default</code> argument accepts a string/int/bool representing with 0/false or 1/true.  When using multi-checkbox, the <code>default</code> argument accepts an array of key pair values.  They key represents the id of the checkbox, the value either a 0/false or 1/true value.</p>
+<hr />
+<h3>Example Declaration</h3>
+<h4>Single Checkbox</h4>
+<pre class="brush: php; title: ; notranslate">
+    $field = array(
+        'id'       =&gt; 'opt_checkbox',
+        'type'     =&gt; 'checkbox',
+        'title'    =&gt; __('Checkbox Option', 'redux-framework-demo'), 
+        'subtitle' =&gt; __('No validation can be done on this field type', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        'default'  =&gt; '1'// 1 = on | 0 = off
+    );
+</pre>
+<h4>Multi Checkbox</h4>
+<pre class="brush: php; title: ; notranslate">
+    $field = array(
+        'id'       =&gt; 'opt_multi_checkbox',
+        'type'     =&gt; 'checkbox',
+        'title'    =&gt; __('Multi Checkbox Option', 'redux-framework-demo'), 
+        'subtitle' =&gt; __('No validation can be done on this field type', 'redux-framework-demo'),
+        'desc'     =&gt; __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+
+        //Must provide key =&gt; value pairs for multi checkbox options
+        'options'  =&gt; array(
+            '1' =&gt; 'Opt 1',
+            '2' =&gt; 'Opt 2',
+            '3' =&gt; 'Opt 3'
+        ),
+
+        //See how default has changed? you also don't need to specify opts that are 0.
+        'default' =&gt; array(
+            '1' =&gt; '1', 
+            '2' =&gt; '0', 
+            '3' =&gt; '0'
+        )
+    );
+</pre>
+<h3></h3>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<h4>Single checkbox</h4>
+<pre class="brush: php; title: ; notranslate">
+$global $redux_demo;
+
+echo 'Checkbox value: ' . $redux_demo['opt_checkbox'];
+</pre>
+<h4>Multi checkbox</h4>
+<pre class="brush: php; title: ; notranslate">
+$global $redux_demo;
+
+echo 'First checkbox value: '  . $redux_demo['opt_checkbox']['1'];
+echo 'Second checkbox value: ' . $redux_demo['opt_checkbox']['2'];
+echo 'Third checkbox value: '  . $redux_demo['opt_checkbox']['3'];
+
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/checkbox/">Checkbox</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

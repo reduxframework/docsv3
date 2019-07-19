@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>open-icon &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/open-icon/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Accordion</title>
+		<link>https://docs.reduxframework.com/extensions/accordion/</link>
+		<comments>https://docs.reduxframework.com/extensions/accordion/#respond</comments>
+		<pubDate>Thu, 26 Mar 2015 01:07:37 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[accordion]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[close-icon]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[open-icon]]></category>
+		<category><![CDATA[position]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=916</guid>
+		<description><![CDATA[<p>The Redux Accordion extension is an improved way to group like items in your options panel, inside a collapsible accordion field.  Such a feature comes in handy when a given options panel has many, many items that don&#8217;t need to be shown simultaneously. Getting Started To understand how to use extensions, you should read this [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/accordion/">Accordion</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Accordion extension is an improved way to group like items in your options panel, inside a collapsible accordion field.  Such a feature comes in handy when a given options panel has many, many items that don&#8217;t need to be shown simultaneously. </p>
+<p><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion.png" alt="accordion" class="alignnone size-full wp-image-919" height="400" width="944" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion.png 944w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion-300x127.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion-60x25.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/accordion-150x64.png 150w" sizes="(max-width: 944px) 100vw, 944px" /></a></p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;accordion&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>position</td>
+<td>string</td>
+<td></td>
+<td>Either start or end, depending on whether the array begins or ends the accordion block.  See Example Declaration below.</td>
+</tr>
+<tr>
+<td>open</td>
+<td>boolean</td>
+<td>false</td>
+<td>If set to true, accordion will be open. If set to false, accordion will be closed by default.</td>
+</tr>
+<tr>
+<td>open-icon</td>
+<td>string</td>
+<td>el-plus</td>
+<td>The <a target="_blank" href="http://elusiveicons.com/">Elusive Icon</a> to show when the accordion is closed (to be opened).  At this time, only Elusive Icons are supported.</td>
+</tr>
+<tr>
+<td>close-icon</td>
+<td>string</td>
+<td>el-minus</td>
+<td>The <a target="_blank" href="http://elusiveicons.com/">Elusive Icon</a> to show when the accordion is open (to be closed).  At this time, only Elusive Icons are supported.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example Declaration</h2>
+<p>The following example in included with the Accordion extension package.</p>
+<p><strong>NOTE:</strong> Each Accordion block MUST have an opening array with the <code>position</code> argument set to <code>start</code>, AND a closing array with the <code>position</code> argument set to <code>end</code>. Any fields you wish to display inside the accordion block would be added between the <code>start</code> and <code>end</code> arrays.</p>
+<pre class="brush: php; title: ; notranslate">
+// First Accordion
+array(
+    'id'        =&gt; 'opt-accordion-begin-1',
+    'type'      =&gt; 'accordion',
+    'title'     =&gt; 'Accordion Section One',
+    'subtitle'  =&gt; 'Section one with subtitle',
+    'position'  =&gt; 'start',    ),
+),
+    array(
+        'id'       =&gt; 'opt-blank-text-1',
+        'type'     =&gt; 'text',
+        'title'    =&gt; 'Textbox for some noble purpose.',
+        'subtitle' =&gt; 'Frailty, thy name is woman!'
+    ),
+    array(
+        'id'       =&gt; 'opt-blank-text-2',
+        'type'     =&gt; 'switch',
+        'title'    =&gt; 'Switch, for some other important task!',
+        'subtitle' =&gt; 'Physician, heal thyself!'
+    ),             
+array(
+    'id'        =&gt; 'opt-accordion-end-1',
+    'type'      =&gt; 'accordion',
+    'position'  =&gt; 'end'
+),
+
+// Second Accordion
+array(
+    'id'       =&gt; 'opt-accordion-begin-2',
+    'type'     =&gt; 'accordion',
+    'title'    =&gt; 'Accordion Section Two (no subtitle)',
+    'position'  =&gt; 'start',
+),
+    array(
+        'id'       =&gt; 'opt-blank-text-3',
+        'type'     =&gt; 'text',
+        'title'    =&gt; 'Look, another sample textbox.',
+        'subtitle' =&gt; 'The tartness of his face sours ripe grapes.'
+    ),
+    array(
+        'id'       =&gt; 'opt-blank-text-4',
+        'type'     =&gt; 'switch',
+        'title'    =&gt; 'Yes, another switch, but you\'re free to use any field you like.',
+        'subtitle' =&gt; 'I scorn you, scurvy companion!'
+    ),             
+array(
+    'id'        =&gt; 'opt-accordion-end-2',
+    'type'      =&gt; 'accordion',
+    'position'  =&gt; 'end'
+)
+</pre>
+<p>The Accordion field has no return values for use on the front end of your site. It is simply a tool to easier block and manage multiple options, providing your user for a cleaner and more appealing visual experience.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/accordion/">Accordion</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/accordion/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>embedding &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/embedding/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Embedding Redux into Your Theme or Plugin</title>
+		<link>https://docs.reduxframework.com/core/advanced/embedding-redux-into-your-theme-or-plugin/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/embedding-redux-into-your-theme-or-plugin/#comments</comments>
+		<pubDate>Sat, 15 Mar 2014 02:41:46 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[embedding]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=439</guid>
+		<description><![CDATA[<p>So you have this really cool Theme or Plugin. And of course you love Redux because &#8211; let’s face it &#8211; who doesn’t? You understand how the Redux plug-in works, but the concept of a theme or plugin installing another plugin escapes you, or perhaps you don’t really care for TGM or any of its [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/embedding-redux-into-your-theme-or-plugin/">Embedding Redux into Your Theme or Plugin</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>So you have this really cool Theme or Plugin. And of course you love Redux because &#8211; let’s face it &#8211; who doesn’t? You understand how the Redux plug-in works, but the concept of a theme or plugin installing another plugin escapes you, or perhaps you don’t really care for <a href="http://tgmpluginactivation.com/">TGM</a> or any of its variations. What are you to do?</p>
+<p>You&#8217;ve come to the right place. Embedding Redux into your theme or plugin is as easy as 1, 2, 3. You might be wondering, what if your client also installs the Redux plugin? Will it conflict? The answer is no. Even better, the Redux plug-in will <strong>always</strong> supersede your theme’s require of Redux. This means your clients could &#8211; hypothetically &#8211; receive updates to Redux without any theme update from you. Pretty cool, eh?</p>
+<p>Let&#8217;s begin, shall we?</p>
+<h2>Step 1: Get the Source</h2>
+<p>There are a variety of methods in which to acquire the Redux Framework source code. Please refer to the [Getting Started] guide. Here we’ll go over a few more advanced git methods. It’s important to choose a name for the folder in which Redux will be contained, as it could be difficult to change the name later. Redux may be placed into any directory or in any path (such as ~/admin or ~/framework).</p>
+<h3><a href="https://github.com/ReduxFramework/redux-framework/wiki/Embedding-Redux-into-Your-Theme-or-Plugin#cloning-the-repository-using-git" name="cloning-the-repository-using-git"></a>Cloning the Repository Using Git</h3>
+<p>Installation through Git allows ensures you&#8217;ll always have the latest version of Redux. Our master branch is designed to be the most stable, up-to-date code. Grabbing it will result in the best possible experience for your clients. If you&#8217;re not familiar with Git, using this method can be a bit daunting. If this is the case, it&#8217;s recommended beginners read <a href="http://gitimmersion.com/">Git Immersion</a>. For a more thorough understanding of Git, another excellent resource is <a href="http://www.git-scm.com/book">Pro Git</a>. Assuming you now have a working understanding of Git, here is how to clone the master branch of Redux. Using the Linux command line, type the following:</p>
+<pre>cd my-project
+git clone https://github.com/ReduxFramework/ReduxFramework.git ReduxFramework
+</pre>
+<p>This will clone the Redux master repository into a folder called ReduxFramework. Feel free to move this anywhere, but please make note of where it&#8217;s stored. Once this is done, move on to step 2.</p>
+<h3><a href="https://github.com/ReduxFramework/redux-framework/wiki/Embedding-Redux-into-Your-Theme-or-Plugin#cloning-the-repository-as-a-git-submodule" name="cloning-the-repository-as-a-git-submodule"></a>Cloning the Repository as a Git Submodule</h3>
+<p>Git submodules are a powerful tool, which allows you to easily include a third-party project of your own while still treating them as two separate projects. Rather than provide an in-depth explanation of the benefits and use of submodules, it&#8217;s recommended you take a moment and read through the <a href="http://git-scm.com/book/en/Git-Tools-Submodules">submodules page</a> in the official Git documentation. When you’re ready to dive in, the following command generates a clone of Redux as a submodule:</p>
+<pre>cd my-project
+git submodule add https://github.com/ReduxFramework/ReduxFramework.git ReduxFramework
+</pre>
+<p>This clones the repo into a directory titled ReduxFramework. Unless you have any desire to embark upon the arduous task of renaming a submodule, it&#8217;s <strong>strongly</strong> suggested choosing a folder name before running this command. Change the last string (in this case, ReduxFramework) to the relative path you desire. Once this is accomplished, move on to step 2.</p>
+<h2><a href="https://github.com/ReduxFramework/redux-framework/wiki/Embedding-Redux-into-Your-Theme-or-Plugin#step-2-include-the-framework-andor-sample-config-file" name="step-2-include-the-framework-andor-sample-config-file"></a>Step 2: Include the framework and/or sample config file</h2>
+<p>Simple, elegant, and easy:</p>
+<p><strong>PLEASE NOTE:</strong> This example assumes you have installed Redux into a folder titled <code>ReduxFramework</code>. If you have installed Redux into a folder with a different name (these are case sensitive), you <strong>must</strong> update the following code so the folder name matches with your folder name. Cutting and pasting this code if your folder name differs <strong>will</strong> fail.</p>
+<p>Before we get started, it worth recommending that <strong>you never modify the sample-config.php file itself!!</strong> Editing this file directly will result in a loss of your configuration data when updating the Redux code base. Rather, the sample-config.php file should be copied to another location, where modifications may then be made. You <strong>have</strong> been warned!</p>
+<pre class="brush: php; title: ; notranslate">
+if ( !class_exists( 'ReduxFramework' ) &amp;&amp; file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' ) ) {
+    require_once( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' );
+}
+if ( !isset( $redux_demo ) &amp;&amp; file_exists( dirname( __FILE__ ) . '/ReduxFramework/sample/sample-config.php' ) ) {
+    require_once( dirname( __FILE__ ) . '/ReduxFramework/sample/sample-config.php' );
+}
+</pre>
+<p>Be sure to update the relative path in relation to the file in which the code is executed. It&#8217;s suggested to place this code at the top of your <code>functions.php</code> file.</p>
+<p>Here is where the true magic of Redux comes into play. Suppose a user has Redux installed by itself via a plugin. Your theme is now using the plugin class and <strong>not</strong> the embedded version you included with your theme or plug-in! Put another way, your project will just work out of the box, no questions asked! Redux, when installed as a plug-in takes priority. Any references that include Redux in your own <code>framework.php</code> will be ignored. Redux &#8211; installed as a plug-in &#8211; can be forever updated by the user and your theme receives the benefit without you ever needing to push any code update! What other options framework can claim the same?</p>
+<p>The answer: None!</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/embedding-redux-into-your-theme-or-plugin/">Embedding Redux into Your Theme or Plugin</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/embedding-redux-into-your-theme-or-plugin/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

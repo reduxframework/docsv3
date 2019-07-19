@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+Google Maps &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>Google Maps &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Google Maps &raquo; Redux Documentation" />
+<meta property="og:description" content="The Redux Google Map extension offers users the ability to search for map locations via the Redux options panel using the Google Maps API.  Such an extension comes in very handy when outputting maps and markers on the front-end of theme pages, using latitude/longitude return values with the Google Maps API. DISCLAIMER:  This extension does &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/extensions/google-maps/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="address" />
+<meta property="article:tag" content="api_key" />
+<meta property="article:tag" content="class" />
+<meta property="article:tag" content="desc" />
+<meta property="article:tag" content="full_width" />
+<meta property="article:tag" content="google" />
+<meta property="article:tag" content="google maps" />
+<meta property="article:tag" content="id" />
+<meta property="article:tag" content="latitude" />
+<meta property="article:tag" content="longitude" />
+<meta property="article:tag" content="map_type_control" />
+<meta property="article:tag" content="map_version" />
+<meta property="article:tag" content="placeholder" />
+<meta property="article:tag" content="satellite" />
+<meta property="article:tag" content="scroll_wheel" />
+<meta property="article:tag" content="show_address" />
+<meta property="article:tag" content="show_api_key" />
+<meta property="article:tag" content="show_city" />
+<meta property="article:tag" content="show_latitude" />
+<meta property="article:tag" content="show_longitude" />
+<meta property="article:tag" content="show_marker_info" />
+<meta property="article:tag" content="show_postal" />
+<meta property="article:tag" content="show_route" />
+<meta property="article:tag" content="show_state" />
+<meta property="article:tag" content="street view" />
+<meta property="article:tag" content="street_view_control" />
+<meta property="article:tag" content="subtitle" />
+<meta property="article:tag" content="title" />
+<meta property="article:section" content="Extensions" />
+<meta property="article:published_time" content="2016-02-10T02:40:56+00:00" />
+<meta property="article:modified_time" content="2016-02-11T07:01:20+00:00" />
+<meta property="og:updated_time" content="2016-02-11T07:01:20+00:00" />
+<meta property="og:image" content="../../wp-content/uploads/sites/4/2016/02/google_maps.png" />
+<meta property="og:image:secure_url" content="../../wp-content/uploads/sites/4/2016/02/google_maps.png" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../comments/feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Google Maps Comments Feed" href="feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-google-maps-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-google-maps-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-1120 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../index.html">
+            <img alt="Redux Documentation" src="../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">Google Maps</h1>
+  <div id="breadcrumbs"><a href="../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../category/extensions/index.html" title="View all posts in Extensions" >Extensions</a> <span class="sep">/</span>Google Maps</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2016-02-10" itemprop="datePublished">February 10, 2016</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../category/extensions/index.html" rel="category tag">Extensions</a>    </li>
+
+<li class="comments">
+    <i class="icon-comment"></i>
+	<a href="#comments">2 Comments</a></li>
+
+</ul>
+  
+    <article id="post-1120" class="clearfix post-1120 post type-post status-publish format-standard hentry category-extensions tag-address tag-api_key tag-class tag-desc tag-full_width tag-google tag-google-maps tag-id tag-latitude tag-longitude tag-map_type_control tag-map_version tag-placeholder tag-satellite tag-scroll_wheel tag-show_address tag-show_api_key tag-show_city tag-show_latitude tag-show_longitude tag-show_marker_info tag-show_postal tag-show_route tag-show_state tag-street-view tag-street_view_control tag-subtitle tag-title">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p>The Redux Google Map extension offers users the ability to search for map locations via the Redux options panel using the Google Maps API.  Such an extension comes in very handy when outputting maps and markers on the front-end of theme pages, using latitude/longitude return values with the Google Maps API.</p>
+<p><a href="../../wp-content/uploads/sites/4/2016/02/google_maps.png" rel="attachment wp-att-1124"><img class="alignnone size-full wp-image-1124" src="../../wp-content/uploads/sites/4/2016/02/google_maps.png" alt="google_maps" width="1032" height="518" srcset="../../wp-content/uploads/sites/4/2016/02/google_maps.png 1032w, ../../wp-content/uploads/sites/4/2016/02/google_maps-300x151.png 300w, ../../wp-content/uploads/sites/4/2016/02/google_maps-768x385.png 768w, ../../wp-content/uploads/sites/4/2016/02/google_maps-1024x514.png 1024w, ../../wp-content/uploads/sites/4/2016/02/google_maps-60x30.png 60w, ../../wp-content/uploads/sites/4/2016/02/google_maps-150x75.png 150w" sizes="(max-width: 1032px) 100vw, 1032px" /></a></p>
+<p><strong>DISCLAIMER</strong>:  This extension does not &#8211; repeat &#8211; does <strong>NOT</strong> output any type of Google map through usage in front-end theme code.  It simply takes the location the user chooses within the map interface and saves the address components, latitude, longitude, and marker information to the database (see Example Usage below).  You &#8211; the developer &#8211; may then use this information to generate and display maps via the Google Maps API using shortcodes, or any other means appropriate to your theme.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="../../core/advanced/loading-extensions/index.html">Loading Extensions</a>. To shortcut the process, you should use the <a href="https://build.reduxframework.com" target="_blank">Redux Builder</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;google_maps&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>full_width</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set the field full width or tabled.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>&#8220;Enter your address&#8221;</td>
+<td>Text to appear in the search box when no data is present.</td>
+</tr>
+<tr>
+<td>marker_tooltip</td>
+<td>string</td>
+<td>&#8220;Left mouse down on top of me to move me!&#8221;</td>
+<td>Set&#8217;s the tooltip text that appears when hovering over the place marker.</td>
+</tr>
+<tr>
+<td>no_geometry_alert</td>
+<td>string</td>
+<td>&#8220;The returned place contains no geometric data.&#8221;</td>
+<td> Set&#8217;s the message to appear via JavaScript alert when the selected place contains no geometric data.</td>
+</tr>
+<tr>
+<td> map_height</td>
+<td> string</td>
+<td> 250px</td>
+<td> Adjust the height of the map on screen.  Please include the unit type with your settings (px, em, %, etc).</td>
+</tr>
+<tr>
+<td>show_api_key</td>
+<td>bool</td>
+<td>true</td>
+<td>Displays a button beneath the map where clients may enter their own Google Maps API key data.  See Google Maps API Key below.</td>
+</tr>
+<tr>
+<td>scroll_wheel</td>
+<td>bool</td>
+<td>false</td>
+<td>Sets the flag which allows or prevents map zooming when using the mouse wheel.</td>
+</tr>
+<tr>
+<td>street_view_control</td>
+<td>bool</td>
+<td>true</td>
+<td>Sets the flag to display or hide the street view control.</td>
+</tr>
+<tr>
+<td>map_type_control</td>
+<td>bool</td>
+<td>true</td>
+<td>Sets the flag to display or hide the map type (satellite) control.</td>
+</tr>
+<tr>
+<td>show_controls</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to set the autocomplete control bat the the top of the map.</td>
+</tr>
+<tr>
+<td>show_address</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the street name and number text boxes.</td>
+</tr>
+<tr>
+<td>show_city</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the city text box.</td>
+</tr>
+<tr>
+<td>show_state</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the state text box.</td>
+</tr>
+<tr>
+<td>show_postal</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the zip/post code text box.</td>
+</tr>
+<tr>
+<td>show_country</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the country text box.</td>
+</tr>
+<tr>
+<td>show_latitude</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the latitude text box.</td>
+</tr>
+<tr>
+<td>show_longitude</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the longitude text box.</td>
+</tr>
+<tr>
+<td>show_marker_info</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to display or hide the marker info text box.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of values specifying the default values of the map.  See Google Map Default Values below.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="../../core/advanced/integrating-a-compiler/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="../../core/the-basics/required/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="../../core/the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Advanced Arguments</h2>
+<p>These arguments should only be set if you are familiar with the Google Maps API and/or are providing an API for distribution with your theme. Otherwise, it is not recommended to change these.</p>
+<table border="0">
+<tbody>
+<tr>
+<td>api_key</td>
+<td>string</td>
+<td></td>
+<td>(Optional) String value of the API key to use with Google Maps.</td>
+</tr>
+<tr>
+<td> map_version</td>
+<td>string</td>
+<td> 3.exp</td>
+<td>Google Map API version number.</td>
+</tr>
+</tbody>
+</table>
+<h2>Google Map Default Values</h2>
+<p>For this extension, default values are optional.  Leaving them blank (or not settings them at all) will default the Google Map to the United States of America.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>street_number</td>
+<td>string</td>
+<td></td>
+<td>The address street number</td>
+</tr>
+<tr>
+<td>route</td>
+<td>string</td>
+<td></td>
+<td>The name of the road, street, lane, etc.</td>
+</tr>
+<tr>
+<td>locality</td>
+<td>string</td>
+<td></td>
+<td>The name of the town or city.</td>
+</tr>
+<tr>
+<td>administrative_area_level_1</td>
+<td>string</td>
+<td></td>
+<td>The name of the state, union, territory, etc.</td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>string</td>
+<td></td>
+<td>The number of the ZIP or postal code.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>string</td>
+<td></td>
+<td>The name of the country.</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>string/float</td>
+<td></td>
+<td>The float (decimal) value representing the latitude value.</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>string/float</td>
+<td></td>
+<td>The float (decimal) value representing the longitude value.</td>
+</tr>
+<tr>
+<td>marker_info</td>
+<td>string</td>
+<td></td>
+<td>Text to appear over the map marker when the map marker is clicked.</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>string/int</td>
+<td> 3 &#8211; when using lat/lng</p>
+<p>17 &#8211; when using addresses.</td>
+<td>The amount of zoom in which to set the map.</td>
+</tr>
+</tbody>
+</table>
+<h2>Google Maps API Key</h2>
+<p>The Redux Google Maps extension does not contain an API Key.  This constitutes the standard usage limit for the Google Maps API, which is free until exceeding 25,000 map loads per 24 hours for 90 consecutive days.  In most normal situations, since these maps are only loaded on displayed in your options panel, to break such a limit would be unusual.  However, since nothing is impossible, if this limit should be reached, it may become necessary to obtain a Google Maps API Key.  It is not your responsibility as a theme developer to provide one with your theme.  We&#8217;ve included a Google Maps API Key feature in the extension where your users are given this information with links to obtain their own unique key for high usage.  While we&#8217;ve provided very general information about this via our interface, it&#8217;s recommended you include this information in your theme documentation so your users are aware of such limitations and if necessary, how to deal with them.</p>
+<p>If your theme uses the rendering of Google Maps on the front end via a shortcode or Visual Composer and have chosen to include a Google Maps API Key with your theme, you may set this key via the <code>api_key</code> argument as described in the Advanced Arguments section above.</p>
+<p>For more information about Google Maps API Usage guidelines, please visit <a href="https://developers.google.com/maps/documentation/javascript/usage" target="_blank">https://developers.google.com/maps/documentation/javascript/usage</a></p>
+<p>For more information on obtaining a Google Maps API Key, please visit: <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">https://developers.google.com/maps/documentation/javascript/get-api-key</a></p>
+<h2>Example Declaration</h2>
+<p>Under normal circumstances, it probably will not be necessary to set any default values, as your users will ultimate want to set their own via the map interface.  However, if you have a reason to set to defaults, please take note of the following limitations:</p>
+<p><strong>NOTE</strong>:  The Google Fonts extension will always use the latitude and longitude settings first, so set a map.  It will ignore address settings.  Both <code>latitude </code>and <code>longitude </code>arguments must be set.  It cannot be one or the other, otherwise Google Map will display wither the address information (if any is set) or display the default full map of America.</p>
+<p><strong>NOTE</strong>:  If setting only the <code>latitude </code>and <code>longitude </code>arguments, no address data will be displayed or generated.  Alternatively, if address information is set, Google Maps will return the closest latitude/longitude coordinates.</p>
+<pre class="brush: php; title: ; notranslate" title="">
+array(
+    'id'        =&gt; 'opt-google-maps',
+    'type'      =&gt; 'google_maps',
+    'title'     =&gt; 'Google Maps',
+    'subtitle'  =&gt; 'Select a location from the map below.',
+    'full_width'=&gt; true,
+    'default'   =&gt; array (
+        // It's not necessary to fill out *every* default value for any 
+        // given location.  We are doing so here for sample purposes.
+        'street_number' =&gt; '1600',
+        'route'         =&gt; 'Pennsylvania Avenue Northwest',
+        'locality'      =&gt; 'Washington',
+        'administrative_area_level_1' =&gt; 'DC',
+        'postal_code'   =&gt; '20500',
+        'country'       =&gt; 'United States',
+        'latitude'      =&gt; '38.8976758',
+        'longitude'     =&gt; '-77.03648229999999',
+        'marker_info'   =&gt; 'Home of the President of the United States.',
+    )
+),
+</pre>
+<h2>Example Usage</h2>
+<p>The extension&#8217;s return value is an array of the default values above and their values. The default values returned will remain unchanged if the user does not change the map&#8217;s location. When they do, the new location information will be output. (Please remember to replace <code>redux_demo</code> with your own <code><a title="opt_name" href="../../redux-framework/arguments/opt_name.html">opt_name</a></code> argument).</p>
+<pre class="brush: php; title: ; notranslate" title="">
+global $redux_demo;
+
+echo $redux_demo['opt-google-maps']['street_number'];
+echo $redux_demo['opt-google-maps']['route'];
+echo $redux_demo['opt-google-maps']['locality'];
+echo $redux_demo['opt-google-maps']['administrative_area_level_1'];
+echo $redux_demo['opt-google-maps']['postal_code'];
+echo $redux_demo['opt-google-maps']['country'];
+echo $redux_demo['opt-google-maps']['latitude'];
+echo $redux_demo['opt-google-maps']['longitude'];
+echo $redux_demo['opt-google-maps']['marker_info'];
+</pre>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../tag/address/index.html" rel="tag">address</a><a href="../../tag/api_key/index.html" rel="tag">api_key</a><a href="../../tag/class/index.html" rel="tag">class</a><a href="../../tag/desc/index.html" rel="tag">desc</a><a href="../../tag/full_width/index.html" rel="tag">full_width</a><a href="../../tag/google/index.html" rel="tag">google</a><a href="../../tag/google-maps/index.html" rel="tag">google maps</a><a href="../../tag/id/index.html" rel="tag">id</a><a href="../../tag/latitude/index.html" rel="tag">latitude</a><a href="../../tag/longitude/index.html" rel="tag">longitude</a><a href="../../tag/map_type_control/index.html" rel="tag">map_type_control</a><a href="../../tag/map_version/index.html" rel="tag">map_version</a><a href="../../tag/placeholder/index.html" rel="tag">placeholder</a><a href="../../tag/satellite/index.html" rel="tag">satellite</a><a href="../../tag/scroll_wheel/index.html" rel="tag">scroll_wheel</a><a href="../../tag/show_address/index.html" rel="tag">show_address</a><a href="../../tag/show_api_key/index.html" rel="tag">show_api_key</a><a href="../../tag/show_city/index.html" rel="tag">show_city</a><a href="../../tag/show_latitude/index.html" rel="tag">show_latitude</a><a href="../../tag/show_longitude/index.html" rel="tag">show_longitude</a><a href="../../tag/show_marker_info/index.html" rel="tag">show_marker_info</a><a href="../../tag/show_postal/index.html" rel="tag">show_postal</a><a href="../../tag/show_route/index.html" rel="tag">show_route</a><a href="../../tag/show_state/index.html" rel="tag">show_state</a><a href="../../tag/street-view/index.html" rel="tag">street view</a><a href="../../tag/street_view_control/index.html" rel="tag">street_view_control</a><a href="../../tag/subtitle/index.html" rel="tag">subtitle</a><a href="../../tag/title/index.html" rel="tag">title</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../taxonomy/index.html" rel="bookmark" title="Taxonomy">Taxonomy</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../using-extensions/index.html" rel="bookmark" title="About Extensions">About Extensions</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../accordion/index.html" rel="bookmark" title="Accordion">Accordion</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../icon-select/index.html" rel="bookmark" title="Icon Select">Icon Select</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../custom-fonts/index.html" rel="bookmark" title="Custom Fonts">Custom Fonts</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../repeater/index.html" rel="bookmark" title="Repeater">Repeater</a></h4>
+        </li>
+
+</ul></section>
+      
+
+<div id="comments" class="comments-area">
+
+	
+			<h3 id="comments-title">Comments</h3>
+
+		<ol class="commentlist">
+				<li class="comment byuser comment-author-k2designers even thread-even depth-1" id="li-comment-578">
+		<article id="comment-578" class="comment">
+        
+        <div class="comment-action">
+            								</div><!-- .comment-action -->
+        
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/400b6ff5f40f02740ea81ecc0f7e1196?s=44&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/400b6ff5f40f02740ea81ecc0f7e1196?s=88&amp;d=mm&amp;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' /><cite class="fn">ThemeDirect </cite><a href="#comment-578"><time pubdate datetime="2016-02-24T17:33:34+00:00">February 24, 2016 at 5:33 pm</time></a>			</header><!-- .comment-meta --><section class="comment-content clearfix">
+				<p>Is it possible to style the maps using JSON import from Snazzy Maps? If not, would you be willing to add this feature on the next update?</p>
+			</section><!-- .comment-content --></article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-kprovance bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-580">
+		<article id="comment-580" class="comment">
+        
+        <div class="comment-action">
+            								</div><!-- .comment-action -->
+        
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/6fee00700b870794e569004efb3d21ee?s=44&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/6fee00700b870794e569004efb3d21ee?s=88&amp;d=mm&amp;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' /><cite class="fn"><a href='http://www.kevinprovance.com' rel='external nofollow' class='url'>Kevin</a> </cite>                    <span class="author-badge">Article Author</span>
+                    <a href="#comment-580"><time pubdate datetime="2016-02-24T21:45:12+00:00">February 24, 2016 at 9:45 pm</time></a>			</header><!-- .comment-meta --><section class="comment-content clearfix">
+				<p>New features are dependent upon interest and sales of the extension.  Since there have been none as of this reply, I&#8217;d have to regretfully say not any time soon.  Curious, how do you have it, since it&#8217;s not been bought?</p>
+			</section><!-- .comment-content --></article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		</ol><!-- .commentlist --><div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="../../wp-login.php-redirect_to=https---docs.reduxframework.com-extensions-google-maps-.html">logged in</a> to post a comment.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

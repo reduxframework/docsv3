@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>date &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/date/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Date-Time Picker</title>
+		<link>https://docs.reduxframework.com/extensions/date-time-picker/</link>
+		<pubDate>Thu, 14 Aug 2014 01:29:03 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[date]]></category>
+		<category><![CDATA[date picker]]></category>
+		<category><![CDATA[datetime]]></category>
+		<category><![CDATA[datetime picker]]></category>
+		<category><![CDATA[time]]></category>
+		<category><![CDATA[time picker]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=488</guid>
+		<description><![CDATA[<p>The Redux Date-Time Picker (DTP) extension is a new way to select dates and times for use in text fields.  The DTP contains several modes based no how you would like to display time and date data.   Include all date-time info in one text box?  No problem!  Split the time into its own text box?  [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/date-time-picker/">Date-Time Picker</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Date-Time Picker (DTP) extension is a new way to select dates and times for use in text fields.  The DTP contains several modes based no how you would like to display time and date data.   Include all date-time info in one text box?  No problem!  Split the time into its own text box?  No problem!  Have need to set ranges for dates or times?  We&#8217;ve got you covered there too!</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>.  To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>.  Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;datetime&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="/redux-framework/advanced/integrating-a-compiler/"> More info</a></td>
+</tr>
+<tr>
+<td>date-format</td>
+<td>str</td>
+<td>&#8216;mm-dd-yy&#8217;</td>
+<td>String to assign the format of the date output.  For more info, please see &#8216;Date Formatting&#8217; below.</td>
+</tr>
+<tr>
+<td>time-format</td>
+<td>str</td>
+<td>h:mm TT z&#8217;</td>
+<td>String to assign the format of the time output.  For more info, please see &#8216;Time Formatting&#8217; below.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>date-picker</td>
+<td>string</td>
+<td>true</td>
+<td>Flag that sets the display or hiding of the date picker portion of the picker window.</td>
+</tr>
+<tr>
+<td>time-picker</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag that sets the display or hiding of the time picker portion of the picker window.</td>
+</tr>
+<tr>
+<td>split</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set whether the date and time will be separated into their own fields.  See &#8216;Split Mode&#8217; below.</td>
+</tr>
+<tr>
+<td>separator</td>
+<td>string</td>
+<td>&#8216;  &#8216; (two spaces)</td>
+<td>String that appears between the date and time when split more is false.  Blanks or characters may be used.</td>
+</tr>
+<tr>
+<td>control-type</td>
+<td>string</td>
+<td>&#8216;slider&#8217;</td>
+<td>string command determining the interface of the time picker.  Choose between select slider.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string/array</td>
+<td></td>
+<td>Text to display in the input when no value is present.  See &#8216;Placeholder Options&#8217; below.</td>
+</tr>
+<tr>
+<td>num-of-months</td>
+<td>int</td>
+<td></td>
+<td>The number of calendar months to display in the datepicker.</td>
+</tr>
+<tr>
+<td>timezone-list</td>
+<td>array</td>
+<td></td>
+<td>An array of timezones values used to populate the timezone select: <code>array('value' =&gt; 'EST', 'label' =&gt; 'Eastern')</code>. The value should be the offset number in minutes. So &#8220;-0400&#8221; which is the format &#8220;-hhmm&#8221;, would equate to -240 minutes.</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>int/string</td>
+<td></td>
+<td>Default timezone to display in the timezone list.  This is the offset in minutes. If null the browser&#8217;s local timezone will be used. If your timezone is &#8220;-0400&#8221; you would use -240. For backwards compatibility you may pass &#8220;-0400&#8221;, however the timezone is stored in minutes and more reliable.</td>
+</tr>
+<tr>
+<td>hour-min</td>
+<td>int</td>
+<td></td>
+<td>The minimum hour allowed for all dates.</td>
+</tr>
+<tr>
+<td>hour-max</td>
+<td>int</td>
+<td></td>
+<td>The maximum hour allowed for all dates.</td>
+</tr>
+<tr>
+<td>minute-min</td>
+<td>int</td>
+<td></td>
+<td>The minimum minute allowed for all dates.</td>
+</tr>
+<tr>
+<td>minute-max</td>
+<td>int</td>
+<td></td>
+<td>The maximum minute allowed for all dates.</td>
+</tr>
+<tr>
+<td>date-min</td>
+<td>int/array</td>
+<td></td>
+<td>Array of minimum month, day, year values.  See &#8216;Min/Max Date Options&#8217; below.</td>
+</tr>
+<tr>
+<td>date-max</td>
+<td>int/array</td>
+<td></td>
+<td>Array of maximum month, day, year values.  See &#8216;Min/Max Date Options&#8217; below.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Placeholder Options</h2>
+<p>The placeholder argument, if used, must be set in accordance with the split argument.  Consider the following field arguments.</p>
+<h3>When <code>split</code> is set to <code>true</code></h3>
+<pre class="brush: php; title: ; notranslate">
+'placeholder' =&gt; Array (
+    'date' =&gt; 'Date',
+    'time' =&gt; 'Time'
+)
+</pre>
+<h3>When <code>split</code> is set to <code>false</code></h3>
+<pre class="brush: php; title: ; notranslate">
+'placeholder' =&gt; 'Datetime'
+</pre>
+<h2>Min/Max Date Options</h2>
+<p>The <code>date-min</code> and <code>date-max</code> arguments accept either an integer value or the array value shown in the table below.  When setting the <code>date-min</code> and <code>date-max</code> arguments as integers, the <code>date-min</code> argument begins the selectable range with the number of days beginning at the current date.  Setting it to <code>0</code> begins the selectable range at today&#8217;s date, setting it to <code>1</code> begins on the day after the current date, and so on.  The <code>date-max</code> argument as an integer sets the number of days in the actual range.  Setting it to <code>30</code> would create a 30 day range.</p>
+<p>Alternatively, setting the <code>date-min</code> and <code>date-max</code> ranges as an array of month, day, and year values allows you to select a date specific range at any point in the calender.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>month</td>
+<td>int</td>
+<td></td>
+<td>The one or two digit integer expressing the month.</td>
+</tr>
+<tr>
+<td>day</td>
+<td>int</td>
+<td></td>
+<td>The one or two digit integer expressing the day.</td>
+</tr>
+<tr>
+<td>year</td>
+<td>int</td>
+<td></td>
+<td>The four digit integer expressing the year.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Split Mode</h2>
+<h4>When <code>split</code> mode is set to <code>true</code>:</h4>
+<p><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_split.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_split.png" alt="dtp_split" class="alignnone size-full wp-image-578" height="73" width="607" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_split.png 607w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_split-300x36.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_split-60x7.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_split-150x18.png 150w" sizes="(max-width: 607px) 100vw, 607px" /></a></p>
+<p>When <code>split</code> mode is set to <code>false</code>:<br /><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_nosplit.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_nosplit.png" alt="dtp_nosplit" class="alignnone size-full wp-image-577" height="76" width="605" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_nosplit.png 605w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_nosplit-300x37.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_nosplit-60x7.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/08/dtp_nosplit-150x18.png 150w" sizes="(max-width: 605px) 100vw, 605px" /></a></p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate">
+array (
+    'id'            =&gt; 'opt-date-time',
+    'type'          =&gt; 'datetime',
+    'title'         =&gt; 'Date/Time Picker',
+    'subtitle'      =&gt; 'Date/Time Picker extension',
+    'split'         =&gt; false,
+    'separator'     =&gt; ' @ ',
+
+    // Optional timezone list
+    'timezone-list' =&gt; array(
+        array('value' =&gt; -300, 'label' =&gt; 'Eastern'),
+        array('value' =&gt; -360, 'label' =&gt; 'Central'),
+        array('value' =&gt; -420, 'label' =&gt; 'Moutain'),
+        array('value' =&gt; -480, 'label' =&gt; 'Pacific')
+    ),
+
+    // Alternative method to display time zone data
+    // 'timezone-list' =&gt; array(
+    //     array('value' =&gt; 'EST', 'label' =&gt; 'Eastern'),
+    //     array('value' =&gt; 'CST', 'label' =&gt; 'Central'),
+    //     array('value' =&gt; 'GMT', 'label' =&gt; 'Moutain'),
+    //     array('value' =&gt; 'PST', 'label' =&gt; 'Pacific')
+    // ),
+
+    'timezone'      =&gt; '-300'
+
+    // Optional Min/Max hour values
+    'hour-min'      =&gt; 8,
+    'hour-max'      =&gt; 16,
+
+    // Optional Min/Max minute values
+    'minute-min'    =&gt; 20,
+    'minute-max'    =&gt; 40,
+
+    // Optional Min/Max date values.
+    // Creates a selectable date range between the current date 
+    // and 30 days from the current date.
+    'date-min'      =&gt; 0,
+    'date-max'      =&gt; 30,
+
+    // Alternative Min/Max date values.
+    // Selects a selectable date range between 10/5/2014 to 11/15/2014
+    // 'date-min'      =&gt; array(
+    //     'month' =&gt; 10,
+    //     'day'   =&gt; 5,
+    //     'year'  =&gt; 2014
+    // ),
+    // 'date-max'      =&gt;  array(
+    //     'month' =&gt; 11,
+    //     'day'   =&gt; 15,
+    //     'year'  =&gt; 2014
+    // )
+),
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <code><a href="/redux-framework/arguments/opt_name/" title="opt_name">opt_name</a></code> argument.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+// When split mode is set to false.
+echo 'Datetime output: ' . $redux_demo['opt_date-time'];
+
+// When split mode is set to true.
+echo 'Date output: ' . $redux_demo['opt-date-time']['date'];
+echo 'Time output: ' . $redux_demo['opt-date-time']['time'];
+</pre>
+<h3>Date Formatting</h3>
+<p>Format a date into a string value with a specified format. The format can be combinations of the following:</p>
+<ul>
+<li><strong>d</strong> &#8211; day of month (no leading zero)</li>
+<li><strong>dd</strong> &#8211; day of month (two digit)</li>
+<li><strong>o</strong> &#8211; day of the year (no leading zeros)</li>
+<li><strong>oo</strong> &#8211; day of the year (three digit)</li>
+<li><strong>D</strong> &#8211; day name short</li>
+<li><strong>DD</strong> &#8211; day name long</li>
+<li><strong>m</strong> &#8211; month of year (no leading zero)</li>
+<li><strong>mm</strong> &#8211; month of year (two digit)</li>
+<li><strong>M</strong> &#8211; month name short</li>
+<li><strong>MM</strong> &#8211; month name longy &#8211; year (two digit)</li>
+<li><strong>y</strong> &#8211; year (two digit)</li>
+<li><strong>yy</strong> &#8211; year (four digit)</li>
+<li><strong>@</strong> &#8211; Unix timestamp (ms since 01/01/1970)</li>
+<li><strong>!</strong> &#8211; Windows ticks (100ns since 01/01/0001)</li>
+<li><strong>&#8216;&#8230;&#8217;</strong> &#8211; literal text&#8221; &#8211; single quoteanything else &#8211; literal text</li>
+</ul>
+<h3>Time Formatting</h3>
+<p>Format a time into a string value with a specified format.  The format can be combinations of the following:</p>
+<ul>
+<li><strong>H</strong> &#8211; Hour with no leading 0 (24 hour)</li>
+<li><strong>HH</strong> &#8211; Hour with leading 0 (24 hour)</li>
+<li><strong>h</strong> &#8211; Hour with no leading 0 (12 hour)</li>
+<li><strong>hh</strong> &#8211; Hour with leading 0 (12 hour)</li>
+<li><strong>m</strong> &#8211; Minute with no leading 0</li>
+<li><strong>mm</strong> &#8211; Minute with leading 0</li>
+<li><strong>s</strong> &#8211; Second with no leading 0</li>
+<li><strong>ss</strong> &#8211; Second with leading 0</li>
+<li><strong>l</strong> &#8211; Milliseconds always with leading 0</li>
+<li><strong>c</strong> &#8211; Microseconds always with leading 0</li>
+<li><strong>t</strong> &#8211; a or p for AM/PMTA or P for AM/PM</li>
+<li><strong>tt</strong> &#8211; am or pm for AM/PMTTAM or PM for AM/PM</li>
+<li><strong>z</strong> &#8211; Timezone as defined by timezoneListZTimezone in Iso 8601 format (+04:45)</li>
+<li><strong>&#8216;&#8230;&#8217; </strong>&#8211; Literal text (Uses single quotes)</li>
+</ul>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/date-time-picker/">Date-Time Picker</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Getting started with Fields</title>
+		<link>https://docs.reduxframework.com/core/fields/getting-started-with-fields/</link>
+		<pubDate>Mon, 10 Mar 2014 20:20:29 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[ace_editor]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[button_set]]></category>
+		<category><![CDATA[checkbox]]></category>
+		<category><![CDATA[color]]></category>
+		<category><![CDATA[color_gradient]]></category>
+		<category><![CDATA[color_rgba]]></category>
+		<category><![CDATA[date]]></category>
+		<category><![CDATA[dimensions.divide]]></category>
+		<category><![CDATA[editor]]></category>
+		<category><![CDATA[gallery]]></category>
+		<category><![CDATA[image_select]]></category>
+		<category><![CDATA[import_export]]></category>
+		<category><![CDATA[info]]></category>
+		<category><![CDATA[link_color]]></category>
+		<category><![CDATA[media]]></category>
+		<category><![CDATA[multi_text]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[radio]]></category>
+		<category><![CDATA[raw]]></category>
+		<category><![CDATA[section]]></category>
+		<category><![CDATA[select]]></category>
+		<category><![CDATA[select_image]]></category>
+		<category><![CDATA[slider]]></category>
+		<category><![CDATA[slides]]></category>
+		<category><![CDATA[sortable]]></category>
+		<category><![CDATA[sorter]]></category>
+		<category><![CDATA[spacing]]></category>
+		<category><![CDATA[spinner]]></category>
+		<category><![CDATA[switch]]></category>
+		<category><![CDATA[text]]></category>
+		<category><![CDATA[textarea]]></category>
+		<category><![CDATA[typography]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=14</guid>
+		<description><![CDATA[<p>Fields are blocks of arrays that represent the individual options within a specific options panel, set via a Sections array.  The Section array contains an argument titled fields, which accepts an array, or several blocks of arrays, separated by commas.  This is where all field arrays are place.  A basic example is shown below. For [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/getting-started-with-fields/">Getting started with Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Fields are blocks of arrays that represent the individual options within a specific options panel, set via a <a title="Section" href="/redux-framework/fields/section/">Sections</a> array.  The Section array contains an argument titled fields, which accepts an array, or several blocks of arrays, separated by commas.  This is where all field arrays are place.  A basic example is shown below. For specific examples, please consult the <a target="_blank" href="https://github.com/ReduxFramework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> file that comes with the Redux package.</p>
+<h3>Example</h3>
+<pre class="brush: php; title: ; notranslate">
+$this-&gt;sections[] = array(
+    'title'   =&gt; 'New Section',
+    'icon'    =&gt; 'el-icon-cogs',
+    'heading' =&gt; 'Expanded New Section Title',
+    'desc'    =&gt; '&lt;br /&gt;This is the section description.  HTML is permitted.&lt;br /&gt;'
+    'fields'  =&gt; array(
+        array(
+            'id'    =&gt; 'opt-text',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'A sample text box',
+        ),
+        array(
+            'id'    =&gt; 'opt-text-2',
+            'type'  =&gt; 'text',
+            'title' =&gt; 'Another sample text box',
+        ),
+    ),
+);
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/getting-started-with-fields/">Getting started with Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

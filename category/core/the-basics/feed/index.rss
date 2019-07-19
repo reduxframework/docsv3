@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>The Basics &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/category/core/the-basics/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Using the &#8216;Data&#8217; Argument</title>
+		<link>https://docs.reduxframework.com/core/the-basics/using-data-argument/</link>
+		<comments>https://docs.reduxframework.com/core/the-basics/using-data-argument/#respond</comments>
+		<pubDate>Fri, 09 Dec 2016 23:17:55 +0000</pubDate>
+		<dc:creator><![CDATA[DC]]></dc:creator>
+				<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[data]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1152</guid>
+		<description><![CDATA[<p>The &#8216;data&#8217; argument allows Redux to populate the field using dynamic queries for things like posts, pages, menus, categories, terms, etc. It automatically uses the correct WordPress function to retrieve each type of data. Most types of data accept an &#8216;args&#8217; value, which will be passed to the WordPress function to control what data is [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/using-data-argument/">Using the &#8216;Data&#8217; Argument</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The &#8216;data&#8217; argument allows Redux to populate the field using dynamic queries for things like posts, pages, menus, categories, terms, etc. It automatically uses the correct WordPress function to retrieve each type of data. Most types of data accept an &#8216;args&#8217; value, which will be passed to the WordPress function to control what data is retrieved.</p>
+<h3>Possible Options</h3>
+<table>
+<thead>
+<tr>
+<th>Type of Data</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>categories</td>
+<td>Gets data using the <code>get_categories()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_categories"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+<tr>
+<td>menus</td>
+<td>Gets data using the <code>wp_get_nav_menus()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://developer.wordpress.org/reference/functions/wp_get_nav_menus/"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+<tr>
+<td>pages</td>
+<td>Gets data using the <code>get_pages()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_pages"><i class="el-icon-circle-arrow-right"></i> Available args</a><br />
+Defaults to showing 20 items. To change, set the value of the <code>'posts_per_page'</code> option:</p>
+<pre>'data' =&gt; 'pages',
+'args' =&gt; array(
+    'posts_per_page' =&gt; 30,
+),
+</pre>
+</td>
+</tr>
+<tr>
+<td>terms</td>
+<td>Gets data using the <code>get_terms()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_terms"><i class="el-icon-circle-arrow-right"></i> Available args</a><br />
+Using this option requires the <code>'taxonomies'</code> argument set:</p>
+<pre>'data' =&gt; 'terms',
+'args' =&gt; array(
+    'taxonomies' =&gt; array( 'taxonomy_name' ),
+),
+</pre>
+</td>
+</tr>
+<tr>
+<td>taxonomies</td>
+<td>Gets data using the <code>get_taxonomies()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_taxonomies"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+<tr>
+<td>posts</td>
+<td>Gets data using the <code>get_posts()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_posts"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+<tr>
+<td>post_types</td>
+<td>Gets data using the <code>get_post_types()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_post_types"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+<tr>
+<td>tags</td>
+<td>Gets data using the <code>get_tags()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_tags"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+<tr>
+<td>image_sizes</td>
+<td>Gets data from the <code>$_wp_registered_nav_menus</code> global array. Supports no options.</td>
+</tr>
+<tr>
+<td>menu_locations</td>
+<td>Gets data from the <code>$_wp_additional_image_sizes</code> global array. Supports no options.</td>
+</tr>
+<tr>
+<td>elusive-icons</td>
+<td>Gets a list of all the Elusive Icons.</td>
+</tr>
+<tr>
+<td>roles</td>
+<td>Gets all the <code>$wp_roles</code> global array. Supports no options.</td>
+</tr>
+<tr>
+<td>sidebars</td>
+<td>Gets all the registered sidebars from <code>$wp_registered_sidebars</code> global array. Supports no options.</td>
+</tr>
+<tr>
+<td>capabilities</td>
+<td>Gets all the roles in the <code>$wp_roles</code> global array. Supports no options.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Gets data by calling the callback set in <code>'args'</code>.</p>
+<pre>'data' =&gt; 'callback',
+'args' =&gt; 'my_callback_function',
+</pre>
+<p>The callback function should return an array, where the key will be saved and the value displayed.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>Gets data using the <code>get_users()</code> function, passing the value of <code>'args'</code>.<br />
+<a class="more_info" href="https://codex.wordpress.org/Function_Reference/get_users"><i class="el-icon-circle-arrow-right"></i> Available args</a></td>
+</tr>
+</tbody>
+</table>
+<h3>Example Usage</h3>
+<h4>Standard Select Using Posts</h4>
+<p><img class="alignnone wp-image-1170" src="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-select-post.png" alt="data-select-post" width="323" height="182" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-select-post.png 483w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-select-post-300x170.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-select-post-60x34.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-select-post-150x85.png 150w" sizes="(max-width: 323px) 100vw, 323px" /></p>
+<pre class="brush: php; title: ; notranslate">
+$fields = array(
+    'id'    =&gt; 'opt-select-post',
+    'type'  =&gt; 'select',
+    'title' =&gt; __( 'Select Post', 'redux-framework-demo' ), 
+    'data'  =&gt; 'posts',
+    'args'  =&gt; array(
+        'post_type'      =&gt; 'post_type_name',
+        'posts_per_page' =&gt; -1,
+        'orderby'        =&gt; 'title',
+        'order'          =&gt; 'ASC',
+    )
+);
+</pre>
+<h4>Button Set Using Terms</h4>
+<p><img class="alignnone wp-image-1164" src="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-term-button-set.png" alt="data-term-button-set" width="248" height="52" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-term-button-set.png 334w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-term-button-set-300x63.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-term-button-set-60x13.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2016/12/data-term-button-set-150x31.png 150w" sizes="(max-width: 248px) 100vw, 248px" /></p>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'    =&gt; 'opt-button-set-term',
+        'type'  =&gt; 'select',
+        'title' =&gt; __( 'Select Term', 'redux-framework-demo' ), 
+        'data'  =&gt; 'terms',
+        'args'  =&gt; array(
+            'taxonomies' =&gt; array( 'taxonomy_name' ),
+            'hide_empty' =&gt; false,
+        )
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+echo 'Selected post: ' . $redux_demo['opt-select-post'];
+echo 'Selected term: ' . $redux_demo['opt-button-set-term'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/using-data-argument/">Using the &#8216;Data&#8217; Argument</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/the-basics/using-data-argument/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>The Redux API</title>
+		<link>https://docs.reduxframework.com/core/redux-api/</link>
+		<comments>https://docs.reduxframework.com/core/redux-api/#comments</comments>
+		<pubDate>Wed, 01 Apr 2015 19:26:09 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Fields]]></category>
+		<category><![CDATA[Sections]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[getArgs]]></category>
+		<category><![CDATA[getExtensions]]></category>
+		<category><![CDATA[getField]]></category>
+		<category><![CDATA[getSection]]></category>
+		<category><![CDATA[init]]></category>
+		<category><![CDATA[redux api]]></category>
+		<category><![CDATA[setArgs]]></category>
+		<category><![CDATA[setExtensions]]></category>
+		<category><![CDATA[setField]]></category>
+		<category><![CDATA[setHelpSidebar]]></category>
+		<category><![CDATA[setHelpTab]]></category>
+		<category><![CDATA[setSection]]></category>
+		<category><![CDATA[setSections]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=942</guid>
+		<description><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see sample-config-legacy.php [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>With Redux 3.5+, we&#8217;ve completely redesigned the way in which config files for Redux Framework options panels are created.  In the past, the process involved creating a PHP class, dividing the declaration of arguments, help tabs, and section into different functions and feeding them into a new instance of the Redux Framework object (see <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config-legacy.php"><code>sample-config-legacy.php</code></a> in the sample folder for a more detailed analysis).  The biggest drawback to this method was the name of the class.  Each needed to be unique among multiple instances of Redux.  This causes many headaches for developers, and by extension, the Redux support team.</p>
+<p>With the Redux API, no longer is this an issue.  The process has been streamlined into a handful of API calls, without the hassles of ensuring unique class names, and understanding of how PHP classes work.</p>
+<p>If reviewing documentation isn&#8217;t your thing, you are always free to jump directly to the updated <a href="https://github.com/reduxframework/redux-framework/blob/master/sample/sample-config.php"><code>sample-config.php</code></a> in the sample folder of the Redux Framework package to see how it&#8217;s all put together.</p>
+<h2>The Basic API</h2>
+<p>The API is wrtten as a <a href="http://php.net/manual/en/language.oop5.static.php">static class</a>.  Don&#8217;t worry, you don&#8217;t need any knowledge of static classes, only how to call them, which is done with the class name, two semicolons, and the function name as demonstrated in the examples below.</p>
+<p>Ideally, a basic Redux Framework config file will use three or four basic API calls to create the standard options panel.  We&#8217;ll begin with the suggested order in which to use them.</p>
+<p>First, it&#8217;s always a good idea to check that the API class exists.  it avoids potential errors in the event an older version of Redux is still in use on your site by a different dev or vendor.  The following should be the first lines in your config file:</p>
+<pre class="brush: php; title: ; notranslate">
+if ( ! class_exists( 'Redux' ) ) {
+    return;
+}
+</pre>
+<p>Next, set the <code>opt_name</code> variable of your panel to a variable. It&#8217;s easier to set the <code>opt_name</code> in the fashion as it is used for each and every Redux API call. The next line in our example config would be as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+// Remember, 'redux_demo' is stricly for this example.  
+// Please change it to your own unique name.
+$opt_name = &quot;redux_demo&quot;;
+</pre>
+<p>Remember, the classname of the Redux API is titled <code>Redux</code>. To call the function, two semi-colons follow the classname, and then the actual API call.</p>
+<p>Now, we&#8217;ll begin with the first API call, Redux::setArgs</p>
+<h3>setArgs</h3>
+<p><code>Redux::setArgs ($opt_name, $args)</code></p>
+<p>The setArgs API requires two parameters, the <code>opt_name</code> string value and the actual <a href="/core/arguments/" title="Global Arguments">arguments</a>, an array value. </p>
+<p>Here is an example:</p>
+<pre class="brush: php; title: ; notranslate">
+$args = Array(
+    'opt_name'    =&gt; $opt_name,
+    // Any other arguments you wish to set.  To save space in this example
+    // please refer to the arguments documentation, or review the
+    // sample-config.php file
+);
+
+Redux::setArgs ($opt_name, $args);
+</pre>
+<p>The next two APIs deal with setting the help tabs and sidebar of the admin panel when the Redux Framework options panel is visible.</p>
+<h3>setHelpTab</h3>
+<p><code>Redux::setHelpTab ($opt_name, $tabs)</code></p>
+<p>setHelpTab requires two parameters, the <code>$opt_name</code> string value, followed by an array value of tab data.</p>
+<pre class="brush: php; title: ; notranslate">
+$tabs = array(
+    array(
+        'id'      =&gt; 'redux-help-tab-1',
+        'title'   =&gt; 'Theme Information 1',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    ),
+    array(
+        'id'      =&gt; 'redux-help-tab-2',
+        'title'   =&gt; 'Theme Information 2',
+        'content' =&gt; '&lt;br /&gt;This is the tab content, HTML is allowed.&lt;br /&gt;')
+    )
+);
+Redux::setHelpTab( $opt_name, $tabs );
+</pre>
+<h3>setHelpSidebar</h3>
+<p><code>Redux::setHelpSidebar ($opt_name, $content)</code></p>
+<p>setHelpSidebar requires two parameters. First, the <code>$opt_name</code> string value, the second, the <code>$content</code> string value.</p>
+<pre class="brush: php; title: ; notranslate">
+$content = '&lt;br /&gt;This is the sidebar content, HTML is allowed.&lt;br /&gt;');
+Redux::setHelpSidebar( $opt_name, $content );
+</pre>
+<p>Now it&#8217;s time to set our sections.</p>
+<h3>setSection</h3>
+<p><code>Redux::setSection ($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data.</p>
+<p>Each call to the setSection API will create a section tab (or subsection of a section) in the options panel.</p>
+<pre class="brush: php; title: ; notranslate">
+// Lets create a section with no subsections, a basic section, if you will.
+$section = array(
+    'title'  =&gt; 'Basic Field',
+    'id'     =&gt; 'basic',
+    'desc'   =&gt; '',
+    'icon'   =&gt; 'el el-home'   
+    'fields' =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),    
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// Now let's create a section with two subsections
+// First, create the parent panel.
+$section = array(
+    'title' =&gt; 'Basic Subsection Fields',
+    'id'    =&gt; 'basic-subsection',
+    'desc'  =&gt; '',
+    'icon'  =&gt; 'el el-home'   
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The first subsection
+$section = array(
+    'title'      =&gt; 'Text Field',
+    'id'         =&gt; 'basic-text-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-text-subsection-example',
+            'type'     =&gt; 'text',
+            'title'    =&gt; 'Text Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; 'Default Text',
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+
+// The second subsection
+$section = array(
+    'title'      =&gt; 'Checkbox Field',
+    'id'         =&gt; 'basic-checkbox-subsection',
+    'subsection' =&gt; true,
+    'desc'       =&gt; '',
+    'fields'     =&gt; array(
+        array(
+            'id'       =&gt; 'opt-checkbox-subsection-example',
+            'type'     =&gt; 'checkbox',
+            'title'    =&gt; 'Checkbox Field',
+            'subtitle' =&gt; 'Subtitle',
+            'desc'     =&gt; 'Field Description',
+            'default'  =&gt; '1'
+        ),        
+    )
+);
+Redux::setSection($opt_name, $section);
+</pre>
+<h3>setExtensions</h3>
+<p><code>Redux::setExtensions($opt_name, $path)</code></p>
+<p>If you are a user of <a href="https://reduxframework.com/extensions/" target="_blank">Redux Extensions</a> (and why wouldn&#8217;t you be? We offer several that take Redux Framework to a whole new level!) the Redux API makes including them in your project a one-liner breeze! No more loader files and setting variables within them, as per the &#8216;old way&#8217;.</p>
+<p>setExtensions requires two parameters. First, the <code>$opt_name</code> string value, the second, the path to either a single extension or a folder of extensions. This API may be used multiple times, if needed.</p>
+<pre class="brush: php; title: ; notranslate">
+// You will need to determine the specific path to 
+// wherever you choose to keep your extensions folder.
+
+// For this example, we're assuming it's in the same 
+// directory as our config file.
+$ext_path = dirname( __FILE__ ) . '/extensions/';
+Redux::setExtensions($opt_name, $ext_path);
+</pre>
+<h2>The Advanced API</h2>
+<p>For the advanced developer already familiar with PHP and Redux as a whole, we offer some more advanced API to make your programming tasks a bit easier.</p>
+<h3>init</h3>
+<p><code>Redux::init($opt_name)</code></p>
+<p>init requires one parameter, the <code>$opt_name</code> string value. The API is useful in cases where a force load of the Redux object is neccessary, even if it&#8217;s already been run.</p>
+<h3>setSections</h3>
+<p><code>Redux::setSections($opt_name, $sections)</code></p>
+<p>setSections requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of section data. This API is similar to setSection, with the noted difference of this particular API allowing for the setting of a group of sections in one call.</p>
+<h3>getSection</h3>
+<p><code>Redux::getSection($opt_name, $id)</code></p>
+<p>getSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to retrieve. The return value is an array of the requested section, or false on failure.</p>
+<h3>removeSection</h3>
+<p><code>Redux::removeSection($opt_name, $id, $all_fields)</code></p>
+<p>removeSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to remove. The optional third variable is a boolean. If set, all fields associated to that section will also be removed from the API, though if left they will never be initialized. They are simply left if you were to make changes to them as needed.</p>
+<h3>hideSection</h3>
+<p><code>Redux::hideSection($opt_name, $id, $hide)</code></p>
+<p>hideSection requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the section to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the section. By default, it can be omitted and it is set to true.</p>
+<h3>getField</h3>
+<p><code>Redux::getField($opt_name, $id)</code></p>
+<p>getField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to retrieve. The return value is an array of the requested field, or false on failure.</p>
+<h3>setField</h3>
+<p><code>Redux::setField($opt_name, $field)</code></p>
+<p>setField requires two parameters. First, the <code>$opt_name</code> string value, the second, an array of field data.  Be sure to add the key/pair <code>'section_id' => "id of section"</code> (replace &#8220;id of section&#8221; with the actual section ID) to your field array.  This is necessary so the field is set to the correct section.</p>
+<h3>removeField</h3>
+<p><code>Redux::removeField($opt_name, $id)</code></p>
+<p>removeField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to remove.</p>
+<h3>hidefield</h3>
+<p><code>Redux::hideField($opt_name, $id, $hide)</code></p>
+<p>hideField requires two parameters. First, the <code>$opt_name</code> string value, the second, the string id of the field to hide. The optional third variable <code>$hide</code> is a boolean used to set the visibility, in the situation where you may want to reverse this function and show the field. By default, it can be omitted and it is set to true.</p>
+<h3>getArgs</h3>
+<p><code>Redux::getArgs($opt_name)</code></p>
+<p>getArgs requires one parameters, the <code>$opt_name</code> string value. The return value is an array of global arguments.</p>
+<h3>getArg</h3>
+<p><code>Redux::getArg($opt_name, $key)</code></p>
+<p>getArg requires two parameters. First, the <code>$opt_name</code> string value, the second, the string name of the argument to retrieve. The return value is the value of the requested argument, or empty on failure.</p>
+<h3>getExtensions</h3>
+<p><code>Redux::getExtensions($opt_name, $key)</code></p>
+<p>getExtensions requires one of two parameters, depending on the desired return value: </p>
+<p><strong>An array of all loaded extensions</strong><br />
+Use the first parameter and specify the <code>$opt_name</code> string. The return value is an array of loaded extensions containing key/pair information of <code>path</code> (the path to the extension) and <code>class</code> (the classname of the extension). On failure, false is returned.</p>
+<p><strong>The path to a specific extension</strong><br />
+First, pass an empty string for the first parameter. This is necessary, otherwise the return value will be the one indicated above. For the second parameter, specify the key name of the desired extension. The return value will be it&#8217;s path.</p>
+<h2>Epilogue</h2>
+<p>In conclusion, we feel the Redux API will assist you in authoring your options panels with additional ease and stability.  That said, we here at Redux frown upon the breaking of backward compatibility.  Should you prefer the &#8216;old way&#8217; of writing your option panels, you are free to continue to do so.  We&#8217;ve kept the legacy sample-config file, now titled <code>sample-config-legacy.php</code> as an example of how those methods work.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/redux-api/">The Redux API</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/redux-api/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Support Defined</title>
+		<link>https://docs.reduxframework.com/core/support-defined/</link>
+		<comments>https://docs.reduxframework.com/core/support-defined/#respond</comments>
+		<pubDate>Wed, 01 Apr 2015 02:04:58 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=932</guid>
+		<description><![CDATA[<p>Who are we? We maintain an open source project entitled Redux Framework. It is used by hundreds of thousands of users across the world, in all walks of life. Redux Framework is used primarily by developers. That means if users of our developers approach us, it is often difficult and sometimes impossible to provide the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support-defined/">Support Defined</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<h3>Who are we?</h3>
+<p>We maintain an open source project entitled Redux Framework. It is used by hundreds of thousands of users across the world, in all walks of life. Redux Framework is used primarily by developers. That means if users of our developers approach us, it is often difficult and sometimes impossible to provide the requested support.</p>
+<h3>Why is that?</h3>
+<p>Redux is built for developers. Without a basic understanding of PHP, error logs, and JavaScript bugs, it is impossible for us to provide solutions to those without the experience of coding in those spaces. We mean no disrespect, but it literally takes us 5 times longer to explain a standard developer concept to a non-developer.</p>
+<h3>But I&#8217;m a user, does that mean I&#8217;m out of luck?!</h3>
+<p>Not entirely. We want to help, we really do. We simply need to be compensated for our time. Not only are we debugging a potential problem in OUR code, but also need to debug a problem within another developer&#8217;s code to help. To do this, we need you to support our project by paying for premium support.</p>
+<h3>But that&#8217;s not fair!</h3>
+<p>It’s not fair that your developer has stopped supporting you, and we sympathize. However, we&#8217;ll be required to find out exactly what your developer was doing, and that takes a LOT of time on our part. We need to charge for that service. Solving problems in third party applications that utilize Redux takes us away from our means of earning an income, not to mention time spent making Redux better.</p>
+<h3>But hey, we&#8217;re willing to help!</h3>
+<p>Really, we want to help! But, at the end of the day we have families to feed and we can&#8217;t offer unlimited support to circumstances beyond our control.</p>
+<h3>Best of Luck!</h3>
+<p>Truly, we wish you best of luck. We&#8217;re not trying to insult; we&#8217;re attempting to justify the time we spend on this project. We hope you understand.</p>
+<h3>I still want support from Redux!</h3>
+<p>If you&#8217;re still interested in support from us, you are welcome to post on our issue tracker at <a href="https://github.com/ReduxFramework/redux-framework/issues" target="_blank">https://github.com/ReduxFramework/redux-framework/issues</a>. Please do not be disappointed if we inform you that we will need you to purchase premium support for us to further assist you.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/support-defined/">Support Defined</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/support-defined/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>IDE Snippets &#038; Templates</title>
+		<link>https://docs.reduxframework.com/core/ide-snippets-templates/</link>
+		<comments>https://docs.reduxframework.com/core/ide-snippets-templates/#respond</comments>
+		<pubDate>Tue, 31 Mar 2015 16:16:50 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=930</guid>
+		<description><![CDATA[<p>Thanks to the great work of our community, and notably @karimhossenbux of Kimono Themes, we now have Snippers for Redux for various IDEs. If you would like to contribute to this effort, please contact support@reduxframework.com. NetBeans Code Templates PHP Storm Live Templates Sublime Text Snippets</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/ide-snippets-templates/">IDE Snippets &#038; Templates</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Thanks to the great work of our community, and notably <a href="http://github.com/karimhossenbux" target="_blank">@karimhossenbux</a> of <a href="http://kimonothemes.com/" target="_blank">Kimono Themes</a>, we now have Snippers for Redux for various IDEs. If you would like to contribute to this effort, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>.</p>
+<ul>
+<li><a href="https://github.com/reduxframework/snippets_netbeans" title="NetBeans Snippets" target="_blank">NetBeans Code Templates</a></li>
+<li><a href="https://github.com/reduxframework/snippets_phpstorm" title="PHP Storm Live Templates" target="_blank">PHP Storm Live Templates</a></li>
+<li><a href="https://github.com/reduxframework/snippets_sublime" title="Sublime Text Snippets" target="_blank">Sublime Text Snippets</a></li>
+</ul>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/ide-snippets-templates/">IDE Snippets &#038; Templates</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/ide-snippets-templates/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Generating a Support Hash</title>
+		<link>https://docs.reduxframework.com/core/generating-a-support-hash/</link>
+		<comments>https://docs.reduxframework.com/core/generating-a-support-hash/#respond</comments>
+		<pubDate>Tue, 31 Mar 2015 14:36:31 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[Support]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=922</guid>
+		<description><![CDATA[<p>In order to provide you with the best support possible, we request you generate a support hash. Doing so is quite easy.  Please note, Redux 3.4.4.8+ is required for this.If you have an early version, please update. First proceed to the Redux Support tab within your Redux instance. You can get there by one of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/generating-a-support-hash/">Generating a Support Hash</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>In order to provide you with the best support possible, we request you generate a support hash. Doing so is quite easy. </p>
+<blockquote><p>Please note, Redux 3.4.4.8+ is required for this.<br />If you have an early version, please update.</p></blockquote>
+<p>First proceed to the Redux Support tab within your Redux instance. You can get there by one of the following ways:</p>
+<ul>
+<li>Visit the site URL directly: ~/wp-admin/tools.php?page=redux-support replacing ~ with your site URL.</li>
+<li>Manually navigate by doing the following:
+<ol>
+<li>Go to your admin panel</li>
+<li>Go to Tools -&gt; Redux Framework</li>
+<li>Click on the Support URL</li>
+</ol>
+</li>
+</ul>
+<p><a href="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM.png"><img src="http://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM.png" alt="Screen Shot 2015-03-31 at 8.35.49 AM" width="956" height="362" class=" size-full wp-image-923 aligncenter" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM.png 956w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM-300x114.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM-60x23.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2015/03/Screen-Shot-2015-03-31-at-8.35.49-AM-150x57.png 150w" sizes="(max-width: 956px) 100vw, 956px" /></a></p>
+<p>Once there, click on the Generate Support Hash button, and then click on developer. Copy the unique URL that&#8217;s generated, and supply it to us in our issue tracker.</p>
+<p><center><strong>It&#8217;s that easy.</strong></center></p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/generating-a-support-hash/">Generating a Support Hash</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/generating-a-support-hash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>The Redux WP_Filesystem Proxy</title>
+		<link>https://docs.reduxframework.com/core/wp_filesystem-proxy/</link>
+		<comments>https://docs.reduxframework.com/core/wp_filesystem-proxy/#respond</comments>
+		<pubDate>Mon, 16 Feb 2015 15:20:09 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[Core]]></category>
+		<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=859</guid>
+		<description><![CDATA[<p>Redux has a WordPress filesystem proxy built in to help you read and write files that will pass Theme-Check. You can use these calls the moment a Redux object has been loaded (your Redux config has been run). Getting Started First, you must get the Redux object. The easiest method is as follows: Now that [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/wp_filesystem-proxy/">The Redux WP_Filesystem Proxy</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Redux has a WordPress filesystem proxy built in to help you read and write files that will pass Theme-Check. You can use these calls the moment a Redux object has been loaded (your Redux config has been run).</p>
+<h2>Getting Started</h2>
+<p>First, you must get the Redux object. The easiest method is as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+$redux = ReduxFrameworkInstances::get_instance('opt_name');
+</pre>
+<p>Now that you have the object, you can begin using the filesystem. It&#8217;s pretty easy to do, you run the following call:</p>
+<pre class="brush: php; title: ; notranslate">
+$redux-&gt;filesystem-&gt;execute( 'action', PATH, $args );
+</pre>
+<p>Below you will find a list of all possible calls, and the arguments associated with each.</p>
+<h2>Chmod / File Permissions</h2>
+<p>By default the WP_FileSystem API uses default values for chmod (read/write permissions). These are in the form of the declared FS_CHMOD_DIR for directories or FS_CHMOD_FILE for files. Do not worry about setting these values yourself.</p>
+<blockquote><p>If you MUST override the default chmod settings, you may pass in a chmod argument for all actions except object and unzip. To do so, pass a string or int: <code>0644</code> as this argument value.</p></blockquote>
+<h2>Possible Calls &#038; Arguments.</h2>
+<h3>&#8220;mkdir&#8221;</h3>
+<p>This action allows you to generate a directory of any kind. It will even make multiple children directories even it if doesn&#8217;t exist.</p>
+<h5>Arguments</h5>
+<p>No arguments exist for this action.</p>
+<h5>Example Declaration</h5>
+<pre class="brush: php; title: ; notranslate">
+if ( ! is_dir( 'DIRPATH' ) ) {
+  $redux-&gt;filesystem-&gt;execute( &quot;mkdir&quot;, self::$_upload_dir );
+}
+</pre>
+<hr style="margin-top: 40px;">
+<h3>&#8220;copy&#8221;</h3>
+<p>This allows you to copy files from one location to another.</p>
+<h5>Arguments</h5>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>name</strong></td>
+<td style="text-align: center;"><strong>type</strong></td>
+<td style="text-align: center;"><strong>required</strong></td>
+<td style="text-align: center;"><strong>description</strong></td>
+</tr>
+<tr>
+<td>destination</td>
+<td>string</td>
+<td>required</td>
+<td>The destination file path.</td>
+</tr>
+<tr>
+<td>overwrite</td>
+<td>boolean</td>
+<td>optional</td>
+<td>Overwrite the files if exist, or by default the WP_FileSystem will skip existing if the file exists.</td>
+</tr>
+</tbody>
+</table>
+<h5>Example Declaration</h5>
+<pre class="brush: php; title: ; notranslate">
+$redux-&gt;filesystem-&gt;execute( 
+	'copy', 
+	'FILE_PATH', 
+	array( 
+		'destination' =&gt; &quot;DESTINATION_PATH&quot; 
+	) 
+);
+</pre>
+<hr style="margin-top: 40px;">
+<h3>&#8220;put_contents&#8221;</h3>
+<p>The same as file_put_contents in PHP, but using the WordPress filesystem API. This will write the contents of a variable to file. This will override any file if it already exists, just like file_put_contents.</p>
+<h5>Arguments</h5>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>name</strong></td>
+<td style="text-align: center;"><strong>type</strong></td>
+<td style="text-align: center;"><strong>required</strong></td>
+<td style="text-align: center;"><strong>description</strong></td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>required</td>
+<td>The content of the file.</td>
+</tr>
+</tbody>
+</table>
+<h5>Example Declaration</h5>
+<pre class="brush: php; title: ; notranslate">
+$redux-&gt;filesystem-&gt;execute( 
+	'put_contents', 
+	'FILE_PATH', 
+	array( 
+		'content' =&gt; &quot;This is the content of the file.&quot; 
+	) 
+);
+</pre>
+<hr style="margin-top: 40px;">
+<h3>&#8220;get_contents&#8221;</h3>
+<p>This will get the contents of a filesystem in any way it can. This will attempt to use the WordPress filesystem first. However, if the file does not have the standard WordPress read permissions, it will fallback to file_get_contents.</p>
+<h5>Arguments</h5>
+<p>No arguments exist for this action.</p>
+<h5>Example Declaration</h5>
+<pre class="brush: php; title: ; notranslate">
+$file_contents = $redux-&gt;filesystem-&gt;execute( 
+	'get_contents', 
+	'FILE_PATH'
+);
+</pre>
+<hr style="margin-top: 40px;">
+<h3>&#8220;object&#8221;</h3>
+<p>This will simply return a valid WordPress FileSystem API object.</p>
+<h5>Arguments</h5>
+<p>No arguments exist for this action.</p>
+<h5>Example Declaration</h5>
+<pre class="brush: php; title: ; notranslate">
+$object = $redux-&gt;filesystem-&gt;execute( 'object' );
+</pre>
+<hr style="margin-top: 40px;">
+<h3>&#8220;unzip&#8221;</h3>
+<p>This allows you to unzip an existing file to a new location.</p>
+<h5>Arguments</h5>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>name</strong></td>
+<td style="text-align: center;"><strong>type</strong></td>
+<td style="text-align: center;"><strong>required</strong></td>
+<td style="text-align: center;"><strong>description</strong></td>
+</tr>
+<tr>
+<td>destination</td>
+<td>string</td>
+<td>required</td>
+<td>The destination to unzip the zip file contents.</td>
+</tr>
+</tbody>
+</table>
+<h5>Example Declaration</h5>
+<pre class="brush: php; title: ; notranslate">
+$redux-&gt;filesystem-&gt;execute( 
+	'unzip', 
+	'ZIP_FILE_PATH', 
+	array( 
+		'destination' =&gt; 'DESTINATION_PATH' 
+	) 
+);
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/wp_filesystem-proxy/">The Redux WP_Filesystem Proxy</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/wp_filesystem-proxy/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Loading Extensions in Your Code</title>
+		<link>https://docs.reduxframework.com/core/advanced/loading-extensions/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/loading-extensions/#comments</comments>
+		<pubDate>Sat, 15 Mar 2014 03:16:56 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[adding extensions]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=448</guid>
+		<description><![CDATA[<p>Extensions are one of the most powerful features of Redux. Any part of Redux can be overloaded to do ANYTHING with extensions. RUN BEFORE YOU CONFIG FILE For extensions to work, you MUST run the extension loader and any config files BEFORE your options panel code. Otherwise it will not be applied. A limitation of [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/loading-extensions/">Loading Extensions in Your Code</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Extensions are one of the most powerful features of Redux. Any part of Redux can be overloaded to do <em>ANYTHING</em> with extensions. </p>
+<h2>RUN BEFORE YOU CONFIG FILE</h2>
+<p>For extensions to work, you MUST run the extension loader and any config files BEFORE your options panel code. Otherwise it will not be applied. A limitation of WordPress hooks I fear.  <img src="https://s.w.org/images/core/emoji/11/72x72/1f609.png" alt="😉" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<h2>Getting Started</h2>
+<p>To make this easy as can be, we&#8217;ve setup a repo for our extensions loader. You can grab that code here: <a href="https://github.com/ReduxFramework/redux-extensions-loader" target="_blank">https://github.com/ReduxFramework/redux-extensions-loader</a></p>
+<h2>Even Easier</h2>
+<p>If you wanted to get started faster, use the Redux Generator found here: <a href="http://generate.reduxframework.com/" target="_blank">http://generate.reduxframework.com/</a>. It will generate for you code allowing you to start however you may need and also customize the function calls so you can sure you won&#8217;t have crossover with other devs.</p>
+<h2>Make a Custom Extension</h2>
+<p>You can make your own custom extension. In fact, if you want to change the way a Redux field does something, you should ALWAYS use an extension instead of modifying the core. We&#8217;ve set up a repo for that too. Grab it here: <a href="https://github.com/ReduxFramework/extension-boilerplate" target="_blank">https://github.com/ReduxFramework/extension-boilerplate</a>.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/loading-extensions/">Loading Extensions in Your Code</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/loading-extensions/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Validation</title>
+		<link>https://docs.reduxframework.com/core/the-basics/validation/</link>
+		<pubDate>Wed, 12 Mar 2014 16:18:23 +0000</pubDate>
+		<dc:creator><![CDATA[Dovy]]></dc:creator>
+				<category><![CDATA[The Basics]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=229</guid>
+		<description><![CDATA[<p>There are many validation options included within Redux. You can also build your own validation option if necessary. Required Fields To make a field required you will need to use the following setting: 'validate' =&#62; 'not_empty' Standard Validation Options HTML: 'validate' =&#62; 'html' No HTML: 'validate' =&#62; 'no_html' CSS: 'validate' =&#62; 'css' Javascript: 'validate' =&#62; [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/validation/">Validation</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[
+<p>There are many validation options included within Redux. You can also build your own validation option if necessary.</p>
+<h2>Required Fields</h2>
+<p>To make a field required you will need to use the following setting:<br />
+<code>'validate' =&gt; 'not_empty'</code></p>
+<h2>Standard Validation Options</h2>
+<ul>
+<li>HTML: <code>'validate' =&gt; 'html'</code>
+</li>
+<li>No HTML: <code>'validate' =&gt; 'no_html'</code>
+</li>
+<li>CSS: <code>'validate' =&gt; 'css'</code>
+</li>
+<li>Javascript: <code>'validate' =&gt; 'js'</code>
+</li>
+<li>Hex Color Value: <code>'validate' =&gt; 'color'</code>
+</li>
+<li>RGBA Color Value: <code>'validate' =&gt; 'colorrgba'</code> (for use with <code>'type' =&gt; 'color_rgba'</code>)</li>
+<li>Email: <code>'validate' =&gt; 'email'</code>
+</li>
+<li>URL: <code>'validate' =&gt; 'url'</code>
+</li>
+<li>Numeric: <code>'validate' =&gt; 'numeric'</code>
+</li>
+<li>Comma Numeric: <code>'validate' =&gt; 'comma_numeric'</code>
+</li>
+<li>Alpha Numeric: <code>'validate' =&gt; 'no_special_chars'</code>
+</li>
+<li>Unique Slug: <code>'validate' =&gt; 'unique_slug'</code> <small> w/ optional <code>flush_permalinks</code> arg that can be add to a field to flush permalinks on successful save.</small>
+</li>
+</ul>
+<h2>Advanced Validation Customization Options and Hooks</h2>
+<h3>Custom HTML Validation</h3>
+<p>You can easily set what HTML is allowed in one of your fields by using the code below. This utilizes wp_kses from core. You can find more information about this here: <a href="http://codex.wordpress.org/Function_Reference/wp_kses">http://codex.wordpress.org/Function_Reference/wp_kses</a></p>
+<pre class="brush: php; title: ; notranslate">    'validate' =&gt; 'html_custom',
+    'allowed_html' =&gt; array( 
+        'a' =&gt; array( 
+            'href' =&gt; array(), 
+            'title' =&gt; array() 
+        ), 
+        'br' =&gt; array(), 
+        'em' =&gt; array(), 
+        'strong' =&gt; array() 
+    )</pre>
+<h3>Replacement Validation</h3>
+<p>You can use validation to change what the user enters in a text field to follow whatever pattern or design you need. There are currently 2 options for replacement validation:</p>
+<p><strong>String Replace Hook</strong></p>
+<pre class="brush: php; title: ; notranslate">    'validate' =&gt; 'str_replace',
+    'str' =&gt; array(
+        'search' =&gt; ' ', 
+        'replacement' =&gt; 'thisisaspace'
+    )</pre>
+<p><strong>Preg Replace Hook</strong></p>
+<pre class="brush: php; title: ; notranslate">    'validate' =&gt; 'preg_replace',
+    'preg' =&gt; array(
+        'pattern' =&gt; '/[^a-zA-Z_ -]/s', 
+        'replacement' =&gt; 'no numbers'
+    )</pre>
+<h3>Custom Validation</h3>
+<p>You can also create your own custom validation if Redux doesn&#8217;t have what you need. Here&#8217;s how&#8230;</p>
+<ol>
+<li>
+<p>Enter your field validation<br />
+<code>'validate_callback' =&gt; 'your_custom_validate_callback_function'</code></p>
+</li>
+<li>
+<p>Create your callback function</p>
+</li>
+</ol>
+<pre class="brush: php; title: ; notranslate">
+    /**
+     * Custom function for the callback validation referenced above
+     **/
+    if (!function_exists('your_custom_validate_callback_function')):
+
+        function your_custom_validate_callback_function($field, $value, $existing_value) {
+            $error = false;
+            $value = 'just testing';
+            /*
+              do your validation
+
+              if(something) {
+              $value = $value;
+              } elseif(something else) {
+              $error = true;
+              $value = $existing_value;
+              $field['msg'] = 'your custom error message';
+              }
+             */
+
+            $return['value'] = $value;
+            if ($error == true) {
+                $return['error'] = $field;
+            }
+            return $return;
+        }
+
+    endif;
+</pre>
+<h2>
+<a name="wiki-fields-that-dont-accept-validation" class="anchor" href="#wiki-fields-that-dont-accept-validation"><span class="octicon octicon-link"></span></a>Fields that Don&#8217;t Accept Validation</h2>
+<p>There are a few fields that do not accept validation currently. Those fields are listed below.</p>
+<ul>
+<li>Checkboxes</li>
+<li>Multi-Checkboxes</li>
+<li>Radio Buttons</li>
+<li>Select Fields</li>
+<li>Muli-Select Fields</li>
+<li>Image Select Fields</li>
+<li>WordPress Select Fields (categories, pages, posts, users, tags, menus, post types, roles, capabilities)</li>
+<li>Icon Font Select Fields</li>
+<li>Date Fields</li>
+<li>Button Sets</li>
+</ul>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/validation/">Validation</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Using Hints in Fields</title>
+		<link>https://docs.reduxframework.com/core/the-basics/using-hints-in-fields/</link>
+		<pubDate>Tue, 11 Mar 2014 23:30:54 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[hints]]></category>
+		<category><![CDATA[tooltips]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=148</guid>
+		<description><![CDATA[<p>Hints may be used within fields, displaying a small question mark icon after (or before) the field title. See the little question mark icon above? When a user moves their mouse over the icon (or clicks in, optionally), a tooltip will display with additional information you provide. How do it all work? Please continue reading. [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/using-hints-in-fields/">Using Hints in Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Hints may be used within fields, displaying a small question mark icon after (or before) the field title.</p>
+<p><img class="aligncenter" alt="Hints" src="https://f.cloud.github.com/assets/3412363/2279395/d65c9d6a-9f6d-11e3-9459-94fe1acb3fb7.png" /></p>
+<p>See the little question mark icon above? When a user moves their mouse over the icon (or clicks in, optionally), a tooltip will display with additional information you provide. How do it all work? Please continue reading.</p>
+<h3>A little housework</h3>
+<p>There are some settings you must specify in the <code>setArguments</code> section of the <code>sample-config.php</code> file (or whatever you have chosen to name your config file). The <code>hints</code> array. Should these not be specified, Redux will use the default settings (explain below). The hints array contains several settings, and a few setting arrays so that the hints feature may be customized as desired. Each will be explained as we go.</p>
+<p>Here is what the default settings inside your global arguments array would look like:</p>
+<pre class="brush: php; title: ; notranslate">
+    $this-&gt;args = array(
+        // ... (list of other arguments in the args array)
+
+        // HINTS
+        'hints' = array(
+            'icon'              =&gt; 'el icon-question-sign',
+            'icon_position'     =&gt; 'right',
+            'icon_color'        =&gt; 'lightgray',
+            'icon_size'         =&gt; 'normal',
+
+            'tip_style'         =&gt; array(
+                'color'     =&gt; 'light',
+                'shadow'    =&gt; true,
+                'rounded'   =&gt; false,
+                'style'     =&gt; '',
+            ),
+            'tip_position'      =&gt; array(
+                'my' =&gt; 'top left',
+                'at' =&gt; 'bottom left',
+            ),
+            'tip_effect' =&gt; array(
+                'show' =&gt; array(
+                    'effect'    =&gt; 'slide',
+                    'duration'  =&gt; '500',
+                    'event'     =&gt; 'mouseover',
+                ),
+                'hide' =&gt; array(
+                    'effect'    =&gt; 'slide',
+                    'duration'  =&gt; '500',
+                    'event'     =&gt; 'click mouseleave',
+                ),
+            ),
+        ),
+    );
+</pre>
+<p>I know that code must seem a little intimidating, but really, it is not. We&#8217;ll start at the top.</p>
+<p><strong>NOTE:</strong> These settings are <strong>global</strong>, which means they will apply to all tool-tips on any given panel.</p>
+<hr />
+<h2>Arguments</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>icon</td>
+<td>string</td>
+<td>&#8216;el icon-question-sign&#8217;</td>
+<td>The icon from the Elusive Icon pack that represents the object where the tool-tip will appear, This happens when the user mouses over (or clicks, if set) the icon.</td>
+</tr>
+<tr>
+<td>icon_position</td>
+<td>string</td>
+<td>&#8216;right&#8217;</td>
+<td>Choose between <code>right</code> or <code>left.</code> The hint icon will appear either to the left of the field title, or to the far right.</td>
+</tr>
+<tr>
+<td>icon_color</td>
+<td>hex string</td>
+<td>&#8216;lightgray&#8217;</td>
+<td>This argument sets the color of the hint icon.</td>
+</tr>
+<tr>
+<td>icon_size</td>
+<td>string</td>
+<td>&#8216;normal&#8217;</td>
+<td>Choose between <code>normal</code> (16px) or <code>large</code> (18px). There are the only two sizes that work well with the feature. Anything else is too small or too big.</td>
+</tr>
+<tr>
+<td>tip_style</td>
+<td>Array</td>
+<td></td>
+<td>An array containing the color, shadow, rounded and style properties for the tool-tip. See the <a href="https://github.com/ReduxFramework/ReduxFramework/wiki/Using-Hints-in-Fields#wiki-tool-tip-styling-options">Tool-tip Style options</a> below.</td>
+</tr>
+<tr>
+<td>tip_position</td>
+<td>Array</td>
+<td></td>
+<td>An array containing the <code>my</code> and <code>at</code> options, which determines in the placement of the tool-tip in relation to the hint icon. See the <a href="https://github.com/ReduxFramework/ReduxFramework/wiki/Using-Hints-in-Fields#wiki-tool-tip-position-options">Tool-tip Positioning</a> section below.</td>
+</tr>
+<tr>
+<td>tip_effect</td>
+<td>Array</td>
+<td></td>
+<td>An array containing the <code>show</code> and <code>hide</code> arrays. Both arrays contain the tool-tip effect properties. These include <code>effect</code>, <code>duration</code>, and <code>event</code> for both `<code>and</code>show`. See the <a href="https://github.com/ReduxFramework/ReduxFramework/wiki/Using-Hints-in-Fields#wiki-tool-tip-effect-options">Tool-tip Effects Options</a> below.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Tool-tip Styling Options</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>&#8216;light&#8217;</td>
+<td>This argument accepts the following colors: <code>cream</code>(default), <code>light</code>, <code>dark</code>, <code>red</code>, <code>green</code>, <code>blue</code><br />
+<img alt="hint_colors" src="https://f.cloud.github.com/assets/3412363/2285814/a24f2382-9fd9-11e3-9975-a7aa786393c7.png" /></td>
+</tr>
+<tr>
+<td>shadow</td>
+<td>bool</td>
+<td>false</td>
+<td>When set, this flag determines if a shadow will appear behind the tool-tip.</td>
+</tr>
+<tr>
+<td>rounded</td>
+<td>bool</td>
+<td>false</td>
+<td>When set, this flag determines if the corners of the tool-tip will be rounded.</td>
+</tr>
+<tr>
+<td>style</td>
+<td>string</td>
+<td></td>
+<td>The argument accepts the following styles, which determines the style in which the tool-tip will be displayed: <code>youtube</code>, <code>tipsy</code>, <code>bootstrap</code>, <code>tipped</code>, <code>jtools</code>, and <code>cluetip</code> (not shown),<br />
+<img alt="hint_style" src="https://f.cloud.github.com/assets/3412363/2285925/d4383dec-9fda-11e3-9d82-fa4352465456.png" /></td>
+</tr>
+</tbody>
+</table>
+<h3><a class="anchor" href="#wiki-tool-tip-position-options" name="wiki-tool-tip-position-options"></a>Tool-tip Position Options</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>my</td>
+<td>string</td>
+<td>&#8216;top left&#8217;</td>
+<td>The area on the tool-tip in which the tip arrow (that points to the hint icon) will appear. See NOTES below.</td>
+</tr>
+<tr>
+<td>at</td>
+<td>string</td>
+<td>&#8216;bottom right&#8217;</td>
+<td>The area on the tool-tip target in which the tool-tip will appear. See NOTES below.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTES:</strong> With the exception of the value <code>center</code>, the values must be passed with a horizontal value on the left (top, center, or bottom), and a vertical value on the right (left, center, right). Any other incorrect or misspelled combination of values will force Redux to use the default value. See the diagram below:</p>
+<p><img class="aligncenter" alt="corners" src="https://f.cloud.github.com/assets/3412363/2279808/5a4c87f6-9f79-11e3-8745-cb1e3c0fa338.jpg" /></p>
+<h3>Tool-tip Effect Options</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show</td>
+<td>array</td>
+<td></td>
+<td>The array which holds the <code>effect</code>, <code>duration</code>, and <code>event</code> properties for displaying the tool-tip. See below</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>array</td>
+<td></td>
+<td>The array which holds the <code>effect</code>, <code>duration</code>, and <code>event</code> properties for dismissing the tool-tip. See below.</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="anchor" href="#wiki-show-and-hide-arguments" name="wiki-show-and-hide-arguments"></a>Show and Hide arguments.</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>effect</td>
+<td>string</td>
+<td>slide</td>
+<td>Choose between <code>''</code> (a blank string), <code>slide</code>, and <code>fade</code></td>
+</tr>
+<tr>
+<td>duration</td>
+<td>int</td>
+<td>500</td>
+<td>The number of microseconds (1 second = 1000) used for the effect to take place.</td>
+</tr>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>show: mouseover, hide: unfocus mouseleave</td>
+<td>A single or combination of events that defines the behavior in which the tool-tip will appear. Generally, for the <code>show</code> event, one might use <code>mouseover</code> or <code>click</code>. For the <code>hide</code> event, any combination of of <code>click</code>, <code>mouseleave</code> and/or <code>unfocus</code>. The unfocus flag is used so the user may click anywhere on the screen to dismiss the tool-tip.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Using Hints with Fields</h3>
+<p>Once the Hint arguments are set, adding Hints to your fields is as easy as adding the following argument to your field array.</p>
+<pre class="brush: php; title: ; notranslate">
+    $field['hint'] = array(
+        array(
+            'title'   =&gt; 'Hint Title',
+            'content' =&gt; 'This is the content of the tool-tip'
+        )
+    );
+</pre>
+<p>The argument <em>must</em> be an array, but adding a title is optional. The content argument accepts HTML styling. The inclusion of the hint argument instructs Redux to automatically generate the hint icon. There is no need to set any other argument.</p>
+<h3>Using Hints with Text Boxes</h3>
+<p>In addition to using Hints to add additional information to the field itself, Hints may also be used to popup a tool-tip when a user clicks on a text box. Enabling this feature is also as easy as adding a single array based argument to the text field.</p>
+<pre class="brush: php; title: ; notranslate">
+    $field['text_hint'] = array(
+        array(
+            'title'   =&gt; 'Entry required!',
+            'content' =&gt; 'This field may not be left blank.'
+        )
+    );
+
+</pre>
+<p>Adding this argument to the text field will display a tool-tip when the text field is selected. As with the Hints feature, the title is optional and HTML is accepted in the content argument.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/using-hints-in-fields/">Using Hints in Fields</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Using the &#8216;Required&#8217; Argument</title>
+		<link>https://docs.reduxframework.com/core/the-basics/required/</link>
+		<pubDate>Tue, 11 Mar 2014 23:28:09 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[The Basics]]></category>
+		<category><![CDATA[required]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=146</guid>
+		<description><![CDATA[<p>Fields may be linked/required/folded according to a/multiple parent value(s). This is accomplished by appending a required argument, similar to the following, on ant given field: The first value of the array is the field ID in which to link the field to. The second value is the operation to perform. The third value is the [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/required/">Using the &#8216;Required&#8217; Argument</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>
+     Fields may be linked/required/folded according to a/multiple parent value(s). This is accomplished by appending a <code>required</code> argument, similar to the following, on ant given field:
+    </p>
+<pre class="brush: php; title: ; notranslate">'required' =&gt; array('layout','equals','1')</pre>
+<ul>
+<li>The first value of the array is the field ID in which to link the field to.
+    </li>
+<li>The second value is the operation to perform.
+    </li>
+<li>The third value is the value to compare against.
+    </li>
+</ul>
+<p>It can also be used with multiple &#8220;parent&#8221; required values. If all of these conditions are not met, this field will not be visible and the output CSS will not be used. An example is as<br />
+    follows:</p>
+<pre class="brush: php; title: ; notranslate">'required' =&gt; array( 
+    array('layout','equals','1'), 
+    array('parent','!=','Testing') 
+)</pre>
+<h3>
+     Possible Operations<br />
+    </h3>
+<table>
+<thead>
+<tr>
+<th align="center">
+            Keys
+        </th>
+<th align="center">
+            Comparison Operation
+        </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">
+            =
+        </td>
+<td align="center">
+            $a = $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            equals
+        </td>
+<td align="center">
+            $a = $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            !=
+        </td>
+<td align="center">
+            $a != $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            not
+        </td>
+<td align="center">
+            $a != $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            &gt;
+        </td>
+<td align="center">
+            $a &gt; $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            greater
+        </td>
+<td align="center">
+            $a &gt; $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            is_larger
+        </td>
+<td align="center">
+            $a &gt; $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            &gt;=
+        </td>
+<td align="center">
+            $a &gt;= $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            greater_equal
+        </td>
+<td align="center">
+            $a &gt;= $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            is_larger_equal
+        </td>
+<td align="center">
+            $a &gt;= $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            &lt;
+        </td>
+<td align="center">
+            $a &lt; $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            less
+        </td>
+<td align="center">
+            $a &lt; $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            is_smaller
+        </td>
+<td align="center">
+            $a &lt; $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            &lt;=
+        </td>
+<td align="center">
+            $a &lt;= $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            less_equal
+        </td>
+<td align="center">
+            $a &lt;= $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            is_smaller_equal
+        </td>
+<td align="center">
+            $a &lt;= $b
+        </td>
+</tr>
+<tr>
+<td align="center">
+            contains
+        </td>
+<td align="center">
+            (strpos($a, $b) !== false)
+        </td>
+</tr>
+<tr>
+<td align="center">
+            doesnt_contain
+        </td>
+<td align="center">
+            (strpos($a, $b) === false)
+        </td>
+</tr>
+<tr>
+<td align="center">
+            not_contain
+        </td>
+<td align="center">
+            (strpos($a, $b) === false)
+        </td>
+</tr>
+<tr>
+<td align="center">
+            is_empty_or
+        </td>
+<td align="center">
+            if (empty($value1)
+        </td>
+</tr>
+<tr>
+<td align="center">
+            not_empty_and
+        </td>
+<td align="center">
+            if (!empty($value1) &amp;&amp; $value1 != $value2)
+        </td>
+</tr>
+</tbody>
+</table>
+<h2>
+     Nested<br />
+    </h2>
+<p>
+     As of Redux 3.2.0 nested fully works! You can nest these requirements as much as you want. If any parent is hidden or doesn&#8217;t match the value, all children are hidden and all CSS output from those children is hidden as well.</p>
+<h2>
+     CSS Output<br />
+    </h2>
+<p>
+     CSS output to both the head and compiler is removed from each field if the required value(s) is/are not met. You can, however, override this on a per field basis by setting <code>'force_output' =&gt; true</code> for each field you want CSS to still be output with. This way you can nest a field under another, and still have it output to the dynamic CSS.
+    </p>
+<p>
+     <em>The CSS output will always be visible if items are within a <code>section</code> field unless that specific field has the required value set to the required parent as well.</em>
+    </p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/the-basics/required/">Using the &#8216;Required&#8217; Argument</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

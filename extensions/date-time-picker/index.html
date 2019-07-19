@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+Date-Time Picker &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>Date-Time Picker &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Date-Time Picker &raquo; Redux Documentation" />
+<meta property="og:description" content="The Redux Date-Time Picker (DTP) extension is a new way to select dates and times for use in text fields.  The DTP contains several modes based no how you would like to display time and date data.   Include all date-time info in one text box?  No problem!  Split the time into its own text box?  &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/extensions/date-time-picker/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="date" />
+<meta property="article:tag" content="date picker" />
+<meta property="article:tag" content="datetime" />
+<meta property="article:tag" content="datetime picker" />
+<meta property="article:tag" content="time" />
+<meta property="article:tag" content="time picker" />
+<meta property="article:section" content="Extensions" />
+<meta property="article:published_time" content="2014-08-14T01:29:03+00:00" />
+<meta property="article:modified_time" content="2014-08-15T17:53:12+00:00" />
+<meta property="og:updated_time" content="2014-08-15T17:53:12+00:00" />
+<meta property="og:image" content="../../wp-content/uploads/sites/4/2014/08/dtp_split.png" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../comments/feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-date-time-picker-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-date-time-picker-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-488 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../index.html">
+            <img alt="Redux Documentation" src="../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">Date-Time Picker</h1>
+  <div id="breadcrumbs"><a href="../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../category/extensions/index.html" title="View all posts in Extensions" >Extensions</a> <span class="sep">/</span>Date-Time Picker</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2014-08-14" itemprop="datePublished">August 14, 2014</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../category/extensions/index.html" rel="category tag">Extensions</a>    </li>
+
+
+</ul>
+  
+    <article id="post-488" class="clearfix post-488 post type-post status-publish format-standard hentry category-extensions tag-date tag-date-picker tag-datetime tag-datetime-picker tag-time tag-time-picker">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p>The Redux Date-Time Picker (DTP) extension is a new way to select dates and times for use in text fields.  The DTP contains several modes based no how you would like to display time and date data.   Include all date-time info in one text box?  No problem!  Split the time into its own text box?  No problem!  Have need to set ranges for dates or times?  We&#8217;ve got you covered there too!</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="../../core/advanced/loading-extensions/index.html">Loading Extensions</a>.  To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>.  Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;datetime&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="../../core/advanced/integrating-a-compiler/index.html"> More info</a></td>
+</tr>
+<tr>
+<td>date-format</td>
+<td>str</td>
+<td>&#8216;mm-dd-yy&#8217;</td>
+<td>String to assign the format of the date output.  For more info, please see &#8216;Date Formatting&#8217; below.</td>
+</tr>
+<tr>
+<td>time-format</td>
+<td>str</td>
+<td>h:mm TT z&#8217;</td>
+<td>String to assign the format of the time output.  For more info, please see &#8216;Time Formatting&#8217; below.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="../../core/the-basics/required/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>date-picker</td>
+<td>string</td>
+<td>true</td>
+<td>Flag that sets the display or hiding of the date picker portion of the picker window.</td>
+</tr>
+<tr>
+<td>time-picker</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag that sets the display or hiding of the time picker portion of the picker window.</td>
+</tr>
+<tr>
+<td>split</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set whether the date and time will be separated into their own fields.  See &#8216;Split Mode&#8217; below.</td>
+</tr>
+<tr>
+<td>separator</td>
+<td>string</td>
+<td>&#8216;  &#8216; (two spaces)</td>
+<td>String that appears between the date and time when split more is false.  Blanks or characters may be used.</td>
+</tr>
+<tr>
+<td>control-type</td>
+<td>string</td>
+<td>&#8216;slider&#8217;</td>
+<td>string command determining the interface of the time picker.  Choose between select slider.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string/array</td>
+<td></td>
+<td>Text to display in the input when no value is present.  See &#8216;Placeholder Options&#8217; below.</td>
+</tr>
+<tr>
+<td>num-of-months</td>
+<td>int</td>
+<td></td>
+<td>The number of calendar months to display in the datepicker.</td>
+</tr>
+<tr>
+<td>timezone-list</td>
+<td>array</td>
+<td></td>
+<td>An array of timezones values used to populate the timezone select: <code>array('value' =&gt; 'EST', 'label' =&gt; 'Eastern')</code>. The value should be the offset number in minutes. So &#8220;-0400&#8221; which is the format &#8220;-hhmm&#8221;, would equate to -240 minutes.</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>int/string</td>
+<td></td>
+<td>Default timezone to display in the timezone list.  This is the offset in minutes. If null the browser&#8217;s local timezone will be used. If your timezone is &#8220;-0400&#8221; you would use -240. For backwards compatibility you may pass &#8220;-0400&#8221;, however the timezone is stored in minutes and more reliable.</td>
+</tr>
+<tr>
+<td>hour-min</td>
+<td>int</td>
+<td></td>
+<td>The minimum hour allowed for all dates.</td>
+</tr>
+<tr>
+<td>hour-max</td>
+<td>int</td>
+<td></td>
+<td>The maximum hour allowed for all dates.</td>
+</tr>
+<tr>
+<td>minute-min</td>
+<td>int</td>
+<td></td>
+<td>The minimum minute allowed for all dates.</td>
+</tr>
+<tr>
+<td>minute-max</td>
+<td>int</td>
+<td></td>
+<td>The maximum minute allowed for all dates.</td>
+</tr>
+<tr>
+<td>date-min</td>
+<td>int/array</td>
+<td></td>
+<td>Array of minimum month, day, year values.  See &#8216;Min/Max Date Options&#8217; below.</td>
+</tr>
+<tr>
+<td>date-max</td>
+<td>int/array</td>
+<td></td>
+<td>Array of maximum month, day, year values.  See &#8216;Min/Max Date Options&#8217; below.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="../../core/the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Placeholder Options</h2>
+<p>The placeholder argument, if used, must be set in accordance with the split argument.  Consider the following field arguments.</p>
+<h3>When <code>split</code> is set to <code>true</code></h3>
+<pre class="brush: php; title: ; notranslate" title="">
+'placeholder' =&gt; Array (
+    'date' =&gt; 'Date',
+    'time' =&gt; 'Time'
+)
+</pre>
+<h3>When <code>split</code> is set to <code>false</code></h3>
+<pre class="brush: php; title: ; notranslate" title="">
+'placeholder' =&gt; 'Datetime'
+</pre>
+<h2>Min/Max Date Options</h2>
+<p>The <code>date-min</code> and <code>date-max</code> arguments accept either an integer value or the array value shown in the table below.  When setting the <code>date-min</code> and <code>date-max</code> arguments as integers, the <code>date-min</code> argument begins the selectable range with the number of days beginning at the current date.  Setting it to <code>0</code> begins the selectable range at today&#8217;s date, setting it to <code>1</code> begins on the day after the current date, and so on.  The <code>date-max</code> argument as an integer sets the number of days in the actual range.  Setting it to <code>30</code> would create a 30 day range.</p>
+<p>Alternatively, setting the <code>date-min</code> and <code>date-max</code> ranges as an array of month, day, and year values allows you to select a date specific range at any point in the calender.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>month</td>
+<td>int</td>
+<td></td>
+<td>The one or two digit integer expressing the month.</td>
+</tr>
+<tr>
+<td>day</td>
+<td>int</td>
+<td></td>
+<td>The one or two digit integer expressing the day.</td>
+</tr>
+<tr>
+<td>year</td>
+<td>int</td>
+<td></td>
+<td>The four digit integer expressing the year.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>Split Mode</h2>
+<h4>When <code>split</code> mode is set to <code>true</code>:</h4>
+<p><a href="../../wp-content/uploads/sites/4/2014/08/dtp_split.png"><img src="../../wp-content/uploads/sites/4/2014/08/dtp_split.png" alt="dtp_split" class="alignnone size-full wp-image-578" height="73" width="607" srcset="../../wp-content/uploads/sites/4/2014/08/dtp_split.png 607w, ../../wp-content/uploads/sites/4/2014/08/dtp_split-300x36.png 300w, ../../wp-content/uploads/sites/4/2014/08/dtp_split-60x7.png 60w, ../../wp-content/uploads/sites/4/2014/08/dtp_split-150x18.png 150w" sizes="(max-width: 607px) 100vw, 607px" /></a></p>
+<p>When <code>split</code> mode is set to <code>false</code>:<br /><a href="../../wp-content/uploads/sites/4/2014/08/dtp_nosplit.png"><img src="../../wp-content/uploads/sites/4/2014/08/dtp_nosplit.png" alt="dtp_nosplit" class="alignnone size-full wp-image-577" height="76" width="605" srcset="../../wp-content/uploads/sites/4/2014/08/dtp_nosplit.png 605w, ../../wp-content/uploads/sites/4/2014/08/dtp_nosplit-300x37.png 300w, ../../wp-content/uploads/sites/4/2014/08/dtp_nosplit-60x7.png 60w, ../../wp-content/uploads/sites/4/2014/08/dtp_nosplit-150x18.png 150w" sizes="(max-width: 605px) 100vw, 605px" /></a></p>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate" title="">
+array (
+    'id'            =&gt; 'opt-date-time',
+    'type'          =&gt; 'datetime',
+    'title'         =&gt; 'Date/Time Picker',
+    'subtitle'      =&gt; 'Date/Time Picker extension',
+    'split'         =&gt; false,
+    'separator'     =&gt; ' @ ',
+
+    // Optional timezone list
+    'timezone-list' =&gt; array(
+        array('value' =&gt; -300, 'label' =&gt; 'Eastern'),
+        array('value' =&gt; -360, 'label' =&gt; 'Central'),
+        array('value' =&gt; -420, 'label' =&gt; 'Moutain'),
+        array('value' =&gt; -480, 'label' =&gt; 'Pacific')
+    ),
+
+    // Alternative method to display time zone data
+    // 'timezone-list' =&gt; array(
+    //     array('value' =&gt; 'EST', 'label' =&gt; 'Eastern'),
+    //     array('value' =&gt; 'CST', 'label' =&gt; 'Central'),
+    //     array('value' =&gt; 'GMT', 'label' =&gt; 'Moutain'),
+    //     array('value' =&gt; 'PST', 'label' =&gt; 'Pacific')
+    // ),
+
+    'timezone'      =&gt; '-300'
+
+    // Optional Min/Max hour values
+    'hour-min'      =&gt; 8,
+    'hour-max'      =&gt; 16,
+
+    // Optional Min/Max minute values
+    'minute-min'    =&gt; 20,
+    'minute-max'    =&gt; 40,
+
+    // Optional Min/Max date values.
+    // Creates a selectable date range between the current date 
+    // and 30 days from the current date.
+    'date-min'      =&gt; 0,
+    'date-max'      =&gt; 30,
+
+    // Alternative Min/Max date values.
+    // Selects a selectable date range between 10/5/2014 to 11/15/2014
+    // 'date-min'      =&gt; array(
+    //     'month' =&gt; 10,
+    //     'day'   =&gt; 5,
+    //     'year'  =&gt; 2014
+    // ),
+    // 'date-max'      =&gt;  array(
+    //     'month' =&gt; 11,
+    //     'day'   =&gt; 15,
+    //     'year'  =&gt; 2014
+    // )
+),
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <code><a href="../../redux-framework/arguments/opt_name/index.html" title="opt_name">opt_name</a></code> argument.</p>
+<pre class="brush: php; title: ; notranslate" title="">
+global $redux_demo;
+
+// When split mode is set to false.
+echo 'Datetime output: ' . $redux_demo['opt_date-time'];
+
+// When split mode is set to true.
+echo 'Date output: ' . $redux_demo['opt-date-time']['date'];
+echo 'Time output: ' . $redux_demo['opt-date-time']['time'];
+</pre>
+<h3>Date Formatting</h3>
+<p>Format a date into a string value with a specified format. The format can be combinations of the following:</p>
+<ul>
+<li><strong>d</strong> &#8211; day of month (no leading zero)</li>
+<li><strong>dd</strong> &#8211; day of month (two digit)</li>
+<li><strong>o</strong> &#8211; day of the year (no leading zeros)</li>
+<li><strong>oo</strong> &#8211; day of the year (three digit)</li>
+<li><strong>D</strong> &#8211; day name short</li>
+<li><strong>DD</strong> &#8211; day name long</li>
+<li><strong>m</strong> &#8211; month of year (no leading zero)</li>
+<li><strong>mm</strong> &#8211; month of year (two digit)</li>
+<li><strong>M</strong> &#8211; month name short</li>
+<li><strong>MM</strong> &#8211; month name longy &#8211; year (two digit)</li>
+<li><strong>y</strong> &#8211; year (two digit)</li>
+<li><strong>yy</strong> &#8211; year (four digit)</li>
+<li><strong>@</strong> &#8211; Unix timestamp (ms since 01/01/1970)</li>
+<li><strong>!</strong> &#8211; Windows ticks (100ns since 01/01/0001)</li>
+<li><strong>&#8216;&#8230;&#8217;</strong> &#8211; literal text&#8221; &#8211; single quoteanything else &#8211; literal text</li>
+</ul>
+<h3>Time Formatting</h3>
+<p>Format a time into a string value with a specified format.  The format can be combinations of the following:</p>
+<ul>
+<li><strong>H</strong> &#8211; Hour with no leading 0 (24 hour)</li>
+<li><strong>HH</strong> &#8211; Hour with leading 0 (24 hour)</li>
+<li><strong>h</strong> &#8211; Hour with no leading 0 (12 hour)</li>
+<li><strong>hh</strong> &#8211; Hour with leading 0 (12 hour)</li>
+<li><strong>m</strong> &#8211; Minute with no leading 0</li>
+<li><strong>mm</strong> &#8211; Minute with leading 0</li>
+<li><strong>s</strong> &#8211; Second with no leading 0</li>
+<li><strong>ss</strong> &#8211; Second with leading 0</li>
+<li><strong>l</strong> &#8211; Milliseconds always with leading 0</li>
+<li><strong>c</strong> &#8211; Microseconds always with leading 0</li>
+<li><strong>t</strong> &#8211; a or p for AM/PMTA or P for AM/PM</li>
+<li><strong>tt</strong> &#8211; am or pm for AM/PMTTAM or PM for AM/PM</li>
+<li><strong>z</strong> &#8211; Timezone as defined by timezoneListZTimezone in Iso 8601 format (+04:45)</li>
+<li><strong>&#8216;&#8230;&#8217; </strong>&#8211; Literal text (Uses single quotes)</li>
+</ul>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../tag/date/index.html" rel="tag">date</a><a href="../../tag/date-picker/index.html" rel="tag">date picker</a><a href="../../tag/datetime/index.html" rel="tag">datetime</a><a href="../../tag/datetime-picker/index.html" rel="tag">datetime picker</a><a href="../../tag/time/index.html" rel="tag">time</a><a href="../../tag/time-picker/index.html" rel="tag">time picker</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../taxonomy/index.html" rel="bookmark" title="Taxonomy">Taxonomy</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../google-maps/index.html" rel="bookmark" title="Google Maps">Google Maps</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../using-extensions/index.html" rel="bookmark" title="About Extensions">About Extensions</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../accordion/index.html" rel="bookmark" title="Accordion">Accordion</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../icon-select/index.html" rel="bookmark" title="Icon Select">Icon Select</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../custom-fonts/index.html" rel="bookmark" title="Custom Fonts">Custom Fonts</a></h4>
+        </li>
+
+</ul></section>
+      
+    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

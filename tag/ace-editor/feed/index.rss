@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ace editor &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/ace-editor/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>ACE Editor</title>
+		<link>https://docs.reduxframework.com/core/fields/ace-editor/</link>
+		<pubDate>Mon, 10 Mar 2014 20:04:11 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Fields]]></category>
+		<category><![CDATA[ace editor]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[default]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[mode]]></category>
+		<category><![CDATA[permissions]]></category>
+		<category><![CDATA[required]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[theme]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=13</guid>
+		<description><![CDATA[<p>The ACE Editor field offers the ability to edit back-end code in an easy to use and easy to read embedded interface.  In addition to matching the features of native code editors such as Sublime, Vim and TextMate, ACE offers real-time checking for code accuracy. Arguments hintsarrayArray containing the content and optional title arguments for [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/ace-editor/">ACE Editor</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="text-align: justify">The ACE Editor field offers the ability to edit back-end code in an easy to use and easy to read embedded interface.  In addition to matching the features of native code editors such as <a href="http://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0CCUQFjAA&amp;url=http%3A%2F%2Fwww.sublimetext.com%2F&amp;ei=5MAfU9vSOs_KkQfUnIGwBw&amp;usg=AFQjCNHeDtH9qLiUebuy99ldU-zJxasqGg&amp;sig2=4OIraSkZYw0uYuZZ1U1pVQ&amp;bvm=bv.62788935,d.eW0" target="_blank">Sublime</a>, <a href="http://www.vim.org/" target="_blank">Vim </a>and <a href="http://macromates.com/" target="_blank">TextMate</a>, ACE offers real-time checking for code accuracy.</p>
+<p style="text-align: center"><img class="alignnone size-full wp-image-137" src="/wp-content/uploads/sites/4/2014/03/110f1fbc-513c-11e3-9e02-2c5038e44b43.png" alt="110f1fbc-513c-11e3-9e02-2c5038e44b43" width="816" height="254" srcset="https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/110f1fbc-513c-11e3-9e02-2c5038e44b43.png 816w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/110f1fbc-513c-11e3-9e02-2c5038e44b43-300x93.png 300w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/110f1fbc-513c-11e3-9e02-2c5038e44b43-60x18.png 60w, https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/110f1fbc-513c-11e3-9e02-2c5038e44b43-150x46.png 150w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<hr />
+<h3 style="text-align: left">Arguments</h3>
+<p>hintsarrayArray containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip.  <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info.</a></p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center"><strong>Name</strong></td>
+<td style="text-align: center"><strong>Type</strong></td>
+<td style="text-align: center"><strong>Default</strong></td>
+<td style="text-align: center"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;ace_editor&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field.  Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Display title of the option.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the option, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the option, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td></td>
+<td>Flag to set the compiler hook, or array of CSS selectors which passes dynamic CSS to the compiler hook.  <a class="more_info" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Array of three values: Parent field ID, comparison operator, and value which affects the field&#8217;s visibility.  <a class="more_info" href="/redux-framework/the-basics/output-2/"><i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>permissions</td>
+<td>string</td>
+<td></td>
+<td>String specifying the capability required to view the section. <a class="more_info" href="/redux-framework/fields/using-permissions/"> <i class="el-icon-circle-arrow-right"></i> More info.</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>string</td>
+<td></td>
+<td>Default text to be displayed in the editor.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>&#8216;javascript&#8217;</td>
+<td>Sets the language mode of the editor.  Accepts:  <code>css</code> <code>html</code> <code>javascript </code> <code>json</code> <code>less</code> <code>markdown</code> <code>mysql</code> <code>php</code> <code>plain_text</code> <code>sass</code> <code>scss</code> <code>text</code> <code>xml</code></td>
+</tr>
+<tr>
+<td>theme</td>
+<td>string</td>
+<td>&#8216;monokai&#8217;</td>
+<td>Sets the theme of the editor.  Accepts: <code>chrome</code> or <code>monokai</code></td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td>array(&#8216;minLines&#8217;=&gt; 12, &#8216;maxLines&#8217; =&gt; 30)</td>
+<td>Pass any option to the Ace Editor object. For more details visit: <a href="http://ace.c9.io/">http://ace.c9.io/</a> and the <a href="https://github.com/ajaxorg/ace/wiki/Configuring-Ace" target="_blank">Configuring Ace Wiki.</a></td>
+</tr>
+</tbody>
+</table>
+<ul class="more_info_list">
+<li><a class="more_info" title="The ‘Required’ Argument" href="/redux-framework/the-basics/the-required-argument/"><i class="el-icon-circle-arrow-right"></i> Using the Required Argument</a></li>
+<li><a class="more_info" title="Integrating a Compiler" href="/redux-framework/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> Using the Compiler Argument</a></li>
+<li><a class="more_info" title="The ‘Permissions’ Argument" href="/redux-framework/fields/using-permissions/"><i class="el-icon-circle-arrow-right"></i> Using the Permissions Argument</a></li>
+<li><a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> Using Hints</a></li>
+</ul>
+<hr />
+<h3>Example Declaration</h3>
+<pre class="brush: php; title: ; notranslate">
+    $fields = array(
+        'id'       =&gt; 'css_editor',
+        'type'     =&gt; 'ace_editor',
+        'title'    =&gt; __('CSS Code', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Paste your CSS code here.', 'redux-framework-demo'),
+        'mode'     =&gt; 'css',
+        'theme'    =&gt; 'monokai',
+        'desc'     =&gt; 'Possible modes can be found at &lt;a href=&quot;http://ace.c9.io&quot; target=&quot;_blank&quot;&gt;http://ace.c9.io/&lt;/a&gt;.',
+        'default'  =&gt; &quot;#header{\nmargin: 0 auto;\n}&quot;
+    );
+</pre>
+<h3>Example Usage</h3>
+<p>This example in based on the example usage provided above. Be sure to change <code>$redux_demo</code> to the value you specified in your <a title="opt_name" href="/redux-framework/arguments/opt_name/"><code>opt_name</code> argument.</a></p>
+<pre class="brush: php; title: ; notranslate">
+    global $redux_demo;
+
+    echo 'ACE Editor output: ' . $redux_demo['css-editor'];
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/fields/ace-editor/">ACE Editor</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

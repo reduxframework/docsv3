@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dynamic css &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/dynamic-css/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Updating a CSS File Dynamically</title>
+		<link>https://docs.reduxframework.com/core/advanced/updating-a-css-file-dynamically/</link>
+		<pubDate>Sat, 15 Mar 2014 02:48:54 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[dynamic css]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=441</guid>
+		<description><![CDATA[<p>One of Redux&#8217;s most underrated features is the ability to update a CSS file on your server dynamically using compiler output. In other words, it&#8217;s possible to update a single CSS&#8217;s file contents when a user changes any given option. It&#8217;s one step above using Redux&#8217;s output feature which updates the CSS within the actual [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/updating-a-css-file-dynamically/">Updating a CSS File Dynamically</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>One of Redux&#8217;s most underrated features is the ability to update a CSS file on your server dynamically using compiler output. In other words, it&#8217;s possible to update a single CSS&#8217;s file contents when a user changes any given option. It&#8217;s one step above using Redux&#8217;s <code>output</code> feature which updates the CSS within the actual page. Yes, we give you <em>both</em> options! This article covers the compiler output option.</p>
+<h3>Setting up the compiler_action function</h3>
+<p>For purposes of this article, we&#8217;re going to use the sample-config.php file that comes with the Redux installation. If you are using a different config file, you&#8217;ll need to update it as needed.</p>
+<p>First, in the <code>initSettings</code> function of the sample-config is a commented out line that reads:</p>
+<pre>add_filter('redux/options/'.$this-&gt;args['opt_name'].'/compiler', array( $this, 'compiler_action' ), 10, 3);</pre>
+<p>Uncomment this line. If you do not see this line, add it.</p>
+<p>Next, included with the sample-config is a function titled <code>compiler_action</code>. The contents of this function are commented out by default. They will need to be uncommented so it looks like the following:</p>
+<pre class="brush: php; title: ; notranslate">
+function compiler_action($options, $css, $changed_values) {
+    global $wp_filesystem;
+
+    $filename = dirname(__FILE__) . '/style.css';
+
+    if( empty( $wp_filesystem ) ) {
+        require_once( ABSPATH .'/wp-admin/includes/file.php' );
+        WP_Filesystem();
+    }
+
+    if( $wp_filesystem ) {
+        $wp_filesystem-&gt;put_contents(
+            $filename,
+            $css,
+            FS_CHMOD_FILE // predefined mode settings for WP files
+        );
+    }
+}
+</pre>
+<p>The <code>compiler_action</code> function passes two variables. The first is <code>$options</code> which in an array of the option values. The second is <code>$css</code>, which are the CSS selectors passed via the compiler argument, which is discussed later on.</p>
+<p>Please note the second line of the code block that sets the <code>$filename</code> variable. It&#8217;s the path (not URL) to a file called <code>style.css</code> which is assumed is in the same directory as your config file. If the CSS file you wish to update is located someplace else or named something different, you&#8217;ll need to update the path statement on that line accordingly. Nothing else in the provided code block needs to (or should) be changed. Of course, if addition code is required to manipulate the CSS output, it should be added in the function as well.</p>
+<h3>The compiler argument</h3>
+<p>All that left to do at this point is to include a <code>'compiler' =&gt; array()</code> key/pair argument in the field array you&#8217;d like to pass CSS selectors. For this example, we&#8217;ll use the <code>color</code> field. The following could be placed in the <code>fields</code> argument in any <a title="Getting Started with Sections" href="/redux-framework/sections/getting-started-with-sections/">section</a> array</p>
+<pre class="brush: php; title: ; notranslate">
+    array(
+        'id'       =&gt; 'color-background',
+        'type'     =&gt; 'color',
+        'compiler' =&gt; array('body'),
+        'title'    =&gt; __('Body Background Color', 'redux-framework-demo'),
+        'subtitle' =&gt; __('Pick a background color for the theme (default: #fff).', 'redux-framework-demo'),
+        'default'  =&gt; '#FFFFFF',
+        'validate' =&gt; 'color',
+    ),
+</pre>
+<p>When the option is updated, the CSS file is also updated with the newly chosen color. By default, Redux assign the new value to the <code>color:</code> selector. If you&#8217;d prefer to assign the value to a different selector, specify it via the field&#8217;s <code>mode</code> argument (i.e. &#8211; <code>'mode' =&gt; 'background-color'</code>). Since the value of the compiler argument is an array, selectors may be chained should you want to update multiple selector values. For example this chain would update multiple CSS selectors:</p>
+<pre>'compiler' =&gt; array('body', '.site-title', '.site-footer'),</pre>
+<p>Any field that supports <code>output</code> also supports compiler output. To verify if a field you&#8217;d like to use is output ready, please review the list of <a title="Getting started with Fields" href="/redux-framework/fields/getting-started-with-fields/">Fields</a> offered with Redux.</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/updating-a-css-file-dynamically/">Updating a CSS File Dynamically</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

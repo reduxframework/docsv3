@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+CSS Layout &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>CSS Layout &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CSS Layout &raquo; Redux Documentation" />
+<meta property="og:description" content="The CSS Layout extension is a new way to set margins, padding and borders (including radius) all from one field.  Getting Started To understand how to use extensions, you should read this article on Loading Extensions. To shortcut the process, you should use the Redux Generator. Please be aware that a working knowledge of PHP &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/extensions/css-layout/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="border" />
+<meta property="article:tag" content="border-bottom" />
+<meta property="article:tag" content="border-color" />
+<meta property="article:tag" content="border-left" />
+<meta property="article:tag" content="border-radius" />
+<meta property="article:tag" content="border-right" />
+<meta property="article:tag" content="border-style" />
+<meta property="article:tag" content="border-top" />
+<meta property="article:tag" content="css" />
+<meta property="article:tag" content="css layout" />
+<meta property="article:tag" content="layout" />
+<meta property="article:tag" content="margin" />
+<meta property="article:tag" content="margin-bottom" />
+<meta property="article:tag" content="margin-left" />
+<meta property="article:tag" content="margin-right" />
+<meta property="article:tag" content="margin-top" />
+<meta property="article:tag" content="padding" />
+<meta property="article:tag" content="padding-bottom" />
+<meta property="article:tag" content="padding-left" />
+<meta property="article:tag" content="padding-right" />
+<meta property="article:tag" content="padding-top" />
+<meta property="article:tag" content="radius" />
+<meta property="article:section" content="Extensions" />
+<meta property="article:published_time" content="2014-08-17T01:00:39+00:00" />
+<meta property="article:modified_time" content="2014-08-17T01:02:04+00:00" />
+<meta property="og:updated_time" content="2014-08-17T01:02:04+00:00" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../comments/feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-css-layout-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-extensions-css-layout-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-592 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../index.html">
+            <img alt="Redux Documentation" src="../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">CSS Layout</h1>
+  <div id="breadcrumbs"><a href="../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../category/extensions/index.html" title="View all posts in Extensions" >Extensions</a> <span class="sep">/</span>CSS Layout</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2014-08-17" itemprop="datePublished">August 17, 2014</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../category/extensions/index.html" rel="category tag">Extensions</a>    </li>
+
+
+</ul>
+  
+    <article id="post-592" class="clearfix post-592 post type-post status-publish format-standard hentry category-extensions tag-border tag-border-bottom tag-border-color tag-border-left tag-border-radius tag-border-right tag-border-style tag-border-top tag-css tag-css-layout tag-layout tag-margin tag-margin-bottom tag-margin-left tag-margin-right tag-margin-top tag-padding tag-padding-bottom tag-padding-left tag-padding-right tag-padding-top tag-radius">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <p>The CSS Layout extension is a new way to set margins, padding and borders (including radius) all from one field.  </p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="../../core/advanced/loading-extensions/index.html">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;css_layout&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool/array</td>
+<td>false</td>
+<td>Flag to run the compiler hook or array of CSS selectors to pass dynamic CSS to the compiler hook. <a title="Integrating a Compiler" href="../../core/advanced/integrating-a-compiler/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output</td>
+<td>array</td>
+<td></td>
+<td>Array of CSS selectors to dynamically generate CSS. <a class="more_info" href="../../core/the-basics/output-2/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>output-shorthand</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set whether or not outputted CSS for <code>margin</code>, <code>border</code>, and <code>padding</code> is in shorthand format.</td>
+</tr>
+<tr>
+<td>units</td>
+<td>array</td>
+<td>&#8216;%&#8217;, &#8216;px&#8217;, &#8216;in&#8217;, &#8216;cm&#8217;, &#8216;mm&#8217;, &#8217;em&#8217;, &#8216;rem&#8217;, &#8216;ex&#8217;, &#8216;pt&#8217;, &#8216;pc&#8217;</td>
+<td>Array of permissible units to be used in the CSS layout field.  Units not specified in this array will be rejected and replaced with the default.</td>
+</tr>
+<tr>
+<td>margin-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the margin layout.</td>
+</tr>
+<tr>
+<td>border-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the border layout.</td>
+</tr>
+<tr>
+<td>radius-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the border radius.</td>
+</tr>
+<tr>
+<td>padding-unit</td>
+<td>string</td>
+<td>&#8216;px&#8217;</td>
+<td>Default unit for the padding layout.</td>
+</tr>
+<tr>
+<td>required</td>
+<td>array</td>
+<td></td>
+<td>Provide the parent, comparison operator, and value which affects the field&#8217;s visibility. <a class="more_info" href="../../core/the-basics/required/index.html"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>default</td>
+<td>array</td>
+<td></td>
+<td>Array of default values to appear inside the CSS layout field.  See &#8216;CSS Layout Defaults&#8217; below.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>array</td>
+<td></td>
+<td>Array of options defining the CSS Layout field.  See &#8216;CSS Layout Options&#8217; below.</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>&#8211;</td>
+<td>Text to display in the input fields when no value is present.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="../../core/the-basics/using-hints-in-fields/index.html"><i class="el-icon-circle-arrow-right"></i>More info</a></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<h2>CSS Layout Defaults</h2>
+<p>Margin, border, and padding values may set be in one of two ways.  Via shorthand properties using the <code>margin</code>, <code>border</code>, and <code>padding</code> arguments, or individually using the <code>*-top</code>, <code>*-right</code>, <code>*-bottom</code> and <code>*-left</code> arguments.  While it&#8217;s possible to set both, it&#8217;s best to use one or the other, not both.  Individual arguments will override the shorthand arguments.</p>
+<p>A shorthand property is expressed using up to four values to set the four value in the following order: <strong>top, right, bottom, left</strong>.  Settings a single value using the shorthand method will fill out all inputs for that level.</p>
+<p>Arguments may be set with or without a unit value.  Values without a unit value will automatically be assigned it&#8217;s default value, set in the <code>margin-unit</code>, <code>border-unit</code>, <code>padding-unit</code> and <code>radius-unit</code> arguments (see above).  Unit values set in the default will override the default unit value.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>margin</td>
+<td>string</td>
+<td></td>
+<td>String of margin shorthand properties setting the margin values.</td>
+</tr>
+<tr>
+<td>margin-top</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-top value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>margin-right</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-right value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>margin-bottom</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-bottom value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>margin-left</td>
+<td>string/int</td>
+<td></td>
+<td>Margin-left value.  If the unit value is omitted, the margin-unit default will be used.</td>
+</tr>
+<tr>
+<td>border</td>
+<td>string</td>
+<td></td>
+<td>String of border shorthand properties setting the border values.</td>
+</tr>
+<tr>
+<td>border-top</td>
+<td>string/int</td>
+<td></td>
+<td>Border-top value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-right</td>
+<td>string/int</td>
+<td></td>
+<td>Border-right value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-bottom</td>
+<td>string/int</td>
+<td></td>
+<td>Border-bottom value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-left</td>
+<td>string/int</td>
+<td></td>
+<td>Border-left value.  If the unit value is omitted, the border-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>string</td>
+<td></td>
+<td>String of padding shorthand properties setting padding values.</td>
+</tr>
+<tr>
+<td>padding-top</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-top value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-right value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-bottom value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>string/int</td>
+<td></td>
+<td>Padding-left value.  If the unit value is omitted, the padding-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-radius</td>
+<td>string/int</td>
+<td></td>
+<td>Border-radius value.  If the unit value is omitted, the radius-unit default will be used.</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>string</td>
+<td>&#8216;#ffffff&#8217;</td>
+<td>Hex string value settings the border color value.</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>string</td>
+<td>&#8216;solid&#8217;</td>
+<td>Border style.  Accepted values:  <code>solid</code>, <code>dashed</code>, <code>dotted</code>, <code>double</code>, <code>groove</code>, <code>ridge</code>, <code>inset</code>, <code>outset</code>, <code>none</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE</strong>:  The <code>border-color</code>, <code>border-radius</code> and <code>border-style</code> properties CANNOT be set using shorthand via the <code>border</code> argument.  They must be set via their own arguments.</p>
+<h2>CSS Layout Options</h2>
+<p>The margin, border, and padding levels of the CSS layout field may be enabled or disabled, depending on your particular needs.  When a level is disabled, default values (if set) will be displayed, although the user will be unable to edit them.</p>
+<p>The radius inputs for value, color and style may also be independently enabled or disabled.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>margin_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable margin inputs.</td>
+</tr>
+<tr>
+<td>border_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable border inputs.</td>
+</tr>
+<tr>
+<td>padding_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable padding inputs.</td>
+</tr>
+<tr>
+<td>radius_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable the radius value input.</td>
+</tr>
+<tr>
+<td>color_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable the radius color selector.</td>
+</tr>
+<tr>
+<td>style_enabled</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to enable or disable the radius style selector.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example Declaration</h2>
+<pre class="brush: php; title: ; notranslate" title="">
+array(
+    'id'        =&gt; 'opt-css-layout',
+    'type'      =&gt; 'css_layout',
+    'title'     =&gt; 'CSS Layout',
+    'subtitle'  =&gt; 'CSS layouts',
+
+    // Any CSS selector set here will have all values indicated
+    // in the CSS layout field applied to it.
+    'output'    =&gt; array('.navbar'),
+
+    // Default unit values.
+    'margin-unit'  =&gt; 'px',
+    'border-unit'  =&gt; 'px',
+    'padding-unit' =&gt; 'px',
+    'radius-unit'  =&gt; 'px',
+
+    // Default values
+    'default'   =&gt; array(
+
+        // Shorthand method to assign values to the margin level.
+        // Unit values are not required, however, when unit values
+        // are set here, they will override the default values
+        // indicated above.
+        'margin'        =&gt; '5em 10em 20em 3em',
+
+        // Alternative method to set layout values for the margin level.
+        // Again, unit values are not required, and will be assigned the
+        // default values indicated above.
+        // 'margin-top' =&gt; 5,
+        // 'margin-top' =&gt; 10,
+        // 'margin-top' =&gt; 20,
+        // 'margin-top' =&gt; 3,
+
+        // Because we indicated a single value, all border inputs will
+        // be set to 2.
+        'border'        =&gt; '2',
+        'border-color'  =&gt; '#ff0000',
+        'border-style'  =&gt; 'solid',
+        'border-radius' =&gt; '12px'
+    ),
+
+    // CSS Layout options
+    // For this example, we are disabling the padding field.
+    'options'        =&gt; array(
+        'margin_enabled'    =&gt; true,
+        'border_enabled'    =&gt; true,
+        'radius_enabled'    =&gt; true,
+        'padding_enabled'   =&gt; false,
+        'radius_enabled'    =&gt; true,
+        'color_enabled'     =&gt; true,
+        'style_enabled'     =&gt; true,
+    )
+),
+</pre>
+<h2>Example Usage</h2>
+<p>This example in based on the example usage provided above. Be sure to change $redux_demo to the value you specified in your <a href="../../redux-framework/arguments/opt_name/index.html" title="opt_name">opt_name</a> argument.</p>
+<pre class="brush: php; title: ; notranslate" title="">
+global $redux_demo;
+
+echo 'Margin: ' . $redux_demo['opt-css-layout']['margin'];
+// Output: 5em 10em 20em 3em
+
+echo 'Margin top: ' . $redux_demo['opt-css-layout']['margin-top'];
+// Output: 5em
+
+echo 'Margin right: ' . $redux_demo['opt-css-layout']['margin-right'];
+// Output: 10em
+
+echo 'Margin bottom: ' . $redux_demo['opt-css-layout']['margin-bottom'];
+// Output: 20em
+
+echo 'Margin left: ' . $redux_demo['opt-css-layout']['margin-left'];
+// Output: 3em
+
+echo 'Border radius: ' . $redux_demo['opt-css-layout']['border-radius'];
+// Output: 12px
+
+echo 'Border color: ' . $redux_demo['opt-css-layout']['border-color'];
+// Output: #ff0000
+
+echo 'Border style: ' . $redux_demo['opt-css-layout']['border-style'];
+// Output: solid
+
+</pre>
+<h2>CSS Output</h2>
+<p>The CSS output from the above example would appear as thus:</p>
+<pre class="brush: css; title: ; notranslate" title="">
+.navbar {
+    margin-top:    5em;
+    margin-bottom: 1em;
+    margin-left:   3em;
+    margin-right:  4em;
+
+    /* If the output_shorthand argument is set, the above
+       would appear as the following shorthand:
+
+       margin: 5em 1em 3em 4em; */
+
+    border-top:    2px;
+    border-radius: 12px;
+    border-color:  #ff0000;
+    border-style:  solid;
+}
+</pre>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../tag/border/index.html" rel="tag">border</a><a href="../../tag/border-bottom/index.html" rel="tag">border-bottom</a><a href="../../tag/border-color/index.html" rel="tag">border-color</a><a href="../../tag/border-left/index.html" rel="tag">border-left</a><a href="../../tag/border-radius/index.html" rel="tag">border-radius</a><a href="../../tag/border-right/index.html" rel="tag">border-right</a><a href="../../tag/border-style/index.html" rel="tag">border-style</a><a href="../../tag/border-top/index.html" rel="tag">border-top</a><a href="../../tag/css/index.html" rel="tag">css</a><a href="../../tag/css-layout/index.html" rel="tag">css layout</a><a href="../../tag/layout/index.html" rel="tag">layout</a><a href="../../tag/margin/index.html" rel="tag">margin</a><a href="../../tag/margin-bottom/index.html" rel="tag">margin-bottom</a><a href="../../tag/margin-left/index.html" rel="tag">margin-left</a><a href="../../tag/margin-right/index.html" rel="tag">margin-right</a><a href="../../tag/margin-top/index.html" rel="tag">margin-top</a><a href="../../tag/padding/index.html" rel="tag">padding</a><a href="../../tag/padding-bottom/index.html" rel="tag">padding-bottom</a><a href="../../tag/padding-left/index.html" rel="tag">padding-left</a><a href="../../tag/padding-right/index.html" rel="tag">padding-right</a><a href="../../tag/padding-top/index.html" rel="tag">padding-top</a><a href="../../tag/radius/index.html" rel="tag">radius</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../taxonomy/index.html" rel="bookmark" title="Taxonomy">Taxonomy</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../google-maps/index.html" rel="bookmark" title="Google Maps">Google Maps</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../using-extensions/index.html" rel="bookmark" title="About Extensions">About Extensions</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../accordion/index.html" rel="bookmark" title="Accordion">Accordion</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../icon-select/index.html" rel="bookmark" title="Icon Select">Icon Select</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../custom-fonts/index.html" rel="bookmark" title="Custom Fonts">Custom Fonts</a></h4>
+        </li>
+
+</ul></section>
+      
+    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://docs.reduxframework.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

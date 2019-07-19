@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>
+Understanding the Redux Framework System Status Report &raquo; Redux Documentation</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" /><title>Understanding the Redux Framework System Status Report &raquo; Redux Documentation</title>
+<link rel="canonical" href="index.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Understanding the Redux Framework System Status Report &raquo; Redux Documentation" />
+<meta property="og:description" content="Overview The Redux Framework System Status report is a vital tool that is used to troubleshoot issues with your site. With a wide variety of sections and fields, you can check your software versions, server settings, and WordPress configuration in a moment’s notice. Plus, the System Status report is the best way that the Redux &hellip;" />
+<meta property="og:url" content="https://docs.reduxframework.com/core/support/understanding-the-redux-framework-system-status-report/" />
+<meta property="og:site_name" content="Redux Documentation" />
+<meta property="article:author" content="facebook.com/kevin.provance" />
+<meta property="article:tag" content="support" />
+<meta property="article:tag" content="system status" />
+<meta property="article:section" content="Support" />
+<meta property="article:published_time" content="2015-03-23T01:27:25+00:00" />
+<meta property="article:modified_time" content="2015-03-23T03:04:56+00:00" />
+<meta property="og:updated_time" content="2015-03-23T03:04:56+00:00" />
+<meta property="og:image" content="../../../wp-content/uploads/sites/4/2015/03/active_plugins.png" />
+<script type='application/ld+json'>{"@context":"https://schema.org","@type":"Organization","url":"https://docs.reduxframework.com/","sameAs":[],"@id":"https://docs.reduxframework.com/#organization","name":"Redux.io","logo":"https://docs.reduxframework.com/wp-content/uploads/sites/4/2014/03/logo.png"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+<link rel='dns-prefetch' href='https://s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Feed" href="../../../feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Comments Feed" href="../../../comments/feed/index.rss" />
+<link rel="alternate" type="application/rss+xml" title="Redux Documentation &raquo; Understanding the Redux Framework System Status Report Comments Feed" href="feed/index.rss" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/docs.reduxframework.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.0.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css'  href='../../../wp-includes/css/dist/block-library/style.min-ver=5.0.3.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.css?ver=1.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css'  href='../../../wp-content/themes/knowhow-childtheme/style-ver=5.0.3.css' type='text/css' media='all' />
+<style id='theme-style-inline-css' type='text/css'>/* Links */
+				a, 
+				a:visited { color:#00a2e3; }
+				a:hover, 
+				.widget a:hover,
+				#primary-nav ul a:hover,
+				#footer-nav a:hover,
+				#breadcrumbs a:hover { color:#19aae4; }
+				
+				/* Theme Color */
+				#commentform #submit, 
+				.st_faq h2.active .action, 
+				.widget_categories ul span, 
+				.pagination .current, 
+				.tags a, 
+				.page-links span,
+				#comments .comment-meta .author-badge,
+				input[type="reset"],
+				input[type="submit"],
+				input[type="button"] { background: #00a2e3; }
+				#live-search #searchsubmit, input[type="submit"] { background-color: #00a2e3; }
+				.tags a:before { border-color: transparent #00a2e3 transparent transparent; }
+				#primary-nav { top: 67.5px; }
+
+				.entry-content code, .entry-content tt {
+margin: 0;
+border: 1px solid #ddd;
+background-color: #f8f8f8;
+border-radius: 3px;
+max-width: 100%;
+display: inline-block;
+overflow: auto;
+vertical-align: middle;
+line-height: 1.3;
+padding: 0;
+}
+
+tt, code {
+font-family: Consolas, "Liberation Mono", Courier, monospace;
+font-size: 12px;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+
+.entry-content code:before, .entry-content code:after, .entry-content tt:before, .entry-content tt:after {
+content: " ";
+letter-spacing: -0.2em;
+}
+.syntaxhighlighter .container .line {
+white-space: nowrap;
+}
+.more_info {white-space: nowrap;}
+.more_info_list li { list-style:none; }
+
+#site-header #logo, #site-header #logo a {
+  width: 100%;
+}
+#site-header #logo img {
+  margin: 0 auto;
+}
+#primary-nav {
+top: 30px;
+}
+#copyright {display: block; clear: both;}
+.googlepublisherpluginad {margin-bottom:20px;}</style>
+<link rel='stylesheet' id='theme-font-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700&amp;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='../../../wp-content/themes/knowhow/css/font-awesome.min-ver=5.0.3.css' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='font-awesome-ie7-css'  href='https://docs.reduxframework.com/wp-content/themes/knowhow/css/font-awesome-ie7.min.css?ver=5.0.3' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='shortcodes-css'  href='../../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-ver=1.12.4.js'></script>
+<script type='text/javascript' src='../../../wp-includes/js/jquery/jquery-migrate.min-ver=1.4.1.js'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/jquery-plugins/jquery.c.js?ver=1.4.0'></script>
+<script type='text/javascript' src='https://docs.reduxframework.com/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.js?ver=1.7.1'></script>
+<link rel='https://api.w.org/' href='../../../wp-json/index.json' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.0.3" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-core-support-understanding-the-redux-framework-system-status-report-.json" />
+<link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embed-url=https---docs.reduxframework.com-core-support-understanding-the-redux-framework-system-status-report-&amp;format=xml.xml" />
+<!--[if lt IE 9]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]><script src="https://docs.reduxframework.com/wp-content/themes/knowhow/js/selectivizr-min.js"></script><![endif]--><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+<body class="post-template-default single single-post postid-893 single-format-standard">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-45553284-1', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', ['reduxframework.com', 'build.reduxframework.com', 'ideas.reduxframework.com', 'stats.reduxframework.com', 'planet.reduxframework.com'] );
+ga('send', 'pageview');
+</script>
+
+<!-- #site-container -->
+<div id="site-container" class="clearfix">
+
+<!-- #primary-nav-mobile -->
+<nav id="primary-nav-mobile">
+<a class="menu-toggle clearfix" href="#"><i class="icon-reorder"></i></a>
+<ul id="mobile-menu" class="clearfix"><li id="menu-item-616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li id="menu-item-614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li id="menu-item-615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul></nav>
+<!-- /#primary-nav-mobile -->
+
+<!-- #header -->
+<header id="site-header" class="clearfix" role="banner">
+<div class="container">
+
+<!-- #logo -->
+  <div id="logo">
+          <a title="Redux Documentation" href="../../../index.html">
+            <img alt="Redux Documentation" src="../../../wp-content/uploads/sites/4/2014/03/logo.png">
+            </a>
+       </div>
+<!-- /#logo -->
+<!-- #primary-nav -->
+<nav id="primary-nav" role="navigation" class="clearfix">
+      <ul id="menu-top-2" class="nav sf-menu clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>    </nav>
+<!-- #primary-nav -->
+
+</div>
+</header>
+<!-- /#header -->
+
+<!-- #live-search -->
+    <div id="live-search">
+    <div class="container">
+    <div id="search-wrap">
+      <form role="search" method="get" id="searchform" class="clearfix" action="../../../index.html">
+        <input type="text" onfocus="if (this.value == 'Have a question? Ask or enter a search term.') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Have a question? Ask or enter a search term.';}" value="Have a question? Ask or enter a search term." name="s" id="s" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <i class="live-search-loading icon-spinner icon-spin"></i>
+        <button type="submit" id="searchsubmit">
+                <i class='icon-search'></i><span>Search</span>
+            </button>
+      </form>
+      </div>
+    </div>
+    </div>
+<!-- /#live-search -->
+
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix"> 
+<!-- .container -->
+<div class="container">
+
+  <!-- #content -->
+  <section id="content" role="main">
+  
+<!-- #page-header -->
+<header id="page-header" class="clearfix">
+  <h1 class="page-title">Understanding the Redux Framework System Status Report</h1>
+  <div id="breadcrumbs"><a href="../../../index.html"><icon class="icon-home"></i></a><span class="sep">/</span><a href="../../../category/core/index.html">Core</a> <span class="sep">/</span> <a href="../../../category/core/support/index.html">Support</a> <span class="sep">/</span> Understanding the Redux Framework System Status Report</div></header>
+<!-- /#page-header --> 
+
+ 
+
+    
+  
+<ul class="entry-meta clearfix">
+
+<li class="date"> 
+    <i class="icon-time"></i>
+    <time datetime="2015-03-23" itemprop="datePublished">March 23, 2015</time>
+</li>
+
+<li class="author">
+    <i class="icon-user"></i>
+	Kevin</li>
+
+
+<li class="category">
+    <i class="icon-folder-close"></i>
+    <a href="../../../category/core/support/index.html" rel="category tag">Support</a>    </li>
+
+
+</ul>
+  
+    <article id="post-893" class="clearfix post-893 post type-post status-publish format-standard hentry category-support tag-support tag-system-status">
+    
+	<!-- .entry-header -->
+	<header class="entry-header">
+    
+        	    
+	</header>
+	<!-- /.entry-header -->
+        <div class="entry-content">
+          <h2>Overview</h2>
+<p>The Redux Framework System Status report is a vital tool that is used to troubleshoot issues with your site. With a wide variety of sections and fields, you can check your software versions, server settings, and WordPress configuration in a moment’s notice.</p>
+<p>Plus, the System Status report is the best way that the Redux Support Team can help you! Before opening a ticket, be sure to add your settings and check to see if you can troubleshoot an issue with the items below.</p>
+<h2>WordPress Environment</h2>
+<p>This section provides general information about your site, your WordPress installation, and the features you have enabled.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Home URL</td>
+<td><span>The URL of your site’s homepage.</span></td>
+<td><span>http://example.com</span></td>
+</tr>
+<tr>
+<td>Site URL</td>
+<td><span>The root URL of your site.</span></td>
+<td><span>http://example.com</span></td>
+</tr>
+<tr>
+<td>Redux Version</td>
+<td><span>The version of Redux Framework installed on your site.</span></td>
+<td>3.4.4.5</td>
+</tr>
+<tr>
+<td><span>Redux Data Directory Writable</span></td>
+<td><span>Whether the Redux data directory is writable, and its location.</span></td>
+<td><span>/srv/www/wp-content/uploads/redux/</span></td>
+</tr>
+<tr>
+<td>WP Version</td>
+<td><span>The version of WordPress installed on your site.</span></td>
+<td>3.4.1</td>
+</tr>
+<tr>
+<td>WP Multisite</td>
+<td><span>Whether or not you have WordPress Multisite enabled.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>Permalink Structure</td>
+<td>The WordPress permalink structure set in Settings-&gt;Permalinks.</td>
+<td><span>/%postname%/</span></td>
+</tr>
+<tr>
+<td>Front Page Display</td>
+<td>The sitting to display &#8220;Latest Posts&#8221; or &#8220;Static Pages&#8221; as set in Settings-&gt;Reading.</td>
+<td>posts</td>
+</tr>
+<tr>
+<td>Front Page</td>
+<td>The name of the page used as the &#8220;Front Page&#8221; of the site.  This information is displayed only when Front Page Display is set to pages.</td>
+<td>&lt;name of page&gt;</td>
+</tr>
+<tr>
+<td>Posts Page</td>
+<td>The name of the page used as the &#8220;Post Page&#8221; of the site.  This information is displayed only when Front Page Display is set to pages.</td>
+<td>&lt;name of page&gt;</td>
+</tr>
+<tr>
+<td>WP Memory Limit</td>
+<td><span>The maximum amount of memory (RAM) that your site can use at one time.<span class="Apple-converted-space"> </span></span><a title="Increasing the WordPress Memory Limit" href="../increasing-the-wordpress-memory-limit/index.html">Learn how to increase this limit here.</a></td>
+<td><span>64 MB</span></td>
+</tr>
+<tr>
+<td>Database Table Prefix</td>
+<td>Displays the length of the WordPress database table prefix, and whether it falls into acceptable parameters.</td>
+<td><span>Length: 3 &#8211; Status: Acceptable</span></td>
+</tr>
+<tr>
+<td>WP Debug Mode</td>
+<td><span>Displays whether or not WordPress is in Debug Mode.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>Language</td>
+<td><span>The current language used by WordPress. Default = English</span></td>
+<td>en_US</td>
+</tr>
+</tbody>
+</table>
+<h2>Browser</h2>
+<p>This entry provides general information about your web browser.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Browser Info</td>
+<td>The complete User Agent string of the browser viewing the System Status report.</td>
+<td><span>Platform: Windows Browser Name: Chrome Browser Version: 41.0.2272.101 User Agent String: Mozilla/5.0 (Windows NT 5.2; WOW 64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Server Environment</h2>
+<p>This section provides general information about your server.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Server Info</td>
+<td><span>Information about the web server that is currently hosting your site.</span></td>
+<td><span>Apache/2.4.7 (Win32) OpenSSL/1.0.1e PHP/5.5.9</span></td>
+</tr>
+<tr>
+<td>PHP Version</td>
+<td><span>The version of PHP installed on your hosting server.</span></td>
+<td><span>5.5.6</span></td>
+</tr>
+<tr>
+<td>PHP Memory Limit</td>
+<td><span>The maximum amount of memory in bytes that a script is allowed to allocate. </span></td>
+<td><span>256 MB</span></td>
+</tr>
+<tr>
+<td>PHP Post Max Size</td>
+<td><span>The largest filesize that can be contained in one post.</span></td>
+<td>8 MB</td>
+</tr>
+<tr>
+<td>PHP Time Limit</td>
+<td><span>The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)</span></td>
+<td>300</td>
+</tr>
+<tr>
+<td><span>PHP Max Input Vars</span></td>
+<td><span>The maximum number of variables your server can use for a single function to avoid overloads.</span></td>
+<td>1000</td>
+</tr>
+<tr>
+<td>PHP Display Errors</td>
+<td>Determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user.</td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td><span>SUHOSIN Installed</span></td>
+<td><span>Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself.  If enabled on your server, Suhosin may need to be configured to increase its data submission limits.</span></td>
+<td>&#8211;</td>
+</tr>
+<tr>
+<td>MySQL Version</td>
+<td><span>The version of MySQL installed on your hosting server.</span></td>
+<td><span>5.5.32</span></td>
+</tr>
+<tr>
+<td><span>Max Upload Size</span></td>
+<td><span>The largest filesize that can be uploaded to your WordPress installation.</span></td>
+<td>8 MB</td>
+</tr>
+<tr>
+<td>Default Time Zone is UTC</td>
+<td><span>Whether the timezone for your server is UTC.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td><span>fsockopen/cURL</span></td>
+<td><span>Payment gateways can use cURL to communicate with remote servers to authorize payments, other plugins may also use it when communicating with remote services.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>SOAP Client</td>
+<td><span>Some webservices like shipping use SOAP to get information from remote servers, for example, live shipping quotes from FedEx require SOAP to be installed.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>DOM Document</td>
+<td><span>HTML/Multipart Emails use DOMDocument to generate inline CSS in templates.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>GZIP</td>
+<td><span>GZip (gzopen) is used to open the GEOIP database from MaxMind.</span></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>Remote POST</td>
+<td><span>PayPal uses this method of commnuicating when sending back transaction information.<span class="Apple-converted-space"> </span></span><a href="http://codex.wordpress.org/Function_Reference/wp_remote_post">See the wp_remote_post Codex page for more information.</a></td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>Remote GET</td>
+<td><span>Redux Framework may use this method of communication when checking for updates.</span></td>
+<td><span>√</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Active Plugins</h2>
+<p>This section displays all of the active plugins installed on your site. From this area, you can see the current version numbers of your plugins.<br /><a href="../../../wp-content/uploads/sites/4/2015/03/active_plugins.png"><img src="../../../wp-content/uploads/sites/4/2015/03/active_plugins.png" alt="active_plugins" class="alignnone size-full wp-image-904" height="789" width="1161" srcset="../../../wp-content/uploads/sites/4/2015/03/active_plugins.png 1161w, ../../../wp-content/uploads/sites/4/2015/03/active_plugins-300x204.png 300w, ../../../wp-content/uploads/sites/4/2015/03/active_plugins-1024x696.png 1024w, ../../../wp-content/uploads/sites/4/2015/03/active_plugins-60x41.png 60w, ../../../wp-content/uploads/sites/4/2015/03/active_plugins-150x102.png 150w" sizes="(max-width: 1161px) 100vw, 1161px" /></a></p>
+<h2>Redux Instances</h2>
+<p>This section displays all of the active instances of Redux Framework on your site. This information may be invaluable in detecting collisions with other developers who use Redux in their projects. Multiple instances could be listed, depending on if and how many plugins on your site use Redux Framework.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>opt_name</td>
+<td>The opt_name variable set in the specified instance of Redux.</td>
+<td>redux_demo</td>
+</tr>
+<tr>
+<td>global_variable</td>
+<td>The global_variable variable set in the specified instance of Redux.</td>
+<td>redux_demo</td>
+</tr>
+<tr>
+<td>dev_mode</td>
+<td>Displays whether or not developer mode is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>ajax_save</td>
+<td>Displays whether or not AJAX based saving is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>page_slug</td>
+<td>The specified string that comprises the name of the options panel for the specified instance of Redux.</td>
+<td>redux_options</td>
+</tr>
+<tr>
+<td>page_permissions</td>
+<td>The minimum permission setting required to view the options panel for the specified instance of Redux.</td>
+<td>manage_options</td>
+</tr>
+<tr>
+<td>menu_type</td>
+<td>Variable sets whether or not the menu is displayed as an admin menu item in the specified instance of Redux.</td>
+<td>menu</td>
+</tr>
+<tr>
+<td>page_parent</td>
+<td>Variable sets where the options menu will be placed on the WordPress admin sidebar for the specified instance of Redux.</td>
+<td>themes.php</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>Flag setting the compiler option for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>output</td>
+<td>Indicates if output flag for globally shutting off all CSS output is enabled for the specified instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>output_tag</td>
+<td>The output_tag variable sets whether or not dynamic CSS will be generated for the customizer and Google fonts for this instance of Redux.</td>
+<td><span>√</span></td>
+</tr>
+<tr>
+<td>template_path</td>
+<td>The full directory path to custom template files for this instance of Redux.  This data is only displayed if the template_path argument is set.</td>
+<td><span>/srv/www/wp-content/themes/&lt;theme_name&gt;/redux/templates</span></td>
+</tr>
+<tr>
+<td>Templates</td>
+<td>A list of custom templates used and their versions.  This data is only displayed if the template_path argument is set and templates are installed.</td>
+<td><code><span>&lt;theme_name&gt;</span>/admin/templates/container.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/content.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/footer.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/header.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/header_stickybar.tpl.php</code><span>,<span class="Apple-converted-space"> </span></span><br /><code><span>&lt;theme_name&gt;</span>/admin/templates/menu_container.tpl.php</code></td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td>A list of installed Redux Framework extensions and their versions.  This information is only displayed if extensions are installed.</td>
+<td><span>Widget Areas &#8211; 1.0.0</span><br /><span>Social Profiles &#8211; 1.0.2</span><br /><span>Search &#8211; 1.0.0</span><br /><span>Multi Media &#8211; 1.0.0</span><br /><span>Metaboxes &#8211; 1.3.1</span><br /><span>Js Button &#8211; 1.0.1</span><br /><span>Custom Fonts &#8211; 1.0.1</span><br /><span>Color Scheme &#8211; 2.1.6</span></td>
+</tr>
+</tbody>
+</table>
+<h2>Theme</h2>
+<p>This section displays valuable information about the current theme running on your installation. Typically this could be one of the more problematic areas of a site – as there is no standard on what themes should and shouldn’t do.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Field Name</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Example</strong></td>
+</tr>
+<tr>
+<td>Name</td>
+<td><span>The name of the current active theme.</span></td>
+<td>HelpBase</td>
+</tr>
+<tr>
+<td>Version</td>
+<td><span>The installed version of the current active theme.</span></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>Author URL</td>
+<td><span>The developer or plugin’s URL</span></td>
+<td>http://www.rdx.io</td>
+</tr>
+<tr>
+<td>Child Theme</td>
+<td><span>Displays whether the active theme is a child theme, and what the parent theme is.</span></td>
+<td>x</td>
+</tr>
+<tr>
+<td>Parent Theme Name</td>
+<td>The name of the current parent theme.  This information is displayed only f the current theme is a child theme.</td>
+<td>HelpBase (child theme)</td>
+</tr>
+<tr>
+<td>Parent Theme Version</td>
+<td>The installed version of the parent theme.  This information is displayed only f the current theme is a child theme.</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>Parent Theme Author URL</td>
+<td>The parent&#8217;s theme&#8217;s developer or URL.  This information is displayed only f the current theme is a child theme.</td>
+<td>http://www.rdx.io</td>
+</tr>
+</tbody>
+</table>
+                  </div>
+        
+                <div class="tags"><strong>Tagged:</strong><a href="../../../tag/support/index.html" rel="tag">support</a><a href="../../../tag/system-status/index.html" rel="tag">system status</a></div>
+		 
+</article>
+
+    
+	     
+     <section id="related-posts" class="clearfix">
+     <h3 id="related-posts-title">Related Articles</h3>
+     	<ul class="clearfix">        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../../redux-api/index.html" rel="bookmark" title="The Redux API">The Redux API</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../../support-defined/index.html" rel="bookmark" title="Support Defined">Support Defined</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../../ide-snippets-templates/index.html" rel="bookmark" title="IDE Snippets &#038; Templates">IDE Snippets &#038; Templates</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../../generating-a-support-hash/index.html" rel="bookmark" title="Generating a Support Hash">Generating a Support Hash</a></h4>
+        </li>
+
+        
+		<li class="standard">
+        <h4 class="entry-title"><a href="../increasing-the-wordpress-memory-limit/index.html" rel="bookmark" title="Increasing the WordPress Memory Limit">Increasing the WordPress Memory Limit</a></h4>
+        </li>
+
+</ul></section>
+      
+
+<div id="comments" class="comments-area">
+
+	
+	
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="../../../wp-login.php-redirect_to=https---docs.reduxframework.com-core-support-understanding-the-redux-framework-system-status-report-.html">logged in</a> to post a comment.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments .comments-area -->    
+    
+</section>
+<!-- #content -->
+
+
+</div>
+<!-- .container -->
+</div>
+<!-- /#primary -->
+
+<!-- #footer-widgets -->
+<!-- /#footer-widgets -->
+
+<!-- #site-footer -->
+<footer id="site-footer" class="clearfix" role="contentinfo">
+<div class="container">
+
+    <nav id="footer-nav" role="navigation">
+    <ul id="menu-top-3" class="nav-footer clearfix"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-616"><a href="http://wordpress.org/plugins/redux-framework/">WordPress.org Plugin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-614"><a href="http://build.reduxframework.com">Redux Builder</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-615"><a href="http://github.com/ReduxFramework/redux-framework">GitHub Repo</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-617"><a href="https://reduxframework.com/extensions">Premium Extensions</a></li>
+</ul>  </nav>
+  
+
+  <small id="copyright">
+    We are a community project!  If you find errors, incorrect data or have something you'd like to contribute, please contact <a href="mailto:support@reduxframework.com">support@reduxframework.com</a>
+
+© Copyright, <a href="http://redux.io/">Redux.io</a>    </small>
+  
+</div>
+</footer> 
+<!-- /#site-footer -->
+
+<!-- /#site-container -->
+</div>
+<ins id="footer-holder"
+style="display: none;"
+class="adsbygoogle-placeholder"></ins>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+	jQuery('#live-search #s').liveSearch({url: 'https://docs.reduxframework.com/index.php?ajax=1&s='});
+	});
+	</script>
+
+<style type="text/css">#wpfront-notification-bar 
+    {
+        background: #fcf8e3;
+        background: -moz-linear-gradient(top, #fcf8e3 0%, #fcf8e3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf8e3), color-stop(100%,#fcf8e3));
+        background: -webkit-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -o-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: -ms-linear-gradient(top, #fcf8e3 0%,#fcf8e3 100%);
+        background: linear-gradient(to bottom, #fcf8e3 0%, #fcf8e3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #c09853;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #00b7ea;
+        background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+        background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+        background: linear-gradient(to bottom, #00b7ea 0%, #009ec3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #00b7ea;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #555555;
+        background-color: #555555;
+        color: #000000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #ccc8cc;
+        background-color: #ccc8cc;
+    }
+</style>
+
+
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed ">
+                <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <strong>The Redux v4 Beta is nearly ready, and we need your help!</strong> To learn how you can chip in...                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://reduxframework.com/2018/11/redux-4-0-we-need-your-help/"  target="_blank" >Read More</a>
+                                                                                                            </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">#wpfront-notification-bar {border-bottom:1px solid #ccc;text-shadow: 0 1px 0 rgba(255,255,255,0.5);}</style>
+<script type="text/javascript">if(typeof wpfront_notification_bar == "function") wpfront_notification_bar({"position":1,"height":45,"fixed_position":"on","animate_delay":0.5,"close_button":false,"button_action_close_bar":"on","auto_close_after":0,"display_after":1,"is_admin_bar_showing":false,"display_open_button":false,"keep_closed":false,"keep_closed_for":0,"position_offset":0,"display_scroll":false,"display_scroll_offset":100});</script><link rel='stylesheet' id='elusive-iconfont-styles-css'  href='https://docs.reduxframework.com/wp-content/plugins/wp-elusive-iconfont/assets/css/elusive-webfont.css?ver=5.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/js/functions-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/framework/shortcodes/shortcodes-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-includes/js/wp-embed.min-ver=5.0.3.js'></script>
+<script type='text/javascript' src='../../../wp-content/themes/knowhow/js/jquery.livesearch-ver=5.0.3.js'></script>
+<div id="alert"><a class="alert" href="https://docs.redux.io">v3.x Docs are Deprecated. Visit https://docs.redux.io</a></div></body>
+</html>

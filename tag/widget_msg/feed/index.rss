@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>widget_msg &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/widget_msg/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Social Profiles</title>
+		<link>https://docs.reduxframework.com/extensions/social-profiles/</link>
+		<comments>https://docs.reduxframework.com/extensions/social-profiles/#respond</comments>
+		<pubDate>Tue, 16 Dec 2014 04:28:47 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Extensions]]></category>
+		<category><![CDATA[class]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[desc]]></category>
+		<category><![CDATA[hint]]></category>
+		<category><![CDATA[icons]]></category>
+		<category><![CDATA[id]]></category>
+		<category><![CDATA[include]]></category>
+		<category><![CDATA[show_widget_msg]]></category>
+		<category><![CDATA[subtitle]]></category>
+		<category><![CDATA[title]]></category>
+		<category><![CDATA[type]]></category>
+		<category><![CDATA[widget_msg]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=741</guid>
+		<description><![CDATA[<p>The Redux Social Profiles extension easily allows one to create and display links to their social media through code and/or an included widget. Getting Started To understand how to use extensions, you should read this article on Loading Extensions. To shortcut the process, you should use the Redux Generator. Please be aware that a working [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/social-profiles/">Social Profiles</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The Redux Social Profiles extension easily allows one to create and display links to their social media through code and/or an included widget.</p>
+<h2>Getting Started</h2>
+<p>To understand how to use extensions, you should read this article on <a href="/redux-framework/advanced/loading-extensions/">Loading Extensions</a>. To shortcut the process, you should use the <a href="http://generate.reduxframework.com/" target="_blank">Redux Generator</a>. Please be aware that a working knowledge of PHP and CSS is required to properly use this field. Should you not be familiar with one or the other (or both), please refer to the basic guides to get you started: <a href="http://www.php.net/manual/en/tutorial.php">Getting Started with PHP</a>, <a href="http://www.w3schools.com/css/css_intro.asp">CSS Introduction</a>.</p>
+<h2>Arguments</h2>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#8216;social_profiles&#8217;</td>
+<td>Value identifying the field type.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique ID identifying the field. Must be different from all other field IDs.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+<td>Displays title of the field.</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>string</td>
+<td></td>
+<td>Subtitle display of the field, situated beneath the title.</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td></td>
+<td>Description of the field, appearing beneath the field control.</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td></td>
+<td>Appends any number of classes to the field&#8217;s class attribute.</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to run the compiler hook. <a title="Integrating a Compiler" href="/redux-framework/advanced/integrating-a-compiler/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+<tr>
+<td>widget_msg</td>
+<td>string</td>
+<td>Go to the &lt;a href=&#8221;%s&#8221;&gt;Widgets&lt;/a&gt; page to add the Redux Social Widget to any active widget area.</td>
+<td>Message to display at the top of the field to inform the user of the extensions widget option.  Use the %s variable to include a link to the widgets area.</td>
+</tr>
+<tr>
+<td>show_widget_msg</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to determine if the widget message is to displayed, or not.</td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td>include</td>
+<td>array</td>
+<td></td>
+<td>Optional.  Array of default icons to show, instead of the entire default array.  See &#8220;The Include Argument&#8221; below.</td>
+</tr>
+<tr>
+<td>icons</td>
+<td>array</td>
+<td></td>
+<td>Optional.  Array of arrays specifying custom profiles not included in the default set, or to edit existing profiles.  See &#8220;Adding/Editing Additional Icons&#8221; below.</td>
+</tr>
+<tr>
+<td>hint</td>
+<td>array</td>
+<td></td>
+<td>Array containing the <code>content</code> and optional <code>title</code> arguments for the hint tooltip. <a class="more_info" title="Using Hints in Fields" href="/redux-framework/the-basics/using-hints-in-fields/"><i class="el-icon-circle-arrow-right"></i> More info</a></td>
+</tr>
+</tbody>
+</table>
+<h2>The Include Argument</h2>
+<p>The Social Profile extension includes 82 default social profile icons.  The icons and their IDs are as follows.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Icon</strong></td>
+<td style="text-align: center;"><strong>ID</strong></td>
+</tr>
+<tr>
+<td><i class="adn    "></i> ADN</td>
+<td>adn</td>
+</tr>
+<tr>
+<td><i class="android    "></i> Android</td>
+<td>android</td>
+</tr>
+<tr>
+<td><i class="apple    "></i> Apple</td>
+<td>apple</td>
+</tr>
+<tr>
+<td><i class="behance    "></i> behance</td>
+<td>behance</td>
+</tr>
+<tr>
+<td><i class="behance-square    "></i> behance (square icon)</td>
+<td>behance-square</td>
+</tr>
+<tr>
+<td><i class="bitbucket    "></i> Bitbucket</td>
+<td>bitbucket</td>
+</tr>
+<tr>
+<td><i class="bitbucket-square    "></i> Bitbucket (square icon)</td>
+<td>bitbucket-square</td>
+</tr>
+<tr>
+<td><i class="btc    "></i> Bitcoin</td>
+<td>bitcoin</td>
+</tr>
+<tr>
+<td><i class="codepen    "></i> Codepen</td>
+<td>codepen</td>
+</tr>
+<tr>
+<td><i class="css3    "></i> CSS3</td>
+<td>css3</td>
+</tr>
+<tr>
+<td><i class="delicious    "></i> Delicious</td>
+<td>delicious</td>
+</tr>
+<tr>
+<td><i class="deviantart    "></i> Deviantart</td>
+<td>deviantart</td>
+</tr>
+<tr>
+<td><i class="digg    "></i> Digg</td>
+<td>digg</td>
+</tr>
+<tr>
+<td><i class="dribbble    "></i> Dribbble</td>
+<td>dribbble</td>
+</tr>
+<tr>
+<td><i class="dropbox    "></i> Dropbox</td>
+<td>dropbox</td>
+</tr>
+<tr>
+<td><i class="drupal    "></i> Drupal</td>
+<td>drupal</td>
+</tr>
+<tr>
+<td><i class="empire    "></i> Empire</td>
+<td>empire</td>
+</tr>
+<tr>
+<td><i class="facebook    "></i> Facebook</td>
+<td>facebook</td>
+</tr>
+<tr>
+<td><i class="facebook-square    "></i> Facebook (square icon)</td>
+<td>facebook-square</td>
+</tr>
+<tr>
+<td><i class="flickr    "></i> Flickr</td>
+<td>flickr</td>
+</tr>
+<tr>
+<td><i class="foursquare    "></i> FourSquare</td>
+<td>foursquare</td>
+</tr>
+<tr>
+<td><i class="git    "></i> git</td>
+<td>git</td>
+</tr>
+<tr>
+<td><i class="github-square    "></i> git (square icon)</td>
+<td>git-square</td>
+</tr>
+<tr>
+<td><i class="github    "></i> github</td>
+<td>github</td>
+</tr>
+<tr>
+<td><i class="github-alt    "></i> github alt</td>
+<td>github-alt</td>
+</tr>
+<tr>
+<td><i class="github-square    "></i> github (square icon)</td>
+<td>github-square</td>
+</tr>
+<tr>
+<td><i class="gittip    "></i> git tip</td>
+<td>gittip</td>
+</tr>
+<tr>
+<td><i class="google    "></i> Google</td>
+<td>google</td>
+</tr>
+<tr>
+<td><i class="google-plus    "></i> Google Plus</td>
+<td>google-plus</td>
+</tr>
+<tr>
+<td><i class="google-plus-square    "></i>Google Plus (square icon)</td>
+<td>google-plus-square</td>
+</tr>
+<tr>
+<td><i class="hacker-news    "></i> Hacker News</td>
+<td>hacker-news</td>
+</tr>
+<tr>
+<td><i class="html5    "></i> HTML5</td>
+<td>html5</td>
+</tr>
+<tr>
+<td><i class="instagram    "></i> Instagram</td>
+<td>instagram</td>
+</tr>
+<tr>
+<td><i class="joomla    "></i> Joomla</td>
+<td>joomla</td>
+</tr>
+<tr>
+<td><i class="jsfiddle    "></i> JS Fiddle</td>
+<td>jsfiddle</td>
+</tr>
+<tr>
+<td><i class="linkedin    "></i> LinkedIn</td>
+<td>linkedin</td>
+</tr>
+<tr>
+<td><i class="linkedin-square    "></i> LinkedIn (square icon)</td>
+<td>linkedin-square</td>
+</tr>
+<tr>
+<td><i class="linux    "></i> Linux</td>
+<td>linux</td>
+</tr>
+<tr>
+<td><i class="maxcdn    "></i> MaxCDN</td>
+<td>maxcdn</td>
+</tr>
+<tr>
+<td><i class="openid    "></i> OpenID</td>
+<td>openid</td>
+</tr>
+<tr>
+<td><i class="pagelines    "></i> Page Lines</td>
+<td>pagelines</td>
+</tr>
+<tr>
+<td><i class="pied-piper    "></i> Pied Piper</td>
+<td>pied-piper</td>
+</tr>
+<tr>
+<td><i class="pied-piper-alt    "></i> Pied Piper alt</td>
+<td>pied-piper-alt</td>
+</tr>
+<tr>
+<td><i class="pinterest    "></i> Pinterest</td>
+<td>pinterest</td>
+</tr>
+<tr>
+<td><i class="pinterest-square    "></i> Pinterest (square icon)</td>
+<td>pinterest-square</td>
+</tr>
+<tr>
+<td><i class="qq    "></i> QQ</td>
+<td>qq</td>
+</tr>
+<tr>
+<td><i class="rebel    "></i> Rebel</td>
+<td>rebel</td>
+</tr>
+<tr>
+<td><i class="reddit    "></i> Reddit</td>
+<td>reddit</td>
+</tr>
+<tr>
+<td><i class="reddit-square    "></i> Reddit (square icon)</td>
+<td>reddit-square</td>
+</tr>
+<tr>
+<td><i class="renren    "></i> Ren Ren</td>
+<td>renren</td>
+</tr>
+<tr>
+<td><i class="share-alt    "></i> Share alt</td>
+<td>share-alt</td>
+</tr>
+<tr>
+<td><i class="share-alt-square    "></i> Share (square icon)</td>
+<td>share-alt-square</td>
+</tr>
+<tr>
+<td><i class="skype    "></i> Skype</td>
+<td>skype</td>
+</tr>
+<tr>
+<td><i class="slack    "></i> Slack</td>
+<td>slack</td>
+</tr>
+<tr>
+<td><i class="soundcloud    "></i> Sound Cloud</td>
+<td>soundcloud</td>
+</tr>
+<tr>
+<td><i class="spotify    "></i> Spotify</td>
+<td>spotify</td>
+</tr>
+<tr>
+<td><i class="stack-exchange    "></i> Stack Exchange</td>
+<td>stack-exchange</td>
+</tr>
+<tr>
+<td><i class="stack-overflow    "></i> Stack Overflow</td>
+<td>stack-overflow</td>
+</tr>
+<tr>
+<td><i class="steam    "></i> Steam</td>
+<td>steam</td>
+</tr>
+<tr>
+<td><i class="steam-square    "></i> Steam (square icon)</td>
+<td>steam-square</td>
+</tr>
+<tr>
+<td><i class="stumbleupon    "></i> Stumble Upon</td>
+<td>stumbleupon</td>
+</tr>
+<tr>
+<td><i class="stumbleupon-circle    "></i> Stumble Upon (circle icon)</td>
+<td>stumbleupon-circle</td>
+</tr>
+<tr>
+<td><i class="tencent-weibo    "></i> Tencent Weibo</td>
+<td>tencent-weibo</td>
+</tr>
+<tr>
+<td><i class="trello    "></i> Trello</td>
+<td>trello</td>
+</tr>
+<tr>
+<td><i class="tumblr    "></i> Tumblr</td>
+<td>tumblr</td>
+</tr>
+<tr>
+<td><i class="tumblr-square    "></i> Tumblr (square icon)</td>
+<td>tumblr-square</td>
+</tr>
+<tr>
+<td><i class="twitter    "></i> Twitter</td>
+<td>twitter</td>
+</tr>
+<tr>
+<td><i class="twitter-square    "></i> Twitter (square icon)</td>
+<td>twitter-square</td>
+</tr>
+<tr>
+<td><i class="vimeo-square    "></i> Vimeo (square icon)</td>
+<td>vimeo-square</td>
+</tr>
+<tr>
+<td><i class="vine    "></i> Vine</td>
+<td>vine</td>
+</tr>
+<tr>
+<td><i class="vk    "></i> VK</td>
+<td>vk</td>
+</tr>
+<tr>
+<td><i class="weibo    "></i> Weibo</td>
+<td>weibo</td>
+</tr>
+<tr>
+<td><i class="weixin    "></i> Weixin</td>
+<td>weixin</td>
+</tr>
+<tr>
+<td><i class="windows    "></i> Windows</td>
+<td>windows</td>
+</tr>
+<tr>
+<td><i class="wordpress    "></i> WordPress</td>
+<td>wordpress</td>
+</tr>
+<tr>
+<td><i class="xing    "></i> Xing</td>
+<td>xing</td>
+</tr>
+<tr>
+<td><i class="xing-square    "></i> Xing (square icon)</td>
+<td>xing-square</td>
+</tr>
+<tr>
+<td><i class="yahoo    "></i> Yahoo</td>
+<td>yahoo</td>
+</tr>
+<tr>
+<td><i class="yelp    "></i> Yelp</td>
+<td>yelp</td>
+</tr>
+<tr>
+<td><i class="youtube    "></i> YouTube</td>
+<td>youtube</td>
+</tr>
+<tr>
+<td><i class="youtube-play    "></i> YouTube (play icon)</td>
+<td>youtube-play</td>
+</tr>
+<tr>
+<td><i class="youtube-square    "></i> YouTube (square icon)</td>
+<td>youtube-square</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the extension offers all 82 to the user.  This doesn&#8217;t mean you must offer each and every one.  Using the <code>include</code> argument, you may specify which profile icons you&#8217;d prefer to offer by assigning an array of existing icons IDs.  For example, let&#8217;s say you&#8217;d like to offer only Facebook, Twitter, LinkedIn, and Google Plus.  The <code>include</code> argument would look as follows:</p>
+<pre class="brush: php; title: ; notranslate">
+include = array('facebook', 'twitter', 'linkedin', 'google-plus')
+</pre>
+<p></p>
+<h2>Adding/Editing Additional Icons</h2>
+<p>It&#8217;s easy to add additional (or edit existing) social profile icons.  Each profile contains the following arguments:</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Name</strong></td>
+<td style="text-align: center;"><strong>Type</strong></td>
+<td style="text-align: center;"><strong>Default</strong></td>
+<td style="text-align: center;"><strong>Description</strong></td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+<td>Unique id of the profile.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>string</td>
+<td></td>
+<td>Font Awesome icon class (<a target="_blank" href="http://fortawesome.github.io/Font-Awesome/cheatsheet/">cheatsheet</a>) of the icon to display.  Icon classes from other sets may be used, provided the icon set is properly installed and enqueued.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>bool</td>
+<td>false</td>
+<td>Flag to set the default state of the social profile.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+<td>Display name of the social profile</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td></td>
+<td>Hex or RGBA string of the icons color.</td>
+</tr>
+<tr>
+<td>background</td>
+<td>string</td>
+<td></td>
+<td>Hex or RGBA string of the icons backcolor.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>Link URL</td>
+<td>Optional.  Text to appear over the URL input box.  This is useful should you want to specify a user name instead of a full URL.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td></td>
+<td>Optional. URL of the social profile.</td>
+</tr>
+</tbody>
+</table>
+<p>The following example would add a PayPal profile to the social profile icon set:</p>
+<pre class="brush: php; title: ; notranslate">
+'icons' =&gt; array(
+    array (
+        'id'         =&gt; 'paypal',
+        'icon'       =&gt; 'fa-paypal',
+        'enabled'    =&gt; false,
+        'name'       =&gt; __ ( 'PayPal', 'redux-framework-demo' ),
+        'background' =&gt; '',
+        'color'      =&gt; '#1769ff',
+        'url'        =&gt; '',
+    )
+)
+</pre>
+<p>The <code>icons</code> argument may also be used to edit profiles from the default set.  In this instance, you&#8217;d need only specify the argument you&#8217;d like to alter.  The following example would alter the Apple profile by changing the name (with apologies in advance to Mac fan boys), label, and default state.</p>
+<pre class="brush: php; title: ; notranslate">
+'icons' =&gt; array(
+    array (
+        'id'      =&gt; 'apple',
+        'enabled' =&gt; true,
+        'name'    =&gt; __ ( 'CrApple', 'redux-framework-demo' ),
+        'label'   =&gt; 'Enter username:',
+    )
+)
+</pre>
+<p></p>
+<h2>Example Declaration</h2>
+<p>The following sets up the basic social profile field without the additions or alterations specified above.</p>
+<pre class="brush: php; title: ; notranslate">
+array(
+    'id'        =&gt; 'opt-social-profiles',
+    'type'      =&gt; 'social_profiles',
+    'title'     =&gt; 'Social Profiles',
+    'subtitle'  =&gt; 'Click an icon to activate it, drag and drop to change the icon order.',
+),
+</pre>
+<p></p>
+<h2>Example Usage</h2>
+<h3>
+The Widget</h3>
+<p>Using the social profiles widget redefines easy.  In the widget area of WordPress, add the Redux Social Profiles widget to the sidebar of your choice, and set the desired title.  The only icons that will appear in the widget&#8217;s frontend will be the enabled social profiles.</p>
+<h3>Code</h3>
+<p>The extension&#8217;s return value is an array of key/pair values. The key contains the profile&#8217;s index key, while the value contains the array of the profiles arguments. It will be necessary to use a for/each loop to extract the values (Please remember to replace <code>redux_demo</code> with your own <code><a href="/redux-framework/arguments/opt_name" title="opt_name">opt_name</a></code> argument).  The following code returns only the saved values.  For this example to have any real value, you&#8217;ll need to write the appropriate HTML, or use one of the helper functions below.</p>
+<pre class="brush: php; title: ; notranslate">
+global $redux_demo;
+
+foreach ($redux_demo['opt-social-profiles'] as $idx =&gt; &amp;arr) {
+    echo 'Profile ID: ' . $arr['id'];
+    echo 'Enabled: '    . $arr['enabled'];
+    echo 'Icon: '       . $arr['icon'];
+    echo 'Name: '       . $arr['name'];
+    echo 'URL: '        . $arr['url'];
+    echo 'Color: '      . $arr['color'];
+    echo 'Background: ' . $arr['background'];
+}
+
+// Or do the following for full icon rendering
+foreach ($redux_demo['opt-social-profiles'] as $idx =&gt; &amp;arr) {
+    if ($arr['enabled']) {
+        $id     = $arr['id'];
+        $url    = $arr['url'];
+
+        $icons .= '';
+        $icons .= '&lt;/pre&gt;&lt;ul&gt;&lt;li class=&quot;' . $id . '&quot;&gt;&lt;a href=&quot;' . $url . '&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;' . $arr['icon'] . '&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;pre&gt;';
+    }
+
+    $output = '&lt;/pre&gt;&lt;ul class=&quot;icons&quot;&gt;';
+    $output .= $icons;
+    $output .= '&lt;/ul&gt;&lt;pre&gt;';
+}
+</pre>
+<p></p>
+<h2>Helper Functions</h2>
+<p>The Social Profiles extension includes two helper functions.</p>
+<h3>redux_render_icon_from_id ($opt_name, $id, $echo, $a_class)</h3>
+<p>This function, based on the echo parameter will either echo a fully rendered icon, or return the HTML for use with your own rendering purposes.</p>
+<p>The first parameter, <code>$opt_name</code> is required and needs to be the opt_name specified in your Redux Framework arguments.</p>
+<p>The second parameter, <code>$id</code> is also required, and is the ID of the social profile whose information is to be rendered. This is best used in conjunction for a for/each loop, as shown above.</p>
+<p>The third parameter, <code>$echo</code> is optional and defaults to true. When set to true, the function automatically echos the rendered HTML. When set to false, the HTML is returned.</p>
+<p>The forth parameter, <code>$a_class</code> is optional. it will add the passed class name to the a tag of the rendered icon HTML.</p>
+<p><strong>NOTE:</strong> The rendered icon will be it&#8217;s normal small size.  It&#8217;s up to you, the developer, to style the icon via CSS as desired.</p>
+<h4>Usage</h4>
+<pre class="brush: php; title: ; notranslate">
+
+// Please remember to replace 'redux_demo' with your project's unique opt_name.
+// Example assumes Facebook social profile is enabled and URL properly filled out.
+$html = redux_render_icon_from_id('redux_demo', 'facebook', false);
+
+echo $html;
+
+// Result:
+// &lt;a class=&quot;&quot; href=&quot;http://www.facebook.com/my_facebook_name&quot;&gt;
+//     &lt;i class=&quot;fa fa-facebook&quot; style=&quot;color: #3b5998; background-color: transparent;&quot; title=&quot;&quot;&gt;&lt;/i&gt;
+// &lt;/a&gt;
+</pre>
+<h3>redux_social_profile_value_from_id ($opt_name, $id, $value)</h3>
+<p>This function returns the specified value data of the specified social profile ID.</p>
+<p>The first parameter, <code>$opt_name</code> is required and needs to be the opt_name specified in your Redux Framework arguments.</p>
+<p>The second parameter, <code>$id</code> is also required, and is the ID of the social profile whose information is to be rendered. This is best used in conjunction for a for/each loop, as shown above.</p>
+<p>The third parameter, <code>$value</code> is required, and is the value of the social profile for which whose data you would like returned.  Value options include <code>id</code>, <code>icon</code>, <code>enabled</code>, <code>name</code>, <code>color</code>, <code>background</code>, <code>label</code>, or <code>url</code>.</p>
+<h4>Usage</h4>
+<pre class="brush: php; title: ; notranslate">
+
+// Please remember to replace 'redux_demo' with your project's unique opt_name.
+// Example assumes Facebook social profile is enabled and URL properly filled out.
+$url = redux_social_profile_value_from_id('redux_demo', 'facebook', 'url');
+
+echo 'Facebook URL: ' $url;
+
+// Result:  
+// Facebook URL: http://www.facebook.com/my_facebook_name
+</pre>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/extensions/social-profiles/">Social Profiles</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/extensions/social-profiles/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

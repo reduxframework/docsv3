@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>font awesome &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/font-awesome/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Adding Another Icon Web Font to the Panel</title>
+		<link>https://docs.reduxframework.com/core/advanced/adding-another-icon-web-font-to-the-panel/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/adding-another-icon-web-font-to-the-panel/#comments</comments>
+		<pubDate>Sat, 15 Mar 2014 03:13:10 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[font awesome]]></category>
+
+		<guid isPermaLink="false">http://docs.reduxframework.com/?p=445</guid>
+		<description><![CDATA[<p>Redux uses Elusive Icons in our panel. Why? @aristath, a good friend of the Redux team designed the icon pack. As a result, any icon we want to use, we can. We understand our choice in icon pack may not match or suit everyone&#8217;s needs. This is why we&#8217;ve made it super easy to add [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/adding-another-icon-web-font-to-the-panel/">Adding Another Icon Web Font to the Panel</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Redux uses Elusive Icons in our panel. Why? @aristath, a good friend of the Redux team designed the icon pack. As a result, any icon we want to use, we can. We understand our choice in icon pack may not match or suit everyone&#8217;s needs. This is why we&#8217;ve made it super easy to add a new icon pack.  Here&#8217;s how:</p>
+<p></p>
+<pre class="brush: php; title: ; notranslate">
+function newIconFont() {
+    // Uncomment this to remove elusive icon from the panel completely
+    //wp_deregister_style( 'redux-elusive-icon' );
+    //wp_deregister_style( 'redux-elusive-icon-ie7' );
+
+    wp_register_style(
+        'redux-font-awesome',
+        '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css',
+        array(),
+        time(),
+        'all'
+    );  
+    wp_enqueue_style( 'redux-font-awesome' );
+}
+// This example assumes the opt_name is set to redux_demo.  Please replace it with your opt_name value.
+add_action( 'redux/page/redux_demo/enqueue', 'newIconFont' );
+</pre>
+<p>To use the icons, do the following:</p>
+<pre class="brush: php; title: ; notranslate">
+$sections[] = array(
+    'title' =&gt; __('Home Settings', 'redux-framework-demo'),
+    'header' =&gt; __('Welcome to the Redux Framework Demo', 'redux-framework-demo'),
+    'desc' =&gt; __('Redux Framework was created with the developer in mind. It allows for any theme developer to have an advanced theme panel with most of the features a developer would need. For more information check out the Github repo at: &lt;a href=&quot;https://github.com/ReduxFramework/Redux-Framework&quot;&gt;https://github.com/ReduxFramework/Redux-Framework&lt;/a&gt;', 'redux-framework-demo'),
+    'icon' =&gt; 'fa fa-bell-o',
+    'fields' =&gt; array( //...
+</pre>
+<p>That&#8217;s it! You&#8217;re good to go!</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/adding-another-icon-web-font-to-the-panel/">Adding Another Icon Web Font to the Panel</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/adding-another-icon-web-font-to-the-panel/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

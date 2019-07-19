@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>render &#8211; Redux Documentation</title>
+	<atom:link href="https://docs.reduxframework.com/tag/render/feed/" rel="self" type="application/rss+xml" />
+	<link>https://docs.reduxframework.com</link>
+	<description>Docs for the Redux Framework</description>
+	<lastBuildDate>Tue, 31 Jul 2018 15:27:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.0.3</generator>
+	<item>
+		<title>Actions Hooks</title>
+		<link>https://docs.reduxframework.com/core/advanced/actions-hooks/</link>
+		<comments>https://docs.reduxframework.com/core/advanced/actions-hooks/#respond</comments>
+		<pubDate>Fri, 22 May 2015 22:30:17 +0000</pubDate>
+		<dc:creator><![CDATA[Kevin]]></dc:creator>
+				<category><![CDATA[Action Hooks]]></category>
+		<category><![CDATA[Advanced]]></category>
+		<category><![CDATA[actions hooks]]></category>
+		<category><![CDATA[admin_notice]]></category>
+		<category><![CDATA[advanced]]></category>
+		<category><![CDATA[after]]></category>
+		<category><![CDATA[ajax]]></category>
+		<category><![CDATA[before]]></category>
+		<category><![CDATA[callback]]></category>
+		<category><![CDATA[change]]></category>
+		<category><![CDATA[compiler]]></category>
+		<category><![CDATA[construct]]></category>
+		<category><![CDATA[enqueue]]></category>
+		<category><![CDATA[errors]]></category>
+		<category><![CDATA[extensions]]></category>
+		<category><![CDATA[field]]></category>
+		<category><![CDATA[fieldset]]></category>
+		<category><![CDATA[form]]></category>
+		<category><![CDATA[header]]></category>
+		<category><![CDATA[heartbeat]]></category>
+		<category><![CDATA[hooks]]></category>
+		<category><![CDATA[import]]></category>
+		<category><![CDATA[init]]></category>
+		<category><![CDATA[live_preview]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[loaded]]></category>
+		<category><![CDATA[menu]]></category>
+		<category><![CDATA[panel]]></category>
+		<category><![CDATA[plugin]]></category>
+		<category><![CDATA[register]]></category>
+		<category><![CDATA[render]]></category>
+		<category><![CDATA[reset]]></category>
+		<category><![CDATA[saved]]></category>
+		<category><![CDATA[section]]></category>
+		<category><![CDATA[sections]]></category>
+		<category><![CDATA[settings]]></category>
+		<category><![CDATA[validate]]></category>
+		<category><![CDATA[warnings]]></category>
+
+		<guid isPermaLink="false">https://docs.reduxframework.com/?p=1011</guid>
+		<description><![CDATA[<p>The follow table is a list of available filter hooks within Redux Framework that developers may use in their own code.  Please note, a solid understand of PHP and WordPress action hooks is required. As always, please be sure to replace {opt_name} with the opt_name string of your Redux instance. Thanks to @paulthecoder for compiling [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/actions-hooks/">Actions Hooks</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>The follow table is a list of available filter hooks within Redux Framework that developers may use in their own code.  Please note, a solid understand of <a target="_blank" href="http://php.net/docs.php">PHP</a> and <a target="_blank" href="https://codex.wordpress.org/Function_Reference/add_action">WordPress action hooks</a> is required.</p>
+<p>As always, please be sure to replace <code>{opt_name}</code> with the opt_name string of your Redux instance.</p>
+<p>Thanks to <a target="_blank" href="https://github.com/paulthecoder">@paulthecoder</a> for compiling this list.</p>
+<table>
+<thead>
+<tr>
+<td>Tag</td>
+<td>Args</td>
+<td>Description</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redux/init</td>
+<td></td>
+<td>On Redux init.</td>
+</tr>
+<tr>
+<td>redux/plugin/hooks</td>
+<td><strong>$plugin_object</strong><br />(object) ReduxFrameworkPlugin</td>
+<td>After the plugin is activated and loaded.</td>
+</tr>
+<tr>
+<td>redux/ajax/heartbeat</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Disregard WP AJAX &#8216;heartbeat&#8217; call. Why waste resources?</td>
+</tr>
+<tr>
+<td>redux/construct</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Construct hook.</td>
+</tr>
+<tr>
+<td>redux/loaded</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Redux has loaded</td>
+</tr>
+<tr>
+<td>ReduxFrameworkPlugin_admin_notice</td>
+<td></td>
+<td>Before displaying the admin notice.</td>
+</tr>
+<tr>
+<td>redux/{opt_name}/panel/before</td>
+<td></td>
+<td>Before the panel template is echoed.</td>
+</tr>
+<tr>
+<td>redux/{opt_name}/panel/after</td>
+<td></td>
+<td>After the panel template is echoed.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/enqueue</td>
+<td></td>
+<td>After Redux has enqueued its stylesheets and scripts.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/load</td>
+<td><strong>$wp_screen</strong><br />(object) WP_Screen</td>
+<td>Redux options page has loaded.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/header</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Redux admin_head() hook for options page.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/sections/after</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Right after all the sections in the options panel, just before the footer.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/menu/after</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>After the sections menu in the options panel.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/form/before</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Before the panel&#8217;s form is echoed.</td>
+</tr>
+<tr>
+<td>redux/page/{opt_name}/form/after</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>After the panel&#8217;s form is echoed.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/import</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>When the last save mode is an import.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/reset</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>When the last save mode is a global reset.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/section/reset</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>When the last save mode is a section reset.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/saved</td>
+<td><strong>$value</strong><br />(mixed) Set/saved option value</td>
+<td>When the last save mode is the normal save options.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/settings/change</td>
+<td><strong>$value</strong><br />(mixed) Set/saved option value</td>
+<td>When the user has changed an option.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/errors</td>
+<td><strong>$errors</strong><br />(array) Error information</td>
+<td>Error notification.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/warnings</td>
+<td><strong>$warnings</strong><br />(array) Warning information</td>
+<td>Warning notification.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/field/{field.type}/register</td>
+<td><strong>$field</strong><br />(array) The field settings.</td>
+<td>Before the field is registered with add_settings_field().</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/register</td>
+<td><strong>$sections</strong><br />(array) Option sections</td>
+<td>When registering the options.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/compiler</td>
+<td><strong>$options</strong><br />(array) $this-&gt;options </p>
+<p><strong>$css</strong><br />(string) CSS that gets sent to the compiler hook.</p>
+<p><strong>$changed_values</strong><br />(array) Array of changed values.</td>
+<td>Compiler hook.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/compiler/advanced</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Advanced compiler hook.</td>
+</tr>
+<tr>
+<td>redux/options/{opt_name}/validate</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$plugin_options, redux_options, changed_values]</td>
+<td>Hook on option validation.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/callback/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the callback of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/callback/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the callback of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/callback/after</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the callback of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/callback/after</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the callback of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/render/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the output of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/render/before</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the output of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/fieldset/before/{opt_name}</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the fieldset of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/fieldset/before/{opt_name}</td>
+<td><strong>$data</strong><br />&amp;array [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>Before the fieldset of each field.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/{field.type}/fieldset/after/{opt_name}</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the fieldset of a specific field type.</td>
+</tr>
+<tr>
+<td>redux/field/{opt_name}/fieldset/after/{opt_name}</td>
+<td><strong>$data</strong><br />(&amp;array) [&amp;$field, &amp;$value] Field data + field id.</td>
+<td>After the fieldset of each field.</td>
+</tr>
+<tr>
+<td>redux/extensions/before</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Before Redux extensions are registered (not specific to your opt_name).</td>
+</tr>
+<tr>
+<td>redux/extensions/{opt_name}/before</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Before Redux extensions are registered (specific to your opt_name).</td>
+</tr>
+<tr>
+<td>redux/extensions/{opt_name}</td>
+<td><strong>$redux_object</strong><br />(object) ReduxFramework</td>
+<td>Register Redux extensions.</td>
+</tr>
+<tr>
+<td>redux/customizer/live_preview</td>
+<td></td>
+<td>Runs on wp_head() when the Customizer live preview initializes.</td>
+</tr>
+</tbody>
+</table>
+<p>The post <a rel="nofollow" href="https://docs.reduxframework.com/core/advanced/actions-hooks/">Actions Hooks</a> appeared first on <a rel="nofollow" href="https://docs.reduxframework.com">Redux Documentation</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://docs.reduxframework.com/core/advanced/actions-hooks/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
